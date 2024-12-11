@@ -12,13 +12,17 @@ const Cal = ({
                 window.location = url;
             }
         };
-        // @ts-expect-error - TS doesn't know if gtag is a function
-        gtag('event', 'conversion', {
-            'send_to': 'AW-11298597203/11cmCMvtmvYZENPSy4sq',
-            'value': 10.0,
-            'currency': 'INR',
-            'event_callback': callback
-        });
+        try{
+            // @ts-expect-error - TS doesn't know if gtag is a function
+            gtag('event', 'conversion', {
+                'send_to': 'AW-11298597203/11cmCMvtmvYZENPSy4sq',
+                'value': 10.0,
+                'currency': 'INR',
+                'event_callback': callback
+            });
+        } finally {
+            callback();
+        }
         return false;
     }
     return (
