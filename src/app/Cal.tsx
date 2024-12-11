@@ -4,7 +4,7 @@ const Cal = ({
     children: React.ReactNode;
 }) => {
     function gtag_report_conversion(url: string) {
-        var callback = function () {
+        const callback = function () {
             if (typeof (url) != 'undefined') {
                 // @ts-expect-error - TS doesn't know if window.location is a string
                 window.location = url;
