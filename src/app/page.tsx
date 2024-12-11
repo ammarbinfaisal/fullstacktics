@@ -1,101 +1,152 @@
-import Image from "next/image";
+import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Bot, Database, Gauge, Mail, MapPin } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-export default function Home() {
+const AgencyPage = () => {
+  const services = [
+    {
+      id: "browser-automation",
+      title: "Browser Automation",
+      description: "Custom automation solutions to streamline your web workflows and increase productivity.",
+      icon: <Bot className="w-8 h-8 mb-4 text-teal-500" />,
+      features: ["End-to-end testing", "Workflow automation", "Data extraction"],
+    },
+    {
+      id: "web-scraping",
+      title: "Web Scraping",
+      description: "Robust data extraction services to help you gather and analyze web data at scale.",
+      icon: <Database className="w-8 h-8 mb-4 text-teal-500" />,
+      features: ["Real-time scraping", "Data processing", "API integration"],
+    },
+    {
+      id: "react-performance",
+      title: "React Performance",
+      description: "Optimize your React applications for maximum speed and efficiency.",
+      icon: <Gauge className="w-8 h-8 mb-4 text-teal-500" />,
+      features: ["Bundle optimization", "Code splitting", "Performance audit"],
+    },
+  ];
+
+  const contactMethods = [
+    {
+      icon: <Mail className="w-4 h-4 text-teal-500" />,
+      text: "ammar@fullstacktics.com",
+    },
+    {
+      icon: <MapPin className="w-4 h-4 text-teal-500" />,
+      text: "New Delhi, India",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gray-900 p-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Hero Section */}
+        <Card className="mb-8 bg-gray-800 border-teal-500/20">
+          <CardHeader>
+            <CardTitle className="text-4xl text-teal-500">Fullstacktics</CardTitle>
+            <CardDescription className="text-xl text-gray-300">
+              Empowering businesses with cutting-edge web solutions
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button size="lg" className="bg-teal-500 hover:bg-teal-600 group">
+              Get Started
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </CardContent>
+        </Card>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Alert Banner */}
+        <Alert className="mb-8 bg-gray-800 border-teal-500/20">
+          <Bot className="h-4 w-4 text-teal-500" />
+          <AlertTitle className="text-teal-500">New Service Available!</AlertTitle>
+          <AlertDescription className="text-gray-300">
+            Try our new <strong className="text-teal-400">React Performance Optimization</strong> service to boost your app's speed and efficiency.
+          </AlertDescription>
+        </Alert>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <a key={service.id} href={`/services/${service.id}`}>
+              <Card key={service.title} className="bg-gray-800 border-teal-500/20 hover:shadow-lg hover:shadow-teal-500/10 transition-all">
+                <CardHeader>
+                  <div className="flex justify-center">
+                    {service.icon}
+                  </div>
+                  <CardTitle className="text-center text-gray-100">{service.title}</CardTitle>
+                  <CardDescription className="text-center text-gray-300">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {service.features.map((feature) => (
+                      <Badge key={feature} className="bg-teal-500/20 text-teal-200 hover:bg-teal-500/30">
+                        {feature}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Contact Section */}
+        <Card className="mt-12 bg-gray-800 border-teal-500/20">
+          <CardHeader>
+            <CardTitle className="text-2xl text-center text-teal-500">Ready to optimize your web presence?</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Tabs defaultValue="info" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 bg-gray-700 text-white">
+                <TabsTrigger value="contact" className="data-[state=active]:bg-teal-500 data-[state=active]:text-slate-900">Contact Form</TabsTrigger>
+                <TabsTrigger value="info" className="data-[state=active]:bg-teal-500 data-[state=active]:text-slate-900">Contact Info</TabsTrigger>
+              </TabsList>
+              <TabsContent value="contact">
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="name" className="text-gray-300">Name</Label>
+                    <Input id="name" placeholder="Enter your name" className="text-gray-50 bg-gray-700 border-teal-500/20" />
+                  </div>
+                  <div>
+                    <Label htmlFor="email" className="text-gray-300">Email</Label>
+                    <Input id="email" type="email" placeholder="Enter your email" className="text-gray-50 bg-gray-700 border-teal-500/20" />
+                  </div>
+                  <Button className="w-full bg-teal-500 hover:bg-teal-600">Send Message</Button>
+                  <p className="text-xs text-center text-gray-200">
+                    This message would not be sent to the agency. This form just makes the site look better :P
+                  </p>
+                </div>
+              </TabsContent>
+              <TabsContent value="info">
+                <div className="space-y-4 text-gray-300">
+                  {contactMethods.map((method, index) => (
+                    <div key={index}>
+                      <div className="flex items-center gap-2">
+                        {method.icon}
+                        <span>{method.text}</span>
+                      </div>
+                      {index < contactMethods.length - 1 && <Separator className="my-2 bg-teal-500/20" />}
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
-}
+};
+
+export default AgencyPage;

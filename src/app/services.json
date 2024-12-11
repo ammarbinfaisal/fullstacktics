@@ -1,0 +1,144 @@
+{
+    "browser-automation": {
+      "title": "Browser Automation",
+      "description": "Custom automation solutions to streamline your web workflows and increase productivity.",
+      "icon": "Bot",
+      "features": ["End-to-end testing", "Workflow automation", "Data extraction"],
+      "benefits": [
+        "Reduce manual testing time by up to 70%",
+        "Eliminate human error in repetitive tasks",
+        "24/7 automated monitoring and testing",
+        "Custom reporting and analytics"
+      ],
+      "useCases": [
+        "E-commerce inventory management",
+        "Continuous integration testing",
+        "Form submission automation",
+        "Data validation workflows"
+      ],
+      "technicalDetails": {
+        "technologies": [
+          "Selenium WebDriver",
+          "Playwright",
+          "Puppeteer",
+          "TestCafe"
+        ],
+        "features": [
+          "Cross-browser compatibility",
+          "Parallel test execution",
+          "Custom test reporters",
+          "CI/CD integration",
+          "Screenshot and video recording",
+          "Network traffic monitoring"
+        ],
+        "implementation": [
+          "Page Object Model architecture",
+          "Data-driven testing framework",
+          "Custom assertion libraries",
+          "Retry mechanism for flaky tests",
+          "Detailed logging and reporting"
+        ],
+        "supportedBrowsers": [
+          "Chrome",
+          "Firefox",
+          "Safari",
+          "Edge"
+        ]
+      }
+    },
+    "web-scraping": {
+      "title": "Web Scraping",
+      "description": "Robust data extraction services to help you gather and analyze web data at scale.",
+      "icon": "Database",
+      "features": ["Real-time scraping", "Data processing", "API integration"],
+      "benefits": [
+        "Access to real-time market data",
+        "Competitive price monitoring",
+        "Automated lead generation",
+        "Content aggregation"
+      ],
+      "useCases": [
+        "Price comparison platforms",
+        "Market research analysis",
+        "Social media monitoring",
+        "News aggregation"
+      ],
+      "technicalDetails": {
+        "technologies": [
+          "Beautiful Soup",
+          "Scrapy",
+          "Selenium",
+          "Cheerio"
+        ],
+        "features": [
+          "Distributed scraping",
+          "Proxy rotation",
+          "Rate limiting",
+          "Data validation",
+          "Export to multiple formats",
+          "Custom parsing rules"
+        ],
+        "implementation": [
+          "Anti-ban mechanisms",
+          "IP rotation system",
+          "Concurrent scraping",
+          "Error handling and retries",
+          "Data cleaning pipeline"
+        ],
+        "dataFormats": [
+          "JSON",
+          "CSV",
+          "XML",
+          "Excel"
+        ]
+      }
+    },
+    "react-performance": {
+      "title": "React Performance",
+      "description": "Optimize your React applications for maximum speed and efficiency.",
+      "icon": "Gauge",
+      "features": ["Bundle optimization", "Code splitting", "Performance audit"],
+      "benefits": [
+        "Improved user experience",
+        "Higher conversion rates",
+        "Better SEO rankings",
+        "Reduced bounce rates"
+      ],
+      "useCases": [
+        "E-commerce platforms",
+        "Social media applications",
+        "Data-heavy dashboards",
+        "Real-time applications"
+      ],
+      "technicalDetails": {
+        "technologies": [
+          "React DevTools",
+          "Lighthouse",
+          "WebPageTest",
+          "Chrome Performance Tools"
+        ],
+        "optimizationTechniques": [
+          "Code splitting",
+          "Tree shaking",
+          "Lazy loading",
+          "Memoization",
+          "Virtual scrolling",
+          "Server-side rendering"
+        ],
+        "metrics": [
+          "First Contentful Paint (FCP)",
+          "Time to Interactive (TTI)",
+          "Total Blocking Time (TBT)",
+          "Cumulative Layout Shift (CLS)",
+          "Memory usage",
+          "Bundle size"
+        ],
+        "tooling": [
+          "Webpack",
+          "Babel",
+          "ESLint",
+          "TypeScript"
+        ]
+      }
+    }
+  }
