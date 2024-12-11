@@ -25,6 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta property="twitter:title" content="Fullstacktics - Software Development Agency"></meta>
+      <meta property="twitter:description" content="We build high-performance web applications and websites."></meta>
+      <meta property="og:image" content="/public/among-us.jpg"></meta>
+      <meta property="og:site_name" content="Fullstacktics"></meta>
+      <meta property="og:url" content="https://fullstacktics.com"></meta>
+      <meta property="og:title" content="Fullstacktics - Software Development Agency"></meta>
+      <meta property="og:description" content="We build high-performance web applications and websites."></meta>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
