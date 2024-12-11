@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Bot, Check, Code, Rocket, Hammer, Database, Gauge } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Cal from './Cal';
 
 const icons = {
     Bot: Bot,
@@ -151,12 +152,12 @@ const ServicePageTemplate = ({ serviceData }: {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="flex justify-center">
-                        <Button size="lg" className="bg-teal-500 hover:bg-teal-600 group">
-                            <a href="https://cal.com/fullstacktics/consultation" className="flex items-center">
+                        <Cal>
+                            <Button size="lg" className="bg-teal-500 hover:bg-teal-600 group">
                                 Schedule a Demo
                                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </a>
-                        </Button>
+                            </Button>
+                        </Cal>
                     </CardContent>
                 </Card>
             </div>

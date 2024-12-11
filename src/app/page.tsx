@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Cal from './Cal';
 
 const AgencyPage = () => {
   const services = [
@@ -57,12 +58,12 @@ const AgencyPage = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <a href="/services">
+            <Cal>
               <Button size="lg" className="bg-teal-500 hover:bg-teal-600 group">
                 Get Started
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-            </a>
+            </Cal>
           </CardContent>
         </Card>
 
