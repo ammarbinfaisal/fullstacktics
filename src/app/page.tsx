@@ -69,7 +69,7 @@ const AgencyPage = () => {
           <Bot className="h-4 w-4 text-teal-500" />
           <AlertTitle className="text-teal-500">New Service Available!</AlertTitle>
           <AlertDescription className="text-gray-300">
-            Try our new <strong className="text-teal-400">React Performance Optimization</strong> service to boost your app's speed and efficiency.
+            Try our new <strong className="text-teal-400">React Performance Optimization</strong> service to boost your app&apo s;s speed and efficiency.
           </AlertDescription>
         </Alert>
 
