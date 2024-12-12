@@ -58,7 +58,7 @@ const AgencyPage = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Cal>
+            <Cal url="https://cal.com/fullstacktics/consultation">
               <Button size="lg" className="bg-teal-500 hover:bg-teal-600 group">
                 Get Started
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />

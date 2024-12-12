@@ -1,11 +1,13 @@
 "use client";
 
 const Cal = ({
-    children
+    children,
+    url
 }: {
     children: React.ReactNode;
+    url: string;
 }) => {
-    function gtag_report_conversion(url: string) {
+    function gtag_report_conversion() {
         const callback = function () {
             if (typeof (url) != 'undefined') {
                 // @ts-expect-error - TS doesn't know if window.location is a string
@@ -26,7 +28,7 @@ const Cal = ({
         return false;
     }
     return (
-        <div onClick={() => gtag_report_conversion('https://cal.com/fullstacktics/consultation')}>
+        <div onClick={() => gtag_report_conversion()}>
             {children}
         </div>
     )

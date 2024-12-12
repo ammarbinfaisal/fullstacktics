@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Bot, Check, Code, Rocket, Hammer, Database, Gauge } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -21,6 +21,11 @@ const ServicePageTemplate = ({ serviceData }: {
         benefits: string[];
         useCases: string[];
         technicalDetails: Record<string, string[]>;
+        experience: string;
+        testimonials: {
+            link: string;
+            comments: string[];
+        }
     };
 }) => {
     let iconsKey: keyof typeof icons;
@@ -70,6 +75,40 @@ const ServicePageTemplate = ({ serviceData }: {
                             </Badge>
                         ))}
                     </CardContent>
+                </Card>
+
+                {/* experience */}
+                <Card className="mb-8 bg-gray-800 border-teal-500/20">
+                    <CardHeader>
+                        <CardTitle className="text-2xl text-teal-500">Experience</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-gray-300">
+                        {serviceData.experience}
+                    </CardContent>
+                </Card>
+
+                {/* Testimonials */}
+                <Card className="mb-8 bg-gray-800 border-teal-500/20">
+                    <CardHeader>
+                        <CardTitle className="text-2xl text-teal-500">Testimonials</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="space-y-4">
+                            {serviceData.testimonials.comments.map((comment, index) => (
+                                <li key={index} className="text-gray-300">
+                                    {comment}
+                                </li>
+                            ))}
+                        </ul>
+                    </CardContent>
+                    <CardFooter className="flex justify-center">
+                        <Cal url={serviceData.testimonials.link}>
+                            <Button size="lg" className="bg-teal-500 hover:bg-teal-600 group">
+                                Read more testimonials
+                                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Cal>
+                    </CardFooter>
                 </Card>
 
                 {/* Main Content */}
@@ -152,7 +191,7 @@ const ServicePageTemplate = ({ serviceData }: {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="flex justify-center">
-                        <Cal>
+                        <Cal url='https://cal.com/fullstacktics/consultation'>
                             <Button size="lg" className="bg-teal-500 hover:bg-teal-600 group">
                                 Schedule a Demo
                                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
