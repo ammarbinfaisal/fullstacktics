@@ -31,7 +31,7 @@ export default function Services() {
           <Link key={service.title} href={`/services/${service.slug}`}>
             <Card
               key={service.title}
-              className="group relative overflow-hidden"
+              className="group relative overflow-hidden h-[300px]"
             >
               <CardHeader>
                 <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
@@ -46,7 +46,7 @@ export default function Services() {
                 <CardTitle>{service.title}</CardTitle>
                 <CardDescription>{service.description}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="absolute bottom-0">
                 <ul className="grid gap-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
