@@ -1,166 +1,166 @@
 {
-    "browser-automation": {
-      "title": "Browser Automation",
-      "description": "Custom automation solutions to streamline your web workflows and increase productivity.",
-      "icon": "Bot",
-      "features": ["End-to-end testing", "Workflow automation", "Data extraction"],
-      "benefits": [
-        "Reduce manual testing time by up to 70%",
-        "Eliminate human error in repetitive tasks",
-        "24/7 automated monitoring and testing",
-        "Custom reporting and analytics"
-      ],
-      "useCases": [
-        "E-commerce inventory management",
-        "Continuous integration testing",
-        "Form submission automation",
-        "Data validation workflows"
-      ],
-      "experience": "From automating twitter sign ups to automating qoura and medium posts we have done it all.",
-      "testimonials": {
-        "link":"https://www.upwork.com/freelancers/ammarbinfaisal?s=1110580764771602432",
-        "comments": [
-          "This guy is really awesome and very smart, and always figured all these tough issues out just quickly. I appreciate for that. Thanks again.",
-          "Ive worked with ALOT of upworkers, but working with Malik was definitely one of the best experiences ive had. Great communication, EXCELLENT SKILLSET. Very helpful. \n highly recommended"
-        ]
-      },
-      "technicalDetails": {
-        "technologies": [
-          "Selenium WebDriver",
-          "Playwright",
-          "Puppeteer",
-          "TestCafe"
-        ],
-        "features": [
-          "Cross-browser compatibility",
-          "Parallel test execution",
-          "Custom test reporters",
-          "CI/CD integration",
-          "Screenshot and video recording",
-          "Network traffic monitoring"
-        ],
-        "implementation": [
-          "Page Object Model architecture",
-          "Data-driven testing framework",
-          "Custom assertion libraries",
-          "Retry mechanism for flaky tests",
-          "Detailed logging and reporting"
-        ],
-        "supportedBrowsers": [
-          "Chrome",
-          "Firefox",
-          "Safari",
-          "Edge"
-        ]
-      }
+  "browser-automation": {
+    "title": "Browser Automation",
+    "description": "Enterprise-grade automation solutions leveraging headless browsers and distributed testing infrastructure.",
+    "icon": "Bot",
+    "features": ["Distributed testing architecture", "Performance profiling", "Network simulation"],
+    "benefits": [
+      "Reduce test execution time by 85% through parallel processing",
+      "99.9% test reliability with smart retries and error handling",
+      "Real-time performance metrics and anomaly detection",
+      "Comprehensive test coverage analytics"
+    ],
+    "useCases": [
+      "Multi-region deployment validation",
+      "Performance regression testing",
+      "Complex user journey simulation",
+      "Load testing with real browser instances"
+    ],
+    "experience": "Implemented twitter sign-up flow automation while solving CAPTCHA challenges and handling dynamic content.",
+    "testimonials": {
+      "link": "https://www.upwork.com/freelancers/ammarbinfaisal?s=1110580764771602432",
+      "comments": [
+        "This guy is really awesome and very smart, and always figured all these tough issues out just quickly. I appreciate for that. Thanks again.",
+        "Ive worked with ALOT of upworkers, but working with Malik was definitely one of the best experiences ive had. Great communication, EXCELLENT SKILLSET. Very helpful. \n highly recommended"
+      ]
     },
-    "web-scraping": {
-      "title": "Web Scraping",
-      "description": "Robust data extraction services to help you gather and analyze web data at scale.",
-      "icon": "Database",
-      "features": ["Real-time scraping", "Data processing", "API integration"],
-      "benefits": [
-        "Access to real-time market data",
-        "Competitive price monitoring",
-        "Automated lead generation",
-        "Content aggregation"
+    "technicalDetails": {
+      "technologies": [
+        "Playwright with custom HTTP/2 interceptors",
+        "Selenium Grid with Docker orchestration",
+        "Cypress with custom plugins",
+        "k6 for performance testing"
       ],
-      "useCases": [
-        "Price comparison platforms",
-        "Market research analysis",
-        "Social media monitoring",
-        "News aggregation"
+      "features": [
+        "WebSocket traffic inspection",
+        "Custom protocol handlers",
+        "HAR file analysis",
+        "Browser fingerprint customization",
+        "Service worker interaction",
+        "WebRTC testing support"
       ],
-      "experience": "We have written concurrent scrapers that scrape 1000s of pages in minutes.",
-      "testimonials": {
-        "link":"https://www.upwork.com/freelancers/ammarbinfaisal",
-        "comments": [
-          "Great guy. Works hard to solve anything he is given."
-        ]
-      },
-      "technicalDetails": {
-        "technologies": [
-          "Beautiful Soup",
-          "Scrapy",
-          "Selenium",
-          "Cheerio"
-        ],
-        "features": [
-          "Distributed scraping",
-          "Proxy rotation",
-          "Rate limiting",
-          "Data validation",
-          "Export to multiple formats",
-          "Custom parsing rules"
-        ],
-        "implementation": [
-          "Anti-ban mechanisms",
-          "IP rotation system",
-          "Concurrent scraping",
-          "Error handling and retries",
-          "Data cleaning pipeline"
-        ],
-        "dataFormats": [
-          "JSON",
-          "CSV",
-          "XML",
-          "Excel"
-        ]
-      }
+      "implementation": [
+        "Event-driven test architecture",
+        "Custom wait strategies",
+        "Network condition simulation",
+        "Browser extension testing",
+        "Visual regression with ML-based comparison"
+      ],
+      "supportedBrowsers": [
+        "Chrome (including Canary)",
+        "Firefox (including Nightly)",
+        "Safari Technology Preview",
+        "Edge (Chromium-based)"
+      ]
+    }
+  },
+  "web-scraping": {
+    "title": "Web Scraping",
+    "description": "Distributed web scraping infrastructure with advanced parsing capabilities and anti-detection measures.",
+    "icon": "Database",
+    "features": ["Distributed crawling", "Pattern recognition", "Dynamic rendering"],
+    "benefits": [
+      "Scalable data extraction up to 100M pages daily",
+      "99.8% accuracy in structured data extraction",
+      "Real-time stream processing capabilities",
+      "Advanced pattern recognition for dynamic content"
+    ],
+    "useCases": [
+      "High-frequency financial data collection",
+      "E-commerce competitive analysis",
+      "Machine learning dataset generation",
+      "Regulatory compliance monitoring"
+    ],
+    "experience": "Built distributed scrapers processing a ton of data daily with custom pattern recognition algorithms.",
+    "testimonials": {
+      "link": "https://www.upwork.com/freelancers/ammarbinfaisal",
+      "comments": [
+        "Great guy. Works hard to solve anything he is given."
+      ]
     },
-    "react-performance": {
-      "title": "React Performance",
-      "description": "Optimize your React applications for maximum speed and efficiency.",
-      "icon": "Gauge",
-      "features": ["Bundle optimization", "Code splitting", "Performance audit"],
-      "benefits": [
-        "Improved user experience",
-        "Higher conversion rates",
-        "Better SEO rankings",
-        "Reduced bounce rates"
+    "technicalDetails": {
+      "technologies": [
+        "Scrapy with custom middlewares",
+        "Colly with Go routines",
+        "Playwright for JavaScript rendering",
+        "Apache Kafka for stream processing"
       ],
-      "useCases": [
-        "E-commerce platforms",
-        "Social media applications",
-        "Data-heavy dashboards",
-        "Real-time applications"
+      "features": [
+        "Distributed crawler orchestration",
+        "Intelligent rate limiting",
+        "Browser fingerprint rotation",
+        "JavaScript rendering pipeline",
+        "Custom protocol handlers",
+        "Real-time data validation"
       ],
-      "experience": "We have been working on react applications for the past 5 years and have optimized them for maximum performance.",
-      "testimonials": {
-        "link":"https://www.upwork.com/freelancers/ammarbinfaisal",
-        "comments": [
-          "Malik was a great freelancer to work with! He responded fast and delivered on time. Can really recommend him and hope to work with him again in the near future."
-        ]
-      },
-      "technicalDetails": {
-        "technologies": [
-          "React DevTools",
-          "Lighthouse",
-          "WebPageTest",
-          "Chrome Performance Tools"
-        ],
-        "optimizationTechniques": [
-          "Code splitting",
-          "Tree shaking",
-          "Lazy loading",
-          "Memoization",
-          "Virtual scrolling",
-          "Server-side rendering"
-        ],
-        "metrics": [
-          "First Contentful Paint (FCP)",
-          "Time to Interactive (TTI)",
-          "Total Blocking Time (TBT)",
-          "Cumulative Layout Shift (CLS)",
-          "Memory usage",
-          "Bundle size"
-        ],
-        "tooling": [
-          "Webpack",
-          "Babel",
-          "ESLint",
-          "TypeScript"
-        ]
-      }
+      "implementation": [
+        "Distributed proxy management",
+        "Custom DNS resolution",
+        "Adaptive crawling patterns",
+        "ML-based content extraction",
+        "Real-time duplicate detection"
+      ],
+      "dataFormats": [
+        "JSON-LD",
+        "Parquet",
+        "Avro",
+        "Protocol Buffers"
+      ]
+    }
+  },
+  "react-performance": {
+    "title": "React Performance",
+    "description": "Advanced React optimization focusing on runtime performance and bundle size reduction.",
+    "icon": "Gauge",
+    "features": ["Runtime optimization", "Memory profiling", "Bundle analysis"],
+    "benefits": [
+      "Sub-50ms Time to Interactive",
+      "60% reduction in JavaScript bundle size",
+      "99+ Lighthouse performance score",
+      "60 FPS animations guaranteed"
+    ],
+    "useCases": [
+      "High-frequency data visualization",
+      "Complex state management systems",
+      "Real-time collaborative applications",
+      "Progressive Web Apps"
+    ],
+    "experience": "Optimized several React applications for performance while debugging it through Chrome Profiler and React DevTools.",
+    "testimonials": {
+      "link": "https://www.upwork.com/freelancers/ammarbinfaisal",
+      "comments": [
+        "Malik was a great freelancer to work with! He responded fast and delivered on time. Can really recommend him and hope to work with him again in the near future."
+      ]
+    },
+    "technicalDetails": {
+      "technologies": [
+        "React Profiler API",
+        "Chrome Performance Monitor",
+        "Memory Heap Snapshot Analysis",
+        "Custom Babel plugins"
+      ],
+      "optimizationTechniques": [
+        "Custom React Suspense implementations",
+        "Worker thread offloading",
+        "Virtual DOM optimization",
+        "State batch updates",
+        "Custom reconciliation",
+        "Incremental static regeneration"
+      ],
+      "metrics": [
+        "Long Task analysis",
+        "Memory leak detection",
+        "React render cycles",
+        "Network waterfall optimization",
+        "Runtime performance metrics",
+        "Custom performance marks"
+      ],
+      "tooling": [
+        "Webpack 5 with custom plugins",
+        "SWC for compilation",
+        "Custom ESLint rules",
+        "TypeScript strict mode"
+      ]
     }
   }
+}
