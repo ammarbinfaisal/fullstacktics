@@ -17,9 +17,6 @@ export default function Page() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Fullstacktics. All rights reserved.
           </p>
-          <p className="text-sm text-muted-foreground">
-            Built By Webbedpiyush
-          </p>
         </div>
       </footer>
     </div>
