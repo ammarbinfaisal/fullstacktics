@@ -17,7 +17,7 @@ export default function Hero() {
         <div className="flex gap-4">
           <Cal
             url="https://cal.com/fullstacktics/consultation"
-            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 cursor-pointer"
           >
             Get Started
           </Cal>
