@@ -1,3 +1,5 @@
+import Cal from "@/app/Cal";
+
 export default function Hero() {
   return (
     <section className="container flex flex-col items-center justify-center gap-4 py-24 md:py-32">
@@ -13,12 +15,12 @@ export default function Hero() {
           Empowering businesses with cutting-edge web solutions. We transform ideas into powerful, scalable applications.
         </p>
         <div className="flex gap-4">
-          <a
-            href="#contact"
+          <Cal
+            url="https://cal.com/fullstacktics/consultation"
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
           >
             Get Started
-          </a>
+          </Cal>
           <a
             href="#services"
             className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"

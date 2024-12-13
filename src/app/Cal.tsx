@@ -2,10 +2,12 @@
 
 const Cal = ({
     children,
-    url
+    url,
+    className
 }: {
     children: React.ReactNode;
     url: string;
+    className?: string;
 }) => {
     function gtag_report_conversion() {
         const callback = function () {
@@ -28,7 +30,7 @@ const Cal = ({
         return false;
     }
     return (
-        <div onClick={() => gtag_report_conversion()}>
+        <div onClick={() => gtag_report_conversion()} className={className}>
             {children}
         </div>
     )
