@@ -92,7 +92,7 @@ export default function Navbar() {
             </div>
           </div>
         </header> <DialogOverlay className="fixed inset-0 backdrop-blur bg-background/20 z-40" />
-        <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 bg-primary-background rounded-lg shadow-lg z-50">
+        <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 bg-background rounded-lg shadow-lg z-50">
           <DialogTitle className="text-lg font-bold">Get A Quote</DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
             Fill out the form below and we&apos;ll get back to you as soon as
