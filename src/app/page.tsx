@@ -1,12 +1,10 @@
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 
 export default function Page() {
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
       <main className="flex-1 flex flex-col items-center justify-center">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero />

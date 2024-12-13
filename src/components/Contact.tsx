@@ -24,9 +24,6 @@ export default function Contact() {
         <Card>
           <CardHeader>
             <CardTitle>Contact Us</CardTitle>
-            <CardDescription>
-              Fill out the form below and we&apos;ll get back to you shortly.
-            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">

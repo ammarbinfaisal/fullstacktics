@@ -7,6 +7,7 @@ import "./globals.css";
 import Cal from "./Cal";
 import { PhoneCall } from "lucide-react";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 
 const jetBrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600", "700", "800"],
@@ -62,14 +63,15 @@ export default function RootLayout({
         ></script>
       </head>
       <body className={`${jetBrainsMono.className} antialiased w-full`}>
+        <Navbar />
         {children}
         <Analytics />
-        <div className="fixed bottom-0 w-screen p-4 flex gap-4 bg-white justify-around px-12 align-items bg-background/80 supports-[backdrop-filter]:bg-background/60 backdrop-blur x-50">
+        <div className="fixed bottom-0 w-screen p-4 flex gap-4 bg-white justify-around px-12 align-items bg-background/60 supports-[backdrop-filter]:bg-background/60 backdrop-blur x-50">
           <Cal url="tel:+919140248919" className="text-black cursor-pointer flex justify-center w-full text-sm sm:text-lg items-center">
-            <PhoneCall size={24} /><span className="ml-4"> CALL US</span>
+            <PhoneCall size={24} /><span className="ml-4"> Call Us</span>
           </Cal>
           <Cal url="https://wa.me/919140248919" className="text-green-500 cursor-pointer flex justify-center w-full text-sm sm:text-lg md:text-md items-center">
-            <Image src="/WhatsApp.svg.png" alt="whatsapp" width={32} height={32} /><span className="ml-4">TEXT US</span>
+            <Image src="/WhatsApp.svg.png" alt="whatsapp" width={32} height={32} /><span className="ml-4">Text Us</span>
           </Cal>
         </div>
       </body>
