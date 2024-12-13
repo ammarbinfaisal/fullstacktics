@@ -47,6 +47,7 @@ export default function Navbar() {
               </Link>
               <nav className="hidden md:flex items-center gap-6">
                 <DialogTrigger
+                 className="text-sm"
                 >
                   Get A Quote!
                 </DialogTrigger>
