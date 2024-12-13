@@ -67,7 +67,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <div className="fixed bottom-0 w-screen p-4 flex gap-4 bg-white justify-around px-12 align-items bg-background/60 supports-[backdrop-filter]:bg-background/60 backdrop-blur x-50">
-          <Cal url="tel:+919140248919" className="text-black cursor-pointer flex justify-center w-full text-sm sm:text-lg items-center">
+          <Cal url="tel:+919140248919" className="text-primary cursor-pointer flex justify-center w-full text-sm sm:text-lg items-center">
             <PhoneCall size={24} /><span className="ml-4"> Call Us</span>
           </Cal>
           <Cal url="https://wa.me/919140248919" className="text-green-500 cursor-pointer flex justify-center w-full text-sm sm:text-lg md:text-md items-center">
