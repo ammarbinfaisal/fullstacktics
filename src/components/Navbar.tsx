@@ -18,11 +18,6 @@ import { Textarea } from "./ui/textarea";
 export default function Navbar() {
   const [quoteModalOpen, setQuoteModalOpen] = React.useState(false);
   const [formState, submit] = useForm(process.env.NEXT_PUBLIC_FORM!)
-  
-  const closeQuoteModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setQuoteModalOpen(false);
-  }
 
   React.useEffect(() => {
     if (formState.succeeded) {
