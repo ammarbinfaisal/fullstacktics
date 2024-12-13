@@ -19,10 +19,6 @@ export default function Contact() {
         <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
           Ready to get started?
         </h2>
-        <p className="max-w-[900px] text-sm sm:text-base text-muted-foreground">
-          Get in touch with us to discuss your project requirements and how we
-          can help you achieve your goals.
-        </p>
       </div>
       <div className="mx-auto mt-8 sm:mt-12 max-w-2xl">
         <Card>
