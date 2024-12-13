@@ -95,7 +95,7 @@ export default function Navbar() {
         <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 bg-primary-background rounded-lg shadow-lg z-50">
           <DialogTitle className="text-lg font-bold">Get A Quote</DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
-            Fill out the form below and we'll get back to you as soon as
+            Fill out the form below and we&apos;ll get back to you as soon as
             possible.
           </DialogDescription>
           <form onSubmit={submit} className="flex flex-col gap-4 mt-4">
