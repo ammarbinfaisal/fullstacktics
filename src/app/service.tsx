@@ -80,15 +80,15 @@ const ServicePageTemplate = ({
         <Navbar />
       </div>
       <div className="min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6 lg:px-8 py-12 md:py-24">
           <div className="flex flex-col items-center text-center mb-16">
             <div className="mb-6 inline-block rounded-lg bg-primary/10 p-3">
               <IconComponent className="h-12 w-12 text-primary" />
             </div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl mb-4">
+            <h1 className="text-3xl font-bold tracking-tighter lg:text-4xl md:text-5xl lg:text-6xl mb-4">
               {serviceData.title}
             </h1>
-            <p className="max-w-[750px] text-base sm:text-lg text-muted-foreground md:text-xl mb-6">
+            <p className="max-w-[750px] text-base lg:text-lg text-muted-foreground md:text-xl mb-6">
               {serviceData.description}
             </p>
             <div className="flex flex-wrap justify-center gap-2">
@@ -185,8 +185,8 @@ const ServicePageTemplate = ({
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <Tabs defaultValue={getTechTabs()[0].value} className="w-full">
-                <TabsList className="grid w-full grid-cols-4">
+              <Tabs defaultValue={getTechTabs()[0].value} className="w-full grid grid-cols-1 lg:grid-cols-4 gap-4">
+                <TabsList className="grid w-full h-full grid-row-4 grid-cols-1 gap-4 overflow-x-auto">
                   {getTechTabs().map((tab) => (
                     <TabsTrigger key={tab.value} value={tab.value}>
                       <tab.icon className="w-4 h-4 mr-2" />
@@ -196,7 +196,7 @@ const ServicePageTemplate = ({
                 </TabsList>
 
                 {getTechTabs().map((tab) => (
-                  <TabsContent key={tab.value} value={tab.value}>
+                  <TabsContent key={tab.value} value={tab.value} className="lg:col-span-3 col-span-1">
                     <div className="grid grid-cols-2 gap-4 p-4">
                       {tab.items.map((item) => (
                         <div
