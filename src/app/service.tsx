@@ -22,6 +22,13 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Cal from "./Cal";
 import Navbar from "@/components/Navbar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const icons = {
   Bot: Bot,
@@ -62,6 +69,19 @@ const ServicePageTemplate = ({
       throw new Error("Invalid icon");
   }
   const IconComponent = icons[iconsKey];
+
+  const TechItem = ({
+    item,
+    Icon,
+  }: {
+    item: string;
+    Icon: React.ElementType;
+  }) => (
+    <div className="flex items-center gap-2 text-muted-foreground p-2">
+      <Icon className="w-4 h-4 text-primary shrink-0" />
+      <span className="text-sm">{item}</span>
+    </div>
+  );
 
   const getTechTabs = () => {
     const tabs = Object.keys(serviceData.technicalDetails);
@@ -185,32 +205,74 @@ const ServicePageTemplate = ({
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <Tabs defaultValue={getTechTabs()[0].value} className="w-full">
-                <TabsList className="grid w-full grid-cols-4">
-                  {getTechTabs().map((tab) => (
-                    <TabsTrigger key={tab.value} value={tab.value}>
-                      <tab.icon className="w-4 h-4 mr-2" />
-                      {tab.label}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
+              <div className="hidden md:block">
+                <Tabs defaultValue={getTechTabs()[0].value} className="w-full">
+                  <TabsList className="grid w-full grid-cols-4">
+                    {getTechTabs().map((tab) => (
+                      <TabsTrigger key={tab.value} value={tab.value}>
+                        <tab.icon className="w-4 h-4 mr-2" />
+                        {tab.label}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
 
-                {getTechTabs().map((tab) => (
-                  <TabsContent key={tab.value} value={tab.value}>
-                    <div className="grid grid-cols-2 gap-4 p-4">
-                      {tab.items.map((item) => (
-                        <div
-                          key={item}
-                          className="flex items-center gap-2 text-muted-foreground"
-                        >
-                          <tab.icon className="w-4 h-4 text-primary" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </TabsContent>
-                ))}
-              </Tabs>
+                  {getTechTabs().map((tab) => (
+                    <TabsContent key={tab.value} value={tab.value}>
+                      <div className="grid grid-cols-2 gap-4 p-4">
+                        {tab.items.map((item) => (
+                          <div
+                            key={item}
+                            className="flex items-center gap-2 text-muted-foreground"
+                          >
+                            <tab.icon className="w-4 h-4 text-primary" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </TabsContent>
+                  ))}
+                </Tabs>
+              </div>
+
+              <div className="md:hidden">
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent>
+                    {getTechTabs().map((tab) => (
+                      <CarouselItem key={tab.value}>
+                        <Card className="h-[400px]">
+                          <CardHeader>
+                            <CardTitle className="text-lg flex items-center gap-2">
+                              <tab.icon className="h-5 w-5" />
+                              {tab.label}
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="grid grid-cols-1 gap-2">
+                              {tab.items.map((item) => (
+                                <TechItem
+                                  key={item}
+                                  item={item}
+                                  Icon={tab.icon}
+                                />
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-center mt-4">
+                    <CarouselPrevious className="mr-2" />
+                    <CarouselNext />
+                  </div>
+                </Carousel>
+              </div>
             </CardContent>
           </Card>
           <Card>
