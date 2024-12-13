@@ -11,6 +11,9 @@ import { Dialog, DialogContent, DialogDescription, DialogOverlay, DialogTitle } 
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import { useForm } from "@formspree/react";
 import { redirect } from "next/navigation";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 export default function Navbar() {
   const [quoteModalOpen, setQuoteModalOpen] = React.useState(false);
@@ -94,7 +97,7 @@ export default function Navbar() {
             </div>
           </div>
         </header> <DialogOverlay className="fixed inset-0 backdrop-blur bg-background/20 z-40" />
-        <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 bg-white rounded-lg shadow-lg z-50">
+        <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 bg-primary-background rounded-lg shadow-lg z-50">
           <DialogTitle className="text-lg font-bold">Get A Quote</DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
             Fill out the form below and we'll get back to you as soon as
@@ -102,10 +105,10 @@ export default function Navbar() {
           </DialogDescription>
           <form onSubmit={submit} className="flex flex-col gap-4 mt-4">
             <div className="flex flex-col gap-4 mt-4">
-              <label htmlFor="name" className="text-sm font-medium">
+              <Label htmlFor="name" className="text-sm font-medium text-primary">
                 Name
-              </label>
-              <input
+              </Label>
+              <Input
                 type="text"
                 id="name"
                 name="name"
@@ -114,20 +117,20 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col gap-4 mt-4">
-              <label htmlFor="email" className="text-sm font-medium">
+              <Label htmlFor="email" className="text-sm font-medium text-primary">
                 Email
-              </label>
-              <input
+              </Label>
+              <Input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="email" />
             </div>
             <div className="flex flex-col gap-4 mt-4">
-              <label htmlFor="message" className="text-sm font-medium">
+              <Label htmlFor="message" className="text-sm font-medium text-primary">
                 Describe your project
-              </label>
-              <textarea
+              </Label>
+              <Textarea
                 id="message"
                 name="message"
                 placeholder="Your message here"
@@ -135,10 +138,7 @@ export default function Navbar() {
               />
             </div>
             <div className="flex gap-4 mt-4">
-              <Button variant="default">Submit</Button>
-              <Button variant="ghost" onClick={closeQuoteModal}>
-                Cancel
-              </Button>
+              <Button variant="ghost">Submit</Button>
             </div>
           </form>
         </DialogContent>
