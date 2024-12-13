@@ -257,7 +257,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
                 Ready to Implement {serviceData.title}?
               </CardTitle>
               <CardDescription className="text-center">
-                Let's discuss how our {serviceData.title.toLowerCase()} solutions can enhance your technical infrastructure
+                Let&apos;s discuss how our {serviceData.title.toLowerCase()} solutions can enhance your technical infrastructure
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
