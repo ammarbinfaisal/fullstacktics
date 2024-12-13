@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 import "./globals.css";
 
 const jetBrainsMono = JetBrains_Mono({
@@ -43,16 +45,7 @@ export default function RootLayout({
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-11298597203"
         ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-11298597203');
-        `,
-          }}
-        ></script>
+        <GoogleAnalytics gaId="AW-11298597203" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
