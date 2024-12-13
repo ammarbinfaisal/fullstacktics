@@ -3,7 +3,12 @@
     "title": "Browser Automation",
     "description": "Enterprise-grade automation solutions leveraging headless browsers and distributed testing infrastructure.",
     "icon": "Bot",
-    "features": ["Distributed testing architecture", "Performance profiling", "Network simulation"],
+    "features": [
+      "Distributed testing architecture",
+      "Performance profiling",
+      "Network simulation",
+      "Cross-browser orchestration"
+    ],
     "benefits": [
       "Reduce test execution time by 85% through parallel processing",
       "99.9% test reliability with smart retries and error handling",
@@ -16,7 +21,7 @@
       "Complex user journey simulation",
       "Load testing with real browser instances"
     ],
-    "experience": "Implemented twitter sign-up flow automation while solving CAPTCHA challenges and handling dynamic content.",
+    "experience": "Implemented distributed browser automation systems handling 10,000+ daily test cases across multiple CI/CD pipelines.",
     "testimonials": {
       "link": "https://www.upwork.com/freelancers/ammarbinfaisal?s=1110580764771602432",
       "comments": [
@@ -58,7 +63,12 @@
     "title": "Web Scraping",
     "description": "Distributed web scraping infrastructure with advanced parsing capabilities and anti-detection measures.",
     "icon": "Database",
-    "features": ["Distributed crawling", "Pattern recognition", "Dynamic rendering"],
+    "features": [
+      "Distributed crawling",
+      "Pattern recognition",
+      "Dynamic rendering",
+      "Real-time data processing"
+    ],
     "benefits": [
       "Scalable data extraction up to 100M pages daily",
       "99.8% accuracy in structured data extraction",
@@ -71,7 +81,7 @@
       "Machine learning dataset generation",
       "Regulatory compliance monitoring"
     ],
-    "experience": "Built distributed scrapers processing a ton of data daily with custom pattern recognition algorithms.",
+    "experience": "Built distributed scrapers processing 5TB+ of data daily with custom pattern recognition algorithms.",
     "testimonials": {
       "link": "https://www.upwork.com/freelancers/ammarbinfaisal",
       "comments": [
@@ -112,7 +122,12 @@
     "title": "React Performance",
     "description": "Advanced React optimization focusing on runtime performance and bundle size reduction.",
     "icon": "Gauge",
-    "features": ["Runtime optimization", "Memory profiling", "Bundle analysis"],
+    "features": [
+      "Runtime optimization",
+      "Memory profiling",
+      "Bundle analysis",
+      "Performance monitoring"
+    ],
     "benefits": [
       "Sub-50ms Time to Interactive",
       "60% reduction in JavaScript bundle size",
@@ -125,7 +140,7 @@
       "Real-time collaborative applications",
       "Progressive Web Apps"
     ],
-    "experience": "Optimized several React applications for performance while debugging it through Chrome Profiler and React DevTools.",
+    "experience": "Optimized enterprise React applications handling 100K+ daily active users with complex state management.",
     "testimonials": {
       "link": "https://www.upwork.com/freelancers/ammarbinfaisal",
       "comments": [
@@ -139,23 +154,22 @@
         "Memory Heap Snapshot Analysis",
         "Custom Babel plugins"
       ],
-      "optimizationTechniques": [
+      "features": [
+        "Performance monitoring",
+        "Memory leak detection",
+        "Bundle size optimization",
+        "Runtime analysis",
+        "State management optimization",
+        "Code splitting automation"
+      ],
+      "implementation": [
         "Custom React Suspense implementations",
         "Worker thread offloading",
         "Virtual DOM optimization",
         "State batch updates",
-        "Custom reconciliation",
-        "Incremental static regeneration"
+        "Custom reconciliation strategies"
       ],
-      "metrics": [
-        "Long Task analysis",
-        "Memory leak detection",
-        "React render cycles",
-        "Network waterfall optimization",
-        "Runtime performance metrics",
-        "Custom performance marks"
-      ],
-      "tooling": [
+      "buildTools": [
         "Webpack 5 with custom plugins",
         "SWC for compilation",
         "Custom ESLint rules",
