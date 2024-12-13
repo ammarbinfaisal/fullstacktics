@@ -33,18 +33,6 @@ export default function Contact() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form className="grid gap-4">
-              <div className="grid gap-2">
-                <Input placeholder="Name" />
-              </div>
-              <div className="grid gap-2">
-                <Input placeholder="Email" type="email" />
-              </div>
-              <div className="grid gap-2">
-                <Textarea placeholder="Message" />
-              </div>
-              <Button>Send Message</Button>
-            </form>
             <div className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
