@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import servicesData from "@/app/services.json";
+import { Button } from "./ui/button";
 
 export default function Services() {
   const services = Object.entries(servicesData).map(([key, service]) => ({
@@ -31,7 +32,7 @@ export default function Services() {
           <Link key={service.title} href={`/services/${service.slug}`}>
             <Card
               key={service.title}
-              className="group relative overflow-hidden h-[300px]"
+              className="group relative overflow-hidden h-[400px]"
             >
               <CardHeader>
                 <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
@@ -46,7 +47,8 @@ export default function Services() {
                 <CardTitle>{service.title}</CardTitle>
                 <CardDescription>{service.description}</CardDescription>
               </CardHeader>
-              <CardContent className="absolute bottom-0">
+              <CardContent>
+                <div className="flex flex-col justify-center gap-2 mb-4">
                 <ul className="grid gap-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
@@ -57,6 +59,10 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                <Button size="sm" className="group">
+                  Learn More
+                </Button>
+                </div>
               </CardContent>
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50" />
             </Card>

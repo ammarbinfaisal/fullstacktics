@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/ca
 import Link from 'next/link';
 import servicesData from '@/app/services.json';
 import { Bot, Database, Gauge } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const iconMap = {
   "browser-automation": Bot,
@@ -42,8 +43,13 @@ export default function ServicesPage() {
                         {service.title}
                       </CardTitle>
                     </div>
-                    <CardDescription className="text-sm sm:text-base text-muted-foreground">
+                    <CardDescription className="text-sm flex flex-col justify-center sm:text-base text-muted-foreground">
+                      <p className="line-clamp-3">
                       {service.description}
+                      </p>
+                      <Button size="sm" className="mt-4">
+                        Learn More
+                      </Button>
                     </CardDescription>
                   </CardHeader>
                 </Card>
