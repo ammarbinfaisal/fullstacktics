@@ -1,4 +1,4 @@
-import { Bot, Database, Gauge } from "lucide-react";
+import { Bot, Database, Rocket } from "lucide-react";
 
 import {
   Card,
@@ -41,7 +41,7 @@ export default function Services() {
                   ) : service.icon === "Bot" ? (
                     <Bot />
                   ) : (
-                    <Gauge />
+                    <Rocket />
                   )}
                 </div>
                 <CardTitle>{service.title}</CardTitle>

@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function WebScrapingPage() {
-  return <ServicePageTemplate serviceData={servicesData["browser-automation"]} />;
+  return <ServicePageTemplate serviceData={servicesData["saas-mvp"]} />;
 }

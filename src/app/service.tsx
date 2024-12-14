@@ -30,6 +30,7 @@ const icons = {
   Bot: Bot,
   Database: Database,
   Gauge: Gauge,
+  Rocket: Rocket,
 };
 
 interface TechnicalDetails {
@@ -86,13 +87,10 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
   let iconsKey: keyof typeof icons;
   switch (serviceData.icon) {
     case "Bot":
-      iconsKey = "Bot";
-      break;
     case "Database":
-      iconsKey = "Database";
-      break;
     case "Gauge":
-      iconsKey = "Gauge";
+    case "Rocket":
+      iconsKey = serviceData.icon as keyof typeof icons;
       break;
     default:
       throw new Error("Invalid icon");

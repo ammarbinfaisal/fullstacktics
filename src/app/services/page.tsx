@@ -1,11 +1,11 @@
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from 'next/link';
 import servicesData from '@/app/services.json';
-import { Bot, Database, Gauge } from 'lucide-react';
+import { Database, Gauge, Rocket } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const iconMap = {
-  "browser-automation": Bot,
+  "saas-mvp": Rocket,
   "web-scraping": Database,
   "react-performance": Gauge,
 };

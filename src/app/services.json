@@ -1,27 +1,27 @@
 {
-  "browser-automation": {
-    "title": "Browser Automation",
-    "description": "Enterprise-grade automation solutions leveraging headless browsers and distributed testing infrastructure.",
-    "icon": "Bot",
+  "saas-mvp": {
+    "title": "SaaS MVP Development",
+    "description": "End-to-end SaaS MVP development using Next.js with focus on rapid iteration and scalable architecture.",
+    "icon": "Rocket",
     "features": [
-      "Distributed testing architecture",
-      "Performance profiling",
-      "Network simulation",
-      "Cross-browser orchestration"
+      "Full-stack Next.js implementation",
+      "Authentication and authorization",
+      "Subscription management",
+      "Analytics integration"
     ],
     "benefits": [
-      "Reduce test execution time by 85% through parallel processing",
-      "99.9% test reliability with smart retries and error handling",
-      "Real-time performance metrics and anomaly detection",
-      "Comprehensive test coverage analytics"
+      "Launch MVPs within 4-6 weeks",
+      "99.9% uptime with serverless architecture",
+      "Scalable from day one with cloud infrastructure",
+      "Enterprise-grade security practices"
     ],
     "useCases": [
-      "Multi-region deployment validation",
-      "Performance regression testing",
-      "Complex user journey simulation",
-      "Load testing with real browser instances"
+      "B2B SaaS platforms",
+      "Subscription-based services",
+      "Internal tools and dashboards",
+      "Customer portals"
     ],
-    "experience": "Implemented distributed browser automation systems handling 10,000+ daily test cases across multiple CI/CD pipelines.",
+    "experience": "Developed and launched many SaaS MVPs with successful market validation and user acquisition.",
     "testimonials": {
       "link": "https://www.upwork.com/freelancers/ammarbinfaisal?s=1110580764771602432",
       "comments": [
@@ -31,31 +31,31 @@
     },
     "technicalDetails": {
       "technologies": [
-        "Playwright with custom HTTP/2 interceptors",
-        "Selenium Grid with Docker orchestration",
-        "Cypress with custom plugins",
-        "k6 for performance testing"
+        "Next.js 14 with App Router",
+        "Typescript with strict mode",
+        "Tailwind CSS for styling",
+        "tRPC for type-safe APIs"
       ],
       "features": [
-        "WebSocket traffic inspection",
-        "Custom protocol handlers",
-        "HAR file analysis",
-        "Browser fingerprint customization",
-        "Service worker interaction",
-        "WebRTC testing support"
+        "OAuth2 integration",
+        "Stripe subscription management",
+        "Real-time updates with WebSockets",
+        "Email notification system",
+        "Analytics dashboard",
+        "Multi-tenancy support"
       ],
       "implementation": [
-        "Event-driven test architecture",
-        "Custom wait strategies",
-        "Network condition simulation",
-        "Browser extension testing",
-        "Visual regression with ML-based comparison"
+        "Serverless architecture",
+        "Edge functions deployment",
+        "Automated CI/CD pipeline",
+        "Database migrations",
+        "End-to-end testing"
       ],
-      "supportedBrowsers": [
-        "Chrome (including Canary)",
-        "Firefox (including Nightly)",
-        "Safari Technology Preview",
-        "Edge (Chromium-based)"
+      "supportedInfrastructure": [
+        "Vercel deployment",
+        "PostgreSQL on Supabase",
+        "Redis caching",
+        "AWS S3 for storage"
       ]
     }
   },
