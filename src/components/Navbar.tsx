@@ -22,6 +22,15 @@ export default function Navbar() {
   React.useEffect(() => {
     if (formState.succeeded) {
       setQuoteModalOpen(false);
+      // @ts-expect-error - Google Ads conversion tracking
+      gtag('event', 'conversion', {
+        'send_to': 'AW-11298597203/N4x_COrxrPcZENPSy4sq',
+        'value': 80.0,
+        'currency': 'INR',
+        'event_callback': () => {
+          console.log("Conversion tracked successfully");
+        }
+      });
       redirect("/we-will-contact-you");
     }
   }, [formState.succeeded]);
@@ -47,7 +56,7 @@ export default function Navbar() {
               </Link>
               <nav className="hidden md:flex items-center gap-6">
                 <DialogTrigger
-                 className="text-sm"
+                  className="text-sm"
                 >
                   Get A Quote!
                 </DialogTrigger>
