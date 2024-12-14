@@ -12,8 +12,7 @@ const Cal = ({
     function gtag_report_conversion() {
         const callback = function () {
             if (typeof (url) != 'undefined') {
-                // @ts-expect-error - TS doesn't know if window.location is a string
-                window.location = url;
+                window.open(url, '_blank');
             }
         };
         try{
