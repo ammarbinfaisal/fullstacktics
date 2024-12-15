@@ -7,9 +7,9 @@ export default function Hero() {
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
           Building{" "}
           <span className="bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
-            exceptional
+            Exceptional
           </span>{" "}
-          web solutions
+          Web Solutions
         </h1>
         <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
           Empowering businesses with cutting-edge web solutions. We transform ideas into powerful, scalable applications.
