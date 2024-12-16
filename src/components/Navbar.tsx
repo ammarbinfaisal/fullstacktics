@@ -67,6 +67,12 @@ export default function Navbar() {
                   Services
                 </a>
                 <a
+                  href="/team"
+                  className="text-sm font-medium hover:text-primary"
+                >
+                  Team
+                </a>
+                <a
                   href="#contact"
                   className="text-sm font-medium hover:text-primary"
                 >
