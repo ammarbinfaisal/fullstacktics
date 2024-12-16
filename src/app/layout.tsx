@@ -4,9 +4,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import "./globals.css";
-import Cal from "./Cal";
-import { PhoneCall } from "lucide-react";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 const jetBrainsMono = JetBrains_Mono({
