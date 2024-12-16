@@ -49,7 +49,7 @@ export default function Contact() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Have a project in mind? Let's discuss and create something incredible.
+              Have a project in mind? Let&apos;s discuss and create something incredible.
             </CardDescription>
             <form onSubmit={submit} className="flex flex-col gap-4 mt-4 justify-center">
               <div className="flex flex-col gap-4 mt-4">
