@@ -82,14 +82,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Navbar />
         {children}
         <Analytics />
-        <div className="fixed bottom-0 w-screen p-4 flex gap-4 bg-white justify-around px-12 align-items bg-background/60 supports-[backdrop-filter]:bg-background/60 backdrop-blur x-50">
-          <Cal url="tel:+919140248919" className="text-primary cursor-pointer flex justify-center w-full text-sm sm:text-lg items-center">
-            <PhoneCall size={24} /><span className="ml-4"> Call Us</span>
-          </Cal>
-          <Cal url="https://wa.me/919140248919" className="text-green-500 cursor-pointer flex justify-center w-full text-sm sm:text-lg md:text-md items-center">
-            <Image src="/WhatsApp.svg.png" alt="whatsapp" width={32} height={32} /><span className="ml-4">Text Us</span>
-          </Cal>
-        </div>
       </body>
     </html>
   );
