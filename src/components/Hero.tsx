@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="flex max-w-[980px] flex-col items-center gap-4 text-center">
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
           Building{" "}
-          <span className="bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-rose-200 to-pink-200 bg-clip-text text-transparent">
             Exceptional
           </span>{" "}
           Web Solutions
@@ -16,7 +16,7 @@ export default function Hero() {
         </p>
         <div className="flex gap-4">
           <Link
-          href="/services"
+            href="/services"
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 cursor-pointer"
           >
             Get Started

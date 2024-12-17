@@ -79,13 +79,13 @@ export default function Navbar() {
 								href='/'
 								className='flex items-center space-x-2'
 							>
-								<span className='text-xl font-bold bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent'>
+								<span className='text-xl font-bold bg-gradient-to-r from-rose-200 to-pink-200 bg-clip-text text-transparent'>
 									Fullstacktics
 								</span>
 							</Link>
 							<nav className='relative hidden text-white md:flex items-center mx-auto justify-center overflow-hidden rounded-full border border-zinc-600 bg-background '>
 								<div
-									className='absolute z-0 h-[32px] rounded-3xl bg-[#69e290] transition-all duration-300 ease-in-out'
+									className='absolute z-0 h-[32px] rounded-3xl bg-rose-200 transition-all duration-300 ease-in-out'
 									style={highlightStyle}
 								/>
 								<DialogTrigger

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.1",
+    "@codaworks/react-glow": "^1.0.6",
     "@formspree/react": "^2.5.1",
     "@next/third-parties": "^15.1.0",
     "@radix-ui/react-dialog": "^1.1.3",

@@ -21,7 +21,7 @@ export default function ServicesPage() {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
         <div className="flex flex-col items-center gap-4 text-center mb-12">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-rose-200 to-pink-200 bg-clip-text text-transparent">
             Our Services
           </h1>
           <p className="max-w-[750px] text-base sm:text-lg text-muted-foreground md:text-xl">
