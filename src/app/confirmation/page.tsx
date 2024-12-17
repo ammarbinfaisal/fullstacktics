@@ -60,9 +60,6 @@ export default async function MeetingConfirmation({
   const meetingType = searchParams.type || 'Introduction Call';
   const location = searchParams.location || 'Google Meet';
 
-  // Optional: Log confirmation to your database
-  // await prisma.meetingConfirmation.create({ ... })
-
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container max-w-3xl mx-auto px-4">
@@ -74,7 +71,7 @@ export default async function MeetingConfirmation({
             Meeting Confirmed!
           </h1>
           <p className="text-muted-foreground">
-            Your meeting has been scheduled successfully. You'll receive an email with calendar invite shortly.
+            Your meeting has been scheduled successfully. You&apos;ll receive an email with calendar invite shortly.
           </p>
         </div>
 
