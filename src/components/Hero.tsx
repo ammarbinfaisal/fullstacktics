@@ -1,4 +1,3 @@
-import Cal from "@/app/Cal";
 import { Link } from "lucide-react";
 
 export default function Hero() {

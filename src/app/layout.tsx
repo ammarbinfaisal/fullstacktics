@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from "next/script";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -49,11 +50,13 @@ export default function RootLayout({
           content="We build high-performance web applications and websites."
         ></meta>
 
-        <script async type="module" src="cookieconsent-config.js"></script>
-        <script async src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+        <Script id="consent" strategy="afterInteractive" async type="module" src="cookieconsent-config.js" />
+        <Script id="consent-conf" strategy="afterInteractive" async src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@/dist/cookieconsent.css" />
 
-        <script
+        <Script
+          strategy="afterInteractive"
+          id="gtm"
           dangerouslySetInnerHTML={{
             __html: `
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -63,13 +66,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NMQS73V7');
     `,
           }}
-        ></script>
-        <script
-          async
+        ></Script>
+        <Script
+          id="gtag"
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=AW-11298597203"
-        ></script>
+        />
         <GoogleAnalytics gaId="AW-11298597203" />
-        <script
+        <Script
+          id="clarity"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
     (function(c,l,a,r,i,t,y){
@@ -79,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     })(window, document, "clarity", "script", "pd90txeeeg");
         `,
           }}
-        ></script>
+        />
       </head>
       <body className={`${jetBrainsMono.className} antialiased w-full`}>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQS73V7"
