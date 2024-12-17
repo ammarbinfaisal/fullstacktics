@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { getCalApi } from "@calcom/embed-react";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 const Cal = ({
     children,
