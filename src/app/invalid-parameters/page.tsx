@@ -10,3 +10,5 @@ export function InvalidParameters() {
         </div>
     );
 }
+
+export default InvalidParameters;
