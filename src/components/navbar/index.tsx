@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { redirect } from "next/navigation";
+import Link from "next/link";
 import { useForm } from "@formspree/react";
 import { Menu } from "lucide-react";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import Link from "next/link";
 import {
 	Dialog,
 	DialogTitle,
@@ -19,10 +18,12 @@ import {
 import NavItems from "@/components/navbar/navItems";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useGoogleTag } from "@/hooks/useGoogleTag";
 
 const Navbar = () => {
 	const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 	const [formState, submit] = useForm(process.env.NEXT_PUBLIC_FORM!);
+	useGoogleTag({ formState, callback: () => setQuoteModalOpen(false) });
 	const [hoveredItem, setHoveredItem] = useState<HTMLElement | null>(null);
 	const [highlightStyle, setHighlightStyle] = useState({
 		width: "0px",
@@ -44,22 +45,6 @@ const Navbar = () => {
 			}));
 		}
 	}, [hoveredItem]);
-
-	useEffect(() => {
-		if (formState.succeeded) {
-			setQuoteModalOpen(false);
-			// @ts-expect-error - Google Ads conversion tracking
-			gtag("event", "conversion", {
-				send_to: "AW-11298597203/N4x_COrxrPcZENPSy4sq",
-				value: 80.0,
-				currency: "INR",
-				event_callback: () => {
-					console.log("Conversion tracked successfully");
-				},
-			});
-			redirect("/we-will-contact-you");
-		}
-	}, [formState.succeeded]);
 
 	useEffect(() => {
 		if (quoteModalOpen) {
