@@ -26,6 +26,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Cal from "./Cal";
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
+import Link from "next/link";
 
 const icons = {
   Bot: Bot,
@@ -173,12 +174,12 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
               </ul>
             </CardContent>
             <CardFooter className="flex justify-center">
-              <Cal url={serviceData.testimonials.link}>
+              <Link href={serviceData.testimonials.link}>
                 <Button size="lg" className="group">
                   View More Testimonials
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </Cal>
+              </Link>
             </CardFooter>
           </Card>
 
@@ -260,7 +261,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Cal url="https://cal.com/fullstacktics/consultation">
+              <Cal>
                 <Button size="lg" className="group">
                   Schedule Technical Consultation
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
