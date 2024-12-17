@@ -1,15 +1,17 @@
-import { Bot, Database, Rocket } from "lucide-react";
+import { ArrowRight, Bot, Database, Rocket } from "lucide-react";
 
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
 import servicesData from "@/app/services.json";
 import { Button } from "./ui/button";
+import Cal from "@/app/Cal";
 
 export default function Services() {
   const services = Object.entries(servicesData).map(([key, service]) => ({
@@ -49,21 +51,29 @@ export default function Services() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col justify-center gap-2 mb-4">
-                <ul className="grid gap-2">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                      <span className="text-sm text-muted-foreground">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <Button size="sm" className="group">
-                  Learn More
-                </Button>
+                  <ul className="grid gap-2">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2">
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                        <span className="text-sm text-muted-foreground">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button size="sm" className="group">
+                    Learn More
+                  </Button>
                 </div>
               </CardContent>
+              <CardFooter>
+                <Cal>
+                  <Button size="lg" className="group">
+                    Schedule Technical Consultation
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Cal>
+              </CardFooter>
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50" />
             </Card>
           </Link>
