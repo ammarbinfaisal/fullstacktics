@@ -1,12 +1,12 @@
 "use client"
 
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
 import * as CookieConsent from "vanilla-cookieconsent";
 
 export default function Consent() {
     // Use state to store window-dependent values
-    const [config, setConfig] = useState<any>(null);
+    const [config, setConfig] = useState<CookieConsent.CookieConsentConfig>();
 
     // Initialize configuration after component mounts
     useEffect(() => {
@@ -266,7 +266,7 @@ export default function Consent() {
             }
         };
 
-        setConfig(cookieConsentConfig);
+        setConfig(cookieConsentConfig as CookieConsent.CookieConsentConfig);
     }, []);
 
     // Initialize CookieConsent after config is set
