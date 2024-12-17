@@ -9,12 +9,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-// Validate meeting parameters
-const validateMeetingParams = (searchParams: URLSearchParams) => {
-  const requiredParams = ['name', 'email', 'date', 'time'];
-  return requiredParams.every(param => searchParams.has(param));
-};
-
 // Validate that request comes from Cal.com
 const validateReferrer = (referer: string | null) => {
   if (!referer) return false;
