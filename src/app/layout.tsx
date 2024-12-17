@@ -6,6 +6,7 @@ import Script from "next/script";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Consent from "./consent";
 
 const jetBrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600", "700", "800"],
@@ -96,6 +97,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Navbar />
         {children}
         <Analytics />
+        <div id="cookieconsent" />
+        <Consent />
       </body>
     </html>
   );
