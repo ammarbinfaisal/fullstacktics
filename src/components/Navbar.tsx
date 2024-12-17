@@ -96,6 +96,7 @@ export default function Navbar() {
 											e.currentTarget as HTMLElement,
 										)
 									}
+									onMouseLeave={() => setHoveredItem(null)}
 								>
 									<p className='relative z-10 transition-colors duration-300 select-none text-foreground group-hover:text-background'>
 										Get A Quote!
