@@ -45,11 +45,6 @@ export default async function MeetingConfirmation({
 
   // Convert searchParams to URLSearchParams for validation
   const params = new URLSearchParams(searchParams as Record<string, string>);
-  
-  // Validate required parameters
-  if (!validateMeetingParams(params)) {
-    redirect('/invalid-parameters');
-  }
 
   // Extract and sanitize parameters
   const name = searchParams.name || 'Guest';
