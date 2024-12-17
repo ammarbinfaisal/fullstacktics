@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -16,6 +16,7 @@ import Link from "next/link";
 import { useForm } from "@formspree/react";
 import { useEffect } from "react";
 import { redirect } from "next/navigation";
+import Cal from "@/app/Cal";
 
 export default function Contact() {
   const [formState, submit] = useForm(process.env.NEXT_PUBLIC_FORM!)
@@ -41,6 +42,12 @@ export default function Contact() {
         <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
           Ready to get started?
         </h2>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <Cal className="group">
+            Schedule Technical Consultation
+            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          </Cal>
+        </div>
       </div>
       <div className="mx-auto mt-8 sm:mt-12 max-w-2xl">
         <Card>

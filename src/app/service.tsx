@@ -261,11 +261,9 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Cal>
-                <Button size="lg" className="group">
+              <Cal className="group">
                   Schedule Technical Consultation
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
               </Cal>
             </CardContent>
           </Card>

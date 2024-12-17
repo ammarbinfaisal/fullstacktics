@@ -1,17 +1,15 @@
-import { ArrowRight, Bot, Database, Rocket } from "lucide-react";
+import { Bot, Database, Rocket } from "lucide-react";
 
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
 import servicesData from "@/app/services.json";
 import { Button } from "./ui/button";
-import Cal from "@/app/Cal";
 
 export default function Services() {
   const services = Object.entries(servicesData).map(([key, service]) => ({
@@ -71,12 +69,6 @@ export default function Services() {
           </Link>
         ))}
       </div>
-      <Cal>
-        <Button size="lg" className="group">
-          Schedule Technical Consultation
-          <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-        </Button>
-      </Cal>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { getCalApi } from "@calcom/embed-react";
 import { useCallback } from "react";
 
@@ -24,10 +25,10 @@ const Cal = ({
     }, []);
 
     return (
-        <button onClick={setupCal} className={className} data-cal-namespace="consultation"
+        <Button onClick={setupCal} className={className} data-cal-namespace="consultation"
             data-cal-link="fullstacktics/consultation">
             {children}
-        </button>
+        </Button>
     )
 }
 
