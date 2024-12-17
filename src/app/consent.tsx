@@ -83,7 +83,7 @@ export default function Consent() {
                 domain: hostname,
                 path: '/',
                 secure: true,
-                expiresAfterDays: (acceptType: any) => {
+                expiresAfterDays: (acceptType: "all" | string) => {
                     return acceptType === 'all' ? 365 : 182;
                 },
                 sameSite: 'Lax',
@@ -237,14 +237,16 @@ export default function Consent() {
                 }
             },
 
-            // Callbacks
-            onFirstConsent: ({cookie}: any) => {
-                console.log('First consent given:', cookie);
-            },
-            onConsent: ({cookie}: any) => {
-                console.log('Consent updated:', cookie);
-            },
-            onChange: ({cookie, changedCategories}: any) => {
+            onChange: ({cookie, changedCategories}: {
+                cookie: {
+                    categories: {
+                        necessary: boolean;
+                        analytics: boolean;
+                        marketing: boolean;
+                    }
+                };
+                changedCategories: string[];
+            }) => {
                 console.log('Categories changed:', changedCategories);
                 console.log('New cookie value:', cookie);
 
@@ -258,15 +260,9 @@ export default function Consent() {
                     }
                 }
             },
-            onModalShow: ({modalName}: any) => {
-                console.log('Modal shown:', modalName);
-            },
-            onModalHide: ({modalName}: any) => {
-                console.log('Modal hidden:', modalName);
-            }
         };
 
-        setConfig(cookieConsentConfig as CookieConsent.CookieConsentConfig);
+        setConfig(cookieConsentConfig as unknown as CookieConsent.CookieConsentConfig);
     }, []);
 
     // Initialize CookieConsent after config is set
