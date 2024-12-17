@@ -1,6 +1,6 @@
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { CheckCircle, Calendar, Clock, User, Mail, Video } from 'lucide-react';
+import { CheckCircle, Calendar, User, Mail, Video } from 'lucide-react';
 import {
   Card,
   CardContent,
