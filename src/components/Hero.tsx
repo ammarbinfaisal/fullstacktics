@@ -1,4 +1,5 @@
 import Cal from "@/app/Cal";
+import { Link } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -15,18 +16,18 @@ export default function Hero() {
           Empowering businesses with cutting-edge web solutions. We transform ideas into powerful, scalable applications.
         </p>
         <div className="flex gap-4">
-          <Cal
-            url="https://cal.com/fullstacktics/consultation"
+          <Link
+          href="/services"
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 cursor-pointer"
           >
             Get Started
-          </Cal>
-          <a
-            href="#services"
+          </Link>
+          <Link
+            href="/team"
             className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
     </section>
