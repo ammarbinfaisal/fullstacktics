@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import GlowContainer from "./GlowContainer";
 import Script from "next/script";
 
 import "./globals.css";
@@ -109,7 +110,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					></iframe>
 				</noscript>
 				<Navbar />
-				{children}
+				<GlowContainer>{children}</GlowContainer>
 				<Analytics />
 				<div id='cookieconsent' />
 				<Consent />

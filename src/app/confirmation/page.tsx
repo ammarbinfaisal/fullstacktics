@@ -51,7 +51,7 @@ export default async function MeetingConfirmation({
       <div className="container max-w-3xl mx-auto px-4">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <CheckCircle className="h-16 w-16 text-green-500" />
+            <CheckCircle className="h-16 w-16 text-rose-300" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl mb-2">
             Meeting Confirmed!

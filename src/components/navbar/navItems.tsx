@@ -11,7 +11,7 @@ const NavItems = ({ setHoveredItem, highlightStyle }: NavItemsProps) => {
 	return (
 		<nav className='relative hidden text-white md:flex items-center mx-auto justify-center overflow-hidden rounded-full border border-zinc-600 bg-background'>
 			<div
-				className='absolute z-0 h-[32px] rounded-3xl bg-[#69e290] transition-all duration-300 ease-in-out'
+				className='absolute z-0 h-[32px] rounded-3xl bg-rose-200 transition-all duration-300 ease-in-out'
 				style={highlightStyle}
 			/>
 			<DialogTrigger
