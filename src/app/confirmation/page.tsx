@@ -37,9 +37,6 @@ export default async function MeetingConfirmation({
     redirect('/unauthorized');
   }
 
-  // Convert searchParams to URLSearchParams for validation
-  const params = new URLSearchParams(searchParams as Record<string, string>);
-
   // Extract and sanitize parameters
   const name = searchParams.name || 'Guest';
   const email = searchParams.email || '';
