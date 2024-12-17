@@ -50,8 +50,8 @@ export default function RootLayout({
           content="We build high-performance web applications and websites."
         ></meta>
 
-        <Script id="consent" strategy="afterInteractive" async type="module" src="cookieconsent-config.js" />
-        <Script id="consent-conf" strategy="afterInteractive" async src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js" />
+        {/* <Script id="consent" strategy="afterInteractive" async type="module" src="cookieconsent-config.js" /> */}
+        {/* <Script id="consent-conf" strategy="afterInteractive" async src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js" /> */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@/dist/cookieconsent.css" />
 
         <Script
