@@ -42,6 +42,10 @@ export default function RootLayout({
           property="og:description"
           content="We build high-performance web applications and websites."
         ></meta>
+
+        <script type="module" src="cookieconsent-config.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@/dist/cookieconsent.css" />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
