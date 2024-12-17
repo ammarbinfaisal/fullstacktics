@@ -31,7 +31,13 @@ export default function RootLayout({
           property="twitter:description"
           content="We build high-performance web applications and websites."
         ></meta>
-        <meta property="og:image" content="/public/among-us.jpg"></meta>
+        {/* meta desc */}
+        <meta
+          name="description"
+          content="We build high-performance web applications and websites."
+        ></meta>
+
+        <meta property="og:image" content="among-us.jpg"></meta>
         <meta property="og:site_name" content="Fullstacktics"></meta>
         <meta property="og:url" content="https://fullstacktics.com"></meta>
         <meta
@@ -44,6 +50,7 @@ export default function RootLayout({
         ></meta>
 
         <script type="module" src="cookieconsent-config.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@/dist/cookieconsent.css" />
 
         <script
