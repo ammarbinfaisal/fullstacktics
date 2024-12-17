@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { getCalApi } from "@calcom/embed-react";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 const Cal = ({
     children,
@@ -11,10 +11,10 @@ const Cal = ({
     children: React.ReactNode;
     className?: string;
 }) => {
-    const setupCal = useCallback(() => {
+    useEffect(() => {
         (async function () {
             const cal = await getCalApi({ "namespace": "consultation" });
-            cal("ui", { "hideEventTypeDetails": false, "layout": "week_view" });
+            cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
             // @ts-expect-error - TS doesn't know if gtag is a function
             gtag('event', 'conversion', {
                 'send_to': 'AW-11298597203/11cmCMvtmvYZENPSy4sq',
@@ -25,8 +25,10 @@ const Cal = ({
     }, []);
 
     return (
-        <Button onClick={setupCal} className={className} data-cal-namespace="consultation"
-            data-cal-link="fullstacktics/consultation">
+        <Button className={className} data-cal-namespace="consultation"
+            data-cal-link="fullstacktics/consultation"
+            data-cal-config='{"layout":"month_view"}'
+        >
             {children}
         </Button>
     )
