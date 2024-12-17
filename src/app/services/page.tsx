@@ -1,8 +1,9 @@
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from 'next/link';
 import servicesData from '@/app/services.json';
-import { Database, Gauge, Rocket } from 'lucide-react';
+import { ArrowRight, Database, Gauge, Rocket } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import Cal from "../Cal";
 
 const iconMap = {
   "saas-mvp": Rocket,
@@ -26,6 +27,10 @@ export default function ServicesPage() {
           <p className="max-w-[750px] text-base sm:text-lg text-muted-foreground md:text-xl">
             Comprehensive web development and automation solutions for your business
           </p>
+          <Cal className="group">
+            Schedule Technical Consultation
+            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          </Cal>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -45,7 +50,7 @@ export default function ServicesPage() {
                     </div>
                     <CardDescription className="text-sm flex flex-col justify-center sm:text-base text-muted-foreground">
                       <p className="line-clamp-3">
-                      {service.description}
+                        {service.description}
                       </p>
                       <Button size="sm" className="mt-4">
                         Learn More

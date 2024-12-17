@@ -103,8 +103,8 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
     return Object.entries(serviceData.technicalDetails).map(([key, value]) => {
       // Handle nested objects in technical details
       if (typeof value === 'object' && !Array.isArray(value)) {
-        const nestedItems = Object.entries(value).flatMap(([nestedKey, nestedValue]) => 
-          Array.isArray(nestedValue) 
+        const nestedItems = Object.entries(value).flatMap(([nestedKey, nestedValue]) =>
+          Array.isArray(nestedValue)
             ? nestedValue.map(item => `${nestedKey}: ${item}`)
             : [`${nestedKey}: ${nestedValue}`]
         );
@@ -115,7 +115,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
           items: nestedItems,
         };
       }
-      
+
       return {
         value: key,
         label: formatTabLabel(key),
@@ -262,8 +262,8 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
             </CardHeader>
             <CardContent className="flex justify-center">
               <Cal className="group">
-                  Schedule Technical Consultation
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Schedule Technical Consultation
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Cal>
             </CardContent>
           </Card>
