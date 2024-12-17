@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from "next/script";
@@ -8,7 +8,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Consent from "./consent";
 
-const jetBrainsMono = JetBrains_Mono({
+const jetBrainsMono = Outfit({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className={`${jetBrainsMono.className} antialiased w-full`}>
+      <body className={`${jetBrainsMono.className} antialiased w-full dark`}>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQS73V7"
           height="0" width="0" style={{
             display: "none",

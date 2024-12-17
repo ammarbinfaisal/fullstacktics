@@ -5,7 +5,6 @@ import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import ThemeSwitcher from "./ThemeSwitcher";
 import Link from "next/link";
 import {
 	Dialog,
@@ -141,9 +140,6 @@ export default function Navbar() {
 									</p>
 								</a>
 							</nav>
-							<div className='hidden md:flex'>
-								<ThemeSwitcher />
-							</div>
 							<Sheet>
 								<SheetTrigger asChild>
 									<Button
@@ -171,7 +167,6 @@ export default function Navbar() {
 										>
 											Contact
 										</Link>
-										<ThemeSwitcher />
 									</nav>
 								</SheetContent>
 							</Sheet>
