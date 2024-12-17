@@ -19,7 +19,7 @@ export default function Services() {
     ...service,
   }));
   return (
-    <section id="services" className="container py-12 md:py-24">
+    <section id="services" className="container py-12 md:py-24 flex flex-col gap-8">
       <div className="flex flex-col items-center gap-4 text-center">
         <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
           Our Services
@@ -66,19 +66,17 @@ export default function Services() {
                   </Button>
                 </div>
               </CardContent>
-              <CardFooter>
-                <Cal>
-                  <Button size="lg" className="group">
-                    Schedule Technical Consultation
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Cal>
-              </CardFooter>
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50" />
             </Card>
           </Link>
         ))}
       </div>
+      <Cal>
+        <Button size="lg" className="group">
+          Schedule Technical Consultation
+          <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+        </Button>
+      </Cal>
     </section>
   );
 }
