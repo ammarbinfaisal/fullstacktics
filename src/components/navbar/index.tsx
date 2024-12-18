@@ -1,28 +1,29 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useForm } from "@formspree/react";
 import { Menu } from "lucide-react";
-
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Link from "next/link";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import {
 	Dialog,
 	DialogTitle,
-	DialogContent,
 	DialogOverlay,
+	DialogContent,
 	DialogDescription,
 } from "@/components/ui/dialog";
-import { DialogTrigger } from "@radix-ui/react-dialog";
-import { useForm } from "@formspree/react";
-import { redirect } from "next/navigation";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
+import NavItems from "@/components/navbar/navItems";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useGoogleTag } from "@/hooks/useGoogleTag";
 
-export default function Navbar() {
+const Navbar = () => {
 	const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 	const [formState, submit] = useForm(process.env.NEXT_PUBLIC_FORM!);
+	useGoogleTag({ formState, callback: () => setQuoteModalOpen(false) });
 	const [hoveredItem, setHoveredItem] = useState<HTMLElement | null>(null);
 	const [highlightStyle, setHighlightStyle] = useState({
 		width: "0px",
@@ -46,22 +47,6 @@ export default function Navbar() {
 	}, [hoveredItem]);
 
 	useEffect(() => {
-		if (formState.succeeded) {
-			setQuoteModalOpen(false);
-			// @ts-expect-error - Google Ads conversion tracking
-			gtag("event", "conversion", {
-				send_to: "AW-11298597203/N4x_COrxrPcZENPSy4sq",
-				value: 80.0,
-				currency: "INR",
-				event_callback: () => {
-					console.log("Conversion tracked successfully");
-				},
-			});
-			redirect("/we-will-contact-you");
-		}
-	}, [formState.succeeded]);
-
-	useEffect(() => {
 		if (quoteModalOpen) {
 			document.body.style.overflow = "hidden";
 		} else {
@@ -83,63 +68,14 @@ export default function Navbar() {
 									Fullstacktics
 								</span>
 							</Link>
-							<nav className='relative hidden text-white md:flex items-center mx-auto justify-center overflow-hidden rounded-full border border-zinc-600 bg-background '>
-								<div
-									className='absolute z-0 h-[32px] rounded-3xl bg-rose-200 transition-all duration-300 ease-in-out'
-									style={highlightStyle}
-								/>
-								<DialogTrigger
-									className='text-sm font-medium group px-3'
-									onMouseEnter={(e) =>
-										setHoveredItem(
-											e.currentTarget as HTMLElement,
-										)
-									}
-									onMouseLeave={() => setHoveredItem(null)}
-								>
-									<p className='relative z-10 transition-colors duration-300 select-none text-foreground group-hover:text-background'>
-										Get A Quote!
-									</p>
-								</DialogTrigger>
-								<a
-									href='/services'
-									onMouseEnter={(e) =>
-										setHoveredItem(
-											e.currentTarget as HTMLElement,
-										)
-									}
-									onMouseLeave={() => setHoveredItem(null)}
-									className='text-sm font-medium hover:text-primary relative z-10 flex h-[32px] items-center px-3 transition-colors duration-300 md:px-5 select-none group'
-								>
-									<p className='relative z-10 transition-colors duration-300 select-none text-foreground group-hover:text-background'>
-										Services
-									</p>
-								</a>
-								<a
-									href='/team'
-									onMouseEnter={(e) =>
-										setHoveredItem(e.currentTarget)
-									}
-									onMouseLeave={() => setHoveredItem(null)}
-									className='text-sm font-medium hover:text-primary relative z-10 flex h-[32px] items-center px-3 transition-colors duration-300 md:px-5 select-none group'
-								>
-									<p className='relative z-10 transition-colors duration-300 select-none text-foreground group-hover:text-background'>
-										Team
-									</p>
-								</a>
-								<a
-									href='#contact'
-									onMouseEnter={(e) =>
-										setHoveredItem(e.currentTarget)
-									}
-									onMouseLeave={() => setHoveredItem(null)}
-									className='text-sm font-medium hover:text-primary relative z-10 flex h-[32px] items-center px-3 transition-colors duration-300 md:px-5 select-none group'
-								>
-									<p className='relative z-10 transition-colors duration-300 select-none text-foreground group-hover:text-background'>
-										Contact
-									</p>
-								</a>
-							</nav>
+							<NavItems
+								hoveredItem={hoveredItem}
+								setHoveredItem={setHoveredItem}
+								highlightStyle={highlightStyle}
+							/>
+							<div className='hidden md:flex'>
+								<ThemeSwitcher />
+							</div>
 							<Sheet>
 								<SheetTrigger asChild>
 									<Button
@@ -167,12 +103,13 @@ export default function Navbar() {
 										>
 											Contact
 										</Link>
+										<ThemeSwitcher />
 									</nav>
 								</SheetContent>
 							</Sheet>
 						</div>
 					</div>
-				</header>{" "}
+				</header>
 				<DialogOverlay className='fixed inset-0 backdrop-blur bg-background/20 z-40' />
 				<DialogContent className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 bg-background rounded-lg shadow-lg z-50'>
 					<DialogTitle className='text-lg font-bold'>
@@ -237,4 +174,6 @@ export default function Navbar() {
 			</Dialog>
 		</>
 	);
-}
+};
+
+export default Navbar;
