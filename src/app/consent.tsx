@@ -4,17 +4,21 @@ import { useEffect, useState } from "react";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
 import * as CookieConsent from "vanilla-cookieconsent";
 
+declare global {
+    interface Window {
+        clarity?: (command: string, ...args: any[]) => void;
+        dataLayer?: any[];
+    }
+}
+
 export default function Consent() {
-    // Use state to store window-dependent values
     const [config, setConfig] = useState<CookieConsent.CookieConsentConfig>();
 
-    // Initialize configuration after component mounts
     useEffect(() => {
         const hostname = window?.location?.hostname;
         const gtmId = 'GTM-NMQS73V7';
         const gaId = 'AW-11298597203';
 
-        // Function to load analytics scripts dynamically
         const loadAnalyticsScripts = () => {
             const container = document.head || document.documentElement;
     
@@ -46,8 +50,20 @@ export default function Consent() {
             `;
             noscriptContainer.insertBefore(gtmIframe, noscriptContainer.firstChild);
         };
+
+        const loadClarityScript = () => {
+            const clarityScript = document.createElement('script');
+            clarityScript.id = 'clarity-script';
+            clarityScript.innerHTML = `
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "pd90txeeeg");
+            `;
+            document.head.appendChild(clarityScript);
+        };
     
-        // Function to remove analytics scripts
         const removeAnalyticsScripts = () => {
             ['gtm-script', 'ga-script', 'clarity-script'].forEach(id => {
                 const script = document.getElementById(id);
@@ -65,10 +81,32 @@ export default function Consent() {
             });
         };
 
+        const handleAnalyticsConsent = (granted: boolean) => {
+            if (granted) {
+                loadAnalyticsScripts();
+                // Handle Clarity consent
+                if (window.clarity) {
+                    window.clarity("consent");
+                } else {
+                    // Load Clarity script first, then call consent
+                    loadClarityScript();
+                    // Wait for Clarity to load before calling consent
+                    const clarityCheckInterval = setInterval(() => {
+                        if (window.clarity) {
+                            window.clarity("consent");
+                            clearInterval(clarityCheckInterval);
+                        }
+                    }, 100);
+                    // Clear interval after 5 seconds to prevent infinite checking
+                    setTimeout(() => clearInterval(clarityCheckInterval), 5000);
+                }
+            } else {
+                removeAnalyticsScripts();
+            }
+        };
+
         const cookieConsentConfig = {
             root: '#cookieconsent',
-            
-            // Core settings
             mode: 'opt-in',
             autoShow: true,
             revision: 1,
@@ -77,7 +115,6 @@ export default function Consent() {
             disablePageInteraction: false,
             lazyHtmlGeneration: true,
 
-            // Cookie settings
             cookie: {
                 name: 'cookie_consent_settings',
                 domain: hostname,
@@ -90,7 +127,6 @@ export default function Consent() {
                 useLocalStorage: false
             },
 
-            // Categories configuration
             categories: {
                 necessary: {
                     enabled: true,
@@ -149,18 +185,7 @@ export default function Consent() {
                         clarity: {
                             label: 'Microsoft Clarity',
                             onAccept: () => {
-                                if (typeof window !== 'undefined') {
-                                    const clarityScript = document.createElement('script');
-                                    clarityScript.id = 'clarity-script';
-                                    clarityScript.innerHTML = `
-                                        (function(c,l,a,r,i,t,y){
-                                            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                                            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?consent=1";
-                                            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                                        })(window, document, "clarity", "script", "pd90txeeeg");
-                                    `;
-                                    document.head.appendChild(clarityScript);
-                                }
+                                loadClarityScript();
                             }
                         }
                     }
@@ -179,7 +204,6 @@ export default function Consent() {
                 }
             },
 
-            // GUI Options and translations remain the same as in your original code
             guiOptions: {
                 consentModal: {
                     layout: 'box wide',
@@ -250,14 +274,8 @@ export default function Consent() {
                 console.log('Categories changed:', changedCategories);
                 console.log('New cookie value:', cookie);
 
-                // Handle analytics scripts based on consent
                 if (changedCategories.includes('analytics')) {
-                    const analyticsEnabled = cookie.categories.analytics;
-                    if (analyticsEnabled) {
-                        loadAnalyticsScripts();
-                    } else {
-                        removeAnalyticsScripts();
-                    }
+                    handleAnalyticsConsent(cookie.categories.analytics);
                 }
             },
         };
@@ -265,7 +283,6 @@ export default function Consent() {
         setConfig(cookieConsentConfig as unknown as CookieConsent.CookieConsentConfig);
     }, []);
 
-    // Initialize CookieConsent after config is set
     useEffect(() => {
         if (config && typeof window !== 'undefined') {
             CookieConsent.run(config);
