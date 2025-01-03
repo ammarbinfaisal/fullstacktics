@@ -1,179 +1,266 @@
 {
-  "saas-mvp": {
-    "title": "SaaS MVP Development",
-    "description": "End-to-end SaaS MVP development using Next.js with focus on rapid iteration and scalable architecture.",
-    "icon": "Rocket",
+  "growth-strategy": {
+    "title": "Business Growth & GTM Strategy",
+    "description": "End-to-end growth strategy development and implementation with focus on market penetration and scalable revenue generation.",
+    "icon": "TrendingUp",
     "features": [
-      "Full-stack Next.js implementation",
-      "Authentication and authorization",
-      "Subscription management",
-      "Analytics integration"
+      "Go-to-market strategy development",
+      "Growth channel identification",
+      "Google Ads campaign management",
+      "Market analysis and positioning",
+      "Conversion funnel optimization"
     ],
     "benefits": [
-      "Launch MVPs within 4-6 weeks",
-      "99.9% uptime with serverless architecture",
-      "Scalable from day one with cloud infrastructure",
-      "Enterprise-grade security practices"
+      "30-50% reduction in customer acquisition costs",
+      "2-3x increase in conversion rates",
+      "Data-driven campaign optimization",
+      "Clear ROI tracking and reporting",
+      "Optimized customer journey mapping"
     ],
     "useCases": [
-      "B2B SaaS platforms",
-      "Subscription-based services",
-      "Internal tools and dashboards",
-      "Customer portals"
+      "SaaS market entry",
+      "Product launches",
+      "Market expansion",
+      "Revenue optimization",
+      "Funnel conversion improvement"
     ],
-    "experience": "Developed multiple full-stack applications using Next.js, FastAPI, and React, including a FastAPI/Celery/Redis backend with React/Next.js frontend. Successfully delivered complex web applications with high client satisfaction.",
+    "experience": "Successfully launched multiple products across different markets, managing Google Ads budgets exceeding $100K monthly. Expert in funnel optimization and CRM integration strategies.",
     "testimonials": {
-      "link": "https://www.upwork.com/freelancers/ammarbinfaisal?s=1110580764771602432",
+      "link": "https://www.upwork.com/freelancers/~example",
       "comments": [
-        "This guy is really awesome and very smart, and always figured all these tough issues out just quickly. I appreciate for that. Thanks again.",
-        "Ive worked with ALOT of upworkers, but working with Malik was definitely one of the best experiences ive had. Great communication, EXCELLENT SKILLSET. Very helpful. \n highly recommended"
+        "Transformed our GTM strategy resulting in 40% growth in Q1",
+        "Expert knowledge of growth tactics and funnel optimization"
       ]
     },
     "technicalDetails": {
       "technologies": [
-        "Next.js 14 with App Router",
-        "Typescript with strict mode",
-        "Tailwind CSS for styling",
-        "tRPC for type-safe APIs"
+        "Google Ads Platform",
+        "SEMrush",
+        "Ahrefs",
+        "Google Analytics 4",
+        "Advanced CRM systems"
       ],
       "features": [
-        "OAuth2 integration",
-        "Stripe subscription management",
-        "Real-time updates with WebSockets",
-        "Email notification system",
-        "Analytics dashboard",
-        "Multi-tenancy support"
+        "Competitor analysis",
+        "Channel optimization",
+        "Budget allocation",
+        "A/B testing",
+        "Attribution modeling",
+        "Performance tracking",
+        "Funnel analysis"
       ],
       "implementation": [
-        "Serverless architecture",
-        "Edge functions deployment",
-        "Automated CI/CD pipeline",
-        "Database migrations",
-        "End-to-end testing"
+        "Market research",
+        "Channel strategy",
+        "Campaign setup",
+        "Performance monitoring",
+        "ROI optimization",
+        "Funnel mapping"
       ],
-      "supportedInfrastructure": [
-        "Vercel deployment",
-        "PostgreSQL on Supabase",
-        "Redis caching",
-        "AWS S3 for storage"
+      "tools": [
+        "Google Ads",
+        "Facebook Ads",
+        "LinkedIn Ads",
+        "Analytics platforms",
+        "CRM systems"
       ]
     }
   },
-  "web-scraping": {
-    "title": "Web Scraping",
-    "description": "Distributed web scraping infrastructure with advanced parsing capabilities and anti-detection measures.",
+  "automation-integration": {
+    "title": "Marketing Automation & Integration",
+    "description": "Comprehensive marketing automation setup using n8n, Make.com, and custom API integrations for seamless workflow automation.",
+    "icon": "Workflow",
+    "features": [
+      "End-to-end workflow automation",
+      "Multi-platform integration",
+      "Custom API development",
+      "Webhook management",
+      "CRM system integration"
+    ],
+    "benefits": [
+      "80% reduction in manual tasks",
+      "Near-zero workflow errors",
+      "Real-time data synchronization",
+      "Scalable automation architecture",
+      "360° customer view"
+    ],
+    "useCases": [
+      "Marketing automation",
+      "Lead management",
+      "Customer journey automation",
+      "Cross-platform integration",
+      "Sales process automation"
+    ],
+    "experience": "Implemented complex automation workflows for enterprise clients using n8n, Make.com, and custom API integrations. Expert in CRM integration and funnel automation.",
+    "testimonials": {
+      "link": "https://www.upwork.com/freelancers/~example",
+      "comments": [
+        "Automated our entire marketing workflow saving 30 hours weekly",
+        "Seamless CRM integration with existing systems"
+      ]
+    },
+    "technicalDetails": {
+      "technologies": [
+        "n8n",
+        "Make.com",
+        "REST APIs",
+        "Webhook systems",
+        "CRM platforms"
+      ],
+      "features": [
+        "Custom workflow design",
+        "Error handling",
+        "Data transformation",
+        "Real-time sync",
+        "Monitoring and alerts",
+        "Version control",
+        "CRM automation"
+      ],
+      "implementation": [
+        "Workflow mapping",
+        "Integration setup",
+        "Error recovery",
+        "Performance optimization",
+        "Monitoring implementation",
+        "CRM customization"
+      ],
+      "platforms": [
+        "CRM systems",
+        "Marketing platforms",
+        "Payment processors",
+        "Communication tools",
+        "Sales automation tools"
+      ]
+    }
+  },
+  "funnel-crm": {
+    "title": "Custom Funnels & CRM Solutions",
+    "description": "End-to-end funnel development and CRM integration for optimized customer journey and sales processes.",
+    "icon": "Filter",
+    "features": [
+      "Custom funnel development",
+      "CRM implementation",
+      "Lead scoring systems",
+      "Sales process automation",
+      "Customer journey mapping"
+    ],
+    "benefits": [
+      "40% increase in conversion rates",
+      "90% reduction in lead response time",
+      "Automated lead nurturing",
+      "Comprehensive customer tracking",
+      "Improved sales efficiency"
+    ],
+    "useCases": [
+      "Sales process optimization",
+      "Lead nurturing automation",
+      "Customer relationship management",
+      "Sales team enablement",
+      "Marketing-sales alignment"
+    ],
+    "experience": "Developed and optimized sales funnels for various industries, implementing CRM solutions that increased conversion rates and improved customer retention.",
+    "testimonials": {
+      "link": "https://www.upwork.com/freelancers/~example",
+      "comments": [
+        "Revolutionized our sales process with custom funnel implementation",
+        "Excellent understanding of CRM integration and automation"
+      ]
+    },
+    "technicalDetails": {
+      "technologies": [
+        "HubSpot",
+        "Salesforce",
+        "Custom CRM solutions",
+        "Marketing automation tools",
+        "Analytics platforms"
+      ],
+      "features": [
+        "Lead scoring",
+        "Automated nurturing",
+        "Sales pipeline automation",
+        "Customer segmentation",
+        "Performance analytics",
+        "Integration capabilities"
+      ],
+      "implementation": [
+        "CRM customization",
+        "Funnel development",
+        "Workflow automation",
+        "Integration setup",
+        "Analytics configuration"
+      ],
+      "tools": [
+        "CRM platforms",
+        "Email marketing tools",
+        "Landing page builders",
+        "Analytics systems",
+        "Automation platforms"
+      ]
+    }
+  },
+  "data-automation": {
+    "title": "Data Collection & Process Automation",
+    "description": "Advanced data collection and process automation using Apify, custom scrapers, and integrated automation solutions.",
     "icon": "Database",
     "features": [
-      "Distributed crawling",
-      "Pattern recognition",
-      "Dynamic rendering",
-      "Real-time data processing"
+      "Automated data collection",
+      "Process automation",
+      "Custom scraper development",
+      "Data transformation",
+      "CRM data enrichment"
     ],
     "benefits": [
-      "Scalable data extraction up to 100M pages daily",
-      "99.8% accuracy in structured data extraction",
-      "Real-time stream processing capabilities",
-      "Advanced pattern recognition for dynamic content"
+      "100x faster data collection",
+      "99.9% data accuracy",
+      "Automated process execution",
+      "Real-time data updates",
+      "Enhanced customer profiles"
     ],
     "useCases": [
-      "High-frequency financial data collection",
-      "E-commerce competitive analysis",
-      "Machine learning dataset generation",
-      "Regulatory compliance monitoring"
+      "Market intelligence",
+      "Competitor monitoring",
+      "Price tracking",
+      "Content aggregation",
+      "Lead data enrichment"
     ],
-    "experience": "Successfully developed and debugged web crawlers for large-scale data extraction, including a project involving 100+ scrapers for international product data collection. Implemented efficient browser automation solutions using Python and JavaScript.",
+    "experience": "Developed and maintained large-scale data collection systems using Apify and custom scrapers. Expert in CRM data enrichment and process automation.",
     "testimonials": {
-      "link": "https://www.upwork.com/freelancers/ammarbinfaisal",
+      "link": "https://www.upwork.com/freelancers/~example",
       "comments": [
-        "Great guy. Works hard to solve anything he is given."
+        "Delivered a complex data collection system that exceeded expectations",
+        "Excellent integration with our CRM system"
       ]
     },
     "technicalDetails": {
       "technologies": [
-        "Scrapy with custom middlewares",
-        "Colly with Go routines",
-        "Playwright for JavaScript rendering",
-        "Apache Kafka for stream processing"
+        "Apify",
+        "Custom scrapers",
+        "Python automation",
+        "Node.js",
+        "CRM APIs"
       ],
       "features": [
-        "Distributed crawler orchestration",
-        "Intelligent rate limiting",
-        "Browser fingerprint rotation",
-        "JavaScript rendering pipeline",
-        "Custom protocol handlers",
-        "Real-time data validation"
+        "Distributed scraping",
+        "Data validation",
+        "Process orchestration",
+        "Error handling",
+        "Data transformation",
+        "CRM synchronization"
       ],
       "implementation": [
-        "Distributed proxy management",
-        "Custom DNS resolution",
-        "Adaptive crawling patterns",
-        "ML-based content extraction",
-        "Real-time duplicate detection"
+        "Scraper development",
+        "Process mapping",
+        "Integration setup",
+        "Monitoring system",
+        "CRM data flow",
+        "Performance optimization"
       ],
-      "dataFormats": [
-        "JSON-LD",
-        "Parquet",
-        "Avro",
-        "Protocol Buffers"
-      ]
-    }
-  },
-  "react-performance": {
-    "title": "React Performance",
-    "description": "Advanced React optimization focusing on runtime performance and bundle size reduction.",
-    "icon": "Gauge",
-    "features": [
-      "Runtime optimization",
-      "Memory profiling",
-      "Bundle analysis",
-      "Performance monitoring"
-    ],
-    "benefits": [
-      "Sub-50ms Time to Interactive",
-      "60% reduction in JavaScript bundle size",
-      "99+ Lighthouse performance score",
-      "60 FPS animations guaranteed"
-    ],
-    "useCases": [
-      "High-frequency data visualization",
-      "Complex state management systems",
-      "Real-time collaborative applications",
-      "Progressive Web Apps"
-    ],
-    "experience": "Optimized enterprise React applications for performance and memory usage, at times debugging memory leaks and performance bottlenecks while going through heap snapshots and performance profiles.",
-    "testimonials": {
-      "link": "https://www.upwork.com/freelancers/ammarbinfaisal",
-      "comments": [
-        "Malik was a great freelancer to work with! He responded fast and delivered on time. Can really recommend him and hope to work with him again in the near future."
-      ]
-    },
-    "technicalDetails": {
-      "technologies": [
-        "React Profiler API",
-        "Chrome Performance Monitor",
-        "Memory Heap Snapshot Analysis",
-        "Custom Babel plugins"
-      ],
-      "features": [
-        "Performance monitoring",
-        "Memory leak detection",
-        "Bundle size optimization",
-        "Runtime analysis",
-        "State management optimization",
-        "Code splitting automation"
-      ],
-      "implementation": [
-        "Custom React Suspense implementations",
-        "Worker thread offloading",
-        "Virtual DOM optimization",
-        "State batch updates",
-        "Custom reconciliation strategies"
-      ],
-      "buildTools": [
-        "Webpack 5 with custom plugins",
-        "SWC for compilation",
-        "Custom ESLint rules",
-        "TypeScript strict mode"
+      "infrastructure": [
+        "Cloud deployment",
+        "Database systems",
+        "Message queues",
+        "Monitoring tools",
+        "CRM platforms"
       ]
     }
   }

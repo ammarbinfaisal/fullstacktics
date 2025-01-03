@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="flex max-w-[980px] flex-col items-center gap-4 text-center">
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
           Building{" "}
-          <span className="bg-gradient-to-r from-rose-200 to-pink-200 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
             Exceptional
           </span>{" "}
           Web Solutions

@@ -11,15 +11,15 @@ import {
 const teamData = [
   {
     name: "Malik Ammar Faisal",
-    role: "Systems Architecture Expert",
+    role: "Technical Architecture & Automation Expert",
     expertise: [
-      "Programming Language Design",
-      "Concurrent Systems",
-      "Low-level Programming",
-      "System Architecture"
+      "System Integration Architecture",
+      "Workflow Automation",
+      "Custom API Development",
+      "n8n & Make.com Expert"
     ],
     education: "BTech Computer Science, Amity University",
-    bio: "Full stack developer with deep expertise in systems programming and language design. Creator of innovative concurrent programming solutions and low-level system architectures.",
+    bio: "Expert in building scalable automation systems and integrations. Specializes in developing custom workflows using n8n, Make.com, and various automation tools to streamline business processes and boost efficiency.",
     links: {
       github: "https://github.com/ammarbinfaisal",
       linkedin: "https://linkedin.com/in/malik-ammar-faisal",
@@ -27,16 +27,32 @@ const teamData = [
     }
   },
   {
-    name: "Malik Hammad Faisal",
-    role: "AI & Machine Learning Expert",
+    name: "Abdul Samad Wani",
+    role: "PPC & Growth Strategy Expert",
     expertise: [
-      "Natural Language Processing",
-      "Deep Learning",
-      "Computer Vision",
-      "Competitive Programming"
+      "Google Ads Management",
+      "Performance Marketing",
+      "Data Analysis",
+      "Campaign Optimization"
+    ],
+    education: "Marketing Professional",
+    bio: "Seasoned PPC expert with extensive experience in Google Ads and digital marketing. Specializes in creating and optimizing high-ROI advertising campaigns, with a proven track record of driving business growth through data-driven strategies.",
+    links: {
+      linkedin: "https://linkedin.com",
+      email: "abdul@fullstacktics.com"
+    }
+  },
+  {
+    name: "Malik Hammad Faisal",
+    role: "Data Automation & Analytics Expert",
+    expertise: [
+      "Data Pipeline Automation",
+      "Business Intelligence",
+      "Process Optimization",
+      "Machine Learning Integration"
     ],
     education: "BTech Computer Science, IIT Delhi",
-    bio: "AI specialist with strong academic background and competitive programming achievements. Experienced in developing advanced ML models and NLP solutions.",
+    bio: "Data automation specialist focused on building intelligent systems for business process optimization. Combines ML expertise with automation to create smart, self-improving business systems.",
     links: {
       github: "https://github.com/hammadfaisal",
       linkedin: "https://linkedin.com",
@@ -45,15 +61,15 @@ const teamData = [
   },
   {
     name: "Mohammad Aquib",
-    role: "Web Development Expert",
+    role: "CRM & Integration Specialist",
     expertise: [
-      "Full Stack Development",
-      "PHP/Laravel",
-      "React.js",
-      "Database Design"
+      "CRM Implementation",
+      "Sales Funnel Design",
+      "Process Automation",
+      "System Integration"
     ],
     education: "MCA, Maulana Azad National Urdu University",
-    bio: "Seasoned web developer with 4+ years of experience in building scalable web applications. Specialized in PHP, Laravel, and modern JavaScript frameworks.",
+    bio: "Experienced in implementing and customizing CRM solutions and sales funnels. Specializes in creating seamless integrations between various business systems and automating customer journey workflows.",
     links: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
@@ -64,18 +80,18 @@ const teamData = [
 
 const TeamSection = () => {
   return (
-    <section className="container py-12 md:py-24">
+    <section className="container py-12 md:py-24 mx-auto">
       <div className="flex flex-col items-center gap-4 text-center mb-12">
         <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
-          Meet Our Team
+          Meet Our Expert Team
         </h2>
         <p className="max-w-[900px] text-sm sm:text-base text-muted-foreground">
-          Our team of expert developers brings together deep knowledge in systems architecture, 
-          artificial intelligence, and web development to deliver comprehensive solutions.
+          Our team combines expertise in business growth strategy, PPC management, automation, 
+          and CRM implementation to deliver comprehensive solutions that drive success.
         </p>
       </div>
       
-      <div className="grid px-4 lg:px-12 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid px-4 lg:px-12 gap-8 md:grid-cols-2">
         {teamData.map((member) => (
           <Card key={member.name} className="group relative overflow-hidden">
             <CardHeader className="text-center">
@@ -98,10 +114,12 @@ const TeamSection = () => {
                 </ul>
               </div>
               <div className="flex justify-center gap-4 pt-4 border-t">
-                <a href={member.links.github} className="text-muted-foreground hover:text-primary">
-                  <GithubIcon className="h-5 w-5" />
-                </a>
-                <a href={member.links.linkedin} className="text-muted-foreground hover:text-primary">
+                {member.links.github && (
+                  <a href={member.links.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                    <GithubIcon className="h-5 w-5" />
+                  </a>
+                )}
+                <a href={member.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
                   <LinkedinIcon className="h-5 w-5" />
                 </a>
                 <a href={`mailto:${member.links.email}`} className="text-muted-foreground hover:text-primary">
