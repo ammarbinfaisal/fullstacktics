@@ -6,8 +6,8 @@ import * as CookieConsent from "vanilla-cookieconsent";
 
 declare global {
     interface Window {
-        clarity?: (command: string, ...args: any[]) => void;
-        dataLayer?: any[];
+        clarity?: (command: string, ...args: unknown[]) => void;
+        dataLayer?: unknown[];
     }
 }
 
