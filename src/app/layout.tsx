@@ -15,6 +15,7 @@ const jetBrainsMono = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fullstacktics.com'),
   ...metadataBase.default,
 };
 

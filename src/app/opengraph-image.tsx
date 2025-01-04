@@ -1,4 +1,3 @@
-// app/opengraph-image.tsx
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
@@ -39,12 +38,13 @@ export default async function Image() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '24px',
+            gap: 24,
             marginBottom: 48,
           }}
         >
           <div
             style={{
+              display: 'flex',
               fontSize: 64,
               fontWeight: 700,
               textAlign: 'center',
@@ -52,19 +52,22 @@ export default async function Image() {
               marginBottom: 16,
             }}
           >
-            Transform Your Business with{' '}
-            <span
-              style={{
-                background: 'linear-gradient(to right, #3b82f6, rgba(59, 130, 246, 0.8))',
-                backgroundClip: 'text',
-                color: 'transparent',
-              }}
-            >
-              Intelligent Automation
-            </span>
+            <div style={{ display: 'flex' }}>
+              Transform Your Business with{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(to right, #3b82f6, rgba(59, 130, 246, 0.8))',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                }}
+              >
+                Intelligent Automation
+              </span>
+            </div>
           </div>
           <div
             style={{
+              display: 'flex',
               fontSize: 32,
               color: '#6b7280',
               textAlign: 'center',
@@ -75,39 +78,43 @@ export default async function Image() {
           </div>
         </div>
 
-        {/* Stats Grid */}
+        {/* Stats Container */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '24px',
+            display: 'flex',
             width: '100%',
-            maxWidth: '900px',
+            maxWidth: 900,
+            gap: 24,
+            justifyContent: 'center',
           }}
         >
           {stats.map((stat, index) => (
             <div
               key={index}
               style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
                 background: 'rgba(255, 255, 255, 0.5)',
-                backdropFilter: 'blur(8px)',
-                borderRadius: '12px',
-                padding: '24px',
-                textAlign: 'center',
+                borderRadius: 12,
+                padding: 24,
+                flex: 1,
               }}
             >
               <div
                 style={{
+                  display: 'flex',
                   fontSize: 36,
                   fontWeight: 700,
                   color: '#3b82f6',
-                  marginBottom: '8px',
+                  marginBottom: 8,
                 }}
               >
                 {stat.value}
               </div>
               <div
                 style={{
+                  display: 'flex',
                   fontSize: 16,
                   color: '#6b7280',
                 }}
@@ -125,11 +132,12 @@ export default async function Image() {
             bottom: 40,
             display: 'flex',
             alignItems: 'center',
-            gap: '12px',
+            gap: 12,
           }}
         >
           <div
             style={{
+              display: 'flex',
               fontSize: 24,
               fontWeight: 600,
               color: '#111827',
