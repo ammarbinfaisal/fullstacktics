@@ -1,11 +1,6 @@
 import Cal from "@/app/Cal";
 import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { ArrowRight, Code2, Download, Rocket } from "lucide-react";
+import { ArrowRight, Code2, Rocket } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
