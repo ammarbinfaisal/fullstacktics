@@ -27,21 +27,22 @@ export default function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="p-4 bg-background/50 rounded-lg backdrop-blur-sm">
               <div className="text-3xl font-bold text-primary">80%</div>
-              <p className="text-sm text-muted-foreground">Manual Tasks Reduced</p>
+              <p className="text-sm text-muted-foreground">⚡ Manual Tasks Reduced</p>
             </div>
             <div className="p-4 bg-background/50 rounded-lg backdrop-blur-sm">
               <div className="text-3xl font-bold text-primary">$12k+</div>
-              <p className="text-sm text-muted-foreground">Yearly Tool Savings</p>
+              <p className="text-sm text-muted-foreground">💰 Yearly Tool Savings</p>
             </div>
             <div className="p-4 bg-background/50 rounded-lg backdrop-blur-sm">
               <div className="text-3xl font-bold text-primary">14</div>
-              <p className="text-sm text-muted-foreground">Days Implementation</p>
+              <p className="text-sm text-muted-foreground">🚀 Days Implementation</p>
             </div>
             <div className="p-4 bg-background/50 rounded-lg backdrop-blur-sm">
               <div className="text-3xl font-bold text-primary">100+</div>
-              <p className="text-sm text-muted-foreground">Clients Automated</p>
+              <p className="text-sm text-muted-foreground">✅ Clients Automated</p>
             </div>
           </div>
+          <span className="text-sm text-muted-foreground my-12">* Results based on average client data</span>
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

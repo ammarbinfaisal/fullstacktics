@@ -1,4 +1,3 @@
-// app/about/opengraph-image.tsx
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
@@ -63,11 +62,11 @@ export default async function Image() {
           Combining expertise in automation, growth, and data to drive business success
         </div>
 
-        {/* Expertise Grid */}
+        {/* Expertise Container using Flexbox */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            display: 'flex',
+            flexWrap: 'wrap',
             gap: '16px',
             width: '100%',
           }}
@@ -81,6 +80,8 @@ export default async function Image() {
                 gap: '12px',
                 fontSize: 24,
                 color: '#374151',
+                width: 'calc(50% - 8px)', // Subtracting half of the gap to maintain two columns
+                flexShrink: 0,
               }}
             >
               <div
