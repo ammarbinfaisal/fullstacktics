@@ -1,100 +1,104 @@
-import { TrendingUp, Database, Workflow, Filter } from "lucide-react";
+import { ArrowRight, Boxes, Download, GitMerge, Timer } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'; 
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Link from "next/link";
-import servicesData from "@/app/services.json";
-import { Button } from "./ui/button";
 
 export default function Services() {
-  const services = Object.entries(servicesData).map(([key, service]) => ({
-    slug: key,
-    ...service,
-  }));
-
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case "TrendingUp":
-        return <TrendingUp className="h-5 w-5 text-primary" />;
-      case "Database":
-        return <Database className="h-5 w-5 text-primary" />;
-      case "Workflow":
-        return <Workflow className="h-5 w-5 text-primary" />;
-      case "Filter":
-        return <Filter className="h-5 w-5 text-primary" />;
-      default:
-        return <TrendingUp className="h-5 w-5 text-primary" />;
-    }
-  };
-
   return (
-    <section id="services" className="container py-12 md:py-24 flex flex-col gap-8">
-      <div className="flex flex-col items-center gap-4 text-center">
-        <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
-          Business Growth Solutions
+    <section id="services" className="container py-24">
+      <div className="flex flex-col items-center gap-4 text-center mb-16">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          Stop Letting These Problems Hold Your Business Back
         </h2>
-        <p className="max-w-[900px] text-sm sm:text-base text-muted-foreground">
-          Comprehensive business growth, automation, and CRM solutions to help your
-          business scale efficiently in the digital landscape.
+        <p className="max-w-[900px] text-lg text-muted-foreground">
+          We've helped hundreds of businesses overcome these common challenges
         </p>
       </div>
-      <div className="grid gap-6 pt-8 sm:pt-12 sm:grid-cols-2">
-        {services.map((service) => (
-          <Link key={service.title} href={`/services/${service.slug}`}>
-            <Card
-              key={service.title}
-              className="group relative overflow-hidden h-full min-h-[450px]"
-            >
-              <CardHeader>
-                <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
-                  {getIcon(service.icon)}
-                </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-                <CardDescription className="text-sm">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-col justify-between gap-4">
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-medium">Key Features:</h4>
-                    <ul className="grid gap-2">
-                      {service.features.slice(0, 4).map((feature) => (
-                        <li key={feature} className="flex items-center gap-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="space-y-3">
-                    <h4 className="text-sm font-medium">Benefits:</h4>
-                    <ul className="grid gap-2">
-                      {service.benefits.slice(0, 2).map((benefit) => (
-                        <li key={benefit} className="flex items-center gap-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-primary/70" />
-                          <span className="text-sm text-muted-foreground">
-                            {benefit}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <Button size="sm" className="w-full mt-4">
-                    Learn More
-                  </Button>
-                </div>
-              </CardContent>
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors" />
-            </Card>
-          </Link>
+
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {painPoints.map((point, index) => (
+          <Card key={index} className="relative overflow-hidden">
+            <CardHeader>
+              <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
+                {point.icon}
+              </div>
+              <CardTitle>{point.title}</CardTitle>
+              <CardDescription>{point.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <h4 className="text-sm font-medium">Our Solution:</h4>
+                <p className="text-sm text-muted-foreground">{point.solution}</p>
+              </div>
+            </CardContent>
+            <div className="absolute bottom-4 right-4">
+              <Button variant="ghost" size="sm">
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </Card>
         ))}
       </div>
+
+      {/* Lead magnet callout */}
+      <div className="mt-16 bg-muted rounded-lg p-8 text-center">
+        <h3 className="text-2xl font-bold mb-4">
+          Get Your Free Integration Cost Savings Calculator
+        </h3>
+        <p className="text-muted-foreground mb-6">
+          See exactly how much you could save by switching to custom integrations
+        </p>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button size="lg">
+              Download Calculator <Download className="ml-2 h-4 w-4" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Get Your Cost Savings Calculator</DialogTitle>
+              <DialogDescription>
+                Enter your details below to receive your custom ROI calculator
+              </DialogDescription>
+            </DialogHeader>
+            <form className="space-y-4 mt-4">
+              <input
+                type="email"
+                placeholder="Business Email"
+                className="w-full px-4 py-2 rounded-md border"
+              />
+              <input
+                type="text"
+                placeholder="Monthly SaaS Tool Spend"
+                className="w-full px-4 py-2 rounded-md border"
+              />
+              <Button type="submit" className="w-full">Get Calculator</Button>
+            </form>
+          </DialogContent>
+        </Dialog>
+      </div>
     </section>
-  );
+  )
 }
+
+const painPoints = [
+  {
+    title: "Drowning in SaaS Subscriptions",
+    description: "Paying thousands monthly for tools that don't fully meet your needs",
+    solution: "Custom-built integrations that replace 5-10 tools with one solution",
+    icon: <Boxes className="h-5 w-5 text-primary" />
+  },
+  {
+    title: "Manual Data Entry Hell",
+    description: "Wasting hours copying data between different platforms",
+    solution: "Automated data flow between all your business tools",
+    icon: <Timer className="h-5 w-5 text-primary" />
+  },
+  {
+    title: "Complex Marketing Funnels",
+    description: "Struggling with expensive funnel builders and complex setups",
+    solution: "Custom-coded funnels that you own and control completely",
+    icon: <GitMerge className="h-5 w-5 text-primary" />
+  }
+];

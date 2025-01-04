@@ -21,6 +21,9 @@ import {
   Cpu,
   Network,
   Shield,
+  TrendingUp,
+  Filter,
+  Workflow,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Cal from "./Cal";
@@ -33,6 +36,9 @@ const icons = {
   Database: Database,
   Gauge: Gauge,
   Rocket: Rocket,
+  TrendingUp: TrendingUp,
+  Workflow: Workflow,
+  Filter: Filter,
 };
 
 interface TechnicalDetails {
@@ -88,10 +94,10 @@ const formatTabLabel = (tab: string) => {
 const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
   let iconsKey: keyof typeof icons;
   switch (serviceData.icon) {
-    case "Bot":
+    case "Filter":
     case "Database":
-    case "Gauge":
-    case "Rocket":
+    case "Workflow":
+    case "TrendingUp":
       iconsKey = serviceData.icon as keyof typeof icons;
       break;
     default:
@@ -261,14 +267,15 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Cal className="group">
-                Schedule Technical Consultation
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <Cal>
+                <Button size="lg" className="text-base gap-2 group">
+                  Schedule Technical Consultation
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </Cal>
             </CardContent>
           </Card>
         </div>
-        <Contact />
       </div>
     </>
   );

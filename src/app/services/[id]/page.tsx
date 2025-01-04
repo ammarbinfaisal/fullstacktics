@@ -1,5 +1,5 @@
 import servicesData from '@/app/services.json';
-import ServicePageTemplate from '../service';
+import ServicePageTemplate from '../../service';
 import { notFound } from 'next/navigation';
 
 async function ServiceIndividual({
@@ -7,7 +7,9 @@ async function ServiceIndividual({
 }: {
     params: Promise<{ id: string }>;
 }) {
-    const { id } = await params;
+    const p = await params;
+    const { id } = p;
+    console.log(p);
     const services = Object.entries(servicesData).map(([key, service]) => ({
         slug: key,
         ...service
@@ -16,10 +18,11 @@ async function ServiceIndividual({
     const service = services.find((service) => service.slug === id);
 
     if (!service) {
+        console.error(`Service with id ${id} not found`);
         notFound();
     }
 
-    return <ServicePageTemplate serviceData={service} />;   
+    return <ServicePageTemplate serviceData={service} />;
 }
 
 

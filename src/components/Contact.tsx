@@ -43,9 +43,11 @@ export default function Contact() {
           Ready to get started?
         </h2>
         <div className="flex flex-col items-center gap-4 text-center">
-          <Cal className="group">
-            Schedule Technical Consultation
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          <Cal>
+            <Button className="group">
+              Schedule Technical Consultation
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </Cal>
         </div>
       </div>

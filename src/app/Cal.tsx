@@ -25,12 +25,12 @@ const Cal = ({
     }, []);
 
     return (
-        <Button className={className} data-cal-namespace="consultation"
+        <div className={className} data-cal-namespace="consultation"
             data-cal-link="fullstacktics/consultation"
             data-cal-config='{"layout":"month_view"}'
         >
             {children}
-        </Button>
+        </div>
     )
 }
 
