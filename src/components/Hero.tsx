@@ -3,12 +3,10 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { ArrowRight, Download, CheckCircle, Zap } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -73,9 +71,9 @@ export default function Hero() {
 
           {/* Integration logos */}
           <div className="flex justify-center items-center flex-wrap justify-center gap-8 opacity-70">
-            <img src="/make-logo.svg" alt="Make.com" className="h-4" />
-            <img src="/n8n-logo.svg" alt="n8n" className="h-8" />
-            <img src="/sheets-logo.svg" alt="Google Sheets" className="h-6" />
+            <Image src="/make-logo.svg" alt="Make.com" className="h-4" />
+            <Image src="/n8n-logo.svg" alt="n8n" className="h-8" />
+            <Image src="/sheets-logo.svg" alt="Google Sheets" className="h-6" />
           </div>
         </div>
       </div>

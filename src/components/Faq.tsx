@@ -40,7 +40,7 @@ export default function Process() {
       </div>
 
       <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto px-12">
-        {steps.map((step, index) => (
+        {steps.map((step) => (
           <div key={step.title} className="relative">
             <div className="flex flex-col items-center text-center">
               <div className="mb-4 rounded-full bg-primary/10 p-4">

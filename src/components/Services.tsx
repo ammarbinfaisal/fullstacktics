@@ -12,7 +12,7 @@ export default function Services() {
           Stop Letting These Problems Hold Your Business Back
         </h2>
         <p className="max-w-[900px] text-lg text-muted-foreground">
-          We've helped hundreds of businesses overcome these common challenges
+          We&apos;ve helped hundreds of businesses overcome these common challenges
         </p>
       </div>
 
