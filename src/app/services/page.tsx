@@ -4,6 +4,11 @@ import servicesData from '@/app/services.json';
 import { ArrowRight, Database, Filter, TrendingUp, Workflow } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Cal from "../Cal";
+import { metadataBase } from '../meta';
+
+export const metadata = {
+  ...metadataBase.pages.solutions.default
+};
 
 const iconMap = {
   "growth-strategy": TrendingUp,

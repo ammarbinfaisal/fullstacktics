@@ -7,6 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { metadataBase } from '../meta';
+
+export const metadata = {
+  ...metadataBase.pages.about,
+};
 
 const teamData = [
   {

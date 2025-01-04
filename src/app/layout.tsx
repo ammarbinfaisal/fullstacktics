@@ -7,14 +7,15 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Consent from "./consent";
+import { metadataBase } from "./meta";
 
 const jetBrainsMono = Outfit({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
+
 export const metadata: Metadata = {
-  title: "Fullstacktics - Software Development Agency",
-  description: "We build high-performance web applications and websites.",
+  ...metadataBase.default,
 };
 
 export default function RootLayout({

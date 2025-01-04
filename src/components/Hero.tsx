@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Code2, Download, Rocket } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
@@ -56,24 +56,14 @@ export default function Hero() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Cal>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button size="lg" variant="outline" className="text-base gap-2">
-                  Get ROI Calculator
-                  <Download className="h-4 w-4" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                {/* ROI Calculator Form */}
-              </DialogContent>
-            </Dialog>
           </div>
 
           {/* Integration logos */}
           <div className="flex justify-center items-center flex-wrap justify-center gap-8 opacity-70">
-            <Image src="/make-logo.svg" alt="Make.com" className="h-4" />
-            <Image src="/n8n-logo.svg" alt="n8n" className="h-8" />
-            <Image src="/sheets-logo.svg" alt="Google Sheets" className="h-6" />
+            <Rocket className="h-8 w-8" />
+            <Image width={87} height={141} src="/make-logo.svg" alt="Make.com" className="w-16" />
+            <Image width={500} height={200} src="/n8n-logo.svg" alt="n8n" className="w-16" />
+            <Code2 className="h-8 w-8" />
           </div>
         </div>
       </div>
