@@ -10,7 +10,6 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
-  // Hardcoded team expertise areas for the OG image
   const expertiseAreas = [
     'Technical Architecture',
     'Workflow Automation',
@@ -62,39 +61,77 @@ export default async function Image() {
           Combining expertise in automation, growth, and data to drive business success
         </div>
 
-        {/* Expertise Container using Flexbox */}
+        {/* Expertise Container */}
         <div
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
-            gap: '16px',
+            flexDirection: 'column',
             width: '100%',
+            gap: 16,
           }}
         >
-          {expertiseAreas.map((expertise, index) => (
-            <div
-              key={index}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                fontSize: 24,
-                color: '#374151',
-                width: 'calc(50% - 8px)', // Subtracting half of the gap to maintain two columns
-                flexShrink: 0,
-              }}
-            >
+          <div
+            style={{
+              display: 'flex',
+              width: '100%',
+              gap: 16,
+            }}
+          >
+            {expertiseAreas.slice(0, 3).map((expertise, index) => (
               <div
+                key={index}
                 style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '50%',
-                  background: '#3b82f6',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  fontSize: 24,
+                  color: '#374151',
+                  flex: 1,
                 }}
-              />
-              {expertise}
-            </div>
-          ))}
+              >
+                <div
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: '#3b82f6',
+                  }}
+                />
+                {expertise}
+              </div>
+            ))}
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              width: '100%',
+              gap: 16,
+            }}
+          >
+            {expertiseAreas.slice(3).map((expertise, index) => (
+              <div
+                key={index}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  fontSize: 24,
+                  color: '#374151',
+                  flex: 1,
+                }}
+              >
+                <div
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: '#3b82f6',
+                  }}
+                />
+                {expertise}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Brand Footer */}
@@ -104,7 +141,7 @@ export default async function Image() {
             bottom: 80,
             display: 'flex',
             alignItems: 'center',
-            gap: '16px',
+            gap: 16,
           }}
         >
           <div
