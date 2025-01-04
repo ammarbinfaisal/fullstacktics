@@ -11,7 +11,7 @@ export default function Hero() {
 
       <div className="flex flex-col items-center gap-8 py-20">
         <div className="max-w-[980px] text-center">
-          <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1] mb-6">
+          <h1 className="text-3xl lg:text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1] mb-6">
             Transform Your Business with{" "}
             <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
               Intelligent Automation
