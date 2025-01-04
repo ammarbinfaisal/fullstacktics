@@ -103,10 +103,7 @@ export default function Navbar() {
             </NavigationMenu>
             
             <nav className="flex items-center gap-6">
-              <Link href="/pricing" className="text-sm font-medium hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
+              <Link href="/team" className="text-sm font-medium hover:text-primary transition-colors">
                 About
               </Link>
               <Link href="/contact">
