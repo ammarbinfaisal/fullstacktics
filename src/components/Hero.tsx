@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="container relative mx-auto">
+    <section className="container relative mx-auto py-24">
       {/* Gradient background with subtle animation */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/2 to-transparent -z-10" />
 
