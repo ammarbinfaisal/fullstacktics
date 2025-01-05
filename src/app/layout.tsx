@@ -58,7 +58,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@/dist/cookieconsent.css" />
 
         <Script
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           id="gtm"
           dangerouslySetInnerHTML={{
             __html: `
@@ -72,7 +72,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ></Script>
         <Script
           id="gtag"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=AW-11298597203"
         />
         <GoogleAnalytics gaId="AW-11298597203" />
