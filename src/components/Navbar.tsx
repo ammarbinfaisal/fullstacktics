@@ -31,23 +31,12 @@ export default function Navbar() {
     ...service
   }));
 
-  const resources = [
-    {
-      title: "Documentation",
-      description: "Integration guides and tutorials",
-      href: "/resources/docs"
-    },
-    {
-      title: "Case Studies",
-      description: "Success stories and results",
-      href: "/resources/cases"
-    }
-  ];
+  // const resources = [
+  // ];
 
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
-    }`}>
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      }`}>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex h-16 items-center justify-between'>
           {/* Logo */}
@@ -80,7 +69,7 @@ export default function Navbar() {
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                {/* <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-sm">Resources</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-4 w-[400px]">
@@ -98,10 +87,10 @@ export default function Navbar() {
                       ))}
                     </div>
                   </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
               </NavigationMenuList>
             </NavigationMenu>
-            
+
             <nav className="flex items-center gap-6">
               <Link href="/team" className="text-sm font-medium hover:text-primary transition-colors">
                 About

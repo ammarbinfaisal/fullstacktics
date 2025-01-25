@@ -90,6 +90,99 @@ const formatTabLabel = (tab: string) => {
     .join(' ');
 };
 
+const TechnicalSpecifications = ({ technicalDetails }: {
+  technicalDetails: TechnicalDetails;
+}) => {
+  const getTechTabs = () => {
+    return Object.entries(technicalDetails).map(([key, value]) => {
+      if (typeof value === 'object' && !Array.isArray(value)) {
+        const nestedItems = Object.entries(value).flatMap(([nestedKey, nestedValue]) =>
+          Array.isArray(nestedValue)
+            ? nestedValue.map(item => ({ category: nestedKey, content: item }))
+            : [{ category: nestedKey, content: nestedValue }]
+        );
+        return {
+          value: key,
+          label: formatTabLabel(key),
+          icon: getTabIcon(key),
+          items: nestedItems,
+        };
+      }
+
+      return {
+        value: key,
+        label: formatTabLabel(key),
+        icon: getTabIcon(key),
+        items: (value as string[]).map(item => ({ content: item })),
+      };
+    });
+  };
+
+  const formatTabLabel = (tab: string) => {
+    return tab
+      .split(/(?=[A-Z])/)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  return (
+    <Card className="mb-8">
+      <CardHeader>
+        <CardTitle className="text-2xl text-primary text-center">
+          Technical Specifications
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="px-0 sm:px-6">
+        <Tabs defaultValue={getTechTabs()[0].value} className="w-full">
+          <div className="mb-6 overflow-x-auto">
+            <TabsList className="inline-flex w-auto p-1 h-auto gap-1">
+              {getTechTabs().map((tab) => {
+                const IconComponent = tab.icon;
+                return (
+                  <TabsTrigger
+                    key={tab.value}
+                    value={tab.value}
+                    className="flex items-center px-4 py-2 gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                  >
+                    <IconComponent className="w-4 h-4" />
+                    <span className="hidden sm:inline">{tab.label}</span>
+                  </TabsTrigger>
+                );
+              })}
+            </TabsList>
+          </div>
+
+          {getTechTabs().map((tab) => (
+            <TabsContent
+              key={tab.value}
+              value={tab.value}
+              className="mt-0 px-4 sm:px-0"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {tab.items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-muted/50 rounded-lg p-4 hover:bg-muted/70 transition-colors"
+                  >
+                    <div className="flex items-start gap-3">
+                      <tab.icon className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div className="space-y-1">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {item.content}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </CardContent>
+    </Card>
+  );
+};
+
 const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
   let iconsKey: keyof typeof icons;
   switch (serviceData.icon) {
@@ -222,39 +315,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
             </Card>
           </div>
 
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="text-2xl text-primary">Technical Specifications</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue={getTechTabs()[0].value} className="w-full grid grid-cols-1 lg:grid-cols-4 gap-4">
-                <TabsList className="grid w-full h-full grid-row-4 grid-cols-1 gap-4 overflow-x-auto">
-                  {getTechTabs().map((tab) => (
-                    <TabsTrigger key={tab.value} value={tab.value}>
-                      <tab.icon className="w-4 h-4 mr-2" />
-                      {tab.label}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-
-                {getTechTabs().map((tab) => (
-                  <TabsContent key={tab.value} value={tab.value} className="lg:col-span-3 col-span-1">
-                    <div className="grid sm:grid-cols-2 gap-4 p-4">
-                      {tab.items.map((item) => (
-                        <div
-                          key={item}
-                          className="flex items-start gap-2 text-muted-foreground"
-                        >
-                          <tab.icon className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </TabsContent>
-                ))}
-              </Tabs>
-            </CardContent>
-          </Card>
+          <TechnicalSpecifications technicalDetails={serviceData.technicalDetails} />
 
           <Card>
             <CardHeader>
