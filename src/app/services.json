@@ -193,5 +193,68 @@
         "Documentation tools"
       ]
     }
+  },
+  "system-integration": {
+    "title": "System Integration",
+    "description": "Connect and automate data flow between all your business tools and platforms",
+    "icon": "GitBranch",
+    "features": [
+      "Cross-platform integration",
+      "Custom code actions",
+      "Advanced routing"
+    ],
+    "benefits": [
+      "Real-time sync",
+      "Zero downtime",
+      "Custom logic",
+      "Seamless connectivity",
+      "Enhanced efficiency"
+    ],
+    "useCases": [
+      "Enterprise system integration",
+      "API connectivity",
+      "Data flow automation",
+      "Platform synchronization",
+      "Legacy system integration"
+    ],
+    "experience": "Extensive experience in connecting diverse business systems and platforms, ensuring seamless data flow and process automation.",
+    "testimonials": {
+      "link": "https://www.upwork.com/freelancers/~example",
+      "comments": [
+        "Successfully integrated our complex enterprise systems",
+        "Excellent implementation of cross-platform connectivity"
+      ]
+    },
+    "technicalDetails": {
+      "technologies": [
+        "REST APIs",
+        "GraphQL",
+        "WebSockets",
+        "Message Queues",
+        "ESB"
+      ],
+      "features": [
+        "Real-time synchronization",
+        "Error handling and recovery",
+        "Data transformation",
+        "Performance optimization",
+        "Security implementation",
+        "Monitoring and logging"
+      ],
+      "implementation": [
+        "System analysis",
+        "Architecture design",
+        "API development",
+        "Integration testing",
+        "Performance tuning",
+        "Documentation"
+      ],
+      "tools": [
+        "API gateways",
+        "Integration platforms",
+        "Monitoring tools",
+        "Testing suites"
+      ]
+    }
   }
 }

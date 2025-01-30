@@ -33,6 +33,7 @@ const icons = {
   Database: Database,
   Settings: Settings,
   Workflow: Workflow,
+  GitBranch: GitBranch,
 };
 
 interface ServiceData {
@@ -106,10 +107,12 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
     case "Database":
     case "Workflow":
     case "TrendingUp":
+    case "GitBranch":
+    case "Settings":
       iconsKey = serviceData.icon as keyof typeof icons;
       break;
     default:
-      throw new Error("Invalid icon");
+      throw new Error("Invalid icon " + serviceData.icon);
   }
   const IconComponent = icons[iconsKey];
 
