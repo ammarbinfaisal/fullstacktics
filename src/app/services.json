@@ -1,266 +1,196 @@
 {
-  "growth-strategy": {
-    "title": "Business Growth & GTM Strategy",
-    "description": "End-to-end growth strategy development and implementation with focus on market penetration and scalable revenue generation.",
-    "icon": "TrendingUp",
-    "features": [
-      "Go-to-market strategy development",
-      "Growth channel identification",
-      "Google Ads campaign management",
-      "Market analysis and positioning",
-      "Conversion funnel optimization"
-    ],
-    "benefits": [
-      "30-50% reduction in customer acquisition costs",
-      "2-3x increase in conversion rates",
-      "Data-driven campaign optimization",
-      "Clear ROI tracking and reporting",
-      "Optimized customer journey mapping"
-    ],
-    "useCases": [
-      "SaaS market entry",
-      "Product launches",
-      "Market expansion",
-      "Revenue optimization",
-      "Funnel conversion improvement"
-    ],
-    "experience": "Successfully launched multiple products across different markets, managing Google Ads budgets exceeding $100K monthly. Expert in funnel optimization and CRM integration strategies.",
-    "testimonials": {
-      "link": "https://www.upwork.com/freelancers/~example",
-      "comments": [
-        "Transformed our GTM strategy resulting in 40% growth in Q1",
-        "Expert knowledge of growth tactics and funnel optimization"
-      ]
-    },
-    "technicalDetails": {
-      "technologies": [
-        "Google Ads Platform",
-        "SEMrush",
-        "Ahrefs",
-        "Google Analytics 4",
-        "Advanced CRM systems"
-      ],
-      "features": [
-        "Competitor analysis",
-        "Channel optimization",
-        "Budget allocation",
-        "A/B testing",
-        "Attribution modeling",
-        "Performance tracking",
-        "Funnel analysis"
-      ],
-      "implementation": [
-        "Market research",
-        "Channel strategy",
-        "Campaign setup",
-        "Performance monitoring",
-        "ROI optimization",
-        "Funnel mapping"
-      ],
-      "tools": [
-        "Google Ads",
-        "Facebook Ads",
-        "LinkedIn Ads",
-        "Analytics platforms",
-        "CRM systems"
-      ]
-    }
-  },
   "automation-integration": {
-    "title": "Marketing Automation & Integration",
-    "description": "Comprehensive marketing automation setup using n8n, Make.com, and custom API integrations for seamless workflow automation.",
+    "title": "Advanced Platform Automation",
+    "description": "Enterprise-grade automation solutions using Make.com, n8n, and Zapier for seamless workflow optimization across Airtable, Monday.com, and Google Workspace.",
     "icon": "Workflow",
     "features": [
-      "End-to-end workflow automation",
-      "Multi-platform integration",
-      "Custom API development",
-      "Webhook management",
-      "CRM system integration"
+      "Cross-platform workflow automation",
+      "Custom API and webhook integration",
+      "Complex data transformation",
+      "Real-time sync automation",
+      "Custom code actions"
     ],
     "benefits": [
-      "80% reduction in manual tasks",
-      "Near-zero workflow errors",
-      "Real-time data synchronization",
-      "Scalable automation architecture",
-      "360° customer view"
+      "90% reduction in manual operations",
+      "Error-free data synchronization",
+      "Streamlined business processes",
+      "Real-time data orchestration",
+      "Automated reporting and analytics"
     ],
     "useCases": [
-      "Marketing automation",
-      "Lead management",
-      "Customer journey automation",
-      "Cross-platform integration",
-      "Sales process automation"
+      "CRM data synchronization",
+      "Project management automation",
+      "Document workflow automation",
+      "Lead management systems",
+      "Inventory tracking automation"
     ],
-    "experience": "Implemented complex automation workflows for enterprise clients using n8n, Make.com, and custom API integrations. Expert in CRM integration and funnel automation.",
+    "experience": "Built sophisticated automation systems using Make.com, n8n, and Zapier, integrating with Airtable, Monday.com, and Google Workspace for enterprise-scale operations.",
     "testimonials": {
       "link": "https://www.upwork.com/freelancers/~example",
       "comments": [
-        "Automated our entire marketing workflow saving 30 hours weekly",
-        "Seamless CRM integration with existing systems"
+        "Transformed our operations with efficient automation, reducing manual work by 85%",
+        "Exceptional implementation of cross-platform automation systems"
       ]
     },
     "technicalDetails": {
-      "technologies": [
-        "n8n",
-        "Make.com",
-        "REST APIs",
-        "Webhook systems",
-        "CRM platforms"
-      ],
-      "features": [
-        "Custom workflow design",
-        "Error handling",
-        "Data transformation",
-        "Real-time sync",
-        "Monitoring and alerts",
-        "Version control",
-        "CRM automation"
-      ],
-      "implementation": [
-        "Workflow mapping",
-        "Integration setup",
-        "Error recovery",
-        "Performance optimization",
-        "Monitoring implementation",
-        "CRM customization"
-      ],
       "platforms": [
-        "CRM systems",
-        "Marketing platforms",
-        "Payment processors",
-        "Communication tools",
-        "Sales automation tools"
-      ]
-    }
-  },
-  "funnel-crm": {
-    "title": "Custom Funnels & CRM Solutions",
-    "description": "End-to-end funnel development and CRM integration for optimized customer journey and sales processes.",
-    "icon": "Filter",
-    "features": [
-      "Custom funnel development",
-      "CRM implementation",
-      "Lead scoring systems",
-      "Sales process automation",
-      "Customer journey mapping"
-    ],
-    "benefits": [
-      "40% increase in conversion rates",
-      "90% reduction in lead response time",
-      "Automated lead nurturing",
-      "Comprehensive customer tracking",
-      "Improved sales efficiency"
-    ],
-    "useCases": [
-      "Sales process optimization",
-      "Lead nurturing automation",
-      "Customer relationship management",
-      "Sales team enablement",
-      "Marketing-sales alignment"
-    ],
-    "experience": "Developed and optimized sales funnels for various industries, implementing CRM solutions that increased conversion rates and improved customer retention.",
-    "testimonials": {
-      "link": "https://www.upwork.com/freelancers/~example",
-      "comments": [
-        "Revolutionized our sales process with custom funnel implementation",
-        "Excellent understanding of CRM integration and automation"
-      ]
-    },
-    "technicalDetails": {
-      "technologies": [
-        "HubSpot",
-        "Salesforce",
-        "Custom CRM solutions",
-        "Marketing automation tools",
-        "Analytics platforms"
+        "Make.com (formerly Integromat)",
+        "n8n",
+        "Zapier"
+      ],
+      "integrations": [
+        "Airtable",
+        "Monday.com",
+        "Google Workspace",
+        "Custom REST APIs",
+        "Webhooks"
       ],
       "features": [
-        "Lead scoring",
-        "Automated nurturing",
-        "Sales pipeline automation",
-        "Customer segmentation",
-        "Performance analytics",
-        "Integration capabilities"
+        "Custom code actions (JavaScript/Python)",
+        "Advanced data mapping",
+        "Error handling and retry logic",
+        "Conditional workflow routing",
+        "Real-time webhooks",
+        "Version control",
+        "Monitoring and logging"
       ],
       "implementation": [
-        "CRM customization",
-        "Funnel development",
-        "Workflow automation",
-        "Integration setup",
-        "Analytics configuration"
-      ],
-      "tools": [
-        "CRM platforms",
-        "Email marketing tools",
-        "Landing page builders",
-        "Analytics systems",
-        "Automation platforms"
+        "System architecture design",
+        "Custom API integration",
+        "Data transformation logic",
+        "Error recovery systems",
+        "Performance monitoring",
+        "Documentation"
       ]
     }
   },
-  "data-automation": {
-    "title": "Data Collection & Process Automation",
-    "description": "Advanced data collection and process automation using Apify, custom scrapers, and integrated automation solutions.",
+  "data-management": {
+    "title": "Data Management & Integration",
+    "description": "End-to-end data management solutions focusing on seamless integration between different platforms and databases.",
     "icon": "Database",
     "features": [
-      "Automated data collection",
-      "Process automation",
-      "Custom scraper development",
-      "Data transformation",
-      "CRM data enrichment"
+      "Automated data synchronization",
+      "Custom data transformation",
+      "Real-time data validation",
+      "Automated backup systems",
+      "Cross-platform data mapping"
     ],
     "benefits": [
-      "100x faster data collection",
-      "99.9% data accuracy",
-      "Automated process execution",
-      "Real-time data updates",
-      "Enhanced customer profiles"
+      "100% data accuracy",
+      "Real-time synchronization",
+      "Automated data validation",
+      "Streamlined operations",
+      "Reduced manual entry"
     ],
     "useCases": [
-      "Market intelligence",
-      "Competitor monitoring",
-      "Price tracking",
-      "Content aggregation",
-      "Lead data enrichment"
+      "Database synchronization",
+      "Automated reporting",
+      "Data transformation pipelines",
+      "Cross-platform integration",
+      "Custom API development"
     ],
-    "experience": "Developed and maintained large-scale data collection systems using Apify and custom scrapers. Expert in CRM data enrichment and process automation.",
+    "experience": "Developed robust data management solutions with custom integrations across multiple platforms and databases.",
     "testimonials": {
       "link": "https://www.upwork.com/freelancers/~example",
       "comments": [
-        "Delivered a complex data collection system that exceeded expectations",
-        "Excellent integration with our CRM system"
+        "Exceptional data integration system that eliminated manual entry",
+        "Impressive automation of complex data workflows"
       ]
     },
     "technicalDetails": {
       "technologies": [
-        "Apify",
-        "Custom scrapers",
-        "Python automation",
-        "Node.js",
-        "CRM APIs"
+        "REST APIs",
+        "JavaScript/Node.js",
+        "Python",
+        "SQL",
+        "NoSQL"
       ],
       "features": [
-        "Distributed scraping",
+        "Custom API development",
         "Data validation",
-        "Process orchestration",
         "Error handling",
-        "Data transformation",
-        "CRM synchronization"
+        "Automated testing",
+        "Performance optimization",
+        "Documentation"
       ],
       "implementation": [
-        "Scraper development",
-        "Process mapping",
-        "Integration setup",
-        "Monitoring system",
-        "CRM data flow",
-        "Performance optimization"
+        "System design",
+        "API integration",
+        "Data mapping",
+        "Error handling",
+        "Monitoring setup",
+        "Knowledge transfer"
       ],
-      "infrastructure": [
-        "Cloud deployment",
-        "Database systems",
-        "Message queues",
-        "Monitoring tools",
-        "CRM platforms"
+      "tools": [
+        "Version control",
+        "API testing tools",
+        "Monitoring systems",
+        "Documentation platforms"
+      ]
+    }
+  },
+  "workflow-optimization": {
+    "title": "Business Process Automation",
+    "description": "Custom workflow automation solutions designed to streamline operations and improve efficiency across organizations.",
+    "icon": "Settings",
+    "features": [
+      "Process automation",
+      "Workflow optimization",
+      "System integration",
+      "Custom solutions",
+      "Performance monitoring"
+    ],
+    "benefits": [
+      "Increased efficiency",
+      "Reduced errors",
+      "Cost savings",
+      "Improved accuracy",
+      "Better scalability"
+    ],
+    "useCases": [
+      "Sales process automation",
+      "HR workflow optimization",
+      "Financial reporting",
+      "Inventory management",
+      "Customer service automation"
+    ],
+    "experience": "Successfully automated complex business processes across various industries, achieving significant improvements in efficiency and accuracy.",
+    "testimonials": {
+      "link": "https://www.upwork.com/freelancers/~example",
+      "comments": [
+        "Transformed our business processes with efficient automation",
+        "Outstanding results in workflow optimization"
+      ]
+    },
+    "technicalDetails": {
+      "methodologies": [
+        "Process mapping",
+        "System analysis",
+        "Integration design",
+        "Testing protocols",
+        "Documentation"
+      ],
+      "features": [
+        "Custom automation",
+        "Process optimization",
+        "Integration management",
+        "Performance tracking",
+        "Error handling",
+        "Reporting"
+      ],
+      "implementation": [
+        "Requirements analysis",
+        "Solution design",
+        "System integration",
+        "Testing",
+        "Deployment",
+        "Training"
+      ],
+      "tools": [
+        "Workflow tools",
+        "Integration platforms",
+        "Monitoring systems",
+        "Documentation tools"
       ]
     }
   }

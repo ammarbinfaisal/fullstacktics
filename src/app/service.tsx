@@ -11,33 +11,64 @@ import {
 import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight,
-  Bot,
   Check,
   Code,
   Rocket,
   Hammer,
   Database,
-  Gauge,
-  Cpu,
-  Network,
-  Shield,
-  TrendingUp,
-  Filter,
+  Settings,
   Workflow,
+  Server,
+  GitBranch,
+  MonitorCheck,
+  FileJson,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Cal from "./Cal";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
+// Update icons to match our new services
 const icons = {
-  Bot: Bot,
   Database: Database,
-  Gauge: Gauge,
-  Rocket: Rocket,
-  TrendingUp: TrendingUp,
+  Settings: Settings,
   Workflow: Workflow,
-  Filter: Filter,
+};
+
+interface ServiceData {
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+  benefits: string[];
+  useCases: string[];
+  experience: string;
+  testimonials: {
+    link: string;
+    comments: string[];
+  };
+  technicalDetails: TechnicalDetails;
+}
+
+const getTabIcon = (tab: string) => {
+  switch (tab.toLowerCase()) {
+    case 'platforms':
+      return Server;
+    case 'integrations':
+      return GitBranch;
+    case 'features':
+      return Rocket;
+    case 'implementation':
+      return Hammer;
+    case 'technologies':
+      return Code;
+    case 'methodologies':
+      return MonitorCheck;
+    case 'tools':
+      return FileJson;
+    default:
+      return Rocket;
+  }
 };
 
 interface TechnicalDetails {
@@ -61,27 +92,6 @@ interface ServiceData {
   };
   technicalDetails: TechnicalDetails;
 }
-
-const getTabIcon = (tab: string) => {
-  switch (tab.toLowerCase()) {
-    case 'technologies':
-      return Code;
-    case 'features':
-      return Rocket;
-    case 'implementation':
-      return Hammer;
-    case 'performanceoptimizations':
-      return Gauge;
-    case 'infrastructure':
-      return Network;
-    case 'architecturalpatterns':
-      return Cpu;
-    case 'metrics':
-      return Shield;
-    default:
-      return Rocket;
-  }
-};
 
 const formatTabLabel = (tab: string) => {
   return tab

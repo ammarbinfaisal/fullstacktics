@@ -1,5 +1,5 @@
 import serviceData from "@/app/services.json";
-import { CheckCircle, Database, Filter, TrendingUp, Workflow } from "lucide-react";
+import { CheckCircle, Database, Settings, Workflow, GitBranch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
@@ -7,52 +7,68 @@ import Link from "next/link";
 export default function ServicesGrid() {
   const services = [
     {
-      title: "Growth Strategy & GTM",
-      key: "growth-strategy",
-      description: serviceData["growth-strategy"].description,
-      icon: <TrendingUp className="h-6 w-6" />,
-      metrics: [
-        "30-50% lower CAC",
-        "2-3x conversion rates",
-        "Clear ROI tracking"
-      ],
-      features: serviceData["growth-strategy"].features.slice(0, 3)
-    },
-    {
-      title: "Marketing Automation",
+      title: "Platform Automation",
       key: "automation-integration",
       description: serviceData["automation-integration"].description,
       icon: <Workflow className="h-6 w-6" />,
       metrics: [
-        "80% less manual work",
-        "Zero workflow errors",
+        "90% less manual work",
+        "24/7 automation",
         "Real-time sync"
       ],
-      features: serviceData["automation-integration"].features.slice(0, 3)
+      features: [
+        "Make.com automation",
+        "n8n workflow design",
+        "Zapier integration"
+      ]
     },
     {
-      title: "Custom Funnels & CRM",
-      key: "funnel-crm",
-      description: serviceData["funnel-crm"].description,
-      icon: <Filter className="h-6 w-6" />,
-      metrics: [
-        "40% higher conversions",
-        "90% faster responses",
-        "Automated nurturing"
-      ],
-      features: serviceData["funnel-crm"].features.slice(0, 3)
-    },
-    {
-      title: "Data Collection",
-      key: "data-automation",
-      description: serviceData["data-automation"].description,
+      title: "Data Management",
+      key: "data-management",
+      description: serviceData["data-management"].description,
       icon: <Database className="h-6 w-6" />,
       metrics: [
-        "100x faster collection",
-        "99.9% accuracy",
-        "Real-time updates"
+        "100% accuracy",
+        "Automated sync",
+        "Zero data entry"
       ],
-      features: serviceData["data-automation"].features.slice(0, 3)
+      features: [
+        "Airtable integration",
+        "Monday.com sync",
+        "Google Workspace automation"
+      ]
+    },
+    {
+      title: "Workflow Optimization",
+      key: "workflow-optimization",
+      description: serviceData["workflow-optimization"].description,
+      icon: <Settings className="h-6 w-6" />,
+      metrics: [
+        "85% time saved",
+        "Eliminated errors",
+        "Custom processes"
+      ],
+      features: [
+        "Custom API integration",
+        "Webhook automation",
+        "Error handling"
+      ]
+    },
+    {
+      title: "System Integration",
+      key: "system-integration",
+      description: "Connect and automate data flow between all your business tools and platforms",
+      icon: <GitBranch className="h-6 w-6" />,
+      metrics: [
+        "Real-time sync",
+        "Zero downtime",
+        "Custom logic"
+      ],
+      features: [
+        "Cross-platform integration",
+        "Custom code actions",
+        "Advanced routing"
+      ]
     }
   ];
 
@@ -60,16 +76,16 @@ export default function ServicesGrid() {
     <section className="container py-24 px-12 mx-auto max-w-6xl">
       <div className="text-center mb-16">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
-          End-to-End Business Automation
+          Professional Automation Solutions
         </h2>
         <p className="text-lg text-muted-foreground max-w-[800px] mx-auto">
-          Combine the power of no-code tools with custom development for the perfect automation solution
+          Replace expensive tools and manual processes with custom automation solutions using Make.com, n8n, and Zapier
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
         {services.map((service) => (
-          <Card key={service.title} className="relative group hover:shadow-lg transition-shadow">
+          <Card key={service.title} className="relative group hover:shadow-lg transition-all">
             <CardHeader>
               <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
                 {service.icon}
@@ -98,8 +114,8 @@ export default function ServicesGrid() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Link href={`/services/${service.key}`}>
-                <Button className="w-full">Learn More</Button>
+              <Link href={`/services/${service.key}`} className="w-full">
+                <Button className="w-full">View Details</Button>
               </Link>
             </CardFooter>
           </Card>
