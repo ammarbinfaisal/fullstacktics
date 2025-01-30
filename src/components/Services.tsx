@@ -1,7 +1,6 @@
-import { ArrowRight, Bot, CircuitBoard, Workflow, Boxes, Repeat, GitMerge } from 'lucide-react';
+import { ArrowRight, Workflow, Repeat, GitMerge } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 export default function Services() {
   return (
