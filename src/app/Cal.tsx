@@ -10,16 +10,21 @@ const Cal = ({
     children: React.ReactNode;
     className?: string;
 }) => {
+    function gtag_report_conversion() {
+        // @ts-expect-error - TS doesn't know if gtag is a function
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11298597203/US23CP348pYaENPSy4sq',
+            'value': 5.0,
+            'currency': 'USD',
+            'event_callback': () => console.log('Conversion reported!')
+        });
+        return false;
+    }
+
     useEffect(() => {
         (async function () {
             const cal = await getCalApi({ "namespace": "consultation" });
             cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
-            // @ts-expect-error - TS doesn't know if gtag is a function
-            gtag('event', 'conversion', {
-                'send_to': 'AW-11298597203/11cmCMvtmvYZENPSy4sq',
-                'value': 100.0,
-                'currency': 'USD',
-            });
         })();
     }, []);
 
@@ -27,9 +32,10 @@ const Cal = ({
         <div className={className} data-cal-namespace="consultation"
             data-cal-link="fullstacktics/consultation"
             data-cal-config='{"layout":"month_view"}'
+            onClick={gtag_report_conversion}
         >
             {children}
-        </div>
+        </div >
     )
 }
 
