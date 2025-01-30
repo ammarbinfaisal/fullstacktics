@@ -48,7 +48,6 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
         keywords: [
             ...service.features,
             ...service.useCases,
-            ...service.technicalDetails.technologies,
         ],
     };
 };

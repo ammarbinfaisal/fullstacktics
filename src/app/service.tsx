@@ -72,7 +72,6 @@ const getTabIcon = (tab: string) => {
 };
 
 interface TechnicalDetails {
-  technologies: string[];
   features: string[];
   implementation: string[];
   [key: string]: string[] | Record<string, string[]>;
