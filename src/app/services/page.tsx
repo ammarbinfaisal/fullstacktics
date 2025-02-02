@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from 'next/link';
 import servicesData from '@/app/services.json';
-import { ArrowRight, Database, Filter, TrendingUp, Workflow } from 'lucide-react';
+import { ArrowRight, Zap, Activity, Server, Code } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Cal from "../Cal";
 import { metadataBase } from '../meta';
@@ -11,10 +11,10 @@ export const metadata = {
 };
 
 const iconMap = {
-  "growth-strategy": TrendingUp,
-  "automation-integration": Workflow,
-  "funnel-crm": Filter,
-  "data-automation": Database,
+  "saas-development": Zap,
+  "performance-optimization": Activity,
+  "infrastructure": Server,
+  "api-integration": Code,
 };
 
 export default function ServicesPage() {
@@ -27,14 +27,14 @@ export default function ServicesPage() {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
         <div className="flex flex-col items-center gap-4 text-center mb-12">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
-            Business Growth Solutions
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+            High-Performance SaaS Development
           </h1>
           <p className="max-w-[750px] text-base sm:text-lg text-muted-foreground md:text-xl">
-            End-to-end business growth, automation, and CRM solutions to scale your business
+            Next.js expertise with deep performance optimization, Prisma, Supabase, and Stripe integration
           </p>
           <Cal className="group">
-            Schedule Strategy Consultation
+            Schedule Technical Consultation
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Cal>
         </div>
@@ -59,15 +59,8 @@ export default function ServicesPage() {
                         {service.description}
                       </p>
                       <div className="mt-4 space-y-2">
-                        <div className="flex flex-wrap gap-2">
-                          {service.features.slice(0, 3).map((feature, index) => (
-                            <span key={index} className="inline-flex items-center rounded-full bg-primary/5 px-2.5 py-0.5 text-xs font-medium text-primary">
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
                         <Button size="sm" className="w-full">
-                          Learn More
+                          View Details
                         </Button>
                       </div>
                     </CardDescription>
@@ -76,6 +69,28 @@ export default function ServicesPage() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="mt-16 text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-4">Performance Metrics We Deliver</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="font-bold text-2xl text-primary">{"<1s"}</div>
+              <div className="text-sm text-muted-foreground">First Contentful Paint</div>
+            </div>
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="font-bold text-2xl text-primary">100</div>
+              <div className="text-sm text-muted-foreground">Performance Score</div>
+            </div>
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="font-bold text-2xl text-primary">{"<2.5s"}</div>
+              <div className="text-sm text-muted-foreground">LCP</div>
+            </div>
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="font-bold text-2xl text-primary">0</div>
+              <div className="text-sm text-muted-foreground">CLS</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,259 +1,156 @@
 {
-  "automation-integration": {
-    "title": "Advanced Platform Automation",
-    "description": "Enterprise-grade automation solutions using Make.com, n8n, and Zapier for seamless workflow optimization across Airtable, Monday.com, and Google Workspace.",
-    "icon": "Workflow",
+  "saas-development": {
+    "title": "High-Performance SaaS Development",
+    "description": "Expert full-stack development focusing on blazing-fast Next.js applications with enterprise-grade infrastructure using Prisma, Supabase, and Stripe, backed by deep performance optimization expertise.",
+    "icon": "Zap",
     "features": [
-      "Cross-platform workflow automation",
-      "Custom API and webhook integration",
-      "Complex data transformation",
-      "Real-time sync automation",
-      "Custom code actions"
+      "Full-stack Next.js development with Server Components",
+      "Advanced performance optimization and metrics monitoring",
+      "Serverless architecture with edge computing capabilities",
+      "Stripe integration for complex billing scenarios",
+      "Real-time features with Supabase"
     ],
     "benefits": [
-      "90% reduction in manual operations",
-      "Error-free data synchronization",
-      "Streamlined business processes",
-      "Real-time data orchestration",
-      "Automated reporting and analytics"
+      "Lightning-fast page loads (< 1s FCP)",
+      "Optimized Core Web Vitals scores",
+      "Scalable serverless architecture",
+      "Reduced development costs through optimization",
+      "Enterprise-grade security implementation"
     ],
     "useCases": [
-      "CRM data synchronization",
-      "Project management automation",
-      "Document workflow automation",
-      "Lead management systems",
-      "Inventory tracking automation"
+      "B2B SaaS platforms",
+      "Subscription-based services",
+      "Real-time collaboration tools",
+      "Data-intensive applications",
+      "Enterprise dashboards"
     ],
-    "experience": "Built sophisticated automation systems using Make.com, n8n, and Zapier, integrating with Airtable, Monday.com, and Google Workspace for enterprise-scale operations.",
+    "experience": "Built and optimized multiple successful SaaS products with Next.js, achieving exceptional performance metrics and scalability through advanced optimization techniques and architectural best practices.",
     "testimonials": {
-      "link": "https://www.upwork.com/freelancers/~example",
       "comments": [
-        "Transformed our operations with efficient automation, reducing manual work by 85%",
-        "Exceptional implementation of cross-platform automation systems"
+        "Transformed our application performance, reducing load times by 70%",
+        "Exceptional implementation of complex subscription systems with Stripe"
       ]
     },
     "technicalDetails": {
-      "platforms": [
-        "Make.com (formerly Integromat)",
-        "n8n",
-        "Zapier"
+      "technologies": [
+        "Next.js 14+ (App Router)",
+        "React Server Components",
+        "Prisma ORM",
+        "Supabase",
+        "Stripe APIs",
+        "TypeScript",
+        "TanStack Query",
+        "Tailwind CSS"
       ],
-      "integrations": [
-        "Airtable",
-        "Monday.com",
-        "Google Workspace",
-        "Custom REST APIs",
-        "Webhooks"
+      "performanceOptimization": [
+        "Bundle size optimization",
+        "Code splitting strategies",
+        "Dynamic imports",
+        "Image optimization",
+        "Memory leak detection",
+        "React component optimization",
+        "Server-side rendering optimization",
+        "Edge caching strategies"
       ],
-      "features": [
-        "Custom code actions (JavaScript/Python)",
-        "Advanced data mapping",
-        "Error handling and retry logic",
-        "Conditional workflow routing",
-        "Real-time webhooks",
-        "Version control",
-        "Monitoring and logging"
+      "infrastructure": [
+        "Serverless deployment",
+        "Edge computing",
+        "Database optimization",
+        "CDN configuration",
+        "CI/CD pipelines"
       ],
-      "implementation": [
-        "System architecture design",
-        "Custom API integration",
-        "Data transformation logic",
-        "Error recovery systems",
-        "Performance monitoring",
-        "Documentation"
+      "monitoring": [
+        "Real-time performance metrics",
+        "Core Web Vitals tracking",
+        "Error tracking and logging",
+        "User behavior analytics",
+        "Server-side performance monitoring"
+      ],
+      "security": [
+        "OAuth implementation",
+        "RBAC systems",
+        "API security",
+        "Data encryption",
+        "Security headers optimization"
       ]
     }
   },
-  "data-management": {
-    "title": "Data Management & Integration",
-    "description": "End-to-end data management solutions focusing on seamless integration between different platforms and databases.",
-    "icon": "Database",
+  "performance-optimization": {
+    "title": "React Performance Optimization",
+    "description": "Deep expertise in React application performance optimization, from component-level improvements to infrastructure optimization.",
+    "icon": "Activity",
     "features": [
-      "Automated data synchronization",
-      "Custom data transformation",
-      "Real-time data validation",
+      "Comprehensive performance audits",
+      "Chrome DevTools performance profiling",
+      "React profiler optimization",
+      "Memory leak detection and resolution",
+      "Bundle size optimization"
+    ],
+    "benefits": [
+      "Improved user experience",
+      "Higher conversion rates",
+      "Reduced bounce rates",
+      "Better SEO rankings",
+      "Decreased server costs"
+    ],
+    "useCases": [
+      "Large-scale React applications",
+      "Data-heavy dashboards",
+      "Real-time applications",
+      "E-commerce platforms",
+      "Interactive web applications"
+    ],
+    "experience": "Specialized in optimizing complex React applications, achieving significant performance improvements through detailed analysis and implementation of best practices.",
+    "technicalDetails": {
+      "optimizationTechniques": [
+        "React memo and useMemo optimization",
+        "Virtual list implementation",
+        "Lazy loading strategies",
+        "State management optimization",
+        "Network request optimization",
+        "Asset loading strategies"
+      ],
+      "tools": [
+        "Chrome DevTools",
+        "React Profiler",
+        "Lighthouse",
+        "WebPageTest",
+        "Bundle analyzers"
+      ],
+      "metrics": [
+        "First Contentful Paint (FCP)",
+        "Largest Contentful Paint (LCP)",
+        "Time to Interactive (TTI)",
+        "Total Blocking Time (TBT)",
+        "Cumulative Layout Shift (CLS)"
+      ]
+    }
+  },
+  "infrastructure": {
+    "title": "Modern SaaS Infrastructure",
+    "description": "Enterprise-grade infrastructure setup with Supabase and Prisma, focusing on scalability and performance.",
+    "icon": "Server",
+    "features": [
+      "Scalable database design",
+      "Real-time capabilities",
+      "Advanced caching strategies",
       "Automated backup systems",
-      "Cross-platform data mapping"
+      "Multi-tenant architecture"
     ],
-    "benefits": [
-      "100% data accuracy",
-      "Real-time synchronization",
-      "Automated data validation",
-      "Streamlined operations",
-      "Reduced manual entry"
-    ],
-    "useCases": [
-      "Database synchronization",
-      "Automated reporting",
-      "Data transformation pipelines",
-      "Cross-platform integration",
-      "Custom API development"
-    ],
-    "experience": "Developed robust data management solutions with custom integrations across multiple platforms and databases.",
-    "testimonials": {
-      "link": "https://www.upwork.com/freelancers/~example",
-      "comments": [
-        "Exceptional data integration system that eliminated manual entry",
-        "Impressive automation of complex data workflows"
-      ]
-    },
     "technicalDetails": {
       "technologies": [
-        "REST APIs",
-        "JavaScript/Node.js",
-        "Python",
-        "SQL",
-        "NoSQL"
+        "Supabase",
+        "Prisma",
+        "PostgreSQL",
+        "Redis",
+        "Docker"
       ],
       "features": [
-        "Custom API development",
-        "Data validation",
-        "Error handling",
-        "Automated testing",
-        "Performance optimization",
-        "Documentation"
-      ],
-      "implementation": [
-        "System design",
-        "API integration",
-        "Data mapping",
-        "Error handling",
-        "Monitoring setup",
-        "Knowledge transfer"
-      ],
-      "tools": [
-        "Version control",
-        "API testing tools",
-        "Monitoring systems",
-        "Documentation platforms"
-      ]
-    }
-  },
-  "workflow-optimization": {
-    "title": "Business Process Automation",
-    "description": "Custom workflow automation solutions designed to streamline operations and improve efficiency across organizations.",
-    "icon": "Settings",
-    "features": [
-      "Process automation",
-      "Workflow optimization",
-      "System integration",
-      "Custom solutions",
-      "Performance monitoring"
-    ],
-    "benefits": [
-      "Increased efficiency",
-      "Reduced errors",
-      "Cost savings",
-      "Improved accuracy",
-      "Better scalability"
-    ],
-    "useCases": [
-      "Sales process automation",
-      "HR workflow optimization",
-      "Financial reporting",
-      "Inventory management",
-      "Customer service automation"
-    ],
-    "experience": "Successfully automated complex business processes across various industries, achieving significant improvements in efficiency and accuracy.",
-    "testimonials": {
-      "link": "https://www.upwork.com/freelancers/~example",
-      "comments": [
-        "Transformed our business processes with efficient automation",
-        "Outstanding results in workflow optimization"
-      ]
-    },
-    "technicalDetails": {
-      "methodologies": [
-        "Process mapping",
-        "System analysis",
-        "Integration design",
-        "Testing protocols",
-        "Documentation"
-      ],
-      "features": [
-        "Custom automation",
-        "Process optimization",
-        "Integration management",
-        "Performance tracking",
-        "Error handling",
-        "Reporting"
-      ],
-      "implementation": [
-        "Requirements analysis",
-        "Solution design",
-        "System integration",
-        "Testing",
-        "Deployment",
-        "Training"
-      ],
-      "tools": [
-        "Workflow tools",
-        "Integration platforms",
-        "Monitoring systems",
-        "Documentation tools"
-      ]
-    }
-  },
-  "system-integration": {
-    "title": "System Integration",
-    "description": "Connect and automate data flow between all your business tools and platforms",
-    "icon": "GitBranch",
-    "features": [
-      "Cross-platform integration",
-      "Custom code actions",
-      "Advanced routing"
-    ],
-    "benefits": [
-      "Real-time sync",
-      "Zero downtime",
-      "Custom logic",
-      "Seamless connectivity",
-      "Enhanced efficiency"
-    ],
-    "useCases": [
-      "Enterprise system integration",
-      "API connectivity",
-      "Data flow automation",
-      "Platform synchronization",
-      "Legacy system integration"
-    ],
-    "experience": "Extensive experience in connecting diverse business systems and platforms, ensuring seamless data flow and process automation.",
-    "testimonials": {
-      "link": "https://www.upwork.com/freelancers/~example",
-      "comments": [
-        "Successfully integrated our complex enterprise systems",
-        "Excellent implementation of cross-platform connectivity"
-      ]
-    },
-    "technicalDetails": {
-      "technologies": [
-        "REST APIs",
-        "GraphQL",
-        "WebSockets",
-        "Message Queues",
-        "ESB"
-      ],
-      "features": [
-        "Real-time synchronization",
-        "Error handling and recovery",
-        "Data transformation",
-        "Performance optimization",
-        "Security implementation",
-        "Monitoring and logging"
-      ],
-      "implementation": [
-        "System analysis",
-        "Architecture design",
-        "API development",
-        "Integration testing",
-        "Performance tuning",
-        "Documentation"
-      ],
-      "tools": [
-        "API gateways",
-        "Integration platforms",
-        "Monitoring tools",
-        "Testing suites"
+        "Row Level Security",
+        "Real-time subscriptions",
+        "Database optimization",
+        "Cache invalidation strategies",
+        "Database migration workflows"
       ]
     }
   }

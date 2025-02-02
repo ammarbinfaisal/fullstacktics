@@ -6,35 +6,49 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight,
   Check,
   Code,
-  Rocket,
-  Hammer,
-  Database,
-  Settings,
-  Workflow,
+  Zap,
+  Activity,
   Server,
-  GitBranch,
-  MonitorCheck,
-  FileJson,
+  Database,
+  Sparkle,
+  Gauge,
+  LucideIcon,
+  Terminal,
+  Globe,
+  Box,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Cal from "./Cal";
 import Navbar from "@/components/Navbar";
-import Link from "next/link";
 
-// Update icons to match our new services
+// Update icons to match performance-focused services
 const icons = {
-  Database: Database,
-  Settings: Settings,
-  Workflow: Workflow,
-  GitBranch: GitBranch,
+  Zap,
+  Activity,
+  Server,
+  Code,
+  Database,
+  Sparkle,
+  Gauge
 };
+
+interface TechStack {
+  name: string;
+  version?: string;
+  description?: string;
+}
+
+interface PerformanceMetric {
+  metric: string;
+  value: string;
+  description: string;
+}
 
 interface ServiceData {
   title: string;
@@ -44,54 +58,39 @@ interface ServiceData {
   benefits: string[];
   useCases: string[];
   experience: string;
+  performanceMetrics: PerformanceMetric[];
   testimonials: {
     link: string;
     comments: string[];
   };
-  technicalDetails: TechnicalDetails;
+  technicalDetails: {
+    stack: TechStack[];
+    optimization: string[];
+    architecture: string[];
+    security: string[];
+    deployment: string[];
+    monitoring: string[];
+  };
 }
 
-const getTabIcon = (tab: string) => {
+const getTabIcon = (tab: string): LucideIcon => {
   switch (tab.toLowerCase()) {
-    case 'platforms':
-      return Server;
-    case 'integrations':
-      return GitBranch;
-    case 'features':
-      return Rocket;
-    case 'implementation':
-      return Hammer;
-    case 'technologies':
+    case 'stack':
       return Code;
-    case 'methodologies':
-      return MonitorCheck;
-    case 'tools':
-      return FileJson;
+    case 'optimization':
+      return Activity;
+    case 'architecture':
+      return Server;
+    case 'security':
+      return Terminal;
+    case 'deployment':
+      return Globe;
+    case 'monitoring':
+      return Gauge;
     default:
-      return Rocket;
+      return Box;
   }
 };
-
-interface TechnicalDetails {
-  features: string[];
-  implementation: string[];
-  [key: string]: string[] | Record<string, string[]>;
-}
-
-interface ServiceData {
-  title: string;
-  description: string;
-  icon: string;
-  features: string[];
-  benefits: string[];
-  useCases: string[];
-  experience: string;
-  testimonials: {
-    link: string;
-    comments: string[];
-  };
-  technicalDetails: TechnicalDetails;
-}
 
 const formatTabLabel = (tab: string) => {
   return tab
@@ -101,45 +100,15 @@ const formatTabLabel = (tab: string) => {
 };
 
 const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
-  let iconsKey: keyof typeof icons;
-  switch (serviceData.icon) {
-    case "Filter":
-    case "Database":
-    case "Workflow":
-    case "TrendingUp":
-    case "GitBranch":
-    case "Settings":
-      iconsKey = serviceData.icon as keyof typeof icons;
-      break;
-    default:
-      throw new Error("Invalid icon " + serviceData.icon);
-  }
-  const IconComponent = icons[iconsKey];
+  const IconComponent = icons[serviceData.icon as keyof typeof icons];
 
   const getTechTabs = () => {
-    return Object.entries(serviceData.technicalDetails).map(([key, value]) => {
-      // Handle nested objects in technical details
-      if (typeof value === 'object' && !Array.isArray(value)) {
-        const nestedItems = Object.entries(value).flatMap(([nestedKey, nestedValue]) =>
-          Array.isArray(nestedValue)
-            ? nestedValue.map(item => `${nestedKey}: ${item}`)
-            : [`${nestedKey}: ${nestedValue}`]
-        );
-        return {
-          value: key,
-          label: formatTabLabel(key),
-          icon: getTabIcon(key),
-          items: nestedItems,
-        };
-      }
-
-      return {
-        value: key,
-        label: formatTabLabel(key),
-        icon: getTabIcon(key),
-        items: value as string[],
-      };
-    });
+    return Object.entries(serviceData.technicalDetails).map(([key, value]: [string, string[] | TechStack[]]) => ({
+      value: key,
+      label: formatTabLabel(key),
+      icon: getTabIcon(key),
+      items: Array.isArray(value) ? value : []
+    }));
   };
 
   return (
@@ -149,6 +118,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
       </div>
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 lg:px-6 lg:px-8 py-12 md:py-24">
+          {/* Hero Section */}
           <div className="flex flex-col items-center text-center mb-16">
             <div className="mb-6 inline-block rounded-lg bg-primary/10 p-3">
               <IconComponent className="h-12 w-12 text-primary" />
@@ -161,13 +131,32 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {serviceData.features.map((feature) => (
-                <Badge key={feature} variant="secondary">
+                <Badge key={feature} variant="secondary" className="text-sm">
                   {feature}
                 </Badge>
               ))}
             </div>
           </div>
 
+          {/* Performance Metrics Grid */}
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle className="text-2xl text-primary">Performance Metrics</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {serviceData.performanceMetrics.map((metric) => (
+                  <div key={metric.metric} className="p-4 rounded-lg bg-primary/5 text-center">
+                    <div className="text-2xl font-bold text-primary mb-1">{metric.value}</div>
+                    <div className="text-sm font-medium mb-1">{metric.metric}</div>
+                    <div className="text-xs text-muted-foreground">{metric.description}</div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Technical Experience */}
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="text-2xl text-primary">Technical Experience</CardTitle>
@@ -177,29 +166,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
             </CardContent>
           </Card>
 
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="text-2xl text-primary">Client Testimonials</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-4">
-                {serviceData.testimonials.comments.map((comment, index) => (
-                  <li key={index} className="text-muted-foreground italic">
-                    &quot;{comment}&ldquo;
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-            <CardFooter className="flex justify-center">
-              <Link href={serviceData.testimonials.link}>
-                <Button size="lg" className="group">
-                  View More Testimonials
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-
+          {/* Benefits and Use Cases Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <Card>
               <CardHeader>
@@ -234,31 +201,32 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
             </Card>
           </div>
 
+          {/* Technical Specifications Tabs */}
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="text-2xl text-primary">Technical Specifications</CardTitle>
             </CardHeader>
             <CardContent>
-              <Tabs defaultValue={getTechTabs()[0].value} className="w-full grid grid-cols-1 lg:grid-cols-4 gap-4">
-                <TabsList className="grid w-full h-full grid-row-4 grid-cols-1 gap-4 overflow-x-auto">
+              <Tabs defaultValue={getTechTabs()[0].value} className="w-full">
+                <TabsList className="grid w-full grid-cols-2 lg:grid-cols-6 gap-4">
                   {getTechTabs().map((tab) => (
-                    <TabsTrigger key={tab.value} value={tab.value}>
-                      <tab.icon className="w-4 h-4 mr-2" />
+                    <TabsTrigger key={tab.value} value={tab.value} className="flex items-center gap-2">
+                      <tab.icon className="w-4 h-4" />
                       {tab.label}
                     </TabsTrigger>
                   ))}
                 </TabsList>
 
                 {getTechTabs().map((tab) => (
-                  <TabsContent key={tab.value} value={tab.value} className="lg:col-span-3 col-span-1">
+                  <TabsContent key={tab.value} value={tab.value}>
                     <div className="grid sm:grid-cols-2 gap-4 p-4">
                       {tab.items.map((item) => (
                         <div
-                          key={item}
+                          key={typeof item === 'string' ? item : item.name}
                           className="flex items-start gap-2 text-muted-foreground"
                         >
                           <tab.icon className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm">{item}</span>
+                          <span className="text-sm">{typeof item === 'string' ? item : `${item.name}${item.version ? ` ${item.version}` : ''}`}</span>
                         </div>
                       ))}
                     </div>
@@ -268,19 +236,20 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
             </CardContent>
           </Card>
 
+          {/* CTA Section */}
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl text-center text-primary">
-                Ready to Implement {serviceData.title}?
+                Ready to Build High-Performance Solutions?
               </CardTitle>
               <CardDescription className="text-center">
-                Let&apos;s discuss how our {serviceData.title.toLowerCase()} solutions can enhance your technical infrastructure
+                Let&apos;s discuss how our expertise in {serviceData.title.toLowerCase()} can transform your application&apos;s performance
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
               <Cal>
                 <Button size="lg" className="text-base gap-2 group">
-                  Schedule Technical Consultation
+                  Schedule Technical Review
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Cal>

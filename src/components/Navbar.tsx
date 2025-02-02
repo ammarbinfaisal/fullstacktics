@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
+import { Menu, Zap, Terminal, BookOpen, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const solutions = Object.entries(servicesData).map(([key, service]) => ({
+  const services = Object.entries(servicesData).map(([key, service]) => ({
     slug: key,
     href: `/services/${key}`,
     ...service
@@ -33,27 +33,42 @@ export default function Navbar() {
 
   const resources = [
     {
-      title: "Documentation",
-      description: "Integration guides and tutorials",
-      href: "/resources/docs"
+      title: "Performance Guide",
+      description: "Best practices for Next.js optimization",
+      href: "/resources/performance",
+      icon: Zap
+    },
+    {
+      title: "Technical Docs",
+      description: "Implementation guides and API references",
+      href: "/resources/docs",
+      icon: Terminal
     },
     {
       title: "Case Studies",
-      description: "Success stories and results",
-      href: "/resources/cases"
+      description: "Real-world performance improvements",
+      href: "/resources/cases",
+      icon: BookOpen
+    },
+    {
+      title: "Code Examples",
+      description: "Sample implementations and snippets",
+      href: "/resources/code",
+      icon: Code2
     }
   ];
 
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-primary/10' : 'bg-transparent'
     }`}>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex h-16 items-center justify-between'>
           {/* Logo */}
-          <Link href='/' className='flex items-center space-x-2'>
-            <span className='text-xl font-bold'>
-              Fullstacktics
+          <Link href='/' className='flex items-center gap-2 group'>
+            <Zap className="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
+            <span className='text-xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent'>
+              PerformantSaaS
             </span>
           </Link>
 
@@ -62,19 +77,24 @@ export default function Navbar() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm">Solutions</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-sm">Services</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-4 w-[400px]">
-                      {solutions.map((item) => (
+                    <div className="grid gap-3 p-6 md:w-[500px] lg:w-[600px] lg:grid-cols-2">
+                      {services.map((item) => (
                         <Link
                           key={item.title}
                           href={item.href}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                          className="flex items-start gap-4 rounded-lg p-3 hover:bg-accent hover:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">{item.title}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {item.description}
-                          </p>
+                          <div className="rounded-md bg-primary/10 p-1">
+                            <Zap className="h-4 w-4 text-primary" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium mb-1">{item.title}</div>
+                            <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                              {item.description}
+                            </p>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -83,17 +103,22 @@ export default function Navbar() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-sm">Resources</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-4 w-[400px]">
+                    <div className="grid gap-3 p-6 w-[600px] grid-cols-2">
                       {resources.map((item) => (
                         <Link
                           key={item.title}
                           href={item.href}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                          className="flex items-start gap-4 rounded-lg p-3 hover:bg-accent hover:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">{item.title}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {item.description}
-                          </p>
+                          <div className="rounded-md bg-primary/10 p-1">
+                            <item.icon className="h-4 w-4 text-primary" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium mb-1">{item.title}</div>
+                            <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                              {item.description}
+                            </p>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -103,12 +128,13 @@ export default function Navbar() {
             </NavigationMenu>
             
             <nav className="flex items-center gap-6">
-              <Link href="/team" className="text-sm font-medium hover:text-primary transition-colors">
-                About
+              <Link href="/process" className="text-sm font-medium hover:text-primary transition-colors">
+                Our Process
               </Link>
               <Link href="/contact">
-                <Button variant="outline" size="sm">
-                  Contact
+                <Button variant="default" size="sm" className="gap-2">
+                  <Terminal className="h-4 w-4" />
+                  Let&apos;s Talk
                 </Button>
               </Link>
             </nav>
@@ -125,13 +151,14 @@ export default function Navbar() {
             <SheetContent side="right" className="w-[300px] p-0">
               <div className="flex flex-col gap-4 p-6">
                 <div className="border-b pb-4">
-                  <div className="text-sm font-medium mb-2">Solutions</div>
-                  {solutions.map((item) => (
+                  <div className="text-sm font-medium mb-2">Services</div>
+                  {services.map((item) => (
                     <Link
                       key={item.title}
                       href={item.href}
-                      className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
+                      <Zap className="h-4 w-4" />
                       {item.title}
                     </Link>
                   ))}
@@ -142,18 +169,16 @@ export default function Navbar() {
                     <Link
                       key={item.title}
                       href={item.href}
-                      className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
+                      <item.icon className="h-4 w-4" />
                       {item.title}
                     </Link>
                   ))}
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Link href="/pricing" className="text-sm font-medium hover:text-primary transition-colors">
-                    Pricing
-                  </Link>
-                  <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
-                    About
+                  <Link href="/process" className="text-sm font-medium hover:text-primary transition-colors">
+                    Our Process
                   </Link>
                   <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
                     Contact
