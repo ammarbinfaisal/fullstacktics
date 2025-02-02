@@ -26,6 +26,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Cal from "./Cal";
 import Navbar from "@/components/Navbar";
+import { ServiceData, TechStack } from "./type";
 
 // Update icons to match performance-focused services
 const icons = {
@@ -37,41 +38,6 @@ const icons = {
   Sparkle,
   Gauge
 };
-
-interface TechStack {
-  name: string;
-  version?: string;
-  description?: string;
-}
-
-interface PerformanceMetric {
-  metric: string;
-  value: string;
-  description: string;
-}
-
-interface ServiceData {
-  title: string;
-  description: string;
-  icon: string;
-  features: string[];
-  benefits: string[];
-  useCases: string[];
-  experience: string;
-  performanceMetrics: PerformanceMetric[];
-  testimonials: {
-    link: string;
-    comments: string[];
-  };
-  technicalDetails: {
-    stack: TechStack[];
-    optimization: string[];
-    architecture: string[];
-    security: string[];
-    deployment: string[];
-    monitoring: string[];
-  };
-}
 
 const getTabIcon = (tab: string): LucideIcon => {
   switch (tab.toLowerCase()) {
@@ -145,7 +111,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
             </CardHeader>
             <CardContent>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {serviceData.performanceMetrics.map((metric) => (
+                {serviceData.performanceMetrics?.map((metric) => (
                   <div key={metric.metric} className="p-4 rounded-lg bg-primary/5 text-center">
                     <div className="text-2xl font-bold text-primary mb-1">{metric.value}</div>
                     <div className="text-sm font-medium mb-1">{metric.metric}</div>
@@ -174,7 +140,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
-                  {serviceData.benefits.map((benefit) => (
+                  {serviceData.benefits?.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-2 text-muted-foreground">
                       <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <span>{benefit}</span>
@@ -190,7 +156,7 @@ const ServicePageTemplate = ({ serviceData }: { serviceData: ServiceData }) => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
-                  {serviceData.useCases.map((useCase) => (
+                  {serviceData.useCases?.map((useCase) => (
                     <li key={useCase} className="flex items-start gap-2 text-muted-foreground">
                       <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <span>{useCase}</span>
