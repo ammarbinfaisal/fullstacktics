@@ -146,5 +146,75 @@
         "Business goals alignment"
       ]
     }
+  },
+  "api-development": {
+    "title": "High-Performance API Development",
+    "description": "Enterprise-grade API development with focus on type safety, real-time capabilities, and advanced caching strategies. Expertise in tRPC, GraphQL, and RESTful architectures.",
+    "icon": "Code",
+    "features": [
+      "Type-safe API development with tRPC",
+      "GraphQL endpoint optimization",
+      "Real-time API capabilities",
+      "Advanced caching strategies",
+      "Performance monitoring and metrics"
+    ],
+    "benefits": [
+      "100% type-safe implementations",
+      "Zero-latency caching",
+      "Real-time data updates",
+      "Reduced development complexity",
+      "Improved data consistency"
+    ],
+    "useCases": [
+      "Real-time data applications",
+      "Microservices architectures",
+      "Mobile app backends",
+      "Enterprise integrations",
+      "Third-party API systems"
+    ],
+    "experience": "Extensive experience in building and optimizing type-safe APIs using modern technologies like tRPC and GraphQL, achieving exceptional performance through advanced caching and optimization strategies.",
+    "testimonials": {
+      "comments": [
+        "Dramatically improved our API performance with innovative caching solutions",
+        "The type-safe implementation significantly reduced our runtime errors"
+      ]
+    },
+    "technicalDetails": {
+      "technologies": [
+        "tRPC",
+        "GraphQL",
+        "REST APIs",
+        "WebSockets",
+        "TypeScript"
+      ],
+      "performanceOptimization": [
+        "Response caching",
+        "Query optimization",
+        "Connection pooling",
+        "Rate limiting",
+        "Load balancing"
+      ],
+      "infrastructure": [
+        "API gateway setup",
+        "Microservices architecture",
+        "Cache layer implementation",
+        "Real-time event systems",
+        "Type-safe schema design"
+      ],
+      "monitoring": [
+        "API performance metrics",
+        "Error tracking",
+        "Usage analytics",
+        "Cache hit rates",
+        "Response time monitoring"
+      ],
+      "security": [
+        "API authentication",
+        "Rate limiting",
+        "Input validation",
+        "Security headers",
+        "Data encryption"
+      ]
+    }
   }
 }
