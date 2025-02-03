@@ -1,5 +1,4 @@
 import { ImageResponse } from 'next/og'
-import { Services } from '@/app/type'
 import servicesData from '@/app/services.json'
 export const runtime = 'edge'
 

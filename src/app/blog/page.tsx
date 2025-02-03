@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, ChevronRight } from "lucide-react";
 import { format } from "date-fns";
 import fs from "fs/promises";
-import Image from "next/image";
+
 
 // Type for blog post metadata
 interface PostMetadata {

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from "next/script";
