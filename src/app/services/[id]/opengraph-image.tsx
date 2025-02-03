@@ -47,7 +47,6 @@ const FeatureBadge = ({ text }: { text: string }) => (
 
 export default async function Image({ 
   params,
-  searchParams 
 }: { 
   params: { id: string }
   searchParams?: { [key: string]: string | string[] | undefined }
