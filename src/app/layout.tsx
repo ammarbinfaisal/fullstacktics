@@ -7,6 +7,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Consent from "./consent";
 import { metadataBase } from "./meta";
+import JsonLd from "./JsonLd";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fullstacktics.com'),
@@ -34,6 +35,7 @@ export default function RootLayout({
           name="description"
           content="We build high-performance web applications and websites."
         ></meta>
+        <JsonLd />
 
         <meta property="og:site_name" content="Fullstacktics"></meta>
         <meta property="og:url" content="https://fullstacktics.com"></meta>
