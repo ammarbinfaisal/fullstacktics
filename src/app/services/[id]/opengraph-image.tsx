@@ -10,16 +10,6 @@ export const size = {
 export const contentType = 'image/png'
 
 
-// Grid pattern as a reusable component
-const GridPattern = () => `
-  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/>
-    </pattern>
-    <rect width="100%" height="100%" fill="url(#grid)" />
-  </svg>
-`
-
 // Feature badge component
 const FeatureBadge = ({ text }: { text: string }) => (
   <div
