@@ -17,16 +17,6 @@ export default async function Image() {
     { value: '<100ms', label: 'API Response' },
   ]
 
-  // Create a grid pattern background
-  const gridPattern = `
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/>
-      </pattern>
-      <rect width="100%" height="100%" fill="url(#grid)" />
-    </svg>
-  `
-
   return new ImageResponse(
     (
       <div
@@ -42,19 +32,9 @@ export default async function Image() {
           backgroundImage: 'linear-gradient(to bottom, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05), transparent)',
         }}
       >
-        {/* Tech Pattern Background */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            opacity: 0.2,
-          }}
-          dangerouslySetInnerHTML={{ __html: gridPattern }}
-        />
-
+        <div className="fixed inset-0 bg-gradient-to-b from-primary/10 via-primary/5 to-transparent -z-10">
+          <div className="fixed inset-0 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" />
+        </div>
         {/* Badge */}
         <div
           style={{
@@ -199,7 +179,7 @@ export default async function Image() {
               color: 'transparent',
             }}
           >
-            PerformantSaaS
+            Fullstacktics
           </div>
         </div>
       </div>

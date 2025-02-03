@@ -45,9 +45,9 @@ const FeatureBadge = ({ text }: { text: string }) => (
   </div>
 )
 
-export default async function Image({ 
+export default async function Image({
   params,
-}: { 
+}: {
   params: { id: string }
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
@@ -56,7 +56,7 @@ export default async function Image({
     slug: key,
     ...service
   }))
-  
+
   const service = services.find((service) => service.slug === params.id)
 
   if (!service) {
@@ -83,7 +83,7 @@ export default async function Image({
 
   // Extract features from either technicalDetails or main features
   const features = Object.values(service.technicalDetails)
-  
+
   return new ImageResponse(
     (
       <div
@@ -100,17 +100,9 @@ export default async function Image({
         }}
       >
         {/* Background Pattern */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            opacity: 0.2,
-          }}
-          dangerouslySetInnerHTML={{ __html: GridPattern() }}
-        />
+        <div className="fixed inset-0 bg-gradient-to-b from-primary/10 via-primary/5 to-transparent -z-10">
+          <div className="fixed inset-0 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" />
+        </div>
 
         {/* Badge */}
         <FeatureBadge text="High-Performance Solution" />
