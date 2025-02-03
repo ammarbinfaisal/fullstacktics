@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, Zap, Terminal, BookOpen, Code2 } from "lucide-react";
+import { Menu, Zap, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
@@ -33,29 +33,11 @@ export default function Navbar() {
 
   const resources = [
     {
-      title: "Performance Guide",
+      title: "Technical Blog",
       description: "Best practices for Next.js optimization",
-      href: "/resources/performance",
+      href: "/blog",
       icon: Zap
     },
-    {
-      title: "Technical Docs",
-      description: "Implementation guides and API references",
-      href: "/resources/docs",
-      icon: Terminal
-    },
-    {
-      title: "Case Studies",
-      description: "Real-world performance improvements",
-      href: "/resources/cases",
-      icon: BookOpen
-    },
-    {
-      title: "Code Examples",
-      description: "Sample implementations and snippets",
-      href: "/resources/code",
-      icon: Code2
-    }
   ];
 
   return (

@@ -9,11 +9,6 @@ import Navbar from "@/components/Navbar";
 import Consent from "./consent";
 import { metadataBase } from "./meta";
 
-const jetBrainsMono = Outfit({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://fullstacktics.com'),
   ...metadataBase.default,
@@ -41,20 +36,9 @@ export default function RootLayout({
           content="We build high-performance web applications and websites."
         ></meta>
 
-        <meta property="og:image" content="among-us.jpg"></meta>
         <meta property="og:site_name" content="Fullstacktics"></meta>
         <meta property="og:url" content="https://fullstacktics.com"></meta>
-        <meta
-          property="og:title"
-          content="Fullstacktics - Software Development Agency"
-        ></meta>
-        <meta
-          property="og:description"
-          content="We build high-performance web applications and websites."
-        ></meta>
-
-        {/* <Script id="consent" strategy="afterInteractive" async type="module" src="cookieconsent-config.js" /> */}
-        {/* <Script id="consent-conf" strategy="afterInteractive" async src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js" /> */}
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@/dist/cookieconsent.css" />
 
         <Script
@@ -90,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className={`${jetBrainsMono.className} antialiased w-full`}>
+      <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQS73V7"
           height="0" width="0" style={{
             display: "none",

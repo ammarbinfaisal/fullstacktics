@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'Fullstacktics Expert Team'
+export const alt = 'Fullstacktics'
 export const size = {
   width: 1200,
   height: 630,
@@ -11,13 +11,23 @@ export const contentType = 'image/png'
 
 export default async function Image() {
   const expertiseAreas = [
-    'Technical Architecture',
-    'Workflow Automation',
-    'Growth Strategy',
-    'CRM Integration',
-    'Data Automation',
-    'PPC Management'
+    'Next.js Performance',
+    'React Optimization',
+    'Edge Computing',
+    'Prisma & Supabase',
+    'Type-Safe APIs',
+    'Real-time Systems'
   ]
+
+  // Create a tech-inspired grid pattern
+  const gridPattern = `
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/>
+      </pattern>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+  `
 
   return new ImageResponse(
     (
@@ -32,20 +42,57 @@ export default async function Image() {
           justifyContent: 'flex-start',
           padding: 80,
           fontFamily: 'Inter',
+          backgroundImage: 'linear-gradient(to bottom, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05), transparent)',
         }}
       >
+        {/* Tech Pattern Background */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            opacity: 0.2,
+          }}
+          dangerouslySetInnerHTML={{ __html: gridPattern }}
+        />
+
+        {/* Badge */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            background: 'rgba(59, 130, 246, 0.1)',
+            padding: '8px 16px',
+            borderRadius: 20,
+            marginBottom: 24,
+          }}
+        >
+          <div
+            style={{
+              fontSize: 20,
+              fontWeight: 500,
+              color: '#3b82f6',
+            }}
+          >
+            Technical Excellence
+          </div>
+        </div>
+
         {/* Main Title */}
         <div
           style={{
             fontSize: 64,
             fontWeight: 700,
-            background: 'linear-gradient(to right, #1e40af, #3b82f6)',
+            background: 'linear-gradient(to right, #3b82f6, #9333ea)',
             backgroundClip: 'text',
             color: 'transparent',
             marginBottom: 24,
           }}
         >
-          Meet Our Expert Team
+          Performance-Obsessed Engineers
         </div>
 
         {/* Subtitle */}
@@ -58,7 +105,7 @@ export default async function Image() {
             lineHeight: 1.4,
           }}
         >
-          Combining expertise in automation, growth, and data to drive business success
+          Building lightning-fast SaaS applications with deep technical expertise
         </div>
 
         {/* Expertise Container */}
@@ -67,14 +114,14 @@ export default async function Image() {
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
-            gap: 16,
+            gap: 24,
           }}
         >
           <div
             style={{
               display: 'flex',
               width: '100%',
-              gap: 16,
+              gap: 24,
             }}
           >
             {expertiseAreas.slice(0, 3).map((expertise, index) => (
@@ -85,6 +132,10 @@ export default async function Image() {
                   alignItems: 'center',
                   gap: 12,
                   fontSize: 24,
+                  background: 'rgba(59, 130, 246, 0.05)',
+                  padding: '16px 24px',
+                  borderRadius: 12,
+                  border: '1px solid rgba(59, 130, 246, 0.1)',
                   color: '#374151',
                   flex: 1,
                 }}
@@ -94,7 +145,7 @@ export default async function Image() {
                     width: 8,
                     height: 8,
                     borderRadius: '50%',
-                    background: '#3b82f6',
+                    background: 'linear-gradient(to right, #3b82f6, #9333ea)',
                   }}
                 />
                 {expertise}
@@ -105,7 +156,7 @@ export default async function Image() {
             style={{
               display: 'flex',
               width: '100%',
-              gap: 16,
+              gap: 24,
             }}
           >
             {expertiseAreas.slice(3).map((expertise, index) => (
@@ -116,6 +167,10 @@ export default async function Image() {
                   alignItems: 'center',
                   gap: 12,
                   fontSize: 24,
+                  background: 'rgba(59, 130, 246, 0.05)',
+                  padding: '16px 24px',
+                  borderRadius: 12,
+                  border: '1px solid rgba(59, 130, 246, 0.1)',
                   color: '#374151',
                   flex: 1,
                 }}
@@ -125,7 +180,7 @@ export default async function Image() {
                     width: 8,
                     height: 8,
                     borderRadius: '50%',
-                    background: '#3b82f6',
+                    background: 'linear-gradient(to right, #3b82f6, #9333ea)',
                   }}
                 />
                 {expertise}
@@ -148,7 +203,9 @@ export default async function Image() {
             style={{
               fontSize: 32,
               fontWeight: 600,
-              color: '#1e40af',
+              background: 'linear-gradient(to right, #3b82f6, #9333ea)',
+              backgroundClip: 'text',
+              color: 'transparent',
             }}
           >
             Fullstacktics
