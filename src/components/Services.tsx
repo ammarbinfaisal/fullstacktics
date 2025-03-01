@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 
 export default function Services() {
   return (
-    <section id="services" className="container py-24">
+    <section id="services" className="container relative mx-auto py-24">
       <div className="flex flex-col items-center gap-4 text-center mb-16">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           Streamline Your Business with Powerful Automations

@@ -32,7 +32,7 @@ export default function Process() {
   ];
 
   return (
-    <section className="container relative py-24">
+    <section className="container relative mx-auto py-24">
       <div className="relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
@@ -55,7 +55,7 @@ export default function Process() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{step.description}</p>
-                
+
                 {/* Metrics */}
                 <div className="w-full pt-4 border-t border-primary/10">
                   <ul className="space-y-2">
@@ -79,14 +79,14 @@ export default function Process() {
 
         <div className="mt-16 text-center">
           <Cal>
-            <Button 
+            <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700"
             >
               Schedule Technical Consultation
             </Button>
           </Cal>
-          
+
           <p className="mt-4 text-sm text-muted-foreground">
             Average implementation time: 2-3 weeks for full optimization
           </p>

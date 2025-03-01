@@ -2,8 +2,7 @@ import Hero from "@/components/Hero";
 import FinalCTA from "@/components/FinalCTA";
 import FAQ from "@/components/Faq";
 import ServicesGrid from "@/components/ServiceGrid";
-
-
+import PastClients from "@/components/PastClients";
 
 export default function Page() {
 	return (
@@ -12,6 +11,7 @@ export default function Page() {
 				<div className="fixed inset-0 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" />
 			</div>
 			<Hero />
+			<PastClients />
 			<ServicesGrid />
 			<FAQ />
 			<FinalCTA />

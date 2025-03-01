@@ -6,7 +6,7 @@ import Cal from '@/app/Cal';
 
 export default function FinalCTA() {
   return (
-    <section className="container py-24 bg-primary/5">
+    <section className="container relative mx-auto py-24">
       <div className="max-w-[800px] mx-auto text-center">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
           Ready to Transform Your Business?

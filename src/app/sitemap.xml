@@ -1,44 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-	<loc>https://www.fullstacktics.com/</loc>
-	<lastmod>2025-01-04T05:13:41+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://www.fullstacktics.com/</loc>
+  <lastmod>2025-02-04T14:36:25+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-	<loc>https://www.fullstacktics.com/contact</loc>
-	<lastmod>2025-01-04T05:13:41+01:00</lastmod>
-	<priority>0.9</priority>
+  <loc>https://www.fullstacktics.com/contact</loc>
+  <lastmod>2025-02-04T14:36:25+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>https://www.fullstacktics.com/team</loc>
-	<lastmod>2025-01-04T05:13:45+01:00</lastmod>
-	<priority>0.9</priority>
+  <loc>https://www.fullstacktics.com/services/saas-development</loc>
+  <lastmod>2025-02-04T14:36:25+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>https://www.fullstacktics.com/services</loc>
-	<lastmod>2025-01-04T05:13:45+01:00</lastmod>
-	<priority>0.9</priority>
+  <loc>https://www.fullstacktics.com/services/infrastructure</loc>
+  <lastmod>2025-02-04T14:36:25+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
-<url>
-	<loc>https://www.fullstacktics.com/services/growth-strategy</loc>
-	<lastmod>2025-01-04T05:13:46+01:00</lastmod>
-	<priority>0.9</priority>
-</url>
-<url>
-	<loc>https://www.fullstacktics.com/services/automation-integration</loc>
-	<lastmod>2025-01-04T05:13:46+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://www.fullstacktics.com/services/funnel-crm</loc>
-	<lastmod>2025-01-04T05:13:46+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://www.fullstacktics.com/services/data-automation</loc>
-	<lastmod>2025-01-04T05:13:46+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
+
+
 </urlset>
