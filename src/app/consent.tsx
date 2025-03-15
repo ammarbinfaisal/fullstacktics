@@ -21,7 +21,7 @@ export default function Consent() {
 
         const loadAnalyticsScripts = () => {
             const container = document.head || document.documentElement;
-    
+
             // GTM Script
             const gtmScript = document.createElement('script');
             gtmScript.id = 'gtm-script';
@@ -33,14 +33,14 @@ export default function Consent() {
                 })(window,document,'script','dataLayer','${gtmId}');
             `;
             container.appendChild(gtmScript);
-    
+
             // Google Analytics Script
             const gaScript = document.createElement('script');
             gaScript.id = 'ga-script';
             gaScript.async = true;
             gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
             container.appendChild(gaScript);
-    
+
             // Add GTM noscript iframe
             const noscriptContainer = document.body;
             const gtmIframe = document.createElement('noscript');
@@ -63,7 +63,7 @@ export default function Consent() {
             `;
             document.head.appendChild(clarityScript);
         };
-    
+
         const removeAnalyticsScripts = () => {
             ['gtm-script', 'ga-script', 'clarity-script'].forEach(id => {
                 const script = document.getElementById(id);
@@ -71,7 +71,7 @@ export default function Consent() {
                     script.remove();
                 }
             });
-    
+
             // Remove GTM iframe
             const iframes = document.getElementsByTagName('iframe');
             Array.from(iframes).forEach(iframe => {
@@ -171,6 +171,14 @@ export default function Consent() {
                                         'event': 'consent_update',
                                         'analytics_storage': 'granted'
                                     });
+                                    if (window.gtag) {
+                                        window.gtag('consent', 'update', {
+                                            'ad_storage': 'granted',
+                                            'ad_user_data': 'granted',
+                                            'ad_personalization': 'granted',
+                                            'analytics_storage': 'granted'
+                                        });
+                                    }
                                 }
                             },
                             onReject: () => {
@@ -261,7 +269,7 @@ export default function Consent() {
                 }
             },
 
-            onChange: ({cookie, changedCategories}: {
+            onChange: ({ cookie, changedCategories }: {
                 cookie: {
                     categories: {
                         necessary: boolean;
