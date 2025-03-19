@@ -12,12 +12,12 @@ const Cal = ({
 }) => {
     function gtag_report_conversion() {
         // @ts-expect-error - TS doesn't know if gtag is a function
-        gtag('event', 'conversion', {
-            'send_to': 'AW-11298597203/US23CP348pYaENPSy4sq',
-            'value': 5.0,
-            'currency': 'USD',
-            'event_callback': () => console.log('Conversion reported!')
+        gtag('event', 'click_cal', {
+            'event_category': 'cal',
+            'event_label': 'click_cal',
+            'value': 1
         });
+
         return false;
     }
 
