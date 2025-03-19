@@ -23,21 +23,12 @@ export default function Contact() {
 
   useEffect(() => {
     if (formState.succeeded) {
-      // @ts-expect-error - Google Ads conversion tracking
-      gtag('event', 'conversion', {
-        'send_to': 'AW-11298597203/N4x_COrxrPcZENPSy4sq',
-        'value': 80.0,
-        'currency': 'INR',
-        'event_callback': () => {
-          console.log("Conversion tracked successfully");
-        }
-      });
       redirect("/we-will-contact-you");
     }
   }, [formState.succeeded]);
 
   return (
-    <section id="contact" className="container py-12 md:py-24">
+    <section id="contact" className="container py-12 md:py-24 mx-auto">
       <div className="flex flex-col items-center gap-4 text-center">
         <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
           Ready to get started?
@@ -60,7 +51,7 @@ export default function Contact() {
             <CardDescription>
               Have a project in mind? Let&apos;s discuss and create something incredible.
             </CardDescription>
-            <form onSubmit={submit} className="flex flex-col gap-4 mt-4 justify-center">
+            <form onSubmit={submit} className="flex flex-col gap-4 mt-4 justify-center" id="contact-form">
               <div className="flex flex-col gap-4 mt-4">
                 <Label htmlFor="name" className="text-sm font-medium text-primary">
                   Name

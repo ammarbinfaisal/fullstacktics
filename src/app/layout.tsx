@@ -84,8 +84,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Navbar />
         {children}
         <Analytics />
-        <div id="cookieconsent" />
-        <Consent />
+        {/* <div id="cookieconsent" /> */}
+        {/* <Consent /> */}
       </body>
     </html>
   );
