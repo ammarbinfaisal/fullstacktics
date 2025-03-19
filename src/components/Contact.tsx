@@ -23,12 +23,16 @@ export default function Contact() {
 
   useEffect(() => {
     if (formState.succeeded) {
+      // @ts-expect-error - TS doesn't know if gtag is a function
+      gtag('event', 'web_get_a_quote_form_submit', {
+        'event_timeout': 2000,
+      });
       redirect("/we-will-contact-you");
     }
   }, [formState.succeeded]);
 
   return (
-    <section id="contact" className="container py-12 md:py-24 mx-auto">
+    <section id="contact" className="py-12 md:py-24 mx-auto">
       <div className="flex flex-col items-center gap-4 text-center">
         <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
           Ready to get started?
