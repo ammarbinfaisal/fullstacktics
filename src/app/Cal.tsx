@@ -23,14 +23,14 @@ const Cal = ({
 
     useEffect(() => {
         (async function () {
-            const cal = await getCalApi({ "namespace": "consultation" });
+            const cal = await getCalApi({ "namespace": "consult" });
             cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
         })();
     }, []);
 
     return (
-        <div className={className} data-cal-namespace="consultation"
-            data-cal-link="fullstacktics/consultation"
+        <div className={className} data-cal-namespace="consult"
+            data-cal-link="fullstacktics/consult"
             data-cal-config='{"layout":"month_view"}'
             onClick={gtag_report_conversion}
         >
