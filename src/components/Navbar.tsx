@@ -109,7 +109,10 @@ export default function Navbar() {
                 <NavigationMenuItem>
                   <Link href="/contact">
                     <Button variant="default">
-                      Let's Talk
+                      <Terminal className="h-5 w-5 mr-2" />
+                      <span>
+                        Let&apos;s Talk
+                      </span>
                     </Button>
                   </Link>
                 </NavigationMenuItem>
