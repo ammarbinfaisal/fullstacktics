@@ -1,218 +1,218 @@
 {
-  "saas-development": {
-    "title": "Custom SaaS Solution Development",
-    "description": "Expert full-stack development specializing in software as a service solutions with multi-tenant architecture. Our development team focuses on creating scalable SaaS products through an optimized development process.",
+  "ai-development": {
+    "title": "AI-Powered Development",
+    "description": "Custom AI solutions leveraging PyTorch, LLMs, and diffusion models, seamlessly integrated into Next.js applications for intelligent, scalable systems.",
     "icon": "Zap",
     "features": [
-      "Full stack development with modern tech stack",
-      "Multi tenant architecture implementation",
-      "Custom SaaS solution design",
-      "Optimized development process",
-      "Enhanced user experience focus"
+      "PyTorch model development",
+      "LLM fine-tuning with vLLM",
+      "Diffusion model deployment",
+      "Next.js frontend integration",
+      "Real-time AI inference"
     ],
     "benefits": [
-      "Reduced costs through optimization",
-      "Streamlined development solutions",
-      "Improved user experience",
-      "Aligned with business goals",
-      "Scalable software solution"
+      "Enhanced system intelligence",
+      "Blazing-fast inference",
+      "Scalable AI solutions",
+      "Improved user experiences",
+      "Optimized resource usage"
     ],
     "useCases": [
-      "SaaS products development",
-      "SaaS platform development",
-      "Project management tools",
-      "Landing page optimization",
-      "Development solutions for enterprises"
+      "AI-driven SaaS platforms",
+      "Generative AI applications",
+      "Natural language processing",
+      "Image generation tools",
+      "Enterprise AI integrations"
     ],
-    "experience": "Operating as a leading SaaS development company, we've successfully delivered multiple SaaS products and platforms while maintaining high standards in the development process.",
+    "experience": "As AI experts, we’ve delivered advanced solutions using PyTorch and vLLM, powering next-gen applications with top-tier performance.",
     "testimonials": {
       "comments": [
-        "Exceptional development team that understood our business goals",
-        "Transformed our software solution with their tech stack expertise"
+        "Their AI integration transformed our platform’s capabilities.",
+        "Lightning-fast inference with zero compromise on accuracy."
       ]
     },
     "technicalDetails": {
       "technologies": [
-        "Full stack development frameworks",
-        "Multi tenant architecture",
-        "Project management tools",
-        "Development solutions suite",
-        "Landing page optimization tools"
+        "PyTorch",
+        "vLLM",
+        "BERT",
+        "Next.js",
+        "Redis"
       ],
       "developmentProcess": [
-        "Custom SaaS solution planning",
-        "Tech stack selection",
-        "Development team collaboration",
-        "User experience optimization",
-        "Software solution deployment"
+        "Model training and optimization",
+        "Frontend-backend integration",
+        "Performance benchmarking",
+        "Scalability testing",
+        "Deployment automation"
       ],
       "infrastructure": [
-        "Multi tenant database design",
-        "Development process automation",
-        "Project management integration",
-        "Reduced costs monitoring",
-        "Business goals tracking"
+        "GPU-accelerated compute",
+        "Redis caching layers",
+        "Next.js serverless",
+        "Model serving pipelines",
+        "Real-time monitoring"
       ],
       "monitoring": [
-        "User experience metrics",
-        "Development process KPIs",
-        "Software solution performance",
-        "Business goals achievement",
-        "Development team efficiency"
+        "Inference latency",
+        "Model accuracy",
+        "System uptime",
+        "Resource utilization",
+        "User interaction metrics"
       ],
       "security": [
-        "Multi tenant isolation",
-        "Software solution security",
-        "Development process compliance",
-        "User experience protection",
-        "Business goals safeguarding"
+        "Data encryption",
+        "API authentication",
+        "Model access control",
+        "Secure deployment",
+        "Compliance checks"
       ]
     }
   },
-  "development-process": {
-    "title": "SaaS Product Development Process",
-    "description": "Comprehensive development process focusing on creating scalable software solutions with emphasis on user experience and business goals.",
+  "performance-optimization": {
+    "title": "Performance Optimization",
+    "description": "Comprehensive optimization for AI models and applications, ensuring speed, efficiency, and scalability with tools like Redis and advanced profiling.",
     "icon": "Activity",
     "features": [
-      "Structured development process",
-      "Full stack implementation",
-      "Project management integration",
-      "User experience optimization",
-      "Business goals alignment"
+      "AI model compression",
+      "Core Web Vitals optimization",
+      "Redis caching strategies",
+      "Latency reduction",
+      "Resource profiling"
     ],
     "benefits": [
-      "Streamlined development solutions",
-      "Reduced costs",
-      "Enhanced user experience",
-      "Accelerated time to market",
-      "Improved project management"
+      "Faster response times",
+      "Reduced operational costs",
+      "Higher user satisfaction",
+      "Scalable performance",
+      "Efficient resource use"
     ],
     "useCases": [
-      "SaaS product development",
-      "Software solution creation",
-      "Development team coordination",
-      "Project management systems",
-      "Landing page development"
+      "High-traffic web apps",
+      "AI inference systems",
+      "Real-time analytics",
+      "Mobile app backends",
+      "Enterprise platforms"
     ],
-    "experience": "Our development team has refined the development process through numerous successful SaaS products and custom solutions.",
+    "experience": "We’ve optimized AI and full-stack systems, cutting latency by up to 90% and boosting efficiency across the board.",
     "technicalDetails": {
       "optimizationTechniques": [
-        "Development process streamlining",
-        "Tech stack optimization",
-        "User experience enhancement",
-        "Project management efficiency",
-        "Business goals tracking"
+        "Model pruning",
+        "Query optimization",
+        "Caching layers",
+        "Load balancing",
+        "Code profiling"
       ],
       "tools": [
-        "Project management software",
-        "Development solutions suite",
-        "User experience testing tools",
-        "Tech stack analyzers",
-        "Business goals monitoring"
+        "Redis",
+        "PyTorch Profiler",
+        "Lighthouse",
+        "New Relic",
+        "Sentry"
       ],
       "metrics": [
-        "Development process efficiency",
-        "User experience scores",
-        "Project management metrics",
-        "Business goals achievement",
-        "Development team productivity"
+        "Response time",
+        "Throughput",
+        "CPU/memory usage",
+        "Cache hit rate",
+        "Error rates"
       ]
     }
   },
   "infrastructure": {
-    "title": "SaaS Platform Infrastructure",
-    "description": "Enterprise-grade infrastructure setup for software as a service platforms, focusing on multi tenant architecture and scalability.",
+    "title": "Scalable Infrastructure",
+    "description": "Enterprise-grade infrastructure with Go, FastAPI, and Postgres, built to support AI workloads and high-traffic applications.",
     "icon": "Server",
     "features": [
-      "Multi tenant architecture",
-      "Scalable software solution",
-      "Tech stack optimization",
-      "Development process automation",
-      "User experience focus"
+      "Go microservices",
+      "FastAPI endpoints",
+      "Postgres scalability",
+      "Edge deployment",
+      "Real-time processing"
     ],
     "technicalDetails": {
       "technologies": [
-        "Multi tenant database systems",
-        "Development solutions infrastructure",
-        "Project management platforms",
-        "User experience monitoring",
-        "Business goals tracking systems"
+        "Go",
+        "FastAPI",
+        "Postgres",
+        "Redis",
+        "Docker"
       ],
       "features": [
-        "Multi tenant isolation",
-        "Development process integration",
-        "Software solution scaling",
-        "User experience optimization",
-        "Business goals alignment"
+        "Horizontal scaling",
+        "Real-time data sync",
+        "High availability",
+        "Secure data storage",
+        "Load-balanced APIs"
       ]
     }
   },
-  "api-development": {
-    "title": "High-Performance API Development",
-    "description": "Enterprise-grade API development with focus on type safety, real-time capabilities, and advanced caching strategies. Expertise in tRPC, GraphQL, and RESTful architectures.",
+  "api-integration": {
+    "title": "API & AI Integration",
+    "description": "High-performance APIs with FastAPI and Go, designed to integrate AI models like BERT and diffusion models into production systems.",
     "icon": "Code",
     "features": [
-      "Type-safe API development with tRPC",
-      "GraphQL endpoint optimization",
-      "Real-time API capabilities",
-      "Advanced caching strategies",
-      "Performance monitoring and metrics"
+      "FastAPI development",
+      "Go microservices",
+      "AI model serving",
+      "Real-time endpoints",
+      "Type-safe APIs"
     ],
     "benefits": [
-      "100% type-safe implementations",
-      "Zero-latency caching",
-      "Real-time data updates",
-      "Reduced development complexity",
-      "Improved data consistency"
+      "Seamless AI integration",
+      "Ultra-low latency",
+      "Scalable endpoints",
+      "Reliable data flow",
+      "Simplified maintenance"
     ],
     "useCases": [
-      "Real-time data applications",
-      "Microservices architectures",
-      "Mobile app backends",
-      "Enterprise integrations",
-      "Third-party API systems"
+      "AI-powered APIs",
+      "Microservices systems",
+      "Real-time dashboards",
+      "Mobile backends",
+      "Third-party integrations"
     ],
-    "experience": "Extensive experience in building and optimizing type-safe APIs using modern technologies like tRPC and GraphQL, achieving exceptional performance through advanced caching and optimization strategies.",
+    "experience": "We’ve built and deployed APIs that power AI-driven applications, achieving zero-latency caching and real-time performance.",
     "testimonials": {
       "comments": [
-        "Dramatically improved our API performance with innovative caching solutions",
-        "The type-safe implementation significantly reduced our runtime errors"
+        "Their API integration made our AI models production-ready.",
+        "FastAPI and Go combo delivered unmatched speed."
       ]
     },
     "technicalDetails": {
       "technologies": [
-        "tRPC",
-        "GraphQL",
-        "REST APIs",
-        "WebSockets",
-        "TypeScript"
+        "FastAPI",
+        "Go",
+        "PyTorch",
+        "Redis",
+        "Postgres"
       ],
       "performanceOptimization": [
         "Response caching",
-        "Query optimization",
+        "Async processing",
         "Connection pooling",
         "Rate limiting",
         "Load balancing"
       ],
       "infrastructure": [
-        "API gateway setup",
-        "Microservices architecture",
-        "Cache layer implementation",
-        "Real-time event systems",
-        "Type-safe schema design"
+        "API gateway",
+        "Microservices",
+        "Cache layers",
+        "Event-driven systems",
+        "Type-safe design"
       ],
       "monitoring": [
-        "API performance metrics",
-        "Error tracking",
-        "Usage analytics",
-        "Cache hit rates",
-        "Response time monitoring"
+        "API latency",
+        "Error rates",
+        "Throughput",
+        "Cache performance",
+        "Uptime"
       ],
       "security": [
-        "API authentication",
+        "OAuth2",
         "Rate limiting",
-        "Input validation",
-        "Security headers",
+        "Input sanitization",
+        "HTTPS",
         "Data encryption"
       ]
     }
