@@ -1,59 +1,58 @@
-
 export const metadataBase = {
-    default: {
-      title: 'Fullstacktics - Modern Business Automation Solutions',
-      description: 'Transform your business with custom integrations using Make.com, n8n, and custom development. Save time and costs with intelligent automation.',
-      keywords: ['business automation', 'make.com', 'n8n', 'custom integration', 'workflow automation'],
+  default: {
+    title: 'Fullstacktics - AI & Full-Stack Development Solutions',
+    description: 'Elevate your business with cutting-edge AI and full-stack development. Harness PyTorch, LLMs, and scalable stacks like Next.js and Go.',
+    keywords: ['AI development', 'full-stack development', 'PyTorch', 'Next.js', 'business solutions'],
+  },
+  pages: {
+    home: {
+      title: 'Fullstacktics - AI-Powered Development Solutions',
+      description: 'Transform your systems with AI-driven development and robust full-stack solutions. Leverage PyTorch, Next.js, and more for unparalleled performance.',
+      keywords: ['AI solutions', 'full-stack engineering', 'PyTorch development', 'Next.js applications', 'system optimization'],
     },
-    pages: {
-      home: {
-        title: 'Fullstacktics - Modern Business Automation Solutions',
-        description: 'Transform your business operations with custom integrations and automation solutions. Combine Make.com, n8n, and custom code for powerful workflows.',
-        keywords: ['business automation', 'workflow automation', 'custom integration', 'make.com integration', 'n8n automation'],
+    solutions: {
+      default: {
+        title: 'AI & Full-Stack Solutions | Fullstacktics',
+        description: 'Custom AI and full-stack development to power your business. From LLMs to scalable APIs, we deliver high-performance systems.',
+        keywords: ['AI development', 'full-stack solutions', 'custom systems', 'performance optimization'],
       },
-      solutions: {
-        default: {
-            title: 'Business Automation Solutions | Fullstacktics',
-            description: 'Custom business automation solutions to streamline your workflows. Connect your tools and automate your processes.',
-            keywords: ['business automation', 'workflow automation', 'custom integration', 'automation solutions'],
-        },
-        automation: {
-          title: 'Marketing Automation Solutions | Fullstacktics',
-          description: 'End-to-end marketing automation solutions using Make.com and n8n. Connect your tools and automate your workflows.',
-          keywords: ['marketing automation', 'make.com', 'n8n', 'workflow automation', 'marketing integration'],
-        },
-        integrations: {
-          title: 'Custom Integration Solutions | Fullstacktics',
-          description: 'Custom integration solutions to connect your business tools. Seamless data flow between platforms.',
-          keywords: ['custom integration', 'api integration', 'system integration', 'data automation'],
-        },
-        growth: {
-          title: 'Business Growth Solutions | Fullstacktics',
-          description: 'Data-driven growth strategies and implementation. Scale your business with automated marketing and sales funnels.',
-          keywords: ['business growth', 'growth strategy', 'marketing automation', 'sales funnel'],
-        }
+      automation: {
+        title: 'AI Automation Solutions | Fullstacktics',
+        description: 'Advanced AI automation with PyTorch, vLLM, and diffusion models. Integrate intelligence into your workflows seamlessly.',
+        keywords: ['AI automation', 'PyTorch', 'vLLM', 'diffusion models', 'workflow intelligence'],
       },
-      resources: {
-        docs: {
-          title: 'Integration Documentation | Fullstacktics',
-          description: 'Comprehensive guides and documentation for Make.com, n8n, and custom integrations.',
-          keywords: ['integration guide', 'documentation', 'make.com tutorial', 'n8n guide'],
-        },
-        cases: {
-          title: 'Customer Success Stories | Fullstacktics',
-          description: 'Real-world examples of successful business automation and integration projects.',
-          keywords: ['case studies', 'success stories', 'automation examples', 'integration projects'],
-        }
+      integrations: {
+        title: 'Custom API & AI Integrations | Fullstacktics',
+        description: 'Seamless API and AI integrations using FastAPI, Go, and Next.js. Connect your systems with precision and speed.',
+        keywords: ['API integration', 'AI integration', 'FastAPI', 'Go development', 'system connectivity'],
       },
-      about: {
-        title: 'About Fullstacktics | Business Automation Experts',
-        description: 'Learn about our team of automation experts and our approach to transforming businesses through technology.',
-        keywords: ['automation experts', 'integration specialists', 'about us', 'company profile'],
+      growth: {
+        title: 'AI-Driven Growth Solutions | Fullstacktics',
+        description: 'Scale your business with AI-powered insights and full-stack systems. Optimize with BERT, LLMs, and scalable stacks.',
+        keywords: ['AI growth', 'business scaling', 'LLM solutions', 'full-stack growth', 'data-driven'],
       },
-      contact: {
-        title: 'Contact Fullstacktics | Get Started with Automation',
-        description: 'Get in touch with our automation experts. Start your business transformation journey today.',
-        keywords: ['contact us', 'automation consultation', 'integration inquiry', 'get started'],
-      }
-    }
-  };
+    },
+    resources: {
+      docs: {
+        title: 'AI & Development Documentation | Fullstacktics',
+        description: 'Detailed guides on AI development with PyTorch, vLLM, and full-stack engineering with Next.js, Go, and more.',
+        keywords: ['AI documentation', 'PyTorch guide', 'Next.js tutorial', 'full-stack docs'],
+      },
+      cases: {
+        title: 'AI & Full-Stack Success Stories | Fullstacktics',
+        description: 'Explore real-world projects showcasing AI innovation and full-stack excellence with Fullstacktics.',
+        keywords: ['AI case studies', 'full-stack projects', 'success stories', 'tech implementations'],
+      },
+    },
+    about: {
+      title: 'About Fullstacktics | AI & Full-Stack Experts',
+      description: 'Meet our team of AI and full-stack specialists, dedicated to building intelligent, high-performance solutions.',
+      keywords: ['AI experts', 'full-stack developers', 'about us', 'tech team'],
+    },
+    contact: {
+      title: 'Contact Fullstacktics | Start Your AI Journey',
+      description: 'Connect with our experts to explore AI and full-stack solutions tailored to your needs. Let’s build something extraordinary.',
+      keywords: ['contact us', 'AI consultation', 'full-stack inquiry', 'get started'],
+    },
+  },
+};
