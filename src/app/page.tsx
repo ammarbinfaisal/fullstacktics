@@ -3,6 +3,12 @@ import FinalCTA from "@/components/FinalCTA";
 import FAQ from "@/components/Faq";
 import ServicesGrid from "@/components/ServiceGrid";
 import PastClients from "@/components/PastClients";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Fullstacktics",
+	description: "Ai, Fullstack, and beyond!",
+};
 
 export default function Page() {
 	return (

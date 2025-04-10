@@ -1,107 +1,103 @@
-// Growth Strategy Metadata
-export const growthStrategyMetadata = {
-    title: 'Business Growth & GTM Strategy | Professional Growth Services',
-    description: 'End-to-end growth strategy development and implementation with focus on market penetration and scalable revenue generation. Achieve 30-50% reduction in CAC and 2-3x increase in conversion rates.',
+export const aiDevelopmentMetadata = {
+    title: 'AI-Powered Development | Fullstacktics',
+    description: 'Custom AI solutions with PyTorch, LLMs, and diffusion models integrated into scalable Next.js systems. Achieve 10x faster inference and 99% accuracy.',
     openGraph: {
-        title: 'Business Growth & GTM Strategy',
-        description: 'Professional growth strategy services including go-to-market strategy, channel optimization, and conversion funnel optimization. Expert in Google Ads with $100K+ monthly budget management.',
-        images: [
-            {
-                url: '/images/growth-strategy.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'Growth Strategy Services',
-            },
-        ],
-        locale: 'en_US',
-        type: 'website',
+      title: 'AI-Powered Development',
+      description: 'Expert AI development with PyTorch, vLLM, and Next.js integration for intelligent, high-performance applications.',
+      images: [
+        {
+          url: '/images/ai-development.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'AI Development Services',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
     },
     twitter: {
-        card: 'summary_large_image',
-        title: 'Business Growth & GTM Strategy',
-        description: 'Expert growth strategy services with proven 30-50% CAC reduction and 2-3x conversion rate improvements',
-        images: ['/images/growth-strategy.jpg'],
+      card: 'summary_large_image',
+      title: 'AI-Powered Development',
+      description: 'Transform your systems with AI - 10x faster inference and 99% accuracy with Fullstacktics.',
+      images: ['/images/ai-development.jpg'],
     },
-    keywords: ['growth strategy', 'GTM strategy', 'Google Ads', 'conversion optimization', 'market analysis', 'customer acquisition'],
-}
+    keywords: ['AI development', 'PyTorch', 'LLMs', 'diffusion models', 'Next.js', 'vLLM'],
+};
 
-// Marketing Automation Metadata
-export const automationIntegrationMetadata = {
-    title: 'Marketing Automation & Integration Services | Professional Automation Solutions',
-    description: 'Comprehensive marketing automation setup using n8n, Make.com, and custom API integrations. Achieve 80% reduction in manual tasks with seamless workflow automation.',
+export const performanceOptimizationMetadata = {
+    title: 'Performance Optimization | Fullstacktics',
+    description: 'Optimize AI models and full-stack apps with Redis and advanced profiling. Achieve 90% faster responses and 50% resource savings.',
     openGraph: {
-        title: 'Marketing Automation & Integration Services',
-        description: 'Expert marketing automation services featuring n8n, Make.com, and custom API integrations for seamless workflow automation and CRM integration.',
-        images: [
-            {
-                url: '/images/automation-integration.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'Marketing Automation Services',
-            },
-        ],
-        locale: 'en_US',
-        type: 'website',
+      title: 'Performance Optimization',
+      description: 'Expert optimization for AI and full-stack systems, delivering 90% faster performance with Redis and profiling.',
+      images: [
+        {
+          url: '/images/performance-optimization.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Performance Optimization Services',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
     },
     twitter: {
-        card: 'summary_large_image',
-        title: 'Marketing Automation & Integration Services',
-        description: 'Transform your marketing with automation solutions - 80% reduction in manual tasks guaranteed',
-        images: ['/images/automation-integration.jpg'],
+      card: 'summary_large_image',
+      title: 'Performance Optimization',
+      description: 'Boost performance by 90% with Fullstacktics’ AI and full-stack optimization.',
+      images: ['/images/performance-optimization.jpg'],
     },
-    keywords: ['marketing automation', 'workflow integration', 'n8n', 'Make.com', 'API integration', 'CRM automation'],
-}
+    keywords: ['performance optimization', 'AI optimization', 'Redis caching', 'full-stack tuning', 'profiling'],
+  };
 
-// Funnel & CRM Solutions Metadata
-export const funnelCrmMetadata = {
-    title: 'Custom Funnels & CRM Solutions | Professional Sales Optimization',
-    description: 'End-to-end funnel development and CRM integration services. Achieve 40% increase in conversion rates and 90% reduction in lead response time.',
+  export const infrastructureMetadata = {
+    title: 'Scalable Infrastructure | Fullstacktics',
+    description: 'Enterprise-grade infrastructure with Go, FastAPI, and Postgres for AI workloads and high traffic. Achieve 99.9% uptime and infinite scalability.',
     openGraph: {
-        title: 'Custom Funnels & CRM Solutions',
-        description: 'Expert funnel development and CRM integration services for optimized customer journeys and automated sales processes.',
-        images: [
-            {
-                url: '/images/funnel-crm.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'Funnel and CRM Solutions',
-            },
-        ],
-        locale: 'en_US',
-        type: 'website',
+      title: 'Scalable Infrastructure',
+      description: 'Robust infrastructure solutions with Go, FastAPI, and Postgres, built for AI and high-traffic systems.',
+      images: [
+        {
+          url: '/images/infrastructure.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Scalable Infrastructure Services',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
     },
     twitter: {
-        card: 'summary_large_image',
-        title: 'Custom Funnels & CRM Solutions',
-        description: 'Transform your sales process with custom funnels and CRM solutions - 40% conversion rate increase',
-        images: ['/images/funnel-crm.jpg'],
+      card: 'summary_large_image',
+      title: 'Scalable Infrastructure',
+      description: 'Scale effortlessly with 99.9% uptime - Fullstacktics’ infrastructure expertise.',
+      images: ['/images/infrastructure.jpg'],
     },
-    keywords: ['sales funnel', 'CRM solutions', 'lead scoring', 'sales automation', 'customer journey', 'lead nurturing'],
-}
+    keywords: ['scalable infrastructure', 'Go development', 'FastAPI', 'Postgres', 'AI workloads'],
+  };
 
-// Data Collection & Process Automation Metadata
-export const dataAutomationMetadata = {
-    title: 'Data Collection & Process Automation | Professional Data Services',
-    description: 'Advanced data collection and process automation using Apify and custom scrapers. Achieve 100x faster data collection with 99.9% accuracy.',
+  export const apiIntegrationMetadata = {
+    title: 'API & AI Integration | Fullstacktics',
+    description: 'High-performance APIs with FastAPI and Go, integrating AI models like BERT and diffusion models. Achieve zero-latency caching and real-time updates.',
     openGraph: {
-        title: 'Data Collection & Process Automation',
-        description: 'Expert data collection and process automation services using Apify and custom scrapers for enhanced business intelligence.',
-        images: [
-            {
-                url: '/images/data-automation.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'Data Automation Services',
-            },
-        ],
-        locale: 'en_US',
-        type: 'website',
+      title: 'API & AI Integration',
+      description: 'Seamless API and AI integration with FastAPI, Go, and real-time capabilities for production-ready systems.',
+      images: [
+        {
+          url: '/images/api-integration.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'API & AI Integration Services',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
     },
     twitter: {
-        card: 'summary_large_image',
-        title: 'Data Collection & Process Automation',
-        description: 'Transform your data collection with automated solutions - 100x faster with 99.9% accuracy',
-        images: ['/images/data-automation.jpg'],
+      card: 'summary_large_image',
+      title: 'API & AI Integration',
+      description: 'Integrate AI effortlessly with zero-latency APIs - Fullstacktics delivers.',
+      images: ['/images/api-integration.jpg'],
     },
-    keywords: ['data collection', 'process automation', 'Apify', 'web scraping', 'data enrichment', 'business intelligence'],
-}
+    keywords: ['API integration', 'AI integration', 'FastAPI', 'Go microservices', 'real-time APIs'],
+  };
