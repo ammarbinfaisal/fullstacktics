@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'Fullstacktics - Software Development Agency'
+export const alt = 'Fullstacktics - Services'
 export const size = {
   width: 1200,
   height: 630,
@@ -10,11 +10,11 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
-  const performanceMetrics = [
-    { value: '<1s', label: 'First Paint' },
-    { value: '100', label: 'Performance Score' },
-    { value: '0', label: 'Layout Shift' },
-    { value: '<100ms', label: 'API Response' },
+  const serviceCategories = [
+    'Web Development',
+    'AI Integration',
+    'Cloud Solutions',
+    'Performance Optimization',
   ]
 
   return new ImageResponse(
@@ -54,7 +54,7 @@ export default async function Image() {
               color: '#9333ea',
             }}
           >
-            High-Performance SaaS Development
+            Fullstack Development
           </div>
         </div>
 
@@ -80,7 +80,7 @@ export default async function Image() {
               marginBottom: 16,
             }}
           >
-            Building
+            Our
             <span
               style={{
                 background: 'linear-gradient(to right, #9333ea, #14b8a6)',
@@ -90,9 +90,9 @@ export default async function Image() {
                 marginRight: 16,
               }}
             >
-              Lightning-Fast
+              Comprehensive
             </span>
-            SaaS
+            Services
           </div>
           <div
             style={{
@@ -103,11 +103,11 @@ export default async function Image() {
               maxWidth: '80%',
             }}
           >
-            Next.js expertise with obsessive performance optimization
+            End-to-end solutions for modern web applications
           </div>
         </div>
 
-        {/* Performance Metrics */}
+        {/* Service Categories */}
         <div
           style={{
             display: 'flex',
@@ -119,7 +119,7 @@ export default async function Image() {
             zIndex: 1,
           }}
         >
-          {performanceMetrics.map((metric, index) => (
+          {serviceCategories.map((category, index) => (
             <div
               key={index}
               style={{
@@ -136,24 +136,16 @@ export default async function Image() {
               <div
                 style={{
                   display: 'flex',
-                  fontSize: 36,
+                  fontSize: 24,
                   fontWeight: 700,
                   background: 'linear-gradient(to right, #9333ea, #14b8a6)',
                   backgroundClip: 'text',
                   color: 'transparent',
                   marginBottom: 8,
+                  textAlign: 'center',
                 }}
               >
-                {metric.value}
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 16,
-                  color: '#6b7280',
-                }}
-              >
-                {metric.label}
+                {category}
               </div>
             </div>
           ))}
