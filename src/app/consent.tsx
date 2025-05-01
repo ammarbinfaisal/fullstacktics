@@ -171,7 +171,8 @@ export default function Consent() {
                                         'event': 'consent_update',
                                         'analytics_storage': 'granted'
                                     });
-                                    if (window.gtag) {
+                                    if ("gtag" in window) {
+                                        // @ts-expect-error - gtag is not defined in this context
                                         window.gtag('consent', 'update', {
                                             'ad_storage': 'granted',
                                             'ad_user_data': 'granted',
