@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Zap, Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-react"
+import { Zap, Mail, MapPin, Github, Linkedin } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -26,13 +26,11 @@ export default function Footer() {
               End-to-end solutions for modern web applications with cutting-edge technologies.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-purple-400">
+              <a href="https://github.com/fullstacktics" className="text-gray-400 hover:text-purple-400">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400">
+              <a href="https://www.linkedin.com/company/fullstacktics"
+                className="text-gray-400 hover:text-purple-400">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -105,15 +103,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-purple-400 mr-2 mt-0.5" />
-                <span className="text-gray-400">info@fullstacktics.com</span>
-              </li>
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 text-teal-400 mr-2 mt-0.5" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">ammar@fullstacktics.com</span>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-purple-400 mr-2 mt-0.5" />
-                <span className="text-gray-400">123 Tech Street, San Francisco, CA 94107</span>
+                <span className="text-gray-400">New Delhi, 110025</span>
               </li>
               <li>
                 <Link href="/project-inquiry" className="inline-block mt-3 text-white bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 px-4 py-2 rounded-md">
