@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
 import { getAllServices } from "@/lib/services-data"
 import Cal from "@/app/Cal"
+import Image from "next/image"
 
 export default function ServicesPage() {
   // Get all services
@@ -109,8 +110,18 @@ export default function ServicesPage() {
             <motion.div key={service.id} variants={serviceCardVariants}>
               <Link href={`/services/${service.id}`} className="block h-full">
                 <div className="bg-[#151528] border border-gray-800 rounded-xl p-8 h-full group hover:border-purple-600/50 transition-colors">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-teal-400 opacity-30 rounded-lg flex items-center justify-center mb-6">
-                    {service.icon}
+                  <div className="w-32 h-32 rounded-lg flex items-center justify-center mb-6">
+                    {
+                      service.imageUrl ?
+                        <Image
+                          src={service.imageUrl}
+                          alt={service.title}
+                          width={32}
+                          height={32}
+                          className={`w-24 h-24 ${service.imageUrl ? "rounded-lg" : "rounded-full"} transition-transform group-hover:scale-105 ${service.shortName ==="Next.js" ? "invert" : ""}`}
+                        /> :
+                        service.icon
+                    }
                   </div>
                   <Badge className="bg-purple-900/50 text-purple-400 hover:bg-purple-900/50 border-none mb-4">
                     {service.category}

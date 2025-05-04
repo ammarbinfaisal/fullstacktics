@@ -14,6 +14,7 @@ import TechBadge from "@/components/tech-badge"
 import ProcessStep from "@/components/process-step"
 import RelatedServiceCard from "@/components/related-service-card"
 import Cal from "@/app/Cal"
+import Image from "next/image"
 
 export default function ServicePage({ params }: { params: { id: string } }) {
   // Get service data based on the route parameter
@@ -162,7 +163,17 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               {/* This would be an image or video in a real implementation */}
               <div className="text-center">
                 <div className="text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-teal-400 mb-4">
-                  {serviceData.shortName || serviceData.title.split(" ")[0]}
+                  {
+                    serviceData.imageUrl ?
+                      <Image
+                        src={serviceData.imageUrl}
+                        alt={serviceData.title}
+                        width={32}
+                        height={32}
+                        className={`w-24 h-24 ${serviceData.imageUrl ? "rounded-lg" : "rounded-full"} transition-transform group-hover:scale-105 ${serviceData.shortName === "Next.js" ? "invert" : ""}`}
+                      /> :
+                      serviceData.icon
+                  }
                 </div>
                 <div className="text-sm text-gray-400">Service Overview</div>
               </div>

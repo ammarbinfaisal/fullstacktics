@@ -22,11 +22,13 @@ import {
 // Define the service data type
 export interface ServiceData {
   id: string
+  imageUrl?: string
   title: string
   shortName?: string
   description: string
   category: string
   icon: React.ReactNode
+  lightIcon: React.ReactNode
   benefits: string[]
   overview: string[]
   featuresDescription: string
@@ -56,10 +58,12 @@ const servicesData: Record<string, ServiceData> = {
   nextjs: {
     id: "nextjs",
     title: "NextJS Development",
+    imageUrl: "/tech/nextjs.svg",
     shortName: "Next.js",
     description: "Build fast, scalable, and SEO-friendly web applications with Next.js",
     category: "Frontend Development",
     icon: <Code className="h-6 w-6 text-[#6366F1]" />,
+    lightIcon: <Code className="h-6 w-6 text-white" />,
     benefits: [
       "Server-side rendering for improved SEO and performance",
       "Static site generation for blazing fast page loads",
@@ -169,10 +173,12 @@ const servicesData: Record<string, ServiceData> = {
   laravel: {
     id: "laravel",
     title: "Laravel Development",
+    imageUrl: "/tech/laravel.png",
     shortName: "Laravel",
     description: "Build robust backend solutions with Laravel's elegant syntax and powerful features",
     category: "Backend Development",
     icon: <Server className="h-6 w-6 text-[#6366F1]" />,
+    lightIcon: <Server className="h-6 w-6 text-white" />,
     benefits: [
       "Elegant MVC architecture for organized code",
       "Robust ORM for simplified database operations",
@@ -284,10 +290,12 @@ const servicesData: Record<string, ServiceData> = {
   golang: {
     id: "golang",
     title: "Golang Development",
+    imageUrl: "/tech/go.png",
     shortName: "Go",
     description: "Build high-performance, concurrent applications using Golang's powerful features",
     category: "Backend Development",
     icon: <Code className="h-6 w-6 text-[#6366F1]" />,
+    lightIcon: <Code className="h-6 w-6 text-white" />,
     benefits: [
       "High performance and efficiency",
       "Built-in concurrency with goroutines",
@@ -399,10 +407,12 @@ const servicesData: Record<string, ServiceData> = {
   react: {
     id: "react",
     title: "ReactJS Optimization",
+    imageUrl: "/tech/react.svg",
     shortName: "React",
     description: "Optimize your React applications for better performance and user experience",
     category: "Frontend Development",
     icon: <Zap className="h-6 w-6 text-[#6366F1]" />,
+    lightIcon: <Zap className="h-6 w-6 text-white" />,
     benefits: [
       "Improved application performance",
       "Reduced bundle size for faster loading",
@@ -517,6 +527,7 @@ const servicesData: Record<string, ServiceData> = {
     description: "Seamlessly connect your applications with third-party services and APIs",
     category: "API & Integration",
     icon: <Workflow className="h-6 w-6 text-[#6366F1]" />,
+    lightIcon: <Workflow className="h-6 w-6 text-white" />,
     benefits: [
       "Seamless data flow between systems",
       "Automated workflows and processes",
@@ -632,6 +643,7 @@ const servicesData: Record<string, ServiceData> = {
     description: "Streamline your workflows with Make.com and n8n-based automations",
     category: "Workflow Automation",
     icon: <Workflow className="h-6 w-6 text-[#6366F1]" />,
+    lightIcon: <Workflow className="h-6 w-6 text-white" />,
     benefits: [
       "Reduced manual work and human error",
       "Increased productivity and efficiency",
