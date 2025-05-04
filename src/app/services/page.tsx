@@ -120,7 +120,7 @@ export default function ServicesPage() {
                           height={32}
                           className={`w-24 h-24 ${service.imageUrl ? "rounded-lg" : "rounded-full"} transition-transform group-hover:scale-105 ${service.shortName ==="Next.js" ? "invert" : ""}`}
                         /> :
-                        service.icon
+                        service.lightIcon
                     }
                   </div>
                   <Badge className="bg-purple-900/50 text-purple-400 hover:bg-purple-900/50 border-none mb-4">

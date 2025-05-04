@@ -132,7 +132,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               <div className="relative">
                 {serviceData.icon && (
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-teal-400 rounded-2xl opacity-30 flex items-center justify-center mb-6">
-                    {serviceData.icon}
+                    {serviceData.lightIcon}
                   </div>
                 )}
                 <h3 className="text-2xl font-bold mb-4">Key Benefits</h3>
