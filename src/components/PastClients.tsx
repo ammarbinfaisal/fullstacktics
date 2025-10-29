@@ -19,8 +19,8 @@ const PastClients = () => {
         },
         {
             name: 'Rockvest',
-            url: 'https://rockvest.vercel.app', // Placeholder URL; update as needed
-            logo: '/rockvest.webp', // Placeholder path; update with actual logo
+            url: 'https://rockvest.fullstacktics.com',
+            logo: '/rockvest.webp',
             invert: true,
             description: 'Rockvest focuses on selling luxury properties in international markets',
         },

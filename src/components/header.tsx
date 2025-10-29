@@ -4,7 +4,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Zap, Menu, X } from "lucide-react"
-import ProjectInquiry from "@/app/inquiry/page"
+import ProjectInquiryModal from "@/components/ProjectInquiryModal"
 
 interface HeaderProps {
   activePage?: string
@@ -158,9 +158,8 @@ export default function Header({ activePage }: HeaderProps) {
             }}
           >
             <div className="w-full max-w-xl mx-auto"> {/* Wrapper to control dimensions */}
-              <ProjectInquiry 
-                onClose={() => setInquiryFormOpen(false)} 
-                isModal={true} 
+              <ProjectInquiryModal 
+                onClose={() => setInquiryFormOpen(false)}
               />
             </div>
           </motion.div>

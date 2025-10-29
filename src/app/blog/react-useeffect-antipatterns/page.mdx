@@ -1,0 +1,1688 @@
+import Pic from "./pic.jpg"
+import Image from "next/image"
+
+<Image src={Pic} alt="React useEffect Anti-Patterns" className="rounded-lg mb-8" />
+
+The `useEffect` hook is one of React's most powerful features—and also the most misused. After reviewing hundreds of React codebases, certain patterns appear repeatedly that cause bugs, performance issues, and maintenance nightmares. This guide covers every major anti-pattern with detailed explanations and fixes.
+
+## Table of Contents
+1. The Infinite Loop Trap
+2. Missing Dependencies
+3. Race Conditions
+4. Memory Leaks
+5. Unnecessary Effects
+6. Cleanup Function Mistakes
+7. Async Function Anti-Patterns
+8. setState in useEffect Pitfalls
+
+---
+
+## 1. The Infinite Loop Trap
+
+### Anti-Pattern: Object/Array in Dependency Array
+
+```jsx
+// ❌ WRONG: Infinite loop because object is recreated every render
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  
+  const config = { headers: { 'Authorization': 'Bearer token' } };
+  
+  useEffect(() => {
+    fetch(`/api/users/${userId}`, config)
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, [userId, config]); // config is a new object every render!
+  
+  return <div>{user?.name}</div>;
+}
+```
+
+**What happens:**
+1. Component renders
+2. `config` object is created
+3. `useEffect` runs (config is "new")
+4. `setUser` is called
+5. Component re-renders
+6. New `config` object is created (different reference!)
+7. `useEffect` runs again... infinite loop! 🔄
+
+### ✅ Solution 1: Move Object Outside Component
+
+```jsx
+// Configuration doesn't depend on props/state
+const API_CONFIG = { headers: { 'Authorization': 'Bearer token' } };
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    fetch(`/api/users/${userId}`, API_CONFIG)
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, [userId]); // Only userId in dependencies
+  
+  return <div>{user?.name}</div>;
+}
+```
+
+### ✅ Solution 2: Use useMemo for Dynamic Objects
+
+```jsx
+function UserProfile({ userId, authToken }) {
+  const [user, setUser] = useState(null);
+  
+  // Object only recreated when authToken changes
+  const config = useMemo(() => ({
+    headers: { 'Authorization': `Bearer ${authToken}` }
+  }), [authToken]);
+  
+  useEffect(() => {
+    fetch(`/api/users/${userId}`, config)
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, [userId, config]);
+  
+  return <div>{user?.name}</div>;
+}
+```
+
+### ✅ Solution 3: Move Object Inside useEffect
+
+```jsx
+function UserProfile({ userId, authToken }) {
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    const config = { 
+      headers: { 'Authorization': `Bearer ${authToken}` } 
+    };
+    
+    fetch(`/api/users/${userId}`, config)
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, [userId, authToken]); // Only primitives in dependencies
+  
+  return <div>{user?.name}</div>;
+}
+```
+
+**Why this works:** Objects created inside `useEffect` don't affect the dependency array. Only `userId` and `authToken` (primitives) trigger re-runs.
+
+---
+
+## 2. Missing Dependencies
+
+### Anti-Pattern: Ignoring ESLint Warnings
+
+```jsx
+// ❌ WRONG: Missing dependencies cause stale closures
+function SearchResults({ category }) {
+  const [results, setResults] = useState([]);
+  const [query, setQuery] = useState('');
+  
+  useEffect(() => {
+    // ESLint warning: category and query should be in dependencies
+    fetch(`/api/search?q=${query}&category=${category}`)
+      .then(res => res.json())
+      .then(data => setResults(data));
+  }, []); // Empty array = runs once with initial values only!
+  
+  return (
+    <div>
+      <input value={query} onChange={e => setQuery(e.target.value)} />
+      {/* Results never update when query or category changes! */}
+    </div>
+  );
+}
+```
+
+**The Problem:** `useEffect` captures the initial values of `query` and `category`. When they change, the effect doesn't re-run, so results never update.
+
+### ✅ Solution: Include All Dependencies
+
+```jsx
+function SearchResults({ category }) {
+  const [results, setResults] = useState([]);
+  const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(false);
+  
+  useEffect(() => {
+    // Don't search with empty query
+    if (!query.trim()) {
+      setResults([]);
+      return;
+    }
+    
+    setLoading(true);
+    
+    fetch(`/api/search?q=${query}&category=${category}`)
+      .then(res => res.json())
+      .then(data => {
+        setResults(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
+      
+  }, [query, category]); // All dependencies included
+  
+  return (
+    <div>
+      <input value={query} onChange={e => setQuery(e.target.value)} />
+      {loading && <div>Loading...</div>}
+      {results.map(item => <div key={item.id}>{item.title}</div>)}
+    </div>
+  );
+}
+```
+
+### Better: Add Debouncing
+
+```jsx
+function SearchResults({ category }) {
+  const [results, setResults] = useState([]);
+  const [query, setQuery] = useState('');
+  
+  useEffect(() => {
+    if (!query.trim()) return;
+    
+    // Debounce: wait 500ms after user stops typing
+    const timeoutId = setTimeout(() => {
+      fetch(`/api/search?q=${query}&category=${category}`)
+        .then(res => res.json())
+        .then(data => setResults(data));
+    }, 500);
+    
+    // Cleanup: cancel timeout if query changes again
+    return () => clearTimeout(timeoutId);
+  }, [query, category]);
+  
+  return (/* ... */);
+}
+```
+
+**Result:** API only called 500ms after user stops typing, not on every keystroke!
+
+---
+
+## 3. Race Conditions
+
+### Anti-Pattern: Not Handling Async Race Conditions
+
+```jsx
+// ❌ WRONG: Race condition nightmare
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, [userId]);
+  
+  return <div>{user?.name}</div>;
+}
+```
+
+**The Problem:**
+```
+User clicks User #1 → Request A starts
+User clicks User #2 → Request B starts  
+Request B finishes → Shows User #2 ✓
+Request A finishes → Shows User #1 ✗ (Wrong!)
+```
+
+Slow requests can finish after fast ones, showing stale data!
+
+### ✅ Solution: Ignore Stale Responses
+
+```jsx
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    let ignore = false; // Flag to track if this effect is stale
+    
+    fetch(`/api/users/${userId}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!ignore) { // Only update if this is still the current effect
+          setUser(data);
+        }
+      });
+    
+    return () => {
+      ignore = true; // Mark this effect as stale on cleanup
+    };
+  }, [userId]);
+  
+  return <div>{user?.name}</div>;
+}
+```
+
+**How it works:**
+```
+User clicks User #1 → Request A starts (ignore = false)
+User clicks User #2 → Request B starts, cleanup sets Request A ignore = true
+Request A finishes → Ignored! (ignore = true)
+Request B finishes → Updates state (ignore = false)
+```
+
+### Better: Using AbortController
+
+```jsx
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const abortController = new AbortController();
+    
+    setLoading(true);
+    setError(null);
+    
+    fetch(`/api/users/${userId}`, {
+      signal: abortController.signal // Attach abort signal
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch');
+        return res.json();
+      })
+      .then(data => {
+        setUser(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        // AbortError is expected when switching users
+        if (err.name !== 'AbortError') {
+          setError(err.message);
+          setLoading(false);
+        }
+      });
+    
+    return () => {
+      abortController.abort(); // Cancel request on cleanup
+    };
+  }, [userId]);
+  
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  return <div>{user?.name}</div>;
+}
+```
+
+**Benefit:** Previous requests are actually cancelled, saving bandwidth and server resources!
+
+---
+
+## 4. Memory Leaks
+
+### Anti-Pattern: Missing Cleanup for Subscriptions
+
+```jsx
+// ❌ WRONG: Subscription never cleaned up
+function RealtimeNotifications() {
+  const [notifications, setNotifications] = useState([]);
+  
+  useEffect(() => {
+    // Subscribe to WebSocket
+    const socket = io('https://api.example.com');
+    
+    socket.on('notification', (data) => {
+      setNotifications(prev => [...prev, data]);
+    });
+    
+    // No cleanup! Socket stays open even after unmount
+  }, []);
+  
+  return (/* ... */);
+}
+```
+
+**The Problem:** Every time component mounts (page navigation, etc.), a new WebSocket connection opens. Previous connections never close. After 10 page visits, you have 10 open connections!
+
+### ✅ Solution: Proper Cleanup
+
+```jsx
+function RealtimeNotifications() {
+  const [notifications, setNotifications] = useState([]);
+  
+  useEffect(() => {
+    const socket = io('https://api.example.com');
+    
+    socket.on('notification', (data) => {
+      setNotifications(prev => [...prev, data]);
+    });
+    
+    // Cleanup function closes connection
+    return () => {
+      socket.off('notification');
+      socket.disconnect();
+    };
+  }, []);
+  
+  return (/* ... */);
+}
+```
+
+### Common Leak Sources That Need Cleanup:
+
+```jsx
+useEffect(() => {
+  // ✅ setTimeout/setInterval
+  const timer = setTimeout(() => {}, 1000);
+  return () => clearTimeout(timer);
+}, []);
+
+useEffect(() => {
+  // ✅ Event listeners
+  const handleScroll = () => {};
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
+useEffect(() => {
+  // ✅ Subscriptions
+  const subscription = observable.subscribe(data => {});
+  return () => subscription.unsubscribe();
+}, []);
+
+useEffect(() => {
+  // ✅ Third-party library instances
+  const chart = new Chart(canvasRef.current, config);
+  return () => chart.destroy();
+}, []);
+
+useEffect(() => {
+  // ✅ Fetch requests
+  const controller = new AbortController();
+  fetch(url, { signal: controller.signal });
+  return () => controller.abort();
+}, []);
+```
+
+---
+
+## 5. Unnecessary Effects
+
+### Anti-Pattern: Deriving State in useEffect
+
+```jsx
+// ❌ WRONG: useEffect for simple calculations
+function ShoppingCart({ items }) {
+  const [total, setTotal] = useState(0);
+  
+  useEffect(() => {
+    const newTotal = items.reduce((sum, item) => sum + item.price, 0);
+    setTotal(newTotal);
+  }, [items]);
+  
+  return <div>Total: ${total}</div>;
+}
+```
+
+**Problems:**
+1. Unnecessary re-render (effect runs after render)
+2. Total is briefly wrong (old value) until effect runs
+3. Extra complexity
+
+### ✅ Solution: Calculate During Render
+
+```jsx
+function ShoppingCart({ items }) {
+  // Just calculate it! No useEffect needed
+  const total = items.reduce((sum, item) => sum + item.price, 0);
+  
+  return <div>Total: ${total}</div>;
+}
+```
+
+**Why this works:** React is fast. Calculating during render is usually fine. Only use `useMemo` if calculation is genuinely expensive (profiling shows >16ms).
+
+### Anti-Pattern: useEffect for Prop Changes
+
+```jsx
+// ❌ WRONG: Syncing state with props via useEffect
+function UserGreeting({ username }) {
+  const [greeting, setGreeting] = useState('');
+  
+  useEffect(() => {
+    setGreeting(`Hello, ${username}!`);
+  }, [username]);
+  
+  return <div>{greeting}</div>;
+}
+```
+
+### ✅ Solution: Derive Directly
+
+```jsx
+function UserGreeting({ username }) {
+  // No state needed at all!
+  const greeting = `Hello, ${username}!`;
+  
+  return <div>{greeting}</div>;
+}
+```
+
+### When You Actually Need State from Props:
+
+```jsx
+// You want to edit a prop value
+function EditableUsername({ initialUsername }) {
+  // This is OK: editing requires state
+  const [username, setUsername] = useState(initialUsername);
+  
+  // Reset when initial value changes (rare but valid)
+  useEffect(() => {
+    setUsername(initialUsername);
+  }, [initialUsername]);
+  
+  return (
+    <input 
+      value={username} 
+      onChange={e => setUsername(e.target.value)} 
+    />
+  );
+}
+```
+
+**Better approach using key:**
+
+```jsx
+// Parent component
+<EditableUsername key={userId} initialUsername={username} />
+
+// Child component - no useEffect needed!
+function EditableUsername({ initialUsername }) {
+  const [username, setUsername] = useState(initialUsername);
+  
+  return (
+    <input 
+      value={username} 
+      onChange={e => setUsername(e.target.value)} 
+    />
+  );
+}
+```
+
+When `key` changes, React unmounts old instance and mounts new one with fresh state!
+
+---
+
+## 6. Cleanup Function Mistakes
+
+### Anti-Pattern: Incorrect Cleanup Order
+
+```jsx
+// ❌ WRONG: setState in cleanup can cause errors
+function AutoSaveForm() {
+  const [content, setContent] = useState('');
+  const [saved, setSaved] = useState(false);
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      saveToServer(content);
+      setSaved(true); // In effect
+    }, 5000);
+    
+    return () => {
+      clearInterval(timer);
+      setSaved(false); // ⚠️ setState after unmount!
+    };
+  }, [content]);
+  
+  return (/* ... */);
+}
+```
+
+**The Problem:** Cleanup runs after component unmounts. Setting state on unmounted component causes React warnings and potential bugs.
+
+### ✅ Solution: Only Cleanup Side Effects
+
+```jsx
+function AutoSaveForm() {
+  const [content, setContent] = useState('');
+  const [saved, setSaved] = useState(false);
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      saveToServer(content);
+      setSaved(true);
+    }, 5000);
+    
+    return () => {
+      clearInterval(timer); // Only cleanup external resources
+    };
+  }, [content]);
+  
+  return (/* ... */);
+}
+```
+
+### Anti-Pattern: Forgetting to Cleanup Event Listeners
+
+```jsx
+// ❌ WRONG: Event listener memory leak
+function MouseTracker() {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    // No cleanup! Listener stays active after unmount
+  }, []);
+  
+  return <div>Mouse: {position.x}, {position.y}</div>;
+}
+```
+
+**Impact:** Each mount adds a new listener. After 100 page navigations, you have 100 listeners all calling `setState` on unmounted components!
+
+### ✅ Solution: Always Cleanup Listeners
+
+```jsx
+function MouseTracker() {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+  
+  return <div>Mouse: {position.x}, {position.y}</div>;
+}
+```
+
+---
+
+## 7. Async Function Anti-Patterns
+
+### Anti-Pattern: Async Functions Directly in useEffect
+
+```jsx
+// ❌ WRONG: useEffect callback cannot be async
+function UserData({ userId }) {
+  const [user, setUser] = useState(null);
+  
+  useEffect(async () => { // ⚠️ This breaks cleanup!
+    const response = await fetch(`/api/users/${userId}`);
+    const data = await response.json();
+    setUser(data);
+  }, [userId]);
+  
+  return <div>{user?.name}</div>;
+}
+```
+
+**Why it fails:** `useEffect` expects either nothing or a cleanup function. Async functions return Promises, not cleanup functions.
+
+### ✅ Solution: Async Function Inside useEffect
+
+```jsx
+function UserData({ userId }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    let ignore = false;
+    
+    async function fetchUser() {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const response = await fetch(`/api/users/${userId}`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (!ignore) {
+          setUser(data);
+        }
+      } catch (err) {
+        if (!ignore) {
+          setError(err.message);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+    
+    fetchUser();
+    
+    return () => {
+      ignore = true;
+    };
+  }, [userId]);
+  
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  return <div>{user?.name}</div>;
+}
+```
+
+---
+
+## 8. setState in useEffect Causing Infinite Loops
+
+### Anti-Pattern: Setting State Based on State
+
+```jsx
+// ❌ WRONG: Infinite loop
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    setCount(count + 1); // Causes re-render → useEffect runs → infinite loop
+  }, [count]); // count is in dependencies!
+  
+  return <div>{count}</div>;
+}
+```
+
+### ✅ Solution 1: Remove from Dependencies (When Safe)
+
+```jsx
+function ComponentDidMount() {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true); // Only runs once, doesn't depend on mounted
+  }, []); // Empty array = runs once
+  
+  return <div>{mounted ? 'Mounted!' : 'Mounting...'}</div>;
+}
+```
+
+### ✅ Solution 2: Use Functional setState
+
+```jsx
+function AutoIncrement() {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCount(prev => prev + 1); // Use previous value, no dependency needed
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, []); // No count in dependencies!
+  
+  return <div>{count}</div>;
+}
+```
+
+---
+
+## 9. Fetching in useEffect Anti-Patterns
+
+### Anti-Pattern: Not Handling Loading/Error States
+
+```jsx
+// ❌ WRONG: No loading or error handling
+function ProductList() {
+  const [products, setProducts] = useState([]);
+  
+  useEffect(() => {
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
+  
+  return products.map(p => <div key={p.id}>{p.name}</div>);
+}
+```
+
+**Problems:**
+1. Shows nothing while loading (bad UX)
+2. No error handling
+3. No way to retry on failure
+
+### ✅ Solution: Comprehensive Fetch Pattern
+
+```jsx
+function ProductList() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const controller = new AbortController();
+    
+    async function fetchProducts() {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const res = await fetch('/api/products', {
+          signal: controller.signal
+        });
+        
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        }
+        
+        const data = await res.json();
+        setProducts(data);
+        
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          setError(err.message);
+          console.error('Fetch failed:', err);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
+      }
+    }
+    
+    fetchProducts();
+    
+    return () => controller.abort();
+  }, []);
+  
+  if (loading) return <div>Loading products...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (products.length === 0) return <div>No products found</div>;
+  
+  return (
+    <div>
+      {products.map(p => (
+        <div key={p.id}>{p.name}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+### Even Better: Custom Hook
+
+```jsx
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const controller = new AbortController();
+    
+    async function fetchData() {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const res = await fetch(url, { signal: controller.signal });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        const json = await res.json();
+        setData(json);
+        
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          setError(err.message);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
+      }
+    }
+    
+    fetchData();
+    
+    return () => controller.abort();
+  }, [url]);
+  
+  return { data, loading, error };
+}
+
+// Usage - clean and reusable!
+function ProductList() {
+  const { data: products, loading, error } = useFetch('/api/products');
+  
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  
+  return products.map(p => <div key={p.id}>{p.name}</div>);
+}
+```
+
+---
+
+## 10. The setState Chain Anti-Pattern
+
+### Anti-Pattern: Multiple setState Calls Creating Update Chain
+
+```jsx
+// ❌ WRONG: Effect chain causes multiple renders
+function UserDashboard({ userId }) {
+  const [user, setUser] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+  
+  // Effect 1: Fetch user
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, [userId]);
+  
+  // Effect 2: Fetch posts when user loads
+  useEffect(() => {
+    if (user) {
+      fetch(`/api/users/${user.id}/posts`)
+        .then(res => res.json())
+        .then(data => setPosts(data));
+    }
+  }, [user]); // Re-runs when user changes
+  
+  // Effect 3: Fetch comments when posts load
+  useEffect(() => {
+    if (posts.length > 0) {
+      fetch(`/api/posts/${posts[0].id}/comments`)
+        .then(res => res.json())
+        .then(data => setComments(data));
+    }
+  }, [posts]); // Re-runs when posts change
+  
+  return (/* ... */);
+}
+```
+
+**The Problem:** 
+```
+Render 1: Initial render
+Effect 1 runs → setUser → Render 2
+Effect 2 runs → setPosts → Render 3  
+Effect 3 runs → setComments → Render 4
+```
+
+4 renders instead of 2!
+
+### ✅ Solution: Single Effect for Related Fetches
+
+```jsx
+function UserDashboard({ userId }) {
+  const [data, setData] = useState({
+    user: null,
+    posts: [],
+    comments: []
+  });
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    let ignore = false;
+    
+    async function fetchAll() {
+      try {
+        setLoading(true);
+        
+        // Fetch user
+        const userRes = await fetch(`/api/users/${userId}`);
+        const user = await userRes.json();
+        
+        // Fetch posts
+        const postsRes = await fetch(`/api/users/${userId}/posts`);
+        const posts = await postsRes.json();
+        
+        // Fetch comments for first post
+        let comments = [];
+        if (posts.length > 0) {
+          const commentsRes = await fetch(`/api/posts/${posts[0].id}/comments`);
+          comments = await commentsRes.json();
+        }
+        
+        if (!ignore) {
+          setData({ user, posts, comments }); // Single state update!
+          setLoading(false);
+        }
+        
+      } catch (err) {
+        if (!ignore) {
+          console.error(err);
+          setLoading(false);
+        }
+      }
+    }
+    
+    fetchAll();
+    
+    return () => {
+      ignore = true;
+    };
+  }, [userId]);
+  
+  if (loading) return <div>Loading...</div>;
+  
+  return (
+    <div>
+      <h1>{data.user?.name}</h1>
+      {data.posts.map(post => <div key={post.id}>{post.title}</div>)}
+      {data.comments.map(comment => <div key={comment.id}>{comment.text}</div>)}
+    </div>
+  );
+}
+```
+
+**Result:** Only 2 renders (initial + after data loads)!
+
+---
+
+## 11. Comparing Objects/Arrays Wrong
+
+### Anti-Pattern: Stringifying Dependencies
+
+```jsx
+// ❌ WRONG: stringify doesn't help with dependencies
+function FilteredList({ filters }) {
+  const [items, setItems] = useState([]);
+  
+  useEffect(() => {
+    fetch(`/api/items?filters=${JSON.stringify(filters)}`)
+      .then(res => res.json())
+      .then(data => setItems(data));
+  }, [JSON.stringify(filters)]); // Still recreates string every render!
+  
+  return (/* ... */);
+}
+```
+
+### ✅ Solution: Individual Primitive Dependencies
+
+```jsx
+function FilteredList({ category, minPrice, maxPrice }) {
+  const [items, setItems] = useState([]);
+  
+  useEffect(() => {
+    const params = new URLSearchParams({
+      category,
+      minPrice: minPrice.toString(),
+      maxPrice: maxPrice.toString()
+    });
+    
+    fetch(`/api/items?${params}`)
+      .then(res => res.json())
+      .then(data => setItems(data));
+      
+  }, [category, minPrice, maxPrice]); // Primitives work correctly
+  
+  return (/* ... */);
+}
+```
+
+### If You Must Use Objects:
+
+```jsx
+function FilteredList({ filters }) {
+  const [items, setItems] = useState([]);
+  
+  // Memoize the filter object
+  const stableFilters = useMemo(() => filters, 
+    [filters.category, filters.minPrice, filters.maxPrice]
+  );
+  
+  useEffect(() => {
+    fetch(`/api/items`, {
+      method: 'POST',
+      body: JSON.stringify(stableFilters)
+    })
+      .then(res => res.json())
+      .then(data => setItems(data));
+  }, [stableFilters]);
+  
+  return (/* ... */);
+}
+```
+
+---
+
+## 12. Double Execution in Development
+
+### "Anti-Pattern": Not Understanding Strict Mode
+
+```jsx
+// Component runs useEffect twice in development
+function DataFetcher() {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    console.log('Effect running...'); // Logs twice in dev!
+    
+    fetch('/api/data')
+      .then(res => res.json())
+      .then(setData);
+  }, []);
+  
+  return <div>{data?.value}</div>;
+}
+```
+
+**This is NOT a bug!** React 18 Strict Mode intentionally runs effects twice in development to help you find bugs.
+
+### ✅ Solution: Write Effects That Handle It
+
+```jsx
+function DataFetcher() {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    let ignore = false;
+    const controller = new AbortController();
+    
+    fetch('/api/data', { signal: controller.signal })
+      .then(res => res.json())
+      .then(result => {
+        if (!ignore) {
+          setData(result);
+        }
+      })
+      .catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error(err);
+        }
+      });
+    
+    return () => {
+      ignore = true;
+      controller.abort();
+    };
+  }, []);
+  
+  return <div>{data?.value}</div>;
+}
+```
+
+Now double execution in dev doesn't cause issues because:
+1. First effect: Starts fetch, then cleanup aborts it
+2. Second effect: Starts fresh fetch, completes successfully
+
+In production (no Strict Mode), runs once as expected.
+
+---
+
+## 13. Dependency Array Mistakes
+
+### Anti-Pattern: Functions in Dependencies
+
+```jsx
+// ❌ WRONG: Function recreated every render
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+  
+  const fetchTodos = () => {
+    return fetch('/api/todos').then(res => res.json());
+  };
+  
+  useEffect(() => {
+    fetchTodos().then(data => setTodos(data));
+  }, [fetchTodos]); // fetchTodos is a new function every render!
+  
+  return (/* ... */);
+}
+```
+
+### ✅ Solution: useCallback for Functions
+
+```jsx
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+  
+  const fetchTodos = useCallback(() => {
+    return fetch('/api/todos').then(res => res.json());
+  }, []); // Function only created once
+  
+  useEffect(() => {
+    fetchTodos().then(data => setTodos(data));
+  }, [fetchTodos]); // Now stable reference
+  
+  return (/* ... */);
+}
+```
+
+### Better: Define Function Inside useEffect
+
+```jsx
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+  
+  useEffect(() => {
+    async function fetchTodos() {
+      const res = await fetch('/api/todos');
+      const data = await res.json();
+      setTodos(data);
+    }
+    
+    fetchTodos();
+  }, []); // No function dependency needed
+  
+  return (/* ... */);
+}
+```
+
+---
+
+## 14. Effects Running Too Often
+
+### Anti-Pattern: Missing Memoization
+
+```jsx
+// ❌ WRONG: Effect runs on every render
+function ExpensiveComponent({ userId, settings }) {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    // settings is new object every render from parent
+    const processedData = expensiveCalculation(userId, settings);
+    setData(processedData);
+  }, [userId, settings]); // Runs every render!
+  
+  return <div>{data}</div>;
+}
+```
+
+### ✅ Solution: Memoize Objects in Parent
+
+```jsx
+// Parent Component
+function Parent() {
+  const settings = useMemo(() => ({
+    theme: 'dark',
+    language: 'en'
+  }), []); // Stable reference
+  
+  return <ExpensiveComponent userId={123} settings={settings} />;
+}
+
+// Child Component
+function ExpensiveComponent({ userId, settings }) {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    const processedData = expensiveCalculation(userId, settings);
+    setData(processedData);
+  }, [userId, settings]); // Only runs when actually needed
+  
+  return <div>{data}</div>;
+}
+```
+
+---
+
+## 15. Conditional Effects Anti-Pattern
+
+### Anti-Pattern: Conditional Hook Calls
+
+```jsx
+// ❌ WRONG: Hooks must always be called in same order
+function ConditionalEffect({ shouldFetch, userId }) {
+  const [data, setData] = useState(null);
+  
+  if (shouldFetch) { // ⚠️ Breaks rules of hooks!
+    useEffect(() => {
+      fetch(`/api/users/${userId}`)
+        .then(res => res.json())
+        .then(setData);
+    }, [userId]);
+  }
+  
+  return <div>{data?.name}</div>;
+}
+```
+
+### ✅ Solution: Condition Inside useEffect
+
+```jsx
+function ConditionalEffect({ shouldFetch, userId }) {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    if (!shouldFetch) return; // Condition inside effect
+    
+    let ignore = false;
+    
+    fetch(`/api/users/${userId}`)
+      .then(res => res.json())
+      .then(result => {
+        if (!ignore) setData(result);
+      });
+    
+    return () => {
+      ignore = true;
+    };
+  }, [shouldFetch, userId]); // Always called
+  
+  return <div>{data?.name}</div>;
+}
+```
+
+---
+
+## 16. Memory Intensive State Updates
+
+### Anti-Pattern: Building Large Arrays in Effects
+
+```jsx
+// ❌ WRONG: Creating new array every second
+function LiveFeed() {
+  const [messages, setMessages] = useState([]);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch('/api/messages/latest')
+        .then(res => res.json())
+        .then(newMsg => {
+          setMessages(prev => [...prev, newMsg]); // Array grows forever!
+        });
+    }, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  return messages.map(msg => <div key={msg.id}>{msg.text}</div>);
+}
+```
+
+**The Problem:** After 1 hour, you have 3,600 messages in state. Page becomes slow and eventually crashes.
+
+### ✅ Solution: Limit Array Size
+
+```jsx
+function LiveFeed() {
+  const [messages, setMessages] = useState([]);
+  const MAX_MESSAGES = 100;
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch('/api/messages/latest')
+        .then(res => res.json())
+        .then(newMsg => {
+          setMessages(prev => {
+            const updated = [newMsg, ...prev];
+            return updated.slice(0, MAX_MESSAGES); // Keep last 100 only
+          });
+        });
+    }, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  return (
+    <div>
+      <p>{messages.length} messages (max {MAX_MESSAGES})</p>
+      {messages.map(msg => <div key={msg.id}>{msg.text}</div>)}
+    </div>
+  );
+}
+```
+
+---
+
+## 17. useEffect vs useLayoutEffect
+
+### Anti-Pattern: Using Wrong Hook Type
+
+```jsx
+// ❌ WRONG: useEffect for DOM measurements causes flicker
+function TooltipPositioner({ targetRef }) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const rect = targetRef.current.getBoundingClientRect();
+    setPosition({ x: rect.left, y: rect.top });
+  }, []); // Runs AFTER paint → visible jump
+  
+  return <div style={{ left: position.x, top: position.y }}>Tooltip</div>;
+}
+```
+
+### ✅ Solution: useLayoutEffect for DOM Operations
+
+```jsx
+import { useLayoutEffect } from 'react';
+
+function TooltipPositioner({ targetRef }) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  useLayoutEffect(() => {
+    const rect = targetRef.current.getBoundingClientRect();
+    setPosition({ x: rect.left, y: rect.top });
+  }, []); // Runs BEFORE paint → no flicker
+  
+  return <div style={{ left: position.x, top: position.y }}>Tooltip</div>;
+}
+```
+
+**Rule of thumb:**
+- `useEffect`: Data fetching, subscriptions, analytics (after paint is fine)
+- `useLayoutEffect`: DOM measurements, animations (must happen before paint)
+
+---
+
+## 18. Complex Dependency Scenarios
+
+### Anti-Pattern: Nested Objects in Dependencies
+
+```jsx
+// ❌ WRONG: Deep nested object comparisons
+function UserSettings({ user }) {
+  const [settings, setSettings] = useState(null);
+  
+  useEffect(() => {
+    fetch(`/api/settings?userId=${user.profile.details.id}`)
+      .then(res => res.json())
+      .then(data => setSettings(data));
+  }, [user]); // Re-runs when ANY part of user changes!
+  
+  return (/* ... */);
+}
+```
+
+### ✅ Solution: Extract Only What You Need
+
+```jsx
+function UserSettings({ user }) {
+  const [settings, setSettings] = useState(null);
+  
+  // Extract the specific value you need
+  const userId = user.profile.details.id;
+  
+  useEffect(() => {
+    fetch(`/api/settings?userId=${userId}`)
+      .then(res => res.json())
+      .then(data => setSettings(data));
+  }, [userId]); // Only re-runs when userId changes
+  
+  return (/* ... */);
+}
+```
+
+---
+
+## 19. The Debug Hell Anti-Pattern
+
+### Anti-Pattern: No Logging in Effects
+
+```jsx
+// ❌ WRONG: No visibility into what's happening
+function MysteryCrash({ id }) {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    fetch(`/api/data/${id}`)
+      .then(res => res.json())
+      .then(setData);
+  }, [id]);
+  
+  return <div>{data?.value}</div>;
+}
+```
+
+When this breaks, you have no idea why!
+
+### ✅ Solution: Comprehensive Logging
+
+```jsx
+function DebugFriendly({ id }) {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    console.log('[Effect] Starting fetch for id:', id);
+    
+    let ignore = false;
+    const startTime = performance.now();
+    
+    fetch(`/api/data/${id}`)
+      .then(res => {
+        console.log('[Effect] Response received:', res.status);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(result => {
+        const duration = performance.now() - startTime;
+        console.log(`[Effect] Data loaded in ${duration.toFixed(2)}ms`);
+        
+        if (!ignore) {
+          setData(result);
+        } else {
+          console.log('[Effect] Ignoring stale response');
+        }
+      })
+      .catch(err => {
+        console.error('[Effect] Fetch failed:', err);
+      });
+    
+    return () => {
+      console.log('[Effect] Cleanup for id:', id);
+      ignore = true;
+    };
+  }, [id]);
+  
+  return <div>{data?.value}</div>;
+}
+```
+
+Now you can see exactly what's happening in your console!
+
+---
+
+## 20. Ref Anti-Patterns
+
+### Anti-Pattern: Setting State from Ref Value
+
+```jsx
+// ❌ WRONG: setState based on ref doesn't trigger re-render properly
+function ScrollTracker() {
+  const [scrollY, setScrollY] = useState(0);
+  const scrollRef = useRef(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollRef.current = window.scrollY;
+      setScrollY(scrollRef.current); // Unnecessary state
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  return <div>Scroll: {scrollY}</div>;
+}
+```
+
+### ✅ Solution: Use State Directly (or Just Ref)
+
+```jsx
+function ScrollTracker() {
+  const [scrollY, setScrollY] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY); // Direct state update
+    };
+    
+    // Throttle for performance
+    let timeoutId;
+    const throttledScroll = () => {
+      if (timeoutId) return;
+      timeoutId = setTimeout(() => {
+        handleScroll();
+        timeoutId = null;
+      }, 100);
+    };
+    
+    window.addEventListener('scroll', throttledScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
+  
+  return <div>Scroll: {scrollY}px</div>;
+}
+```
+
+---
+
+## Bonus: When NOT to Use useEffect
+
+### Instead of useEffect for Event Handlers:
+
+```jsx
+// ❌ WRONG
+function Form() {
+  const [submitted, setSubmitted] = useState(false);
+  
+  useEffect(() => {
+    if (submitted) {
+      alert('Form submitted!');
+      setSubmitted(false);
+    }
+  }, [submitted]);
+  
+  return (
+    <button onClick={() => setSubmitted(true)}>Submit</button>
+  );
+}
+
+// ✅ RIGHT: Handle directly in event
+function Form() {
+  const handleSubmit = () => {
+    alert('Form submitted!');
+    // Do submission logic here
+  };
+  
+  return <button onClick={handleSubmit}>Submit</button>;
+}
+```
+
+### Instead of useEffect for Calculations:
+
+```jsx
+// ❌ WRONG
+function PriceCalculator({ items }) {
+  const [total, setTotal] = useState(0);
+  
+  useEffect(() => {
+    const sum = items.reduce((acc, item) => acc + item.price, 0);
+    setTotal(sum);
+  }, [items]);
+  
+  return <div>Total: ${total}</div>;
+}
+
+// ✅ RIGHT: Calculate during render
+function PriceCalculator({ items }) {
+  const total = items.reduce((acc, item) => acc + item.price, 0);
+  
+  return <div>Total: ${total}</div>;
+}
+```
+
+---
+
+## The Ultimate useEffect Checklist
+
+Before committing your useEffect, ask:
+
+- [ ] **Do I need useEffect at all?** (Can I calculate during render?)
+- [ ] **Are all dependencies included?** (No ESLint warnings?)
+- [ ] **Is there a cleanup function?** (Subscriptions, timers, listeners?)
+- [ ] **Does it handle component unmount?** (ignore flag or AbortController?)
+- [ ] **Does it handle race conditions?** (Multiple rapid calls?)
+- [ ] **Are objects/arrays in dependencies memoized?**
+- [ ] **Is loading/error state handled?**
+- [ ] **Does it work in Strict Mode?** (Double execution in dev?)
+- [ ] **Is it doing too much?** (Should it be split?)
+- [ ] **Could this be a custom hook?** (Reusable?)
+
+---
+
+## Modern Alternative: React Query / SWR
+
+Many useEffect patterns for data fetching can be replaced:
+
+```jsx
+// Instead of complex useEffect for fetching
+import { useQuery } from '@tanstack/react-query';
+
+function UserProfile({ userId }) {
+  const { data: user, isLoading, error } = useQuery({
+    queryKey: ['user', userId],
+    queryFn: () => fetch(`/api/users/${userId}`).then(res => res.json())
+  });
+  
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  
+  return <div>{user.name}</div>;
+}
+```
+
+**Benefits:**
+- Automatic request deduplication
+- Built-in caching
+- Race condition handling
+- Loading/error states
+- Retry logic
+- Much less code!
+
+---
+
+## Quick Reference: Common Fixes
+
+| Problem | Fix |
+|---------|-----|
+| Infinite loop with object deps | Move object outside, use useMemo, or move inside effect |
+| Missing dependency warning | Add it to array or move inside effect |
+| Race condition | Use ignore flag or AbortController |
+| Memory leak | Add cleanup function that removes listeners/timers |
+| Effect runs too often | Check dependencies, memoize objects |
+| Stale closure | Include all deps or use functional setState |
+| Async function in effect | Define async function inside effect |
+| Double execution in dev | Add proper cleanup, it's a feature not a bug |
+
+---
+
+## Conclusion
+
+The `useEffect` hook is powerful but has many gotchas. Most bugs come from:
+1. Not understanding that objects/arrays are new references each render
+2. Missing cleanup functions
+3. Not handling async race conditions
+4. Using effects when you don't need them
+
+**Key Takeaways:**
+- Always include cleanup for subscriptions, timers, and listeners
+- Use ignore flag or AbortController for async operations
+- Primitive values in dependencies when possible
+- Consider if you need useEffect at all
+- Use React Query/SWR for data fetching when appropriate
+
+Master these patterns and your React applications will be more predictable, performant, and maintainable.
+
+**Further Reading:**
+- [React Official Docs: useEffect](https://react.dev/reference/react/useEffect)
+- [You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)

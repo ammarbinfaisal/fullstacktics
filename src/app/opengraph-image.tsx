@@ -1,7 +1,5 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
-
 export const alt = 'Fullstacktics - Software Development Agency'
 export const size = {
   width: 1200,
@@ -32,9 +30,7 @@ export default async function Image() {
           backgroundImage: 'linear-gradient(to bottom, rgba(147, 51, 234, 0.05), rgba(20, 184, 166, 0.05), transparent)',
         }}
       >
-        <div className="fixed inset-0 bg-gradient-to-b from-primary/10 via-primary/5 to-transparent -z-10">
-          <div className="fixed inset-0 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" />
-        </div>
+
         {/* Badge */}
         <div
           style={{
