@@ -55,7 +55,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
     if (technologiesInView) controls.technologies.start("visible")
     if (ctaInView) controls.cta.start("visible")
     if (relatedInView) controls.related.start("visible")
-  }, [heroInView, overviewInView, featuresInView, processInView, technologiesInView, ctaInView, relatedInView])
+  }, [heroInView, overviewInView, featuresInView, processInView, technologiesInView, ctaInView, relatedInView, controls.hero, controls.overview, controls.features, controls.process, controls.technologies, controls.cta, controls.related])
 
   // Animation variants
   const fadeIn = {

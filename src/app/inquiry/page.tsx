@@ -188,7 +188,7 @@ export default function ProjectInquiry({ onClose, isModal = false }: ProjectInqu
                     animate={{ opacity: 1, y: 0 }}
                     className="text-green-400 text-center"
                   >
-                    Thanks for your inquiry! We'll be in touch soon.
+                    Thanks for your inquiry! We&apos;ll be in touch soon.
                   </motion.div>
                 )}
               </form>
@@ -277,7 +277,7 @@ export default function ProjectInquiry({ onClose, isModal = false }: ProjectInqu
               
               {formState.succeeded && (
                 <div className="text-green-400 text-center mt-4">
-                  Thanks for your inquiry! We'll be in touch soon.
+                  Thanks for your inquiry! We&apos;ll be in touch soon.
                 </div>
               )}
             </form>

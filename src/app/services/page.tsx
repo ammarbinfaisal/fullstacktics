@@ -35,7 +35,7 @@ export default function ServicesPage() {
     if (heroInView) controls.hero.start("visible")
     if (servicesInView) controls.services.start("visible")
     if (ctaInView) controls.cta.start("visible")
-  }, [heroInView, servicesInView, ctaInView])
+  }, [heroInView, servicesInView, ctaInView, controls.hero, controls.services, controls.cta])
 
   // Animation variants
   const fadeIn = {

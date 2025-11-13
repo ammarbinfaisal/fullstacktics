@@ -6,7 +6,7 @@ import Script from "next/script"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle, TrendingUp, Users, Zap } from "lucide-react"
+import { ArrowRight, CheckCircle, TrendingUp, Zap } from "lucide-react"
 import Footer from "@/components/footer"
 import CookieConsent from "@/components/cookie-consent"
 import Cal from "@/app/Cal"
@@ -151,7 +151,7 @@ export default function CaseStudiesPage() {
             </span>
           </h1>
           <p className="text-xl text-gray-300">
-            See how we've helped businesses scale with modern full-stack solutions and workflow automation.
+            See how we&apos;ve helped businesses scale with modern full-stack solutions and workflow automation.
           </p>
         </motion.div>
       </section>
@@ -275,7 +275,7 @@ export default function CaseStudiesPage() {
         >
           <h2 className="text-3xl font-bold mb-4">Ready to Build Your Success Story?</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-            Let's discuss how our full-stack expertise can help you achieve similar results.
+            Let&apos;s discuss how our full-stack expertise can help you achieve similar results.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Cal>
