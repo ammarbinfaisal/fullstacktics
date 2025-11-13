@@ -4,7 +4,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Zap, Menu, X } from "lucide-react"
-import ProjectInquiry from "@/app/inquiry/page"
+import { ProjectInquiry } from "@/components/ProjectInquiry"
 
 interface HeaderProps {
   activePage?: string
