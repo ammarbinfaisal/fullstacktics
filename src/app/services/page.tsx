@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import Link from "next/link"
+import Script from "next/script"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Footer from "@/components/footer"
@@ -12,6 +13,8 @@ import { ArrowRight } from "lucide-react"
 import { getAllServices } from "@/lib/services-data"
 import Cal from "@/app/Cal"
 import Image from "next/image"
+
+export { metadata } from "./metadata"
 
 export default function ServicesPage() {
   // Get all services
@@ -71,8 +74,22 @@ export default function ServicesPage() {
     },
   }
 
+  const webPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url: 'https://www.fullstacktics.com/services',
+    name: 'Services – Fullstacktics',
+    description: 'Comprehensive full-stack development and workflow automation services including Next.js, Laravel, Go, n8n/Make.com automation, and AI integrations.',
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1A1A2E] to-[#0F0F1A] text-white">
+      <Script
+        id="ld-webpage-services"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative" ref={heroRef}>
@@ -109,7 +126,21 @@ export default function ServicesPage() {
           {services.map((service) => (
             <motion.div key={service.id} variants={serviceCardVariants}>
               <Link href={`/services/${service.id}`} className="block h-full">
-                <div className="bg-[#151528] border border-gray-800 rounded-xl p-8 h-full group hover:border-purple-600/50 transition-colors">
+                <div className={`bg-[#151528] border rounded-xl p-8 h-full group hover:border-purple-600/50 transition-colors relative ${
+                  service.id === 'automation' 
+                    ? 'border-purple-600/50 bg-gradient-to-br from-purple-900/20 to-teal-900/20' 
+                    : 'border-gray-800'
+                }`}>
+                  {service.id === 'automation' && (
+                    <div className="absolute top-4 right-4 flex gap-2">
+                      <div className="relative w-12 h-8 bg-white/10 backdrop-blur-sm rounded-md p-1 border border-white/10">
+                        <Image src="/make-logo.svg" alt="Make.com" fill className="object-contain p-0.5" />
+                      </div>
+                      <div className="relative w-12 h-8 bg-white/10 backdrop-blur-sm rounded-md p-1 border border-white/10">
+                        <Image src="/n8n-logo.svg" alt="n8n" fill className="object-contain p-0.5" />
+                      </div>
+                    </div>
+                  )}
                   <div className="w-32 h-32 rounded-lg flex items-center justify-center mb-6">
                     {
                       service.imageUrl ?
@@ -123,7 +154,11 @@ export default function ServicesPage() {
                         service.lightIcon
                     }
                   </div>
-                  <Badge className="bg-purple-900/50 text-purple-400 hover:bg-purple-900/50 border-none mb-4">
+                  <Badge className={`hover:bg-purple-900/50 border-none mb-4 ${
+                    service.id === 'automation' 
+                      ? 'bg-gradient-to-r from-purple-600 to-teal-600 text-white' 
+                      : 'bg-purple-900/50 text-purple-400'
+                  }`}>
                     {service.category}
                   </Badge>
                   <h3 className="text-xl font-bold mb-3">{service.title}</h3>
@@ -151,13 +186,23 @@ export default function ServicesPage() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Let our team of experts help you create a cutting-edge solution tailored to your needs.
           </p>
-          <Cal>
-            <Button
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg"
-            >
-              Contact Us Today
-            </Button>
-          </Cal>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Cal>
+              <Button
+                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg"
+              >
+                Contact Us Today
+              </Button>
+            </Cal>
+            <Link href="/case-studies">
+              <Button
+                variant="outline"
+                className="border-purple-500 text-purple-400 hover:bg-purple-950/30 px-8 py-6 rounded-full text-lg"
+              >
+                View Case Studies
+              </Button>
+            </Link>
+          </div>
         </motion.div>
       </section>
 

@@ -9,6 +9,8 @@ import CookieConsent from "@/components/cookie-consent"
 import ServiceCard from "@/components/service-card"
 import TechBadge from "@/components/tech-badge"
 import StatCard from "@/components/stat-card"
+import PastClients from "@/components/PastClients"
+import AutomationTeaser from "@/components/AutomationTeaser"
 import { getAllServices } from "@/lib/services-data"
 import Cal from "./Cal"
 
@@ -168,6 +170,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trusted Clients Section */}
+      <PastClients />
+
+      {/* Automation Teaser */}
+      <AutomationTeaser />
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-purple-900/30 to-teal-900/30">
         <div className="container mx-auto text-center">
@@ -182,10 +190,12 @@ export default function Home() {
                 <Zap className="ml-2 h-4 w-4" />
               </Button>
             </Cal>
-            <Button variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-950/30">
-              View Our Projects
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link href="/case-studies">
+              <Button variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-950/30">
+                View Case Studies
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -27,14 +27,14 @@ const PastClients = () => {
     ];
 
     return (
-        <section className="container w-full mx-auto py-24 px-4 bg-[#F5F5F5]">
-            <h2 className="text-4xl font-bold text-center my-4 text-[#4B5E6A]">Trusted by</h2>
+        <section className="container w-full mx-auto py-24 px-4 bg-[#151528]">
+            <h2 className="text-4xl font-bold text-center my-4 text-white">Trusted by</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
                 {clients.map((client) => (
                     <div
                         key={client.name}
-                        className="border rounded-lg p-8 hover:shadow-lg transition-shadow bg-white border-[#4A919E]/10"
+                        className="border rounded-lg p-8 hover:shadow-lg hover:shadow-purple-900/20 transition-all bg-[#1A1A2E] border-purple-900/30 hover:border-purple-600/50"
                     >
                         <div className="h-24 relative mb-6">
                             <Link href={client.url} target="_blank" rel="noopener noreferrer">
@@ -46,19 +46,19 @@ const PastClients = () => {
                                 />
                             </Link>
                         </div>
-                        <h3 className="text-2xl font-semibold mb-3 text-[#4B5E6A]">{client.name}</h3>
-                        <p className="text-[#4B5E6A] mb-4">{client.description}</p>
+                        <h3 className="text-2xl font-semibold mb-3 text-white">{client.name}</h3>
+                        <p className="text-gray-300 mb-4">{client.description}</p>
                     </div>
                 ))}
             </div>
 
             <div className="mt-16 text-center">
-                <h3 className="text-2xl font-semibold mb-4 text-[#4B5E6A]">Check Our Work History</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-white">Check Our Work History</h3>
                 <Link
                     href="https://www.upwork.com/freelancers/~0120fff5d26578a75e"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#4A919E] text-white px-6 py-3 rounded-lg hover:bg-[#3A7A85] transition-colors"
+                    className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
                 >
                     <span>View Our Upwork Profile</span>
                     <svg

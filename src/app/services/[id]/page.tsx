@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import { notFound } from "next/navigation"
+import Script from "next/script"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Footer from "@/components/footer"
@@ -91,8 +92,65 @@ export default function ServicePage({ params }: { params: { id: string } }) {
     },
   }
 
+  // JSON-LD structured data
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: serviceData.title,
+    description: serviceData.description,
+    provider: {
+      '@type': 'Organization',
+      name: 'Fullstacktics',
+      url: 'https://www.fullstacktics.com'
+    },
+    areaServed: 'Global',
+    offers: {
+      '@type': 'Offer',
+      url: `https://www.fullstacktics.com/services/${serviceData.id}`,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock'
+    }
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.fullstacktics.com/'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://www.fullstacktics.com/services'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: serviceData.title,
+        item: `https://www.fullstacktics.com/services/${serviceData.id}`
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1A1A2E] to-[#0F0F1A] text-white">
+      <Script
+        id={`ld-service-${serviceData.id}`}
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <Script
+        id={`ld-breadcrumb-${serviceData.id}`}
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative" ref={heroRef}>
