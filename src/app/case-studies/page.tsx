@@ -11,8 +11,6 @@ import Footer from "@/components/footer"
 import CookieConsent from "@/components/cookie-consent"
 import Cal from "@/app/Cal"
 
-export { metadata } from "./metadata"
-
 interface CaseStudy {
   id: string
   name: string

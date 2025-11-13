@@ -13,11 +13,23 @@ declare global {
 
 export default function Consent() {
     const [config, setConfig] = useState<CookieConsent.CookieConsentConfig>();
+    const [isEU, setIsEU] = useState<boolean | null>(null);
 
     useEffect(() => {
         const hostname = window?.location?.hostname;
         const gtmId = 'GTM-NMQS73V7';
         const gaId = 'AW-11298597203';
+
+        // Read region from server-side cookie set by middleware
+        const getCookie = (name: string) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop()?.split(';').shift();
+            return null;
+        };
+
+        const userRegion = getCookie('user_region');
+        const isEUUser = userRegion === 'EU';
 
         const loadAnalyticsScripts = () => {
             const container = document.head || document.documentElement;
@@ -289,18 +301,28 @@ export default function Consent() {
             },
         };
 
-        setConfig(cookieConsentConfig as unknown as CookieConsent.CookieConsentConfig);
+        // Set EU status
+        setIsEU(isEUUser);
+        
+        if (!isEUUser) {
+            // Not in EU - automatically load analytics without consent banner
+            loadAnalyticsScripts();
+            loadClarityScript();
+        } else {
+            // In EU - show consent banner
+            setConfig(cookieConsentConfig as unknown as CookieConsent.CookieConsentConfig);
+        }
     }, []);
 
     useEffect(() => {
-        if (config && typeof window !== 'undefined') {
+        if (config && typeof window !== 'undefined' && isEU) {
             CookieConsent.run(config);
 
             return () => {
                 CookieConsent.hide();
             };
         }
-    }, [config]);
+    }, [config, isEU]);
 
     return (
         <>

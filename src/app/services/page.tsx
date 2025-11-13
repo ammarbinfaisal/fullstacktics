@@ -14,8 +14,6 @@ import { getAllServices } from "@/lib/services-data"
 import Cal from "@/app/Cal"
 import Image from "next/image"
 
-export { metadata } from "./metadata"
-
 export default function ServicesPage() {
   // Get all services
   const services = getAllServices()
