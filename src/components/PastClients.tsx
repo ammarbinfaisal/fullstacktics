@@ -36,8 +36,8 @@ const PastClients = () => {
                         key={client.name}
                         className="border rounded-lg p-8 hover:shadow-lg hover:shadow-yellow-400/20 transition-all bg-zinc-900 border-zinc-800 hover:border-yellow-400/50"
                     >
-                        <div className="h-24 relative mb-6">
-                            <Link href={client.url} target="_blank" rel="noopener noreferrer">
+                        <div className="h-24 relative mb-6 bg-white rounded-lg p-4 flex items-center justify-center">
+                            <Link href={client.url} target="_blank" rel="noopener noreferrer" className="relative w-full h-full">
                                 <Image
                                     src={client.logo}
                                     alt={`${client.name} logo`}
