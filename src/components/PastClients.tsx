@@ -7,7 +7,7 @@ const PastClients = () => {
             name: 'AiRendering.com',
             url: 'https://airendering.com',
             logo: '/airendering.com-logo.svg',
-            invert: false,
+            invert: true,
             description: 'AI-powered architectural visualization',
         },
         {
