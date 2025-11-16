@@ -51,7 +51,7 @@ export default function Home() {
             </div>
             <div className="pt-4">
               <p className="text-sm text-gray-500 uppercase tracking-wider">
-                5+ YEARS OF INNOVATIVE SOLUTIONS | 50+ PROJECTS DELIVERED ANNUALLY
+                Automating Business Internet Presence Since 2021
               </p>
             </div>
           </div>
@@ -83,10 +83,10 @@ export default function Home() {
 
         {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-          <StatCard value="10x" label="Automation Speed" icon={<Zap className="h-5 w-5 text-yellow-400" />} />
-          <StatCard value="99%" label="On-Time Runs" icon={<div className="h-5 w-5 text-green-500">●</div>} />
-          <StatCard value="<1m" label="Lead Routing" icon={<div className="h-5 w-5 text-blue-500">↻</div>} />
-          <StatCard value="100%" label="Human Oversight" icon={<div className="h-5 w-5 text-yellow-400">✓</div>} />
+          <StatCard value="Fast" label="Automation Speed" icon={<Zap className="h-5 w-5 text-yellow-400" />} />
+          <StatCard value="Reliable" label="Workflow Execution" icon={<div className="h-5 w-5 text-green-500">●</div>} />
+          <StatCard value="Instant" label="Lead Routing" icon={<div className="h-5 w-5 text-blue-500">↻</div>} />
+          <StatCard value="Supervised" label="Human Oversight" icon={<div className="h-5 w-5 text-yellow-400">✓</div>} />
         </div>
 
         {/* Tech Stack */}

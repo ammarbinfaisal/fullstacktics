@@ -55,12 +55,12 @@ const caseStudies: CaseStudy[] = [
     impact: [
       {
         metric: "Automation",
-        value: "95% automated sync",
+        value: "Highly automated sync",
         icon: <Zap className="h-6 w-6 text-yellow-400" />,
       },
       {
         metric: "Data Pipeline",
-        value: "10,000+ products/day",
+        value: "High-volume processing",
         icon: <TrendingUp className="h-6 w-6 text-yellow-400" />,
       },
       {
@@ -98,12 +98,12 @@ const caseStudies: CaseStudy[] = [
     impact: [
       {
         metric: "Launch Speed",
-        value: "8 weeks to production",
+        value: "Rapid deployment",
         icon: <Zap className="h-6 w-6 text-yellow-400" />,
       },
       {
         metric: "Type Safety",
-        value: "100% TypeScript coverage",
+        value: "Full TypeScript coverage",
         icon: <CheckCircle className="h-6 w-6 text-yellow-400" />,
       },
       {
@@ -233,13 +233,13 @@ export default function CaseStudiesPage() {
                       Impact
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                      {study.impact.map((item, i) => (
+                       {study.impact.map((item, i) => (
                         <div
                           key={i}
                           className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-yellow-400/50 transition-colors"
                         >
                           <div className="mb-4">{item.icon}</div>
-                          <div className="text-2xl font-bold mb-1">{item.value}</div>
+                          <div className="text-2xl font-bold mb-1 text-white">{item.value}</div>
                           <div className="text-gray-400">{item.metric}</div>
                         </div>
                       ))}

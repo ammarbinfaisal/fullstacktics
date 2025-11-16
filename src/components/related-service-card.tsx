@@ -21,7 +21,7 @@ export default function RelatedServiceCard({ id, title, description, icon }: Rel
       transition={{ duration: 0.2 }}
     >
       <div className="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
       <p className="text-gray-400 mb-4">{description}</p>
       <Link href={`/services/${id}`} className="inline-flex items-center text-yellow-400 font-medium">
         Learn more

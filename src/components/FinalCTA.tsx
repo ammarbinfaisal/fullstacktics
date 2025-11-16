@@ -34,7 +34,7 @@ export default function FinalCTA() {
         </div>
 
         <p className="text-sm text-[#4B5E6A] mt-8">
-          Join 50+ innovators leveraging our AI-driven solutions for unmatched performance.
+          Join innovators leveraging our AI-driven solutions for exceptional performance.
         </p>
       </div>
     </section>

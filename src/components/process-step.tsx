@@ -15,7 +15,7 @@ export default function ProcessStep({ number, title, description }: ProcessStepP
         <div className="w-12 h-12 bg-yellow-400/10 rounded-full flex items-center justify-center mb-4 text-yellow-400 font-bold">
           {number}
         </div>
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
         <p className="text-gray-400">{description}</p>
       </div>
 

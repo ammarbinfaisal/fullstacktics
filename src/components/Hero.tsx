@@ -32,19 +32,19 @@ export default function Hero() {
           {/* Updated stats grid with AI/dev metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:border-yellow-400/50 transition-colors">
-              <div className="text-3xl font-bold text-yellow-600">10x</div>
+              <div className="text-3xl font-bold text-yellow-600">Fast</div>
               <p className="text-sm text-[#4B5E6A]">⚡ Inference Speed (vLLM)</p>
             </div>
             <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:border-yellow-400/50 transition-colors">
-              <div className="text-3xl font-bold text-yellow-600">99%</div>
+              <div className="text-3xl font-bold text-yellow-600">Precise</div>
               <p className="text-sm text-[#4B5E6A]">🎯 Model Accuracy</p>
             </div>
             <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:border-yellow-400/50 transition-colors">
-              <div className="text-3xl font-bold text-yellow-600">{"<1s"}</div>
+              <div className="text-3xl font-bold text-yellow-600">Quick</div>
               <p className="text-sm text-[#4B5E6A]">📊 API Response Time</p>
             </div>
             <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:border-yellow-400/50 transition-colors">
-              <div className="text-3xl font-bold text-yellow-600">100%</div>
+              <div className="text-3xl font-bold text-yellow-600">Reliable</div>
               <p className="text-sm text-[#4B5E6A]">🚀 Uptime Guarantee</p>
             </div>
           </div>

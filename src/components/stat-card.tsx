@@ -18,7 +18,7 @@ export default function StatCard({ value, label, icon }: StatCardProps) {
           <div className="flex items-start gap-4">
             <div className="p-2 bg-zinc-950 rounded-lg">{icon}</div>
             <div>
-              <div className="text-2xl font-bold">{value}</div>
+              <div className="text-2xl font-bold text-white">{value}</div>
               <div className="text-sm text-gray-400">{label}</div>
             </div>
           </div>

@@ -11,9 +11,9 @@ export default function ServicesGrid() {
       description: "Custom AI solutions with PyTorch, LLMs, and diffusion models, integrated into scalable Next.js applications.",
       icon: <Zap className="h-6 w-6" />,
       metrics: [
-        { value: "10x", label: "Inference Speed" },
-        { value: "99%", label: "Accuracy" },
-        { value: "<1s", label: "Latency" },
+        { value: "Fast", label: "Inference Speed" },
+        { value: "Precise", label: "Accuracy" },
+        { value: "Quick", label: "Latency" },
       ],
       features: [
         { text: "PyTorch & vLLM", icon: <Globe className="h-4 w-4" /> },
@@ -27,9 +27,9 @@ export default function ServicesGrid() {
       description: "AI and app optimization with measurable gains in speed, efficiency, and resource usage.",
       icon: <Activity className="h-6 w-6" />,
       metrics: [
-        { value: "90%", label: "Faster" },
-        { value: "<500ms", label: "Response" },
-        { value: "50%", label: "Resource Cut" },
+        { value: "Faster", label: "Speed Boost" },
+        { value: "Quick", label: "Response" },
+        { value: "Efficient", label: "Resource Use" },
       ],
       features: [
         { text: "Model Compression", icon: <PackageOpen className="h-4 w-4" /> },
@@ -43,9 +43,9 @@ export default function ServicesGrid() {
       description: "Robust backend systems with Go, FastAPI, and Postgres, designed for AI and high traffic.",
       icon: <Server className="h-6 w-6" />,
       metrics: [
-        { value: "99.9%", label: "Uptime" },
-        { value: "<50ms", label: "p95" },
-        { value: "∞", label: "Scale" },
+        { value: "Reliable", label: "Uptime" },
+        { value: "Fast", label: "Response" },
+        { value: "Scalable", label: "Growth" },
       ],
       features: [
         { text: "Edge Computing", icon: <Globe className="h-4 w-4" /> },
@@ -59,8 +59,8 @@ export default function ServicesGrid() {
       description: "High-performance APIs with FastAPI and Go, seamlessly integrating AI models.",
       icon: <Code className="h-6 w-6" />,
       metrics: [
-        { value: "100%", label: "Type-Safe" },
-        { value: "0ms", label: "Cache" },
+        { value: "Safe", label: "Type-Safe" },
+        { value: "Instant", label: "Cache" },
         { value: "Live", label: "Updates" },
       ],
       features: [

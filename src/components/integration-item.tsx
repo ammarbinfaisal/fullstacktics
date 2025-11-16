@@ -43,7 +43,7 @@ export default function IntegrationItem({ title, description, icon }: Integratio
     >
       <div className="w-10 h-10 bg-yellow-400/10 rounded-lg flex items-center justify-center mr-4">{getIcon()}</div>
       <div>
-        <h3 className="font-bold mb-2">{title}</h3>
+        <h3 className="font-bold mb-2 text-white">{title}</h3>
         <p className="text-gray-400 text-sm">{description}</p>
       </div>
     </motion.div>

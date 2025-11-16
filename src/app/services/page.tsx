@@ -177,12 +177,12 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" ref={ctaRef}>
         <motion.div
-          className="bg-black p-12 rounded-3xl border border-gray-800 text-center text-white"
+          className="bg-black p-12 rounded-3xl border border-gray-800 text-center"
           initial="hidden"
           animate={controls.cta}
           variants={fadeIn}
         >
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-bold mb-4 text-white">Ready to Get Started?</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Let our team of experts help you create a cutting-edge solution tailored to your needs.
           </p>
