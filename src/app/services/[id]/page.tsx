@@ -138,7 +138,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A1A2E] to-[#0F0F1A] text-white">
+    <div className="min-h-screen bg-white text-black">
       <Script
         id={`ld-service-${serviceData.id}`}
         type="application/ld+json"
@@ -153,8 +153,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
       />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative" ref={heroRef}>
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-teal-400 rounded-3xl opacity-20 blur-3xl"></div>
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" ref={heroRef}>
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           initial="hidden"
@@ -162,43 +161,38 @@ export default function ServicePage({ params }: { params: { id: string } }) {
           variants={fadeIn}
         >
           <div className="space-y-6">
-            <Badge className="bg-purple-900/50 text-purple-400 hover:bg-purple-900/50 border-none">
+            <Badge className="bg-yellow-100 text-yellow-700 border border-yellow-200">
               {serviceData.category}
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">{serviceData.title}</h1>
-            <p className="text-xl text-gray-300">{serviceData.description}</p>
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-gray-900">{serviceData.title}</h1>
+            <p className="text-xl text-gray-600">{serviceData.description}</p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Cal>
-                <Button
-                  className="bg-purple-600 hover:bg-purple-700 text-white"
-                >
+                <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Cal>
-              <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800">
+              <Button variant="outline" className="border-gray-300 text-gray-800 hover:bg-gray-100">
                 View Case Studies
               </Button>
             </div>
           </div>
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-teal-400 rounded-3xl opacity-20 blur-3xl"></div>
-            <div className="relative bg-[#151528] border border-gray-800 rounded-3xl p-8 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full -mr-16 -mt-16"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-400/10 rounded-full -ml-12 -mb-12"></div>
+            <div className="relative bg-gray-50 border border-gray-200 rounded-3xl p-8 overflow-hidden">
 
               <div className="relative">
                 {serviceData.icon && (
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-teal-400 rounded-2xl opacity-30 flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
                     {serviceData.lightIcon}
                   </div>
                 )}
-                <h3 className="text-2xl font-bold mb-4">Key Benefits</h3>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Key Benefits</h3>
                 <ul className="space-y-3">
                   {serviceData.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
-                      <Check className="h-5 w-5 text-teal-400 mr-3 mt-0.5" />
-                      <span>{benefit}</span>
+                      <Check className="h-5 w-5 text-yellow-400 mr-3 mt-0.5" />
+                      <span className="text-gray-700">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -216,11 +210,11 @@ export default function ServicePage({ params }: { params: { id: string } }) {
           animate={controls.overview}
           variants={fadeIn}
         >
-          <div className="bg-[#151528] border border-gray-800 rounded-3xl p-8 order-2 lg:order-1">
-            <div className="aspect-video rounded-xl bg-[#1A1A2E] flex items-center justify-center">
+          <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 order-2 lg:order-1">
+            <div className="aspect-video rounded-xl bg-white flex items-center justify-center">
               {/* This would be an image or video in a real implementation */}
               <div className="text-center">
-                <div className="text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-teal-400 mb-4">
+                <div className="text-6xl text-yellow-400 mb-4">
                   {
                     serviceData.imageUrl ?
                       <Image
@@ -233,16 +227,16 @@ export default function ServicePage({ params }: { params: { id: string } }) {
                       serviceData.icon
                   }
                 </div>
-                <div className="text-sm text-gray-400">Service Overview</div>
+                <div className="text-sm text-gray-500">Service Overview</div>
               </div>
             </div>
           </div>
 
           <div className="space-y-6 order-1 lg:order-2">
-            <h2 className="text-3xl font-bold">Overview</h2>
-            <div className="prose prose-invert max-w-none">
+            <h2 className="text-3xl font-bold text-gray-900">Overview</h2>
+            <div className="max-w-none">
               {serviceData.overview.map((paragraph, index) => (
-                <p key={index} className="text-gray-300">
+                <p key={index} className="text-gray-700">
                   {paragraph}
                 </p>
               ))}
@@ -252,10 +246,10 @@ export default function ServicePage({ params }: { params: { id: string } }) {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#151528] rounded-3xl" ref={featuresRef}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 rounded-3xl" ref={featuresRef}>
         <motion.div className="text-center mb-16" initial="hidden" animate={controls.features} variants={fadeIn}>
-          <h2 className="text-3xl font-bold mb-4">Key Features</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">{serviceData.featuresDescription}</p>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Key Features</h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">{serviceData.featuresDescription}</p>
         </motion.div>
 
         <motion.div
@@ -267,16 +261,14 @@ export default function ServicePage({ params }: { params: { id: string } }) {
           {serviceData.features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-[#1A1A2E] border border-gray-800 rounded-xl p-6"
+              className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm"
               variants={itemVariant}
-              whileHover={{ y: -5, boxShadow: "0 10px 30px -15px rgba(147, 51, 234, 0.2)" }}
-              transition={{ duration: 0.2 }}
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-teal-400 opacity-30 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-teal-400">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
+              <p className="text-gray-700">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -285,8 +277,8 @@ export default function ServicePage({ params }: { params: { id: string } }) {
       {/* Development Process Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" ref={processRef}>
         <motion.div className="text-center mb-16" initial="hidden" animate={controls.process} variants={fadeIn}>
-          <h2 className="text-3xl font-bold mb-4">Our Development Process</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">{serviceData.processDescription}</p>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Development Process</h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">{serviceData.processDescription}</p>
         </motion.div>
 
         <motion.div
@@ -304,10 +296,10 @@ export default function ServicePage({ params }: { params: { id: string } }) {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#151528] rounded-3xl" ref={technologiesRef}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white" ref={technologiesRef}>
         <motion.div className="text-center mb-16" initial="hidden" animate={controls.technologies} variants={fadeIn}>
-          <h2 className="text-3xl font-bold mb-4">Technologies We Use</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">{serviceData.technologiesDescription}</p>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Technologies We Use</h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">{serviceData.technologiesDescription}</p>
         </motion.div>
 
         <motion.div
@@ -327,17 +319,15 @@ export default function ServicePage({ params }: { params: { id: string } }) {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" ref={ctaRef}>
         <motion.div
-          className="bg-gradient-to-br from-purple-900/30 to-teal-900/30 p-12 rounded-3xl border border-gray-800 text-center"
+          className="bg-white border border-gray-200 p-10 rounded-3xl text-center shadow-sm"
           initial="hidden"
           animate={controls.cta}
           variants={fadeIn}
         >
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">{serviceData.ctaText}</p>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Ready to Get Started?</h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">{serviceData.ctaText}</p>
           <Cal>
-            <Button
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg"
-            >
+            <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-6 rounded-full text-lg">
               Contact Us Today
             </Button>
           </Cal>

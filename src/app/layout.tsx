@@ -96,7 +96,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <div className="min-h-screen bg-[#1A1A2E] text-white">
+        <div className="min-h-screen bg-white text-black">
           <Header />
           {children}
         </div>

@@ -51,7 +51,7 @@ export default async function Image() {
             style={{
               fontSize: 20,
               fontWeight: 500,
-              color: '#9333ea',
+              color: '#FACC15',
             }}
           >
             Fullstack Development
@@ -83,7 +83,7 @@ export default async function Image() {
             Our
             <span
               style={{
-                background: 'linear-gradient(to right, #9333ea, #14b8a6)',
+                background: 'linear-gradient(to right, #FACC15, #FACC15)',
                 backgroundClip: 'text',
                 color: 'transparent',
                 marginLeft: 16,
@@ -138,7 +138,7 @@ export default async function Image() {
                   display: 'flex',
                   fontSize: 24,
                   fontWeight: 700,
-                  background: 'linear-gradient(to right, #9333ea, #14b8a6)',
+                  background: 'linear-gradient(to right, #FACC15, #FACC15)',
                   backgroundClip: 'text',
                   color: 'transparent',
                   marginBottom: 8,
@@ -166,7 +166,7 @@ export default async function Image() {
               display: 'flex',
               fontSize: 24,
               fontWeight: 600,
-              background: 'linear-gradient(to right, #9333ea, #14b8a6)',
+              background: 'linear-gradient(to right, #FACC15, #FACC15)',
               backgroundClip: 'text',
               color: 'transparent',
             }}

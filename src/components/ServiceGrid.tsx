@@ -75,13 +75,13 @@ export default function ServicesGrid() {
     <section className="container relative mx-auto py-24 bg-[#F5F5F5]">
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="inline-flex items-center rounded-full bg-[#4A919E]/10 px-3 py-1 text-sm font-medium text-[#4A919E] ring-1 ring-inset ring-[#4A919E]/20 mb-4">
+          <span className="inline-flex items-center rounded-full bg-yellow-100 px-3 py-1 text-sm font-medium text-yellow-700 ring-1 ring-inset ring-yellow-200 mb-4">
             <Zap className="mr-1 h-3 w-3" />
             Technical Excellence
           </span>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 text-[#4B5E6A]">
             Advanced{" "}
-            <span className="bg-gradient-to-r from-[#4A919E] to-teal-600 bg-clip-text text-transparent">
+            <span className="text-yellow-600">
               AI & Full-Stack Solutions
             </span>
           </h2>
@@ -94,10 +94,10 @@ export default function ServicesGrid() {
           {services.map((service) => (
             <Card
               key={service.title}
-              className="relative group hover:shadow-lg transition-all border-[#4A919E]/10 hover:border-[#4A919E]/20 bg-white"
+              className="relative group hover:shadow-lg transition-all border-gray-200 hover:border-yellow-400/50 bg-white"
             >
               <CardHeader>
-                <div className="mb-4 inline-block rounded-lg bg-[#4A919E]/10 p-3 ring-1 ring-[#4A919E]/20">
+                <div className="mb-4 inline-block rounded-lg bg-yellow-50 p-3 ring-1 ring-yellow-100">
                   {service.icon}
                 </div>
                 <CardTitle className="text-xl text-[#4B5E6A]">{service.title}</CardTitle>
@@ -107,8 +107,8 @@ export default function ServicesGrid() {
                 {/* Metrics */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   {service.metrics.map((metric) => (
-                    <div key={metric.label} className="text-center p-2 rounded-lg bg-[#4A919E]/5">
-                      <div className="text-lg font-bold text-[#4A919E]">{metric.value}</div>
+                    <div key={metric.label} className="text-center p-2 rounded-lg bg-yellow-50">
+                      <div className="text-lg font-bold text-yellow-600">{metric.value}</div>
                       <div className="text-xs text-[#4B5E6A]">{metric.label}</div>
                     </div>
                   ))}
@@ -118,7 +118,7 @@ export default function ServicesGrid() {
                 <ul className="space-y-3">
                   {service.features.map((feature) => (
                     <li key={feature.text} className="flex items-center gap-2">
-                      <div className="rounded-full bg-[#4A919E]/10 p-1">
+                      <div className="rounded-full bg-yellow-50 p-1">
                         {feature.icon}
                       </div>
                       <span className="text-sm text-[#4B5E6A]">{feature.text}</span>
@@ -129,7 +129,7 @@ export default function ServicesGrid() {
               <CardFooter>
                 <Link href={`/services/${service.key}`} className="w-full">
                   <Button
-                    className="w-full group bg-gradient-to-r from-[#4A919E] to-teal-600 hover:from-[#3A7A85] hover:to-teal-700 text-white"
+                    className="w-full group bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
                   >
                     View Technical Details
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

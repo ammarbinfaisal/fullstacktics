@@ -17,7 +17,7 @@ export default function FinalCTA() {
           <Cal>
             <Button
               size="lg"
-              className="text-base gap-2 bg-gradient-to-r from-[#4A919E] to-teal-600 hover:from-[#3A7A85] hover:to-teal-700 text-white"
+              className="text-base gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
             >
               Schedule Technical Consultation
               <ArrowRight className="h-4 w-4" />
@@ -26,7 +26,7 @@ export default function FinalCTA() {
           <Button
             size="lg"
             variant="outline"
-            className="text-base gap-2 text-[#4A919E] border-[#4A919E] hover:bg-[#4A919E]/10"
+            className="text-base gap-2 text-gray-700 border-gray-300 hover:bg-gray-100"
           >
             View Case Studies
             <ArrowRight className="h-4 w-4" />

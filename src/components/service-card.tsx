@@ -34,14 +34,16 @@ export default function ServiceCard({ id, title, description, icon }: ServiceCar
 
   return (
     <motion.div
-      className="bg-[#1A1A2E] p-8 rounded-2xl border border-gray-800 h-full"
-      whileHover={{ y: -5, boxShadow: "0 10px 30px -15px rgba(99, 102, 241, 0.2)" }}
-      transition={{ duration: 0.2 }}
+      className="bg-white p-6 rounded-2xl border border-gray-200 h-full shadow-sm"
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.15 }}
     >
-      <div className="w-12 h-12 bg-[#6366F1]/10 rounded-lg flex items-center justify-center mb-6">{getIcon()}</div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-400">{description}</p>
-      <Link href={`/services/${id}`} className="mt-4 inline-block text-[#6366F1] hover:underline">
+      <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+        {getIcon()}
+      </div>
+      <h3 className="text-lg font-semibold mb-2 text-gray-900">{title}</h3>
+      <p className="text-gray-600 text-sm">{description}</p>
+      <Link href={`/services/${id}`} className="mt-4 inline-block text-yellow-500 hover:underline text-sm font-medium">
         Learn more
       </Link>
     </motion.div>

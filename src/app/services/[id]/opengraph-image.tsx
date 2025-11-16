@@ -53,7 +53,7 @@ export default async function Image({ params }: { params: { id: string } }) {
             style={{
               fontSize: 20,
               fontWeight: 500,
-              color: '#9333ea',
+              color: '#FACC15',
             }}
           >
             {serviceData?.category || 'Fullstack Development'}
@@ -80,7 +80,7 @@ export default async function Image({ params }: { params: { id: string } }) {
               textAlign: 'center',
               lineHeight: 1.1,
               marginBottom: 16,
-              background: 'linear-gradient(to right, #9333ea, #14b8a6)',
+              background: 'linear-gradient(to right, #FACC15, #FACC15)',
               backgroundClip: 'text',
               color: 'transparent',
             }}
@@ -131,7 +131,7 @@ export default async function Image({ params }: { params: { id: string } }) {
                   display: 'flex',
                   fontSize: 24,
                   fontWeight: 700,
-                  color: '#14b8a6',
+                  color: '#FACC15',
                   marginBottom: 8,
                   textAlign: 'center',
                 }}
@@ -167,7 +167,7 @@ export default async function Image({ params }: { params: { id: string } }) {
               display: 'flex',
               fontSize: 24,
               fontWeight: 600,
-              background: 'linear-gradient(to right, #9333ea, #14b8a6)',
+              background: 'linear-gradient(to right, #FACC15, #FACC15)',
               backgroundClip: 'text',
               color: 'transparent',
             }}

@@ -251,7 +251,7 @@ export default function Consent() {
                             acceptAllBtn: 'Accept All',
                             acceptNecessaryBtn: 'Reject All',
                             showPreferencesBtn: 'Manage Preferences',
-                            footer: '<a href="/privacy" class="cc-link">Privacy Policy</a> | <a href="/terms" class="cc-link">Terms of Service</a>'
+                            footer: 'Your privacy matters. You can adjust cookie preferences at any time in this panel.'
                         },
                         preferencesModal: {
                             title: 'Privacy Preferences Center',

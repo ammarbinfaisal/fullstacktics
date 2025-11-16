@@ -1,21 +1,14 @@
 import type React from "react"
 import {
   Code,
-  Server,
   Database,
   Layers,
   Zap,
   Globe,
-  Lock,
   BarChart,
   Workflow,
   Cpu,
-  GitBranch,
-  Smartphone,
-  Cloud,
-  Settings,
   Shield,
-  RefreshCw,
   Search,
 } from "lucide-react"
 
@@ -55,753 +48,383 @@ export interface ServiceData {
   }[]
 }
 
-// Create the services data
+// Create the services data – focused on three core offers:
+// 1) Fullstack apps with n8n/Make.com pipelines
+// 2) Content generation via AI agents
+// 3) Social media managed by AI agents
 const servicesData: Record<string, ServiceData> = {
-  nextjs: {
-    id: "nextjs",
-    title: "NextJS Development",
+  automation: {
+    id: "automation",
+    title: "Fullstack Apps with n8n/Make Pipelines",
     imageUrl: "/tech/nextjs.svg",
-    shortName: "Next.js",
-    description: "Build fast, scalable, and SEO-friendly web applications with Next.js",
-    category: "Frontend Development",
-    icon: <Code className="h-6 w-6 text-#6366F1" />,
-    lightIcon: <Code className="h-6 w-6 text-white" />,
+    shortName: "Fullstack + Automation",
+    description:
+      "We design and ship Next.js products wired into n8n/Make.com workflows for leads, ops, and internal tools.",
+    category: "Fullstack + Automation",
+    icon: <Workflow className="h-6 w-6 text-yellow-400" />,
+    lightIcon: <Workflow className="h-6 w-6 text-white" />,
     benefits: [
-      "Server-side rendering for improved SEO and performance",
-      "Static site generation for blazing fast page loads",
-      "Incremental Static Regeneration for dynamic content",
-      "Built-in API routes for backend functionality",
-      "Optimized image loading and font handling",
+      "One team responsible for both your Next.js app and n8n/Make.com workflows.",
+      "Frontend, APIs, and automation are designed together instead of bolted on later.",
+      "Production-ready monitoring, logging, and retry strategies so flows stay reliable.",
+      "Secure, auditable hand-offs between humans and automation for sensitive steps.",
+      "A foundation where AI agents can be layered in without rewiring the product.",
     ],
     overview: [
-      "Next.js is a powerful React framework that enables features such as server-side rendering and static site generation with zero configuration. It provides an excellent developer experience with features like Fast Refresh and built-in CSS support.",
-      "Our Next.js development services help businesses create high-performance web applications that are optimized for search engines and provide exceptional user experiences. We leverage the full potential of Next.js to build scalable, maintainable, and feature-rich applications.",
+      "Your product, CRM, and internal tools shouldn’t live in isolated silos. We build fullstack systems where the Next.js app, APIs, and n8n/Make.com workflows are designed as a single product.",
+      "Every form submission, button click, and background job can drive a well-defined pipeline – from lead capture to onboarding, billing, data sync, and reporting – with one accountable team owning the whole stack.",
     ],
     featuresDescription:
-      "Our Next.js development services include a comprehensive set of features designed to maximize the potential of your web application.",
+      "We combine fullstack engineering with workflow design so your app and automations behave like one cohesive system.",
     features: [
       {
-        title: "Server-Side Rendering",
-        description: "Improve SEO and initial page load performance with server-rendered React components.",
-        icon: <Server className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Server className="h-5 w-5 text-white" />,
+        title: "Next.js Product Foundations",
+        description:
+          "Multi-tenant-ready Next.js applications with auth, roles, and clean API boundaries tuned for workflow triggers.",
+        icon: <Code className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Code className="h-5 w-5 text-white" />,
       },
       {
-        title: "Static Site Generation",
-        description: "Generate static HTML at build time for blazing fast page loads and improved security.",
-        icon: <Zap className="h-5 w-5 text-#6366F1" />,
+        title: "n8n & Make.com Pipelines",
+        description:
+          "Design and implement workflows for lead routing, onboarding, billing, and internal tools using n8n and Make.com.",
+        icon: <Workflow className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Workflow className="h-5 w-5 text-white" />,
+      },
+      {
+        title: "Secure Webhook Contracts",
+        description:
+          "Webhook and API designs with signatures, retries, and idempotency so automations stay robust even under load.",
+        icon: <Shield className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Shield className="h-5 w-5 text-white" />,
+      },
+      {
+        title: "Data & Reporting Flows",
+        description:
+          "Sync data between your app, CRM, and analytics tools and surface it back into dashboards and admin views.",
+        icon: <Database className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Database className="h-5 w-5 text-white" />,
+      },
+      {
+        title: "Human Approval Paths",
+        description:
+          "Slack/email-based approvals, escalations, and manual review steps for flows that can’t be fully automated.",
+        icon: <BarChart className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <BarChart className="h-5 w-5 text-white" />,
+      },
+      {
+        title: "Observability & Ops",
+        description:
+          "Logs, metrics, and alerts for both the app and workflows so issues are visible long before users notice.",
+        icon: <Zap className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Zap className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "API Routes",
-        description: "Create serverless API endpoints within your Next.js application for backend functionality.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Image Optimization",
-        description: "Automatically optimize and serve responsive images with the built-in Image component.",
-        icon: <Layers className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Layers className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Internationalization",
-        description: "Build multi-language support into your application with Next.js i18n features.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Authentication",
-        description: "Implement secure authentication flows with NextAuth.js or custom solutions.",
-        icon: <Lock className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Lock className="h-5 w-5 text-white" />,
       },
     ],
     processDescription:
-      "Our development process ensures a smooth journey from concept to deployment for your Next.js project.",
+      "We partner with you from idea to production, owning both the app and the automation layer.",
     process: [
       {
-        title: "Discovery",
-        description: "We analyze your requirements and define the project scope, architecture, and technology stack.",
-      },
-      {
-        title: "Design",
-        description: "Our designers create wireframes and high-fidelity mockups for your application's user interface.",
-      },
-      {
-        title: "Development",
+        title: "Discovery & Mapping",
         description:
-          "Our developers build your application using Next.js best practices and modern development workflows.",
+          "We map your current flows, systems, and edge cases and define clear success metrics for automation.",
       },
       {
-        title: "Deployment",
-        description: "We deploy your application to production with optimized performance and monitoring setup.",
+        title: "Architecture & UX",
+        description:
+          "We design the Next.js app, API surface, and workflow topology so everything fits together cleanly.",
+      },
+      {
+        title: "Build & Integrate",
+        description:
+          "We implement app features, APIs, and n8n/Make.com workflows in tight feedback loops with your team.",
+      },
+      {
+        title: "Launch & Iterate",
+        description:
+          "We ship, monitor, and iterate on flows based on real-world usage and new automation opportunities.",
       },
     ],
-    technologiesDescription: "We use the latest technologies and tools in our Next.js development projects.",
+    technologiesDescription:
+      "An automation-first stack built around Next.js, n8n, and Make.com with modern tooling around it.",
     technologies: [
       "Next.js",
       "React",
       "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Redux",
-      "React Query",
+      "Node.js",
+      "n8n",
+      "Make.com",
+      "PostgreSQL",
       "Prisma",
-      "GraphQL",
-      "REST API",
+      "OpenAI",
+      "LangChain",
       "Vercel",
       "AWS",
-      "Docker",
-      "Jest",
-      "Cypress",
     ],
-    ctaText: "Let's build your next web application with Next.js. Contact us today to get started!",
+    ctaText:
+      "Need a product team that owns both your app and your automations? Let’s design your stack together.",
     relatedServices: [
       {
-        id: "react",
-        title: "ReactJS Optimization",
-        description: "Optimize your React applications for better performance and user experience.",
-        icon: <Zap className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Zap className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "api",
-        title: "API Development",
-        description: "Build robust and scalable APIs to power your web and mobile applications.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "frontend",
-        title: "Frontend Development",
-        description: "Create beautiful and responsive user interfaces with modern frontend technologies.",
-        icon: <Layers className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Layers className="h-5 w-5 text-white" />,
-      },
-    ],
-  },
-  laravel: {
-    id: "laravel",
-    title: "Laravel Development",
-    imageUrl: "/tech/laravel.png",
-    shortName: "Laravel",
-    description: "Build robust backend solutions with Laravel's elegant syntax and powerful features",
-    category: "Backend Development",
-    icon: <Server className="h-6 w-6 text-#6366F1" />,
-    lightIcon: <Server className="h-6 w-6 text-white" />,
-    benefits: [
-      "Elegant MVC architecture for organized code",
-      "Robust ORM for simplified database operations",
-      "Built-in authentication and authorization",
-      "Powerful queue system for background processing",
-      "Comprehensive testing tools",
-    ],
-    overview: [
-      "Laravel is a PHP web application framework with expressive, elegant syntax. It provides tools needed for large, robust applications, including a simple, expressive database ORM, intuitive database migrations, and a powerful job queue system.",
-      "Our Laravel development services help businesses create secure, scalable, and maintainable backend systems. We leverage Laravel's extensive ecosystem to build custom web applications, APIs, and complex business logic systems that meet your specific requirements.",
-    ],
-    featuresDescription:
-      "Our Laravel development services include a comprehensive set of features designed to create powerful backend systems.",
-    features: [
-      {
-        title: "RESTful API Development",
-        description: "Build scalable and well-structured APIs using Laravel's powerful routing and controller system.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Database Management",
-        description:
-          "Leverage Laravel's Eloquent ORM and migrations for efficient database operations and version control.",
-        icon: <Database className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Database className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Authentication System",
-        description: "Implement secure user authentication with Laravel's built-in authentication scaffolding.",
-        icon: <Lock className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Lock className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Task Scheduling",
-        description: "Automate recurring tasks with Laravel's expressive task scheduler and queue system.",
-        icon: <RefreshCw className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <RefreshCw className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Real-time Applications",
-        description: "Build real-time features with Laravel Echo, Pusher, or WebSockets integration.",
-        icon: <Zap className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Zap className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Testing & Quality Assurance",
-        description: "Ensure application reliability with Laravel's built-in testing tools and our QA processes.",
-        icon: <Shield className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Shield className="h-5 w-5 text-white" />,
-      },
-    ],
-    processDescription:
-      "Our development process ensures a smooth journey from concept to deployment for your Laravel project.",
-    process: [
-      {
-        title: "Requirements Analysis",
-        description:
-          "We analyze your business requirements and define the technical specifications for your Laravel application.",
-      },
-      {
-        title: "Architecture Design",
-        description:
-          "Our architects design a scalable and maintainable application structure based on Laravel best practices.",
-      },
-      {
-        title: "Development",
-        description: "Our developers build your application using Laravel's features and modern development workflows.",
-      },
-      {
-        title: "Deployment & Support",
-        description: "We deploy your application and provide ongoing maintenance and support services.",
-      },
-    ],
-    technologiesDescription: "We use the latest technologies and tools in our Laravel development projects.",
-    technologies: [
-      "Laravel",
-      "PHP",
-      "MySQL",
-      "PostgreSQL",
-      "Redis",
-      "Elasticsearch",
-      "Docker",
-      "AWS",
-      "Nginx",
-      "Vue.js",
-      "Livewire",
-      "Alpine.js",
-      "Tailwind CSS",
-      "PHPUnit",
-      "Laravel Horizon",
-    ],
-    ctaText: "Ready to build a robust backend system with Laravel? Contact us today to discuss your project!",
-    relatedServices: [
-      {
-        id: "api",
-        title: "API Development",
-        description: "Build robust and scalable APIs to power your web and mobile applications.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "database",
-        title: "Database Design",
-        description: "Create efficient and scalable database architectures for your applications.",
-        icon: <Database className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Database className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "devops",
-        title: "DevOps Services",
-        description: "Streamline your development and deployment processes with our DevOps expertise.",
-        icon: <GitBranch className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <GitBranch className="h-5 w-5 text-white" />,
-      },
-    ],
-  },
-  golang: {
-    id: "golang",
-    title: "Golang Development",
-    imageUrl: "/tech/go.png",
-    shortName: "Go",
-    description: "Build high-performance, concurrent applications using Golang's powerful features",
-    category: "Backend Development",
-    icon: <Code className="h-6 w-6 text-#6366F1" />,
-    lightIcon: <Code className="h-6 w-6 text-white" />,
-    benefits: [
-      "High performance and efficiency",
-      "Built-in concurrency with goroutines",
-      "Strong typing and memory safety",
-      "Fast compilation and execution",
-      "Excellent for microservices architecture",
-    ],
-    overview: [
-      "Go (or Golang) is an open-source programming language designed for building simple, reliable, and efficient software. It combines the ease of programming of an interpreted, dynamically typed language with the efficiency and safety of a statically typed, compiled language.",
-      "Our Golang development services help businesses create high-performance applications, microservices, and APIs that can handle massive scale. We leverage Go's concurrency model and efficient memory management to build systems that are both powerful and resource-efficient.",
-    ],
-    featuresDescription:
-      "Our Golang development services include a comprehensive set of features designed to maximize performance and scalability.",
-    features: [
-      {
-        title: "Microservices Development",
-        description:
-          "Build lightweight, scalable microservices that communicate efficiently and can be deployed independently.",
-        icon: <Cloud className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Cloud className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "High-Performance APIs",
-        description: "Create blazing fast RESTful and gRPC APIs that can handle high traffic and concurrent requests.",
-        icon: <Zap className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Zap className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Concurrent Processing",
-        description: "Leverage Go's goroutines and channels for efficient parallel processing of data and requests.",
-        icon: <Cpu className="h-5 w-5 text-#6366F1" />,
+        id: "ai-content",
+        title: "AI Content Agents",
+        description: "Agentic pipelines that turn a brief into multi-channel content ready to publish.",
+        icon: <Cpu className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Cpu className="h-5 w-5 text-white" />,
       },
       {
-        title: "System Tools",
-        description: "Develop command-line utilities and system tools that are fast, reliable, and resource-efficient.",
-        icon: <Settings className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Settings className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Real-time Applications",
-        description: "Build real-time applications with WebSockets and efficient data processing capabilities.",
-        icon: <RefreshCw className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <RefreshCw className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Cloud-Native Applications",
-        description: "Develop applications optimized for cloud environments with containerization and orchestration.",
-        icon: <Cloud className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Cloud className="h-5 w-5 text-white" />,
-      },
-    ],
-    processDescription:
-      "Our development process ensures a smooth journey from concept to deployment for your Golang project.",
-    process: [
-      {
-        title: "Requirements Analysis",
-        description:
-          "We analyze your performance requirements and define the technical specifications for your Go application.",
-      },
-      {
-        title: "Architecture Design",
-        description:
-          "Our architects design a scalable and efficient application structure optimized for Go's strengths.",
-      },
-      {
-        title: "Development",
-        description: "Our developers build your application using Go best practices and modern development workflows.",
-      },
-      {
-        title: "Testing & Deployment",
-        description: "We thoroughly test and deploy your application with monitoring and performance optimization.",
-      },
-    ],
-    technologiesDescription: "We use the latest technologies and tools in our Golang development projects.",
-    technologies: [
-      "Go",
-      "gRPC",
-      "Protocol Buffers",
-      "Docker",
-      "Kubernetes",
-      "AWS",
-      "GCP",
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "Kafka",
-      "Prometheus",
-      "Grafana",
-      "Gin",
-      "GORM",
-    ],
-    ctaText: "Ready to build high-performance applications with Go? Contact us today to discuss your project!",
-    relatedServices: [
-      {
-        id: "api",
-        title: "API Development",
-        description: "Build robust and scalable APIs to power your web and mobile applications.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
+        id: "ai-social",
+        title: "AI Social Media Agents",
+        description: "Agents that schedule, listen, and assist with replies across your social channels.",
+        icon: <Globe className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Globe className="h-5 w-5 text-white" />,
       },
-      {
-        id: "microservices",
-        title: "Microservices Architecture",
-        description: "Design and implement microservices-based systems for scalability and maintainability.",
-        icon: <Layers className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Layers className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "devops",
-        title: "DevOps Services",
-        description: "Streamline your development and deployment processes with our DevOps expertise.",
-        icon: <GitBranch className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <GitBranch className="h-5 w-5 text-white" />,
-      },
     ],
   },
-  react: {
-    id: "react",
-    title: "ReactJS Optimization",
-    imageUrl: "/tech/react.svg",
-    shortName: "React",
-    description: "Optimize your React applications for better performance and user experience",
-    category: "Frontend Development",
-    icon: <Zap className="h-6 w-6 text-#6366F1" />,
-    lightIcon: <Zap className="h-6 w-6 text-white" />,
+  "ai-content": {
+    id: "ai-content",
+    title: "Content Generation via AI Agents",
+    description:
+      "Agentic workflows that turn a single brief into SEO-ready blogs, emails, and landing pages with human approval built in.",
+    category: "AI Content Ops",
+    icon: <Cpu className="h-6 w-6 text-yellow-400" />,
+    lightIcon: <Cpu className="h-6 w-6 text-white" />,
     benefits: [
-      "Improved application performance",
-      "Reduced bundle size for faster loading",
-      "Enhanced user experience with smoother interactions",
-      "Better SEO through performance improvements",
-      "Optimized rendering and state management",
+      "Turn one strategic brief into multi-channel content without adding headcount.",
+      "Brand-safe outputs with tone templates, guardrails, and mandatory human review where needed.",
+      "Structured content history you can search, reuse, and analyze over time.",
+      "Tight integration with your CMS, planning tools, and analytics stack.",
+      "Transparent pipelines so your team can see what every agent did at each step.",
     ],
     overview: [
-      "React is a popular JavaScript library for building user interfaces, particularly single-page applications. While React provides a solid foundation, optimizing React applications requires specialized knowledge and techniques.",
-      "Our ReactJS optimization services help businesses improve the performance, user experience, and maintainability of their React applications. We analyze your existing codebase, identify bottlenecks, and implement best practices to ensure your application runs smoothly and efficiently.",
+      "Most teams either drown in content requests or ship ad-hoc pieces with no process. We build agentic content pipelines where briefs go in and reviewed, on-brand content comes out.",
+      "Your writers and editors stay in control while agents handle research, drafting, rewriting, metadata generation, and distribution across the tools you already use.",
     ],
     featuresDescription:
-      "Our ReactJS optimization services include a comprehensive set of features designed to enhance your application's performance.",
+      "We design content workflows that blend AI agents, your editors, and automation into one repeatable system.",
     features: [
       {
-        title: "Performance Audit",
+        title: "Brief Intake Apps",
         description:
-          "Comprehensive analysis of your React application to identify performance bottlenecks and optimization opportunities.",
-        icon: <BarChart className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <BarChart className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Code Splitting",
-        description: "Implement efficient code splitting to reduce initial bundle size and improve load times.",
-        icon: <Layers className="h-5 w-5 text-#6366F1" />,
+          "Next.js forms and internal tools for capturing structured briefs, target personas, and brand constraints.",
+        icon: <Layers className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Layers className="h-5 w-5 text-white" />,
       },
       {
-        title: "Rendering Optimization",
-        description: "Optimize component rendering with memoization, virtualization, and efficient state management.",
-        icon: <Zap className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Zap className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "State Management Refactoring",
+        title: "Research & Outline Agents",
         description:
-          "Refactor state management for better performance using modern approaches like React Query or Zustand.",
-        icon: <RefreshCw className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <RefreshCw className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Bundle Size Reduction",
-        description:
-          "Reduce bundle size by optimizing dependencies, removing unused code, and implementing tree shaking.",
-        icon: <Workflow className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Workflow className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Mobile Optimization",
-        description:
-          "Optimize React applications for mobile devices with responsive design and performance improvements.",
-        icon: <Smartphone className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Smartphone className="h-5 w-5 text-white" />,
-      },
-    ],
-    processDescription: "Our optimization process ensures a systematic approach to improving your React application.",
-    process: [
-      {
-        title: "Analysis",
-        description:
-          "We analyze your current React application to identify performance issues and optimization opportunities.",
-      },
-      {
-        title: "Strategy",
-        description: "We develop a comprehensive optimization strategy tailored to your specific application needs.",
-      },
-      {
-        title: "Implementation",
-        description: "Our developers implement the optimization techniques and best practices in your codebase.",
-      },
-      {
-        title: "Validation",
-        description: "We measure and validate the performance improvements to ensure the optimization goals are met.",
-      },
-    ],
-    technologiesDescription: "We use the latest technologies and tools to optimize your React applications.",
-    technologies: [
-      "React",
-      "React Router",
-      "Redux",
-      "React Query",
-      "Zustand",
-      "Recoil",
-      "TypeScript",
-      "Webpack",
-      "Vite",
-      "Lighthouse",
-      "Chrome DevTools",
-      "React Profiler",
-      "Web Vitals",
-      "Tailwind CSS",
-    ],
-    ctaText: "Ready to optimize your React application for better performance? Contact us today to get started!",
-    relatedServices: [
-      {
-        id: "nextjs",
-        title: "NextJS Development",
-        description: "Build fast, scalable, and SEO-friendly web applications with Next.js.",
-        icon: <Code className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Code className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "frontend",
-        title: "Frontend Development",
-        description: "Create beautiful and responsive user interfaces with modern frontend technologies.",
-        icon: <Layers className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Layers className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "mobile",
-        title: "Mobile App Development",
-        description: "Build cross-platform mobile applications with React Native.",
-        icon: <Smartphone className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Smartphone className="h-5 w-5 text-white" />,
-      },
-    ],
-  },
-  integrations: {
-    id: "integrations",
-    title: "External Integrations",
-    description: "Seamlessly connect your applications with third-party services and APIs",
-    category: "API & Integration",
-    icon: <Workflow className="h-6 w-6 text-#6366F1" />,
-    lightIcon: <Workflow className="h-6 w-6 text-white" />,
-    benefits: [
-      "Seamless data flow between systems",
-      "Automated workflows and processes",
-      "Enhanced functionality through third-party services",
-      "Reduced development time and costs",
-      "Improved user experience with integrated features",
-    ],
-    overview: [
-      "In today's interconnected digital ecosystem, the ability to integrate with external services and APIs is crucial for modern applications. External integrations allow your application to leverage specialized services and share data with other systems.",
-      "Our external integration services help businesses connect their applications with a wide range of third-party services, including payment processors, authentication providers, AI models, and more. We ensure secure, reliable, and efficient integrations that enhance your application's capabilities.",
-    ],
-    featuresDescription:
-      "Our external integration services include support for a wide range of popular services and custom integration solutions.",
-    features: [
-      {
-        title: "Payment Processing",
-        description:
-          "Integrate payment gateways like Stripe, PayPal, and others for secure and reliable payment processing.",
-        icon: <Database className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Database className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "Authentication",
-        description:
-          "Implement authentication services like Clerk, Auth0, or custom OAuth solutions for secure user access.",
-        icon: <Lock className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Lock className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "AI & LLM Integration",
-        description: "Connect your applications with AI services and large language models for intelligent features.",
-        icon: <Cpu className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Cpu className="h-5 w-5 text-white" />,
-      },
-      {
-        title: "RAG Systems",
-        description: "Implement Retrieval-Augmented Generation systems for context-aware AI responses.",
-        icon: <Search className="h-5 w-5 text-#6366F1" />,
+          "Agents that pull context from your docs, CRM, and the web to propose outlines and talking points.",
+        icon: <Search className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Search className="h-5 w-5 text-white" />,
       },
       {
-        title: "CRM & Marketing",
-        description: "Integrate with CRM systems and marketing automation tools to streamline your business processes.",
-        icon: <BarChart className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <BarChart className="h-5 w-5 text-white" />,
+        title: "Draft & Rewrite Pipelines",
+        description:
+          "Multi-step workflows that generate drafts, apply tone/voice templates, and rewrite for different channels.",
+        icon: <Code className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Code className="h-5 w-5 text-white" />,
       },
       {
-        title: "Custom API Integration",
+        title: "SEO & Metadata Automation",
         description:
-          "Connect with any third-party API or service with custom integration solutions tailored to your needs.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
+          "Automatic generation of titles, meta descriptions, slugs, and internal links with human-friendly review UIs.",
+        icon: <Globe className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Globe className="h-5 w-5 text-white" />,
+      },
+      {
+        title: "Approval & Compliance Flows",
+        description:
+          "Slack/email review steps, redline views, and sign-off tracking for legal, brand, and leadership stakeholders.",
+        icon: <Shield className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Shield className="h-5 w-5 text-white" />,
+      },
+      {
+        title: "Publish & Distribution",
+        description:
+          "Integrations to push approved content into CMSs, email tools, and social automation with proper tracking.",
+        icon: <Workflow className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Workflow className="h-5 w-5 text-white" />,
       },
     ],
     processDescription:
-      "Our integration process ensures a smooth and secure connection between your application and external services.",
+      "We help you move from scattered content production to a measurable, repeatable pipeline.",
     process: [
       {
-        title: "Requirements",
+        title: "Strategy & Inventory",
         description:
-          "We analyze your integration requirements and define the technical specifications for the integration.",
+          "We review your content goals, existing assets, and channels, and identify where agents can help most.",
       },
       {
-        title: "Architecture",
-        description: "Our architects design a secure and efficient integration architecture based on best practices.",
+        title: "Workflow & Agent Design",
+        description:
+          "We design the agent graph, approval steps, and data model for briefs, drafts, and published content.",
       },
       {
-        title: "Implementation",
-        description: "Our developers implement the integration with proper error handling and data validation.",
+        title: "Implementation & Integration",
+        description:
+          "We implement the workflows in n8n/Make.com, wire them to your Next.js tools, and integrate your CMS/CRMs.",
       },
       {
-        title: "Testing & Monitoring",
-        description: "We thoroughly test the integration and set up monitoring to ensure reliable operation.",
+        title: "Rollout & Optimization",
+        description:
+          "We launch pilots, collect feedback, and tune prompts, agents, and automations based on real output.",
       },
     ],
-    technologiesDescription: "We work with a wide range of integration technologies and services.",
+    technologiesDescription:
+      "We use a practical mix of AI and workflow tools anchored around your existing stack.",
     technologies: [
-      "Stripe",
-      "Clerk",
-      "Auth0",
-      "OAuth",
-      "OpenAI",
-      "LlamaIndex",
-      "LangChain",
-      "Salesforce",
-      "HubSpot",
-      "Zapier",
-      "Make.com",
+      "Next.js",
+      "React",
+      "TypeScript",
       "n8n",
-      "Twilio",
-      "SendGrid",
-      "AWS Services",
+      "Make.com",
+      "OpenAI",
+      "Anthropic",
+      "LangChain",
+      "PostgreSQL",
+      "Supabase",
+      "Notion",
+      "Airtable",
     ],
-    ctaText: "Ready to enhance your application with powerful integrations? Contact us today to discuss your needs!",
+    ctaText:
+      "Ready to give your marketing team agentic superpowers? Let’s design your content pipeline.",
     relatedServices: [
       {
-        id: "api",
-        title: "API Development",
-        description: "Build robust and scalable APIs to power your web and mobile applications.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
-      },
-      {
         id: "automation",
-        title: "Automation Solutions",
-        description: "Streamline your workflows with custom automation solutions.",
-        icon: <Workflow className="h-5 w-5 text-#6366F1" />,
+        title: "Fullstack + Automation",
+        description: "Next.js products with n8n/Make.com pipelines behind every key workflow.",
+        icon: <Workflow className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Workflow className="h-5 w-5 text-white" />,
       },
       {
-        id: "ai",
-        title: "AI Implementation",
-        description: "Integrate artificial intelligence capabilities into your applications.",
-        icon: <Cpu className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Cpu className="h-5 w-5 text-white" />,
+        id: "ai-social",
+        title: "AI Social Media Agents",
+        description: "Agents that handle scheduling, listening, and smart replies for social channels.",
+        icon: <Globe className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Globe className="h-5 w-5 text-white" />,
       },
     ],
   },
-  automation: {
-    id: "automation",
-    title: "Automation Solutions",
-    description: "Streamline your workflows with Make.com and n8n-based automations",
-    category: "Workflow Automation",
-    icon: <Workflow className="h-6 w-6 text-#6366F1" />,
-    lightIcon: <Workflow className="h-6 w-6 text-white" />,
+  "ai-social": {
+    id: "ai-social",
+    title: "Social Media Managed by AI Agents",
+    description:
+      "AI agents that help draft, schedule, and respond on social media—with strong guardrails and clear human control.",
+    category: "AI Social",
+    icon: <Globe className="h-6 w-6 text-yellow-400" />,
+    lightIcon: <Globe className="h-6 w-6 text-white" />,
     benefits: [
-      "Connect Next.js frontends to reliable, observable Make.com/n8n workflows",
-      "Automate content generation with AI assistance and human approval gates",
-      "Cross-platform social media scheduling and engagement automation",
-      "Secure integrations with webhooks, OAuth, and signed requests",
-      "Human-in-the-loop approvals for sensitive operations",
+      "Consistent posting cadence across channels without adding a full-time social team.",
+      "Automated listening for mentions, replies, and DMs with smart triage and routing.",
+      "Guardrails so agents never go off-brand, overshare, or over-promise.",
+      "Attribution from social posts to leads, signups, or revenue where your stack allows it.",
+      "Dashboards showing what content, timings, and agents actually drive results.",
     ],
     overview: [
-      "Workflow automation is the technology-enabled automation of complex business processes. It can streamline your operations, reduce manual work, and improve efficiency across your organization.",
-      "Our automation solutions help businesses automate repetitive tasks and complex workflows using platforms like Make.com and n8n. We specialize in linking modern Next.js frontends to robust, observable workflows with secure integrations, human-in-the-loop approvals, and enterprise-grade reliability.",
-      "We enable three key automation niches: (1) Frontend-to-Workflow integration with webhooks and secure APIs, (2) AI-assisted Content Generation workflows with approval gates, and (3) Social Media automation with scheduling, engagement, and safety guardrails.",
+      "Social feeds move too fast for purely manual workflows, but purely automated posting is risky. We design agentic social systems where AI handles the repetitive work and your team keeps final say.",
+      "From multi-channel calendars to listening and reply suggestions, we wire agents into your tools, CRMs, and data so your social presence feels human while scaling like software.",
     ],
     featuresDescription:
-      "Our automation solutions powered by Make.com and n8n include comprehensive features across three key areas.",
+      "We focus on safe, measurable social automation rather than generic “set-and-forget” bots.",
     features: [
       {
-        title: "Frontend ↔ Workflow Integration",
-        description: "Connect Next.js forms and APIs to Make.com/n8n via secure webhooks, OAuth, and signed requests. Real-time status updates via WebSockets/SSE with retry logic and idempotency.",
-        icon: <Zap className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Zap className="h-5 w-5 text-white" />,
+        title: "Content Calendar & Scheduling",
+        description:
+          "Central calendars with agents proposing slots and content based on your themes, launches, and campaigns.",
+        icon: <Layers className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Layers className="h-5 w-5 text-white" />,
       },
       {
-        title: "Lead & Inquiry Automation",
-        description: "Automate lead intake → CRM enrichment → routed notifications → scheduling. Quote calculators with PDF generation and email delivery.",
-        icon: <Workflow className="h-5 w-5 text-#6366F1" />,
+        title: "Multi-Channel Posting",
+        description:
+          "Workflows that adapt content for LinkedIn, X, and other platforms while preserving brand voice.",
+        icon: <Workflow className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Workflow className="h-5 w-5 text-white" />,
       },
       {
-        title: "Content Generation Workflows",
-        description: "AI-assisted content creation from Airtable/Notion → draft generation → tone templates → SEO metadata → CMS publish with human review gates in Slack/Email.",
-        icon: <Code className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Code className="h-5 w-5 text-white" />,
+        title: "Listening & Inbox Triage",
+        description:
+          "Agents that monitor mentions, replies, and DMs and route them to the right person or queue.",
+        icon: <Search className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Search className="h-5 w-5 text-white" />,
       },
       {
-        title: "Social Media Automation",
-        description: "Cross-post to LinkedIn/X/Instagram/Facebook with scheduling, UTM tracking, smart replies with guardrails, DM routing to CRM, and weekly dashboards.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
+        title: "Reply Suggestions with Guardrails",
+        description:
+          "Suggested responses with clear labels, tone controls, and red-line checks before anything is sent.",
+        icon: <Cpu className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Cpu className="h-5 w-5 text-white" />,
       },
       {
-        title: "Data Synchronization & ETL",
-        description: "Sync data between systems with validation, transforms, and error recovery. File pipelines with validation → storage/CDN → status updates.",
-        icon: <Database className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Database className="h-5 w-5 text-white" />,
+        title: "Attribution & Reporting",
+        description:
+          "UTM tracking, CRM integration, and dashboards that link posts to leads, pipeline, and key metrics.",
+        icon: <BarChart className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <BarChart className="h-5 w-5 text-white" />,
       },
       {
-        title: "Observability & Error Handling",
-        description: "Central logs, error alerts, metrics dashboards, and monitoring. Retry/backoff strategies with detailed execution tracking.",
-        icon: <Shield className="h-5 w-5 text-#6366F1" />,
+        title: "Compliance & Safety",
+        description:
+          "Policy-aware prompts, blocklists, and audit logs so you can prove what was generated and approved.",
+        icon: <Shield className="h-5 w-5 text-yellow-400" />,
         lightIcon: <Shield className="h-5 w-5 text-white" />,
       },
     ],
-    processDescription: "Our automation process ensures a systematic approach to streamlining your workflows.",
+    processDescription:
+      "We design social agents that fit how your team already works instead of forcing a brand-new workflow.",
     process: [
       {
-        title: "Process Analysis",
+        title: "Discovery & Guardrails",
         description:
-          "We analyze your current processes to identify automation opportunities and potential improvements.",
+          "We document your brand voice, risk tolerances, and approval policies for each channel and persona.",
       },
       {
-        title: "Workflow Design",
-        description: "Our experts design efficient automation workflows tailored to your specific business needs.",
+        title: "Workflow & Agent Design",
+        description:
+          "We map out how content is planned, drafted, reviewed, and published—and where agents plug in safely.",
       },
       {
-        title: "Implementation",
-        description: "We implement the automation workflows using Make.com, n8n, or custom solutions as appropriate.",
+        title: "Implementation & Training",
+        description:
+          "We implement the automations, fine-tune prompts, and train your team on when to trust or override agents.",
       },
       {
-        title: "Testing & Optimization",
-        description: "We thoroughly test the automation workflows and optimize them for reliability and efficiency.",
+        title: "Optimization & Expansion",
+        description:
+          "We analyze performance, tighten guardrails, and expand coverage to more channels and playbooks over time.",
       },
     ],
-    technologiesDescription: "We use the latest automation technologies and tools to streamline your workflows.",
+    technologiesDescription:
+      "We integrate with the channels and tools your marketing team already relies on.",
     technologies: [
-      "Make.com",
+      "Next.js",
+      "React",
+      "TypeScript",
       "n8n",
+      "Make.com",
+      "OpenAI",
+      "Anthropic",
       "Zapier",
-      "Airtable",
-      "Google Workspace",
-      "Microsoft 365",
+      "LinkedIn API",
+      "X API",
       "Slack",
-      "Trello",
-      "Asana",
       "HubSpot",
       "Salesforce",
-      "JavaScript",
-      "Webhooks",
-      "REST APIs",
     ],
-    ctaText: "Ready to streamline your workflows with automation? Contact us today to discuss your needs!",
+    ctaText:
+      "Want social that mostly runs itself but still sounds like you? Let’s deploy agents for your brand.",
     relatedServices: [
       {
-        id: "integrations",
-        title: "External Integrations",
-        description: "Connect your applications with third-party services and APIs.",
-        icon: <Globe className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Globe className="h-5 w-5 text-white" />,
+        id: "ai-content",
+        title: "AI Content Agents",
+        description: "Use agents to generate long-form and campaign content that feeds your social calendar.",
+        icon: <Cpu className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Cpu className="h-5 w-5 text-white" />,
       },
       {
-        id: "api",
-        title: "API Development",
-        description: "Build robust and scalable APIs to power your integrations and automations.",
-        icon: <Code className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <Code className="h-5 w-5 text-white" />,
-      },
-      {
-        id: "consulting",
-        title: "Process Optimization",
-        description: "Optimize your business processes for efficiency and scalability.",
-        icon: <BarChart className="h-5 w-5 text-#6366F1" />,
-        lightIcon: <BarChart className="h-5 w-5 text-white" />,
+        id: "automation",
+        title: "Fullstack + Automation",
+        description: "Connect social signals back into your product, CRM, and internal tools with automations.",
+        icon: <Workflow className="h-5 w-5 text-yellow-400" />,
+        lightIcon: <Workflow className="h-5 w-5 text-white" />,
       },
     ],
   },
@@ -824,3 +447,4 @@ export function getRelatedServices(id: string, count = 3) {
 
   return service.relatedServices.slice(0, count)
 }
+

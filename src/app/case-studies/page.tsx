@@ -61,12 +61,12 @@ const caseStudies: CaseStudy[] = [
       {
         metric: "Data Pipeline",
         value: "10,000+ products/day",
-        icon: <TrendingUp className="h-6 w-6 text-teal-400" />,
+        icon: <TrendingUp className="h-6 w-6 text-yellow-400" />,
       },
       {
         metric: "Monitoring",
         value: "Real-time dashboard",
-        icon: <CheckCircle className="h-6 w-6 text-purple-400" />,
+        icon: <CheckCircle className="h-6 w-6 text-yellow-400" />,
       },
     ],
     technologies: ["Laravel", "ETL Pipelines", "Web Scraping", "MySQL", "Redis", "Vue.js", "Monitoring Dashboard"],
@@ -104,12 +104,12 @@ const caseStudies: CaseStudy[] = [
       {
         metric: "Type Safety",
         value: "100% TypeScript coverage",
-        icon: <CheckCircle className="h-6 w-6 text-teal-400" />,
+        icon: <CheckCircle className="h-6 w-6 text-yellow-400" />,
       },
       {
         metric: "Billing",
         value: "Automated subscriptions",
-        icon: <TrendingUp className="h-6 w-6 text-purple-400" />,
+        icon: <TrendingUp className="h-6 w-6 text-yellow-400" />,
       },
     ],
     technologies: ["Next.js", "Clerk", "Drizzle ORM", "PostgreSQL", "Stripe", "TypeScript", "AWS S3", "AI APIs"],
@@ -127,7 +127,7 @@ export default function CaseStudiesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A1A2E] to-[#0F0F1A] text-white">
+    <div className="min-h-screen bg-black text-white">
       <Script
         id="ld-webpage-case-studies"
         type="application/ld+json"
@@ -143,10 +143,10 @@ export default function CaseStudiesPage() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <Badge className="bg-purple-900/50 text-purple-400 hover:bg-purple-900/50 mb-4">Case Studies</Badge>
+          <Badge className="bg-yellow-400/10 text-yellow-400 hover:bg-yellow-400/20 mb-4">Case Studies</Badge>
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
             Real Results for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-400">
+            <span className="text-yellow-400">
               Real Businesses
             </span>
           </h1>
@@ -167,21 +167,21 @@ export default function CaseStudiesPage() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="bg-[#151528] border border-purple-900/30 rounded-3xl overflow-hidden">
+              <div className="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
                 {/* Header */}
-                <div className="bg-gradient-to-br from-purple-900/30 to-teal-900/30 p-8 md:p-12 border-b border-purple-900/30">
+                <div className="bg-zinc-950 p-8 md:p-12 border-b border-zinc-800">
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
                     <div className="relative w-32 h-20 bg-white rounded-lg p-4 flex items-center justify-center">
                       <Image src={study.logo} alt={`${study.name} logo`} fill className="object-contain p-2" />
                     </div>
                     <div className="flex-1">
                       <h2 className="text-3xl font-bold mb-2">{study.name}</h2>
-                      <Badge className="bg-purple-900/50 text-purple-400 hover:bg-purple-900/50">
+                      <Badge className="bg-yellow-400/10 text-yellow-400 hover:bg-yellow-400/20">
                         {study.industry}
                       </Badge>
                     </div>
                     <Link href={study.website} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-950/30">
+                      <Button variant="outline" className="border-yellow-400 text-yellow-400 hover:bg-yellow-400/10">
                         Visit Website
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -212,13 +212,13 @@ export default function CaseStudiesPage() {
                     {/* Solution */}
                     <div>
                       <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                        <div className="w-2 h-8 bg-teal-500 rounded-full"></div>
+                        <div className="w-2 h-8 bg-yellow-400 rounded-full"></div>
                         Solution
                       </h3>
                       <ul className="space-y-3">
                         {study.solution.map((item, i) => (
                           <li key={i} className="flex items-start gap-3 text-gray-300">
-                            <CheckCircle className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
+                            <CheckCircle className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -229,14 +229,14 @@ export default function CaseStudiesPage() {
                   {/* Impact Metrics */}
                   <div className="mb-12">
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                      <div className="w-2 h-8 bg-purple-500 rounded-full"></div>
+                      <div className="w-2 h-8 bg-yellow-400 rounded-full"></div>
                       Impact
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                       {study.impact.map((item, i) => (
                         <div
                           key={i}
-                          className="bg-[#1A1A2E] border border-purple-900/30 rounded-xl p-6 hover:border-purple-600/50 transition-colors"
+                          className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-yellow-400/50 transition-colors"
                         >
                           <div className="mb-4">{item.icon}</div>
                           <div className="text-2xl font-bold mb-1">{item.value}</div>
@@ -251,7 +251,7 @@ export default function CaseStudiesPage() {
                     <h3 className="text-lg font-semibold mb-4 text-gray-400">Technologies Used</h3>
                     <div className="flex flex-wrap gap-2">
                       {study.technologies.map((tech, i) => (
-                        <Badge key={i} className="bg-purple-900/30 text-purple-300 hover:bg-purple-900/50">
+                        <Badge key={i} className="bg-zinc-800 text-gray-300 hover:bg-zinc-700">
                           {tech}
                         </Badge>
                       ))}
@@ -271,7 +271,7 @@ export default function CaseStudiesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-purple-900/30 to-teal-900/30 p-12 rounded-3xl border border-purple-900/30 text-center"
+          className="bg-zinc-900 p-12 rounded-3xl border border-zinc-800 text-center"
         >
           <h2 className="text-3xl font-bold mb-4">Ready to Build Your Success Story?</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
@@ -279,13 +279,13 @@ export default function CaseStudiesPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Cal>
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+              <Button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold">
                 Schedule a Consultation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Cal>
             <Link href="/services">
-              <Button variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-950/30">
+              <Button variant="outline" className="border-yellow-400 text-yellow-400 hover:bg-yellow-400/10">
                 View Our Services
               </Button>
             </Link>

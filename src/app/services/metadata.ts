@@ -4,21 +4,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services',
   },
-  title: 'Services – Full-Stack Development & Workflow Automation',
-  description: 'Comprehensive full-stack development services including Next.js, Laravel, Go, workflow automation with n8n/Make.com, and AI integrations.',
+  title: 'Services – Next.js, n8n Pipelines & AI Agents',
+  description:
+    'We focus on three things: fullstack Next.js apps wired to n8n/Make.com, AI agents for content generation, and AI-managed social media.',
   keywords: [
-    'full-stack development',
     'Next.js development',
-    'Laravel development',
     'workflow automation',
     'n8n automation',
     'Make.com integration',
-    'API development',
-    'SaaS development',
+    'AI content agents',
+    'AI social media management',
+    'automation-first fullstack apps',
   ],
   openGraph: {
     title: 'Services – Fullstacktics',
-    description: 'Full-stack development and workflow automation services',
+    description: 'Fullstack Next.js apps with n8n/Make.com pipelines plus AI agents for content and social.',
     url: 'https://www.fullstacktics.com/services',
     images: [
       {

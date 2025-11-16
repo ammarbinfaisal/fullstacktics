@@ -117,7 +117,7 @@ export function ProjectInquiry({ onClose, isModal = false }: ProjectInquiryProps
           variants={cardVariants}
           className="origin-top" // Reinforces the top-edge pivot point
         >
-          <Card className="border border-gray-800 bg-[#151528]/80 backdrop-blur-sm overflow-hidden shadow-2xl">
+          <Card className="border border-gray-800 bg-zinc-900/80 backdrop-blur-sm overflow-hidden shadow-2xl">
             <CardHeader>
               <motion.div variants={itemVariants}>
                 <CardTitle className="text-2xl">Project Details</CardTitle>
@@ -174,7 +174,7 @@ export function ProjectInquiry({ onClose, isModal = false }: ProjectInquiryProps
                 <motion.div variants={itemVariants}>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white"
+                    className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-semibold"
                     disabled={formState.submitting}
                   >
                     {formState.submitting ? "Submitting..." : "Submit Inquiry"}
@@ -208,7 +208,7 @@ export function ProjectInquiry({ onClose, isModal = false }: ProjectInquiryProps
     >
       <div className="flex flex-col items-center gap-4 text-center mb-12">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-          Project <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-teal-400">Inquiry</span>
+          Project <span className="text-yellow-400">Inquiry</span>
         </h1>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           Tell us about your project and we&apos;ll get back to you with a tailored solution.
@@ -216,7 +216,7 @@ export function ProjectInquiry({ onClose, isModal = false }: ProjectInquiryProps
       </div>
 
       <div className="mx-auto max-w-xl">
-        <Card className="border border-gray-800 bg-[#151528]/80 backdrop-blur-sm">
+        <Card className="border border-gray-800 bg-zinc-900/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Project Details</CardTitle>
             <CardDescription>
@@ -268,7 +268,7 @@ export function ProjectInquiry({ onClose, isModal = false }: ProjectInquiryProps
 
               <Button
                 type="submit"
-                className="bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white"
+                className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold"
                 disabled={formState.submitting}
               >
                 {formState.submitting ? "Submitting..." : "Submit Inquiry"}

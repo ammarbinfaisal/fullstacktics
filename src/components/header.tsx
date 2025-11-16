@@ -41,9 +41,9 @@ export default function Header({ activePage }: HeaderProps) {
 
   return (
     <>
-      <header className="container mx-auto py-6 flex items-center justify-between">
+      <header className="container mx-auto py-4 px-4 flex items-center justify-between border-b border-gray-200 bg-white/90 backdrop-blur-sm">
         <Link href="/" className="flex items-center gap-2">
-          <Zap className="h-6 w-6 text-purple-500" />
+          <Zap className="h-6 w-6 text-yellow-400" />
           <span className="font-bold text-xl">Fullstacktics</span>
         </Link>
         
@@ -51,25 +51,19 @@ export default function Header({ activePage }: HeaderProps) {
         <nav className="hidden md:flex items-center gap-8">
           <Link 
             href="/services" 
-            className={`text-sm hover:text-purple-400 transition-colors ${activePage === 'services' ? 'text-purple-500' : ''}`}
+            className={`text-sm hover:text-yellow-500 transition-colors ${activePage === 'services' ? 'text-yellow-500 font-semibold' : 'text-gray-700'}`}
           >
             Services
           </Link>
           <Link 
-            href="/team" 
-            className={`text-sm hover:text-purple-400 transition-colors ${activePage === 'team' ? 'text-purple-500' : ''}`}
-          >
-            Team
-          </Link>
-          <Link 
             href="/blog" 
-            className={`text-sm hover:text-purple-400 transition-colors ${activePage === 'blog' ? 'text-purple-500' : ''}`}
+            className={`text-sm hover:text-yellow-500 transition-colors ${activePage === 'blog' ? 'text-yellow-500 font-semibold' : 'text-gray-700'}`}
           >
             Blog
           </Link>
           <Link 
             href="/inquiry" 
-            className={`text-sm hover:text-purple-400 transition-colors ${activePage === 'contact' ? 'text-purple-500' : ''}`}
+            className={`text-sm hover:text-yellow-500 transition-colors ${activePage === 'contact' ? 'text-yellow-500 font-semibold' : 'text-gray-700'}`}
           >
             Contact Us
           </Link>
@@ -93,7 +87,7 @@ export default function Header({ activePage }: HeaderProps) {
         
         {/* Call-to-Action Button */}
         <Button 
-          className="bg-purple-600 hover:bg-purple-700 text-white hidden md:flex"
+          className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold hidden md:flex shadow-sm"
           onClick={() => setInquiryFormOpen(true)}
         >
           Let&apos;s Talk
@@ -109,23 +103,20 @@ export default function Header({ activePage }: HeaderProps) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#151528]/90 backdrop-blur-sm py-4 px-6 border-t border-gray-800"
+            className="md:hidden bg-white/95 backdrop-blur-sm py-4 px-6 border-t border-gray-200"
           >
             <div className="flex flex-col space-y-4">
-              <Link href="/services" className="text-sm hover:text-purple-400 transition-colors">
+              <Link href="/services" className="text-sm text-gray-800 hover:text-yellow-500 transition-colors">
                 Services
               </Link>
-              <Link href="/team" className="text-sm hover:text-purple-400 transition-colors">
-                Team
-              </Link>
-              <Link href="/blog" className="text-sm hover:text-purple-400 transition-colors">
+              <Link href="/blog" className="text-sm text-gray-800 hover:text-yellow-500 transition-colors">
                 Blog
               </Link>
-              <Link href="/inquiry" className="text-sm hover:text-purple-400 transition-colors">
+              <Link href="/inquiry" className="text-sm text-gray-800 hover:text-yellow-500 transition-colors">
                 Contact Us
               </Link>
               <Button 
-                className="bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white w-full"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold w-full shadow-sm"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   setInquiryFormOpen(true)

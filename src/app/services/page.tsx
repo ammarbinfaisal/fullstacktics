@@ -77,11 +77,12 @@ export default function ServicesPage() {
     '@type': 'WebPage',
     url: 'https://www.fullstacktics.com/services',
     name: 'Services – Fullstacktics',
-    description: 'Comprehensive full-stack development and workflow automation services including Next.js, Laravel, Go, n8n/Make.com automation, and AI integrations.',
+    description:
+      'Services focused on fullstack Next.js apps with n8n/Make.com pipelines, AI content agents, and AI-powered social media management.',
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A1A2E] to-[#0F0F1A] text-white">
+    <div className="min-h-screen bg-white text-black">
       <Script
         id="ld-webpage-services"
         type="application/ld+json"
@@ -90,22 +91,23 @@ export default function ServicesPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative" ref={heroRef}>
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-teal-400 rounded-3xl opacity-20 blur-3xl"></div>
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative" ref={heroRef}>
         <motion.div
           className="text-center max-w-3xl mx-auto"
           initial="hidden"
           animate={controls.hero}
           variants={fadeIn}
         >
-          <Badge className="bg-purple-900/50 text-purple-400 hover:bg-purple-900/50 mb-4">Our Services</Badge>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">Comprehensive Fullstack Development Services</h1>
-          <p className="text-xl text-gray-300 mb-8">
-            End-to-end solutions for modern web applications with cutting-edge technologies.
+          <Badge className="bg-yellow-100 text-yellow-700 border border-yellow-200 mb-4">Our Services</Badge>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            Next.js Apps, Automation Pipelines & AI Agents
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            We build fullstack Next.js products wired into n8n/Make.com workflows, plus AI agents for content and social media that stay on-brand.
           </p>
           <Cal>
             <Button
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg font-medium"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-6 rounded-full text-lg"
             >
               Get a Quote
             </Button>
@@ -114,7 +116,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" ref={servicesRef}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" ref={servicesRef}>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
@@ -124,22 +126,22 @@ export default function ServicesPage() {
           {services.map((service) => (
             <motion.div key={service.id} variants={serviceCardVariants}>
               <Link href={`/services/${service.id}`} className="block h-full">
-                <div className={`bg-[#151528] border rounded-xl p-8 h-full group hover:border-purple-600/50 transition-colors relative ${
+                <div className={`bg-white border rounded-xl p-8 h-full group hover:border-yellow-400/60 transition-colors relative ${
                   service.id === 'automation' 
-                    ? 'border-purple-600/50 bg-gradient-to-br from-purple-900/20 to-teal-900/20' 
-                    : 'border-gray-800'
+                    ? 'border-yellow-400/80 shadow-sm' 
+                    : 'border-gray-200'
                 }`}>
                   {service.id === 'automation' && (
                     <div className="absolute top-4 right-4 flex gap-2">
-                      <div className="relative w-12 h-8 bg-white/10 backdrop-blur-sm rounded-md p-1 border border-white/10">
+                      <div className="relative w-12 h-8 bg-white rounded-md p-1 border border-gray-200 shadow-sm">
                         <Image src="/make-logo.svg" alt="Make.com" fill className="object-contain p-0.5" />
                       </div>
-                      <div className="relative w-12 h-8 bg-white/10 backdrop-blur-sm rounded-md p-1 border border-white/10">
+                      <div className="relative w-12 h-8 bg-white rounded-md p-1 border border-gray-200 shadow-sm">
                         <Image src="/n8n-logo.svg" alt="n8n" fill className="object-contain p-0.5" />
                       </div>
                     </div>
                   )}
-                  <div className="w-32 h-32 rounded-lg flex items-center justify-center mb-6">
+                  <div className="w-20 h-20 rounded-lg flex items-center justify-center mb-6 bg-gray-50 border border-gray-200">
                     {
                       service.imageUrl ?
                         <Image
@@ -152,16 +154,16 @@ export default function ServicesPage() {
                         service.lightIcon
                     }
                   </div>
-                  <Badge className={`hover:bg-purple-900/50 border-none mb-4 ${
+                  <Badge className={`border-none mb-4 ${
                     service.id === 'automation' 
-                      ? 'bg-gradient-to-r from-purple-600 to-teal-600 text-white' 
-                      : 'bg-purple-900/50 text-purple-400'
+                      ? 'bg-yellow-100 text-yellow-700 border border-yellow-200' 
+                      : 'bg-gray-100 text-gray-700 border border-gray-200'
                   }`}>
                     {service.category}
                   </Badge>
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-gray-400 mb-6">{service.description}</p>
-                  <div className="flex items-center font-medium group-hover:underline bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-teal-400">
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  <div className="flex items-center font-medium text-yellow-500 group-hover:underline">
                     Learn more
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -175,7 +177,7 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" ref={ctaRef}>
         <motion.div
-          className="bg-gradient-to-br from-purple-900/30 to-teal-900/30 p-12 rounded-3xl border border-gray-800 text-center"
+          className="bg-black p-12 rounded-3xl border border-gray-800 text-center text-white"
           initial="hidden"
           animate={controls.cta}
           variants={fadeIn}
@@ -187,7 +189,7 @@ export default function ServicesPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Cal>
               <Button
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg"
+                className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-8 py-6 rounded-full text-lg"
               >
                 Contact Us Today
               </Button>
@@ -195,7 +197,7 @@ export default function ServicesPage() {
             <Link href="/case-studies">
               <Button
                 variant="outline"
-                className="border-purple-500 text-purple-400 hover:bg-purple-950/30 px-8 py-6 rounded-full text-lg"
+                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400/10 px-8 py-6 rounded-full text-lg"
               >
                 View Case Studies
               </Button>

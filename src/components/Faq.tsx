@@ -37,7 +37,7 @@ export default function Process() {
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 text-[#4B5E6A]">
             Intelligent{" "}
-            <span className="bg-gradient-to-r from-[#4A919E] to-teal-600 bg-clip-text text-transparent">
+            <span className="text-yellow-600">
               Development Process
             </span>
           </h2>
@@ -49,19 +49,19 @@ export default function Process() {
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto px-6">
           {steps.map((step, index) => (
             <div key={step.title} className="relative group h-full">
-              <div className="h-full flex flex-col items-center text-center p-6 rounded-lg bg-white border border-[#4A919E]/10 transition-all hover:border-[#4A919E]/20">
-                <div className="mb-4 rounded-full bg-[#4A919E]/10 p-4 ring-1 ring-[#4A919E]/20">
+              <div className="h-full flex flex-col items-center text-center p-6 rounded-lg bg-white border border-gray-200 transition-all hover:border-yellow-400/50">
+                <div className="mb-4 rounded-full bg-yellow-50 p-4 ring-1 ring-yellow-100">
                   {step.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#4B5E6A]">{step.title}</h3>
                 <p className="text-sm text-[#4B5E6A] mb-4">{step.description}</p>
 
                 {/* Metrics */}
-                <div className="w-full pt-4 border-t border-[#4A919E]/10">
+                <div className="w-full pt-4 border-t border-gray-200">
                   <ul className="space-y-2">
                     {step.metrics.map((metric) => (
-                      <li key={metric} className="text-xs text-[#4A919E] flex items-center justify-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A919E]/60" />
+                      <li key={metric} className="text-xs text-yellow-600 flex items-center justify-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
                         {metric}
                       </li>
                     ))}
@@ -69,7 +69,7 @@ export default function Process() {
                 </div>
 
                 {/* Step number */}
-                <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-[#4A919E]/10 border border-[#4A919E]/20 flex items-center justify-center text-xs font-medium text-[#4A919E]">
+                <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-yellow-50 border border-yellow-200 flex items-center justify-center text-xs font-medium text-yellow-700">
                   {index + 1}
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function Process() {
           <Cal>
             <Button
               size="lg"
-              className="bg-gradient-to-r from-[#4A919E] to-teal-600 hover:from-[#3A7A85] hover:to-teal-700 text-white"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
             >
               Schedule Technical Consultation
             </Button>

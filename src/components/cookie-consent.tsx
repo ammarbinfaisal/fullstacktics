@@ -33,7 +33,7 @@ export default function CookieConsent() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-0 left-0 right-0 z-50 bg-[#0F0F1A] border-t border-gray-800 shadow-lg"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-black border-t border-gray-800 shadow-lg"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
@@ -52,7 +52,7 @@ export default function CookieConsent() {
                 >
                   Customize
                 </Button>
-                <Button className="text-sm bg-[#6366F1] hover:bg-[#4F46E5] text-white" onClick={handleAccept}>
+                <Button className="text-sm bg-yellow-400 hover:bg-yellow-500 text-black font-semibold" onClick={handleAccept}>
                   Accept
                 </Button>
               </div>
@@ -103,7 +103,7 @@ export default function CookieConsent() {
                     </div>
                   </div>
                   <div className="mt-4 flex justify-end">
-                    <Button className="text-sm bg-[#6366F1] hover:bg-[#4F46E5] text-white" onClick={handleAccept}>
+                    <Button className="text-sm bg-yellow-400 hover:bg-yellow-500 text-black font-semibold" onClick={handleAccept}>
                       Save Preferences
                     </Button>
                   </div>
