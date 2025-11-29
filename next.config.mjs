@@ -1,8 +1,4 @@
 import createMDX from '@next/mdx'
-import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
-
-// Initialize OpenNext for Cloudflare dev mode
-initOpenNextCloudflareForDev()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
