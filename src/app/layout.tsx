@@ -50,7 +50,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <
     <html lang="en" className="scroll-smooth">
       <head>
         <JsonLd />
@@ -60,7 +59,7 @@ export default function RootLayout({
           <Header />
           {children}
         </div>
-        <SpeedInsights/>
+        <SpeedInsights />
       </body>
     </html>
   );
