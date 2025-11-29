@@ -1,123 +1,80 @@
 export default function JsonLd() {
-  const jsonLd = {
+  const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "#organization",
-    "name": "Fullstacktics - AI & Full-Stack Development Agency",
-    "offers": [
-      {
-        "@type": "Service",
-        "name": "AI-Powered Development",
-        "description": "Custom AI solutions leveraging PyTorch, LLMs, and diffusion models, seamlessly integrated into scalable Next.js applications for intelligent, high-performance systems.",
-        "serviceType": "AI Development",
-        "provider": { "@id": "#organization" },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "itemListElement": [
-            {
-              "@type": "OfferCatalog",
-              "name": "Features",
-              "itemListElement": [
-                "PyTorch model development",
-                "LLM fine-tuning with vLLM",
-                "Diffusion model deployment",
-                "Next.js frontend integration",
-                "Real-time AI inference",
-              ],
-            },
-          ],
-        },
-        "review": {
-          "@type": "Review",
-          "reviewBody": [
-            "Their AI integration transformed our platform’s capabilities.",
-            "Lightning-fast inference with zero compromise on accuracy.",
-          ],
-        },
-      },
-      {
-        "@type": "Service",
-        "name": "Performance Optimization",
-        "description": "Comprehensive optimization for AI models and applications, ensuring speed, efficiency, and scalability with tools like Redis and advanced profiling.",
-        "serviceType": "Performance Optimization",
-        "provider": { "@id": "#organization" },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "itemListElement": [
-            {
-              "@type": "OfferCatalog",
-              "name": "Features",
-              "itemListElement": [
-                "AI model compression",
-                "Core Web Vitals optimization",
-                "Redis caching strategies",
-                "Latency reduction",
-                "Resource profiling",
-              ],
-            },
-          ],
-        },
-      },
-      {
-        "@type": "Service",
-        "name": "Scalable Infrastructure",
-        "description": "Enterprise-grade infrastructure with Go, FastAPI, and Postgres, built to support AI workloads and high-traffic applications.",
-        "serviceType": "Infrastructure Services",
-        "provider": { "@id": "#organization" },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "itemListElement": [
-            {
-              "@type": "OfferCatalog",
-              "name": "Features",
-              "itemListElement": [
-                "Go microservices",
-                "FastAPI endpoints",
-                "Postgres scalability",
-                "Edge deployment",
-                "Real-time processing",
-              ],
-            },
-          ],
-        },
-      },
-      {
-        "@type": "Service",
-        "name": "API & AI Integration",
-        "description": "High-performance APIs with FastAPI and Go, designed to integrate AI models like BERT and diffusion models into production systems.",
-        "serviceType": "API Development",
-        "provider": { "@id": "#organization" },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "itemListElement": [
-            {
-              "@type": "OfferCatalog",
-              "name": "Features",
-              "itemListElement": [
-                "FastAPI development",
-                "Go microservices",
-                "AI model serving",
-                "Real-time endpoints",
-                "Type-safe APIs",
-              ],
-            },
-          ],
-        },
-        "review": {
-          "@type": "Review",
-          "reviewBody": [
-            "Their API integration made our AI models production-ready.",
-            "FastAPI and Go combo delivered unmatched speed.",
-          ],
-        },
-      },
+    "@id": "https://fullstacktics.com/#organization",
+    "name": "Fullstacktics",
+    "alternateName": "Fullstacktics - Web Automation & Full-Stack Development",
+    "url": "https://fullstacktics.com",
+    "logo": "https://fullstacktics.com/favicon.ico",
+    "description": "We build stealthy browser bots, web scrapers, and production-ready SaaS products. Specializing in automation that bypasses detection, data extraction from protected sites, and full-stack development with Next.js.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Delhi",
+      "postalCode": "110025",
+      "addressCountry": "IN"
+    },
+    "email": "ammar@fullstacktics.com",
+    "sameAs": [
+      "https://github.com/fullstacktics",
+      "https://www.linkedin.com/company/fullstacktics"
     ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Development Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Automation & Bots",
+            "description": "Stealthy browser bots that bypass detection, handle CAPTCHAs, and automate platforms like Quora, Medium, Twitter, LinkedIn, and Amazon Seller Central.",
+            "url": "https://fullstacktics.com/services/bots",
+            "provider": { "@id": "https://fullstacktics.com/#organization" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Scraping & ETL",
+            "description": "Data extraction from protected sites with fingerprint rotation, proxy networks, and Airflow ETL pipelines that feed your systems automatically.",
+            "url": "https://fullstacktics.com/services/scrapers",
+            "provider": { "@id": "https://fullstacktics.com/#organization" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SaaS Development",
+            "description": "Production-ready SaaS products with Next.js, Clerk authentication, Stripe billing, and AI integrations that ship in weeks.",
+            "url": "https://fullstacktics.com/services/saas",
+            "provider": { "@id": "https://fullstacktics.com/#organization" }
+          }
+        }
+      ]
+    }
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Fullstacktics",
+    "url": "https://fullstacktics.com",
+    "publisher": { "@id": "https://fullstacktics.com/#organization" }
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+    </>
   );
 }

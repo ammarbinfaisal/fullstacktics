@@ -1,10 +1,7 @@
-"use client"
-
 import type React from "react"
-
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 
 interface RelatedServiceCardProps {
   id: string
@@ -15,20 +12,20 @@ interface RelatedServiceCardProps {
 
 export default function RelatedServiceCard({ id, title, description, icon }: RelatedServiceCardProps) {
   return (
-    <motion.div
-      className="bg-[#1A1A2E] border border-gray-800 rounded-xl p-6 h-full group"
-      whileHover={{ y: -5, boxShadow: "0 10px 30px -15px rgba(99, 102, 241, 0.2)" }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="w-12 h-12 bg-[#6366F1]/10 rounded-lg flex items-center justify-center mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-gray-400 mb-4">{description}</p>
-      <Link href={`/services/${id}`} className="inline-flex items-center text-[#6366F1] font-medium">
-        Learn more
-        <motion.div className="ml-2" initial={{ x: 0 }} whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-          <ArrowRight className="h-4 w-4" />
-        </motion.div>
-      </Link>
-    </motion.div>
+    <Link href={`/services/${id}`} prefetch={true}>
+      <Card className="h-full border-border bg-card hover:border-primary/50 hover:shadow-glass transition-all cursor-pointer group">
+        <CardContent className="pt-6">
+          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 text-primary">
+            {icon}
+          </div>
+          <h3 className="text-xl font-bold mb-2 text-foreground">{title}</h3>
+          <p className="text-muted-foreground mb-4">{description}</p>
+          <span className="inline-flex items-center text-link font-medium group-hover:text-link-hover transition-colors">
+            Learn more
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </span>
+        </CardContent>
+      </Card>
+    </Link>
   )
 }

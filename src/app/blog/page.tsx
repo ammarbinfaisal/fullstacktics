@@ -60,7 +60,7 @@ export default async function BlogPage() {
 
   return (
     <div className="max-w-4xl mx-auto py-32 px-4">
-      <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
+      <h1 className="text-4xl font-bold mb-8 text-foreground">Blog Posts</h1>
       <div className="grid gap-6">
         {sortedPosts.map((post) => (
           <Card key={post.slug} className="group hover:shadow-lg transition-shadow">
@@ -69,13 +69,13 @@ export default async function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="flex flex-col gap-2 group-hover:opacity-80 transition-opacity"
               >
-                <h2 className="text-2xl font-semibold capitalize">
+                <h2 className="text-2xl font-semibold capitalize text-foreground">
                   {post.title}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 line-clamp-2">
+                <p className="text-muted-foreground line-clamp-2">
                   {post.description}
                 </p>
-                <div className="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400 mt-4">
+                <div className="flex items-center gap-6 text-sm text-muted-foreground mt-4">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     <span>{post.date}</span>

@@ -25,13 +25,29 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // Rose accent for links
+        link: {
+          DEFAULT: "hsl(var(--link))",
+          hover: "hsl(var(--link-hover))",
+        },
+        // Rose primary palette
         primary: {
-          DEFAULT: "#6D28D9", // Purple-700
-          foreground: "#FFFFFF",
+          DEFAULT: "hsl(346 77% 50%)", // Rose
+          foreground: "hsl(0 0% 100%)",
+          50: "hsl(346 77% 97%)",
+          100: "hsl(346 77% 93%)",
+          200: "hsl(346 77% 85%)",
+          300: "hsl(346 77% 75%)",
+          400: "hsl(346 77% 60%)",
+          500: "hsl(346 77% 50%)",
+          600: "hsl(346 77% 45%)",
+          700: "hsl(346 77% 38%)",
+          800: "hsl(346 77% 30%)",
+          900: "hsl(346 77% 22%)",
         },
         secondary: {
-          DEFAULT: "#2DD4BF", // Teal-400
-          foreground: "#1A1A2E",
+          DEFAULT: "hsl(0 0% 96%)",
+          foreground: "hsl(0 0% 9%)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -54,6 +70,13 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backdropBlur: {
+        xs: "2px",
+      },
+      boxShadow: {
+        glass: "0 4px 30px rgba(0, 0, 0, 0.05)",
+        "glass-sm": "0 2px 15px rgba(0, 0, 0, 0.03)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -68,10 +91,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
     },
   },

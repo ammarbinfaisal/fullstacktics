@@ -1,97 +1,72 @@
-"use client"
-
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { Zap, Mail, MapPin, Github, Linkedin } from "lucide-react"
+import { Zap, Mail, MapPin } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <motion.footer
-      className="bg-[#0F0F1A] border-t border-gray-800 pt-16 pb-8"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
+    <footer className="bg-card border-t border-border pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Zap className="h-6 w-6 text-purple-500" />
-              <span className="font-bold text-xl">Fullstacktics</span>
+              <Zap className="h-6 w-6 text-primary" />
+              <span className="font-bold text-xl text-foreground">Fullstacktics</span>
             </Link>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               End-to-end solutions for modern web applications with cutting-edge technologies.
             </p>
             <div className="flex space-x-4">
-              <a href="https://github.com/fullstacktics" className="text-gray-400 hover:text-purple-400">
-                <Github className="h-5 w-5" />
+              <a href="https://github.com/fullstacktics" className="text-muted-foreground hover:text-primary transition-colors">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
               </a>
-              <a href="https://www.linkedin.com/company/fullstacktics"
-                className="text-gray-400 hover:text-purple-400">
-                <Linkedin className="h-5 w-5" />
+              <a href="https://www.linkedin.com/company/fullstacktics" className="text-muted-foreground hover:text-primary transition-colors">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </a>
             </div>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Services</h3>
+            <h3 className="font-bold text-lg mb-4 text-foreground">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services/nextjs" className="text-gray-400 hover:text-purple-400">
-                  NextJS Development
+                <Link href="/services/bots" prefetch={true} className="text-muted-foreground hover:text-primary transition-colors">
+                  Web Automation & Bots
                 </Link>
               </li>
               <li>
-                <Link href="/services/laravel" className="text-gray-400 hover:text-purple-400">
-                  Laravel Development
+                <Link href="/services/scrapers" prefetch={true} className="text-muted-foreground hover:text-primary transition-colors">
+                  Web Scraping & ETL
                 </Link>
               </li>
               <li>
-                <Link href="/services/golang" className="text-gray-400 hover:text-purple-400">
-                  Golang Development
+                <Link href="/services/saas" prefetch={true} className="text-muted-foreground hover:text-primary transition-colors">
+                  SaaS Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/react" className="text-gray-400 hover:text-purple-400">
-                  ReactJS Optimization
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/integrations" className="text-gray-400 hover:text-purple-400">
-                  External Integrations
+                <Link href="/services" prefetch={true} className="text-muted-foreground hover:text-primary transition-colors">
+                  All Services
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Company</h3>
+            <h3 className="font-bold text-lg mb-4 text-foreground">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-purple-400">
-                  About Us
+                <Link href="/projects" prefetch={true} className="text-muted-foreground hover:text-primary transition-colors">
+                  Projects
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-gray-400 hover:text-purple-400">
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-gray-400 hover:text-purple-400">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-400 hover:text-purple-400">
+                <Link href="/blog" prefetch={true} className="text-muted-foreground hover:text-primary transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-purple-400">
+                <Link href="/inquiry" prefetch={true} className="text-muted-foreground hover:text-primary transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -99,18 +74,22 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact</h3>
+            <h3 className="font-bold text-lg mb-4 text-foreground">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <Mail className="h-5 w-5 text-purple-400 mr-2 mt-0.5" />
-                <span className="text-gray-400">ammar@fullstacktics.com</span>
+                <Mail className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-muted-foreground">ammar@fullstacktics.com</span>
               </li>
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-purple-400 mr-2 mt-0.5" />
-                <span className="text-gray-400">New Delhi, 110025</span>
+                <MapPin className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-muted-foreground">New Delhi, 110025</span>
               </li>
               <li>
-                <Link href="/project-inquiry" className="inline-block mt-3 text-white bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 px-4 py-2 rounded-md">
+                <Link 
+                  href="/inquiry" 
+                  prefetch={true}
+                  className="inline-block mt-3 text-primary-foreground bg-primary hover:bg-primary/90 px-4 py-2 rounded-md transition-colors"
+                >
                   Start a Project
                 </Link>
               </li>
@@ -118,21 +97,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">&copy; {currentYear} Fullstacktics. All rights reserved.</p>
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-muted-foreground text-sm">&copy; {currentYear} Fullstacktics. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-500 hover:text-purple-400 text-sm">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-gray-500 hover:text-purple-400 text-sm">
-              Terms of Service
-            </Link>
-            <Link href="/cookies" className="text-gray-500 hover:text-purple-400 text-sm">
-              Cookie Policy
+            <Link href="/inquiry" prefetch={true} className="text-muted-foreground hover:text-primary text-sm transition-colors">
+              Contact Us
             </Link>
           </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   )
 }

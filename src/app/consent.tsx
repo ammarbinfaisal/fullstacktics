@@ -13,8 +13,88 @@ declare global {
 
 export default function Consent() {
     const [config, setConfig] = useState<CookieConsent.CookieConsentConfig>();
+    const [isGdprCountry, setIsGdprCountry] = useState<boolean | null>(null);
+
+    // Check if user is in a GDPR country using Cloudflare headers
+    useEffect(() => {
+        const checkGdprCountry = async () => {
+            try {
+                const response = await fetch('/api/geo');
+                const data = await response.json();
+                setIsGdprCountry(data.isGdpr);
+                
+                // For non-GDPR countries, auto-load analytics without consent banner
+                if (!data.isGdpr) {
+                    loadAnalyticsScriptsDirectly();
+                }
+            } catch {
+                // If geo check fails, default to showing consent (safer for GDPR compliance)
+                setIsGdprCountry(true);
+            }
+        };
+        
+        checkGdprCountry();
+    }, []);
+
+    const loadAnalyticsScriptsDirectly = () => {
+        const gtmId = 'GTM-NMQS73V7';
+        const gaId = 'AW-11298597203';
+        const container = document.head || document.documentElement;
+
+        // GTM Script
+        if (!document.getElementById('gtm-script')) {
+            const gtmScript = document.createElement('script');
+            gtmScript.id = 'gtm-script';
+            gtmScript.innerHTML = `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${gtmId}');
+            `;
+            container.appendChild(gtmScript);
+        }
+
+        // Google Analytics Script
+        if (!document.getElementById('ga-script')) {
+            const gaScript = document.createElement('script');
+            gaScript.id = 'ga-script';
+            gaScript.async = true;
+            gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+            container.appendChild(gaScript);
+        }
+
+        // Clarity Script
+        if (!document.getElementById('clarity-script')) {
+            const clarityScript = document.createElement('script');
+            clarityScript.id = 'clarity-script';
+            clarityScript.innerHTML = `
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "pd90txeeeg");
+            `;
+            container.appendChild(clarityScript);
+        }
+
+        // Add GTM noscript iframe
+        const existingIframe = document.querySelector('iframe[src*="googletagmanager.com/ns.html"]');
+        if (!existingIframe) {
+            const noscriptContainer = document.body;
+            const gtmIframe = document.createElement('noscript');
+            gtmIframe.innerHTML = `
+                <iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            `;
+            noscriptContainer.insertBefore(gtmIframe, noscriptContainer.firstChild);
+        }
+    };
 
     useEffect(() => {
+        // Only set up cookie consent config for GDPR countries
+        if (isGdprCountry !== true) return;
+
         const hostname = window?.location?.hostname;
         const gtmId = 'GTM-NMQS73V7';
         const gaId = 'AW-11298597203';
@@ -239,7 +319,7 @@ export default function Consent() {
                             acceptAllBtn: 'Accept All',
                             acceptNecessaryBtn: 'Reject All',
                             showPreferencesBtn: 'Manage Preferences',
-                            footer: '<a href="/privacy" class="cc-link">Privacy Policy</a> | <a href="/terms" class="cc-link">Terms of Service</a>'
+                            footer: '<a href="/inquiry" class="cc-link">Contact Us</a>'
                         },
                         preferencesModal: {
                             title: 'Privacy Preferences Center',
@@ -290,7 +370,7 @@ export default function Consent() {
         };
 
         setConfig(cookieConsentConfig as unknown as CookieConsent.CookieConsentConfig);
-    }, []);
+    }, [isGdprCountry]);
 
     useEffect(() => {
         if (config && typeof window !== 'undefined') {
@@ -301,6 +381,11 @@ export default function Consent() {
             };
         }
     }, [config]);
+
+    // Only render cookie consent UI for GDPR countries
+    if (isGdprCountry !== true) {
+        return null;
+    }
 
     return (
         <>

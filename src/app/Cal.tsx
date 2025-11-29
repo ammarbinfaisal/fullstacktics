@@ -3,6 +3,12 @@
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 
+declare global {
+    interface Window {
+        gtag?: (...args: unknown[]) => void;
+    }
+}
+
 const Cal = ({
     children,
     className
@@ -11,13 +17,13 @@ const Cal = ({
     className?: string;
 }) => {
     function gtag_report_conversion() {
-        // @ts-expect-error - TS doesn't know if gtag is a function
-        gtag('event', 'click_cal', {
-            'event_category': 'cal',
-            'event_label': 'click_cal',
-            'value': 1
-        });
-
+        if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'click_cal', {
+                'event_category': 'cal',
+                'event_label': 'click_cal',
+                'value': 1
+            });
+        }
         return false;
     }
 

@@ -1,9 +1,7 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { Code, Server, Zap, Webhook, Database, Code2 } from "lucide-react"
 import Link from "next/link"
 import React from "react"
+import { Card, CardContent } from "@/components/ui/card"
 
 interface ServiceCardProps {
   id: string
@@ -16,34 +14,36 @@ export default function ServiceCard({ id, title, description, icon }: ServiceCar
   const getIcon = () => {
     switch (icon) {
       case "code":
-        return <Code className="h-6 w-6 text-[#6366F1]" />
+        return <Code className="h-6 w-6 text-primary" />
       case "server":
-        return <Server className="h-6 w-6 text-[#6366F1]" />
+        return <Server className="h-6 w-6 text-primary" />
       case "zap":
-        return <Zap className="h-6 w-6 text-[#6366F1]" />
+        return <Zap className="h-6 w-6 text-primary" />
       case "webhook":
-        return <Webhook className="h-6 w-6 text-[#6366F1]" />
+        return <Webhook className="h-6 w-6 text-primary" />
       case "database":
-        return <Database className="h-6 w-6 text-[#6366F1]" />
+        return <Database className="h-6 w-6 text-primary" />
       case "code-2":
-        return <Code2 className="h-6 w-6 text-[#6366F1]" />
+        return <Code2 className="h-6 w-6 text-primary" />
       default:
-        return <Code className="h-6 w-6 text-[#6366F1]" />
+        return <Code className="h-6 w-6 text-primary" />
     }
   }
 
   return (
-    <motion.div
-      className="bg-[#1A1A2E] p-8 rounded-2xl border border-gray-800 h-full"
-      whileHover={{ y: -5, boxShadow: "0 10px 30px -15px rgba(99, 102, 241, 0.2)" }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="w-12 h-12 bg-[#6366F1]/10 rounded-lg flex items-center justify-center mb-6">{getIcon()}</div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-400">{description}</p>
-      <Link href={`/services/${id}`} className="mt-4 inline-block text-[#6366F1] hover:underline">
-        Learn more
-      </Link>
-    </motion.div>
+    <Link href={`/services/${id}`} prefetch={true}>
+      <Card className="h-full border-border bg-card hover:border-primary/50 hover:shadow-md transition-all cursor-pointer group">
+        <CardContent className="pt-6">
+          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+            {getIcon()}
+          </div>
+          <h3 className="text-xl font-bold mb-3 text-foreground">{title}</h3>
+          <p className="text-muted-foreground">{description}</p>
+          <span className="mt-4 inline-block text-primary font-medium group-hover:underline">
+            Learn more
+          </span>
+        </CardContent>
+      </Card>
+    </Link>
   )
 }

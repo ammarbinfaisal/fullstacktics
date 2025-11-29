@@ -1,4 +1,4 @@
-import { Zap, Server, Activity, Code, ArrowRight, Gauge, Globe, Database, CreditCard, PackageOpen, Shield, Workflow, Network, Settings } from "lucide-react";
+import { Bot, Database, Layers, ArrowRight, Globe, Shield, Lock, Users, Fingerprint, Workflow, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
@@ -6,67 +6,51 @@ import Link from "next/link";
 export default function ServicesGrid() {
   const services = [
     {
-      title: "AI-Powered Development",
-      key: "ai-development",
-      description: "Custom AI solutions with PyTorch, LLMs, and diffusion models, integrated into scalable Next.js applications.",
-      icon: <Zap className="h-6 w-6" />,
+      title: "Web Automation & Bots",
+      key: "bots",
+      description: "Stealthy browser bots that bypass detection, handle CAPTCHAs, and automate what others say can't be automated.",
+      icon: <Bot className="h-6 w-6" />,
       metrics: [
-        { value: "10x", label: "Inference Speed" },
+        { value: "99%", label: "Success Rate" },
+        { value: "24/7", label: "Uptime" },
+        { value: "<1s", label: "Response" },
+      ],
+      features: [
+        { text: "Anti-Detection", icon: <Shield className="h-4 w-4" /> },
+        { text: "CAPTCHA Solving", icon: <Lock className="h-4 w-4" /> },
+        { text: "Session Management", icon: <Users className="h-4 w-4" /> },
+      ],
+    },
+    {
+      title: "Web Scraping & ETL",
+      key: "scrapers",
+      description: "Data extraction from protected sites with fingerprint rotation, proxy networks, and automated pipelines.",
+      icon: <Database className="h-6 w-6" />,
+      metrics: [
+        { value: "1M+", label: "Records/Day" },
         { value: "99%", label: "Accuracy" },
-        { value: "<1s", label: "Latency" },
+        { value: "Auto", label: "Pipelines" },
       ],
       features: [
-        { text: "PyTorch & vLLM", icon: <Globe className="h-4 w-4" /> },
-        { text: "BERT & LLMs", icon: <Database className="h-4 w-4" /> },
-        { text: "Next.js Integration", icon: <CreditCard className="h-4 w-4" /> },
+        { text: "Fingerprint Rotation", icon: <Fingerprint className="h-4 w-4" /> },
+        { text: "Smart Proxies", icon: <Globe className="h-4 w-4" /> },
+        { text: "Airflow ETL", icon: <Workflow className="h-4 w-4" /> },
       ],
     },
     {
-      title: "Performance Optimization",
-      key: "performance-optimization",
-      description: "AI and app optimization with measurable gains in speed, efficiency, and resource usage.",
-      icon: <Activity className="h-6 w-6" />,
+      title: "SaaS Development",
+      key: "saas",
+      description: "Production-ready SaaS products with Next.js, Clerk auth, Stripe billing, and AI integrations.",
+      icon: <Layers className="h-6 w-6" />,
       metrics: [
-        { value: "90%", label: "Faster" },
-        { value: "<500ms", label: "Response" },
-        { value: "50%", label: "Resource Cut" },
-      ],
-      features: [
-        { text: "Model Compression", icon: <PackageOpen className="h-4 w-4" /> },
-        { text: "Core Web Vitals", icon: <Gauge className="h-4 w-4" /> },
-        { text: "Redis Caching", icon: <Activity className="h-4 w-4" /> },
-      ],
-    },
-    {
-      title: "Scalable Infrastructure",
-      key: "infrastructure",
-      description: "Robust backend systems with Go, FastAPI, and Postgres, designed for AI and high traffic.",
-      icon: <Server className="h-6 w-6" />,
-      metrics: [
-        { value: "99.9%", label: "Uptime" },
-        { value: "<50ms", label: "p95" },
-        { value: "∞", label: "Scale" },
-      ],
-      features: [
-        { text: "Edge Computing", icon: <Globe className="h-4 w-4" /> },
-        { text: "Real-Time APIs", icon: <Zap className="h-4 w-4" /> },
-        { text: "Data Security", icon: <Shield className="h-4 w-4" /> },
-      ],
-    },
-    {
-      title: "API & AI Integration",
-      key: "api-integration",
-      description: "High-performance APIs with FastAPI and Go, seamlessly integrating AI models.",
-      icon: <Code className="h-6 w-6" />,
-      metrics: [
+        { value: "4 wks", label: "To MVP" },
         { value: "100%", label: "Type-Safe" },
-        { value: "0ms", label: "Cache" },
-        { value: "Live", label: "Updates" },
+        { value: "Scale", label: "Ready" },
       ],
       features: [
-        { text: "FastAPI Endpoints", icon: <Workflow className="h-4 w-4" /> },
-        { text: "Go Microservices", icon: <Network className="h-4 w-4" /> },
-        { text: "AI Optimization", icon: <Settings className="h-4 w-4" /> },
+        { text: "Next.js Full-Stack", icon: <Globe className="h-4 w-4" /> },
+        { text: "Clerk + Stripe", icon: <Users className="h-4 w-4" /> },
+        { text: "AI Integration", icon: <Workflow className="h-4 w-4" /> },
       ],
     },
   ];
