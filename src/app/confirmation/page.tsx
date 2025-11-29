@@ -26,9 +26,9 @@ const validateReferrer = (referer: string | null) => {
 export default async function MeetingConfirmation({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | undefined }
+  searchParams: Promise<{ [key: string]: string | undefined }>
 }) {
-  const headersList = headers();
+  const headersList = await headers();
   const referer = headersList.get('referer');
   
   // Validate referrer
@@ -37,14 +37,17 @@ export default async function MeetingConfirmation({
     redirect('/unauthorized');
   }
 
+  // Await searchParams in Next.js 15
+  const params = await searchParams;
+
   // Extract and sanitize parameters
-  const name = searchParams.name || 'Guest';
-  const email = searchParams.email || '';
-  const date = searchParams.date || '';
-  const time = searchParams.time || '';
-  const duration = searchParams.duration || '30';
-  const meetingType = searchParams.type || 'Introduction Call';
-  const location = searchParams.location || 'Google Meet';
+  const name = params.name || 'Guest';
+  const email = params.email || '';
+  const date = params.date || '';
+  const time = params.time || '';
+  const duration = params.duration || '30';
+  const meetingType = params.type || 'Introduction Call';
+  const location = params.location || 'Google Meet';
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">

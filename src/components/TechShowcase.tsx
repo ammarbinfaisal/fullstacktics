@@ -1,6 +1,3 @@
-"use client"
-
-import { motion } from "framer-motion"
 import TechBadge from "./tech-badge"
 
 interface TechShowcaseProps {
@@ -57,21 +54,15 @@ export default function TechShowcase({
         </div>
 
         <div className="space-y-12">
-          {categories.map((category, idx) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-            >
+          {categories.map((category) => (
+            <div key={category.name}>
               <h3 className="text-xl font-semibold mb-4 text-purple-400">{category.name}</h3>
               <div className="flex flex-wrap gap-3">
                 {category.technologies.map((tech) => (
                   <TechBadge key={tech} name={tech} />
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
