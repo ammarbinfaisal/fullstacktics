@@ -2,6 +2,12 @@
   "name": "agency",
   "version": "0.1.0",
   "private": true,
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@vercel/speed-insights",
+      "sharp"
+    ]
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
