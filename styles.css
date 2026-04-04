@@ -54,6 +54,7 @@
 html,
 body {
   min-height: 100%;
+  width: 100%;
 }
 
 body {
@@ -107,11 +108,16 @@ button {
   gap: 0.9rem;
 }
 
+.shell > * {
+  min-width: 0;
+}
+
 .masthead {
   display: grid;
   justify-items: center;
   gap: 0.35rem;
   text-align: center;
+  min-width: 0;
 }
 
 .theme-switcher {
@@ -174,9 +180,13 @@ h1 {
   color: var(--muted);
   font-size: clamp(0.64rem, 1.5vw, 0.78rem);
   letter-spacing: 0.04em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .viewer {
+  width: 100%;
+  min-width: 0;
   background: linear-gradient(180deg, rgba(60, 56, 54, 0.16), transparent 40%), var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 1.1rem;
@@ -191,6 +201,11 @@ h1 {
   justify-content: space-between;
   gap: 0.8rem;
   margin-bottom: 0.72rem;
+  min-width: 0;
+}
+
+.viewer-header > * {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -228,15 +243,19 @@ h1 {
 
 .toolbar-wrap {
   margin-bottom: 0.75rem;
+  min-width: 0;
 }
 
 .language-strip {
   display: flex;
   gap: 0.45rem;
+  width: 100%;
+  max-width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
   overflow-x: auto;
+  overflow-y: hidden;
   scrollbar-width: none;
 }
 
@@ -279,6 +298,9 @@ h1 {
 
 .code-shell {
   height: var(--code-shell-height);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   border-radius: 0.9rem;
   border: 1px solid var(--border);
   background: rgba(29, 32, 33, 0.18);
@@ -294,6 +316,8 @@ h1 {
   margin: 0;
   padding: 0.85rem;
   height: 100%;
+  min-width: 0;
+  max-width: 100%;
   overflow: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
@@ -379,7 +403,12 @@ h1 {
 
   .shell {
     padding: 0.55rem;
+    place-content: start center;
     gap: 0.72rem;
+  }
+
+  .masthead {
+    gap: 0.3rem;
   }
 
   .viewer {
@@ -396,8 +425,33 @@ h1 {
     white-space: normal;
   }
 
+  .viewer-header h2 {
+    gap: 0.34rem;
+    font-size: 0.82rem;
+  }
+
+  .algorithm-chip {
+    font-size: 0.62rem;
+  }
+
+  .language-strip {
+    gap: 0.38rem;
+  }
+
+  .language-button {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.72rem;
+  }
+
+  .language-button img {
+    width: 1rem;
+    height: 1rem;
+  }
+
   .code-block {
     padding: 0.72rem;
+    line-height: 1.62;
   }
 }
 
