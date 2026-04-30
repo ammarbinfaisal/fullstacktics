@@ -1,95 +1,212 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>fullstacktics</title>
+    <title>Fullstacktics | AI Agent SaaS Development</title>
     <meta
       name="description"
-      content="A gruvbox-themed static microsite that cycles optimized Fibonacci sequence implementations across 18 programming languages."
+      content="Fullstacktics builds AI agent SaaS products, agent harnesses, context engineering systems, and production fullstack workflows."
     >
-    <meta name="theme-color" content="#1d2021">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f7f1e7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#10130f" media="(prefers-color-scheme: dark)">
     <link rel="preload" href="assets/fonts/IntelOneMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="background" aria-hidden="true"></div>
-    <main class="shell">
-      <header class="masthead">
-        <div class="theme-switcher" role="group" aria-label="Color theme">
-          <button
-            class="theme-button"
-            type="button"
-            data-theme-value="light"
-            aria-label="Switch to light mode"
-            aria-pressed="false"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M12 4.5V2m0 20v-2.5m7.5-7.5H22M2 12h2.5m12.803 5.303 1.768 1.768M4.929 4.929l1.768 1.768m10.606-1.768-1.768 1.768M6.697 17.303l-1.768 1.768M12 7.25A4.75 4.75 0 1 1 7.25 12 4.755 4.755 0 0 1 12 7.25Z"
-              />
-            </svg>
-          </button>
-          <button
-            class="theme-button"
-            type="button"
-            data-theme-value="dark"
-            aria-label="Switch to dark mode"
-            aria-pressed="true"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M20.742 14.045A8.75 8.75 0 0 1 9.955 3.258a.75.75 0 0 0-.86-.95A10 10 0 1 0 21.692 14.9a.75.75 0 0 0-.95-.86Z"
-              />
-            </svg>
-          </button>
-        </div>
-        <h1>fullstacktics</h1>
-        <p class="tagline">iterative pair-update fibonacci sequence across 18 languages</p>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="site-shell">
+      <header class="site-header" aria-label="Site header">
+        <a class="brand" href="#top" aria-label="Fullstacktics home">
+          <span class="brand-mark" aria-hidden="true">ft</span>
+          <span>fullstacktics</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#approach">Approach</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="header-cta" href="mailto:mahmud@fullstacktics.com">Email us</a>
       </header>
 
-      <section class="viewer" aria-labelledby="snippet-title">
-        <div class="viewer-header">
-          <div>
-            <p class="eyebrow">code view</p>
-            <h2 id="snippet-title">
-              <span id="active-language">Rust</span>
-              <span class="algorithm-chip">O(n) sequence printer</span>
-            </h2>
+      <main id="content">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Fullstack developers for AI-agent SaaS</p>
+            <h1 id="hero-title">AI agents need more than prompts. They need a harness.</h1>
+            <p class="hero-lede">
+              Fullstacktics designs and builds SaaS products around agentic workflows: context
+              pipelines, tool access, reasoning loops, evaluations, and production-grade fullstack
+              systems.
+            </p>
+
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button button-primary" href="mailto:mahmud@fullstacktics.com">
+                Discuss an AI agent build
+              </a>
+              <a class="button button-secondary" href="#approach">See the approach</a>
+            </div>
+
+            <ul class="proof-list" aria-label="Core capabilities">
+              <li>Fullstack SaaS</li>
+              <li>Agent harnesses</li>
+              <li>Context engineering</li>
+            </ul>
           </div>
-          <p class="viewer-status" id="viewer-status" aria-live="polite">auto cycling</p>
-        </div>
 
-        <div class="toolbar-wrap">
-          <ul class="language-strip" id="language-strip" aria-label="Programming languages"></ul>
-        </div>
+          <div class="hero-visual" aria-label="Agent harness architecture">
+            <div class="diagram-panel">
+              <p class="diagram-title">Agent harness</p>
+              <div class="diagram-flow">
+                <span>User intent</span>
+                <span>Context layer</span>
+                <strong>Reasoning core</strong>
+                <span>Tool harness</span>
+                <span>SaaS outcome</span>
+              </div>
+              <div class="diagram-notes" aria-label="Harness responsibilities">
+                <p><span>01</span> retrieve only relevant context</p>
+                <p><span>02</span> expose safe tools with clear affordances</p>
+                <p><span>03</span> evaluate outputs before they reach users</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div class="code-shell" id="code-shell">
-          <pre class="code-block language-rust" tabindex="0"><code id="code-snippet" class="language-rust"></code></pre>
-        </div>
-      </section>
-    </main>
+        <section class="capability-strip" aria-label="What Fullstacktics builds">
+          <span>AI agent SaaS</span>
+          <span>Context pipelines</span>
+          <span>Tool orchestration</span>
+          <span>Eval loops</span>
+          <span>Product engineering</span>
+        </section>
 
-    <script src="assets/prism/prism-core.min.js"></script>
-    <script src="assets/prism/prism-clike.min.js"></script>
-    <script src="assets/prism/prism-c.min.js"></script>
-    <script src="assets/prism/prism-cpp.min.js"></script>
-    <script src="assets/prism/prism-rust.min.js"></script>
-    <script src="assets/prism/prism-go.min.js"></script>
-    <script src="assets/prism/prism-haskell.min.js"></script>
-    <script src="assets/prism/prism-swift.min.js"></script>
-    <script src="assets/prism/prism-javascript.min.js"></script>
-    <script src="assets/prism/prism-python.min.js"></script>
-    <script src="assets/prism/prism-ruby.min.js"></script>
-    <script src="assets/prism/prism-java.min.js"></script>
-    <script src="assets/prism/prism-scala.min.js"></script>
-    <script src="assets/prism/prism-groovy.min.js"></script>
-    <script src="assets/prism/prism-kotlin.min.js"></script>
-    <script src="assets/prism/prism-csharp.min.js"></script>
-    <script src="assets/prism/prism-elixir.min.js"></script>
-    <script src="assets/prism/prism-ocaml.min.js"></script>
-    <script src="assets/prism/prism-julia.min.js"></script>
-    <script src="assets/prism/prism-zig.min.js"></script>
-    <script src="script.js"></script>
+        <section class="section problem-section" aria-labelledby="problem-title">
+          <div>
+            <p class="eyebrow">The bottleneck</p>
+            <h2 id="problem-title">Prompt demos fail where products start.</h2>
+          </div>
+
+          <div class="problem-grid">
+            <article>
+              <h3>Context is scattered</h3>
+              <p>Agents need the right facts, policies, memories, records, and constraints at the right moment.</p>
+            </article>
+            <article>
+              <h3>Tools are unclear</h3>
+              <p>Reasoning improves when tools have narrow scopes, predictable inputs, and useful feedback.</p>
+            </article>
+            <article>
+              <h3>Reliability is missing</h3>
+              <p>Production agents need traces, checks, fallbacks, evals, and product boundaries.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section services-section" id="services" aria-labelledby="services-title">
+          <div class="section-heading">
+            <p class="eyebrow">Services</p>
+            <h2 id="services-title">Systems for agentic products.</h2>
+            <p>
+              We build the web app, the backend, and the agent harness as one product system instead
+              of treating AI as a thin integration layer.
+            </p>
+          </div>
+
+          <div class="service-list">
+            <article class="service-item">
+              <span>01</span>
+              <div>
+                <h3>AI Agent SaaS Development</h3>
+                <p>Design and implementation for SaaS products where agentic workflows are core to the user experience.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <span>02</span>
+              <div>
+                <h3>Harness Development</h3>
+                <p>Tool registries, action boundaries, state machines, workflow runners, traces, and review points.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <span>03</span>
+              <div>
+                <h3>Context Engineering</h3>
+                <p>Retrieval, memory, data shaping, prompt contracts, and relevance filters that keep agents grounded.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <span>04</span>
+              <div>
+                <h3>Tool Design and Integration</h3>
+                <p>APIs, internal tools, third-party services, and domain actions packaged for reliable agent use.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <span>05</span>
+              <div>
+                <h3>Evaluations and Reliability</h3>
+                <p>Scenario tests, output checks, observability, guardrails, and feedback loops for production behavior.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section approach-section" id="approach" aria-labelledby="approach-title">
+          <div class="section-heading compact">
+            <p class="eyebrow">Approach</p>
+            <h2 id="approach-title">Give the model a smaller, better world to reason inside.</h2>
+          </div>
+
+          <ol class="process-list">
+            <li>
+              <span>Map</span>
+              <h3>Map the workflow</h3>
+              <p>We identify the jobs, decisions, user permissions, human review points, and failure modes.</p>
+            </li>
+            <li>
+              <span>Shape</span>
+              <h3>Design the context</h3>
+              <p>We decide what the agent should know, when it should know it, and how relevance is measured.</p>
+            </li>
+            <li>
+              <span>Build</span>
+              <h3>Build the harness</h3>
+              <p>We expose tools with clear contracts so the agent can plan, act, observe, and recover.</p>
+            </li>
+            <li>
+              <span>Ship</span>
+              <h3>Ship and evaluate</h3>
+              <p>We connect the fullstack product, trace behavior, run evals, and tighten the loop.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Start with a short technical conversation.</h2>
+            <p>
+              Bring the product idea, workflow, or unreliable agent prototype. We will help identify
+              the harness, context, and fullstack architecture it needs.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <p>Email</p>
+            <a href="mailto:mahmud@fullstacktics.com">mahmud@fullstacktics.com</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Fullstacktics builds production systems for AI-agent SaaS.</p>
+        <a href="mailto:mahmud@fullstacktics.com">mahmud@fullstacktics.com</a>
+      </footer>
+    </div>
   </body>
 </html>
