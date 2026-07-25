@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A launch-to-scale growth partner for WooCommerce, SEO, PPC, and digital design.">
+  <title>Launch, sell, scale — fullstacktics</title>
+  <style>
+    /* Standalone concept prototype. Tokens generated with design-for-ai palette.mjs. */
+    :root {
+      --neutral-1: #fdfcfc;
+      --neutral-2: #faf8f8;
+      --neutral-3: #f3f0ee;
+      --neutral-4: #ebe7e5;
+      --neutral-5: #e3dcda;
+      --neutral-6: #d9d0cd;
+      --neutral-7: #cbc1be;
+      --neutral-8: #b4a8a4;
+      --neutral-9: #a0928d;
+      --neutral-10: #8d807c;
+      --neutral-11: #69615f;
+      --neutral-12: #312d2c;
+      --accent-1: #fffcfb;
+      --accent-2: #fff7f4;
+      --accent-3: #feece6;
+      --accent-4: #fce1d9;
+      --accent-5: #f9d5ca;
+      --accent-6: #f4c7b9;
+      --accent-7: #ebb5a4;
+      --accent-8: #d89986;
+      --accent-9: #ca7f68;
+      --accent-10: #b46f59;
+      --accent-11: #81574b;
+      --accent-12: #3d2821;
+      --accent-on-solid: #150a07;
+      --teal-3: #e6f4f2;
+      --teal-9: #84c6bf;
+      --teal-11: #486b67;
+      --blue-3: #e7f2fc;
+      --blue-9: #6d9ac5;
+      --blue-11: #4d667e;
+      --background: var(--neutral-1);
+      --surface: var(--neutral-2);
+      --surface-hover: var(--neutral-3);
+      --surface-active: var(--neutral-4);
+      --border-subtle: var(--neutral-6);
+      --border: var(--neutral-7);
+      --border-strong: var(--neutral-8);
+      --text-secondary: var(--neutral-11);
+      --text: var(--neutral-12);
+      --accent-bg-subtle: var(--accent-3);
+      --accent-solid: var(--accent-9);
+      --accent-solid-hover: var(--accent-10);
+      --accent-text: var(--accent-11);
+      --font-display: Georgia, "Times New Roman", serif;
+      --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --shadow: 0 20px 50px rgba(71, 46, 38, .10);
+      --shadow-soft: 0 12px 32px rgba(71, 46, 38, .07);
+      --radius: 1.15rem;
+    }
+
+    [data-theme="dark"] {
+      --neutral-1: #131212;
+      --neutral-2: #1a1919;
+      --neutral-3: #242121;
+      --neutral-4: #2d2928;
+      --neutral-5: #36312f;
+      --neutral-6: #413a38;
+      --neutral-7: #4f4744;
+      --neutral-8: #685e5a;
+      --neutral-9: #a0928d;
+      --neutral-10: #b2a4a0;
+      --neutral-11: #beb5b2;
+      --neutral-12: #ece6e5;
+      --accent-1: #151211;
+      --accent-2: #1e1816;
+      --accent-3: #2c1f1b;
+      --accent-4: #38251f;
+      --accent-5: #462a22;
+      --accent-6: #553126;
+      --accent-7: #683b2e;
+      --accent-8: #884f3e;
+      --accent-9: #ca7f68;
+      --accent-10: #db937d;
+      --accent-11: #daab9c;
+      --accent-12: #fee1d8;
+      --teal-3: #1a2523;
+      --teal-9: #84c6bf;
+      --teal-11: #9bc0bc;
+      --blue-3: #1b232a;
+      --blue-9: #6d9ac5;
+      --blue-11: #9fbbd6;
+      --background: var(--neutral-1);
+      --surface: var(--neutral-2);
+      --surface-hover: var(--neutral-3);
+      --surface-active: var(--neutral-4);
+      --border-subtle: var(--neutral-6);
+      --border: var(--neutral-7);
+      --border-strong: var(--neutral-8);
+      --text-secondary: var(--neutral-11);
+      --text: var(--neutral-12);
+      --accent-bg-subtle: var(--accent-3);
+      --accent-solid: var(--accent-9);
+      --accent-solid-hover: var(--accent-10);
+      --accent-text: var(--accent-11);
+      --shadow: 0 20px 50px rgba(0, 0, 0, .28);
+      --shadow-soft: 0 12px 32px rgba(0, 0, 0, .18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--background); color: var(--text); font-family: var(--font-body); font-size: 1rem; line-height: 1.5; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: .2rem solid var(--accent-solid); outline-offset: .25rem; }
+    .skip-link { position: fixed; top: -5rem; left: 1rem; z-index: 10; padding: .75rem 1rem; background: var(--text); color: var(--background); border-radius: .35rem; }
+    .skip-link:focus { top: 1rem; }
+    .shell { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+    .eyebrow { margin: 0; color: var(--accent-text); font-size: .72rem; font-weight: 780; letter-spacing: .14em; text-transform: uppercase; }
+    .section-context { margin: 0; color: var(--accent-text); font-size: .92rem; font-weight: 720; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 3rem; padding: .72rem 1.05rem; border: 1px solid transparent; border-radius: 999px; font: inherit; font-size: .91rem; font-weight: 750; line-height: 1.1; text-decoration: none; transition: background-color .18s ease, color .18s ease, transform .18s ease, border-color .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--accent-solid); color: var(--accent-on-solid); box-shadow: 0 .45rem 0 rgba(100, 55, 41, .14); }
+    .button-primary:hover { background: var(--accent-solid-hover); }
+    .button-quiet { border-color: var(--border); color: var(--text); background: transparent; }
+    .button-quiet:hover { background: var(--surface-hover); }
+    .button .arrow { font-size: 1.05em; line-height: 0; }
+
+    header { position: relative; z-index: 3; padding-top: 1.1rem; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; border-bottom: 1px solid var(--border-subtle); }
+    .brand { display: inline-flex; align-items: center; gap: .56rem; color: var(--text); font-size: .95rem; font-weight: 800; letter-spacing: -.035em; text-decoration: none; }
+    .brand-mark { display: grid; place-items: center; width: 1.72rem; height: 1.72rem; color: var(--accent-on-solid); background: var(--accent-solid); border-radius: .45rem .75rem .45rem .75rem; font-family: var(--font-display); font-size: 1.15rem; font-style: italic; }
+    .top-actions { display: flex; align-items: center; gap: .55rem; }
+    .theme-toggle { display: grid; place-items: center; width: 2.8rem; min-width: 2.8rem; height: 2.8rem; padding: 0; border: 1px solid var(--border); border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; transition: background-color .18s ease, transform .18s ease; }
+    .theme-toggle:hover { background: var(--surface-hover); transform: rotate(12deg); }
+    .theme-icon { width: 1.18rem; height: 1.18rem; }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1rem 1.35rem; margin: 0; padding: 0; list-style: none; }
+    .nav-links a { color: var(--text-secondary); font-size: .8rem; font-weight: 700; text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-label { color: var(--text-secondary); font-size: .75rem; }
+
+    .hero { position: relative; overflow: hidden; padding: clamp(3.2rem, 8vw, 7rem) 0 4.6rem; border-bottom: 1px solid var(--border-subtle); }
+    .hero::before { position: absolute; top: -8rem; right: -15rem; width: 33rem; height: 33rem; border: 1px solid var(--border); border-radius: 50%; box-shadow: 0 0 0 2.8rem var(--accent-bg-subtle), 0 0 0 7rem color-mix(in srgb, var(--accent-bg-subtle) 35%, transparent); content: ""; opacity: .76; pointer-events: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(16rem, .7fr); align-items: end; gap: 3rem; }
+    h1, h2, h3 { letter-spacing: -.048em; }
+    h1 { max-width: 12ch; margin: .7rem 0 1.3rem; font-family: var(--font-display); font-size: clamp(3.3rem, 8.4vw, 7rem); font-weight: 400; line-height: .89; }
+    .hero h1 em { color: var(--accent-text); font-style: italic; }
+    .hero-copy { max-width: 37rem; margin: 0; color: var(--text-secondary); font-size: clamp(1rem, 1.8vw, 1.18rem); }
+    .hero-context { max-width: 31rem; margin: 0 0 1.25rem; color: var(--accent-text); font-size: .92rem; font-weight: 720; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.7rem; }
+    .calendar-card { align-self: stretch; padding: 1.1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-soft); }
+    .calendar-card header { display: flex; align-items: center; justify-content: space-between; padding: 0 0 .85rem; }
+    .calendar-card h2 { margin: 0; font-size: .86rem; letter-spacing: -.02em; }
+    .calendar-card span { color: var(--text-secondary); font-size: .72rem; }
+    .calendar { display: grid; grid-template-columns: repeat(4, 1fr); gap: .38rem; }
+    .calendar span { display: grid; place-items: center; aspect-ratio: 1; padding: .25rem; color: var(--text-secondary); background: var(--background); border: 1px solid var(--border-subtle); border-radius: .4rem; font-size: .75rem; }
+    .calendar .active { color: var(--accent-on-solid); background: var(--accent-solid); border-color: var(--accent-solid); }
+    .calendar-note { display: flex; gap: .45rem; align-items: flex-start; margin: .9rem 0 0; padding-top: .9rem; border-top: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: .76rem; }
+    .calendar-note strong { color: var(--text); }
+    .calendar-note i { display: block; width: .6rem; height: .6rem; margin-top: .27rem; flex: 0 0 auto; border-radius: 50%; background: var(--accent-solid); }
+
+    .truth { padding: 1.3rem 0; border-bottom: 1px solid var(--border-subtle); }
+    .truth-inner { display: grid; grid-template-columns: .78fr 1.22fr; gap: 2rem; align-items: center; }
+    .truth strong { font-family: var(--font-display); font-size: clamp(1.45rem, 2.3vw, 2rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.05; }
+    .truth p { margin: 0; color: var(--text-secondary); font-size: .95rem; }
+
+    .stages { padding: clamp(4rem, 8vw, 7rem) 0; }
+    .section-head { display: grid; grid-template-columns: .75fr 1.25fr; gap: 2rem; align-items: end; margin-bottom: 2.5rem; }
+    .section-head h2 { max-width: 12ch; margin: .65rem 0 0; font-family: var(--font-display); font-size: clamp(2.5rem, 5.2vw, 4.6rem); font-weight: 400; line-height: .94; }
+    .section-head > p { max-width: 37rem; margin: 0; color: var(--text-secondary); }
+    .phase-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+    .phase { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) minmax(14rem, .55fr); gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); }
+    .phase-number { color: var(--accent-text); font-family: var(--font-display); font-size: 3rem; font-style: italic; line-height: .85; }
+    .phase h3 { margin: 0 0 .65rem; font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 400; line-height: 1; }
+    .phase p { margin: 0; color: var(--text-secondary); }
+    .phase ul { display: grid; gap: .56rem; align-content: start; margin: .1rem 0 0; padding: 0; list-style: none; color: var(--text-secondary); font-size: .88rem; }
+    .phase li { display: flex; gap: .6rem; }
+    .phase li::before { color: var(--accent-text); content: "↳"; }
+    .phase:nth-child(2) .phase-number { color: var(--teal-11); }
+    .phase:nth-child(3) .phase-number { color: var(--blue-11); }
+
+    .bridge { background: var(--surface); }
+    .bridge-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 3rem; padding: clamp(4rem, 8vw, 6.7rem) 0; }
+    .bridge h2 { margin: .65rem 0 0; font-family: var(--font-display); font-size: clamp(2.4rem, 4.6vw, 4rem); font-weight: 400; line-height: .95; }
+    .bridge > .bridge-grid > p { margin: 0; color: var(--text-secondary); }
+    .connections { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--border); }
+    .connection { min-height: 13rem; padding: 1.25rem; background: var(--background); }
+    .connection-number { display: block; margin-bottom: 2.5rem; color: var(--accent-text); font-size: .7rem; font-weight: 780; letter-spacing: .1em; }
+    .connection h3 { margin: 0 0 .35rem; font-family: var(--font-display); font-size: 1.65rem; font-weight: 400; }
+    .connection p { margin: 0; color: var(--text-secondary); font-size: .86rem; }
+    .connection:nth-child(2) .connection-number { color: var(--teal-11); }
+    .connection:nth-child(3) .connection-number { color: var(--blue-11); }
+
+    .fit { padding: clamp(4rem, 8vw, 6.8rem) 0; }
+    .fit-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 4rem; align-items: start; }
+    .fit h2 { margin: .55rem 0 1rem; font-family: var(--font-display); font-size: clamp(2.25rem, 4vw, 3.7rem); font-weight: 400; line-height: .96; }
+    .fit-intro { margin: 0; color: var(--text-secondary); }
+    .fit-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+    .fit-list li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .8rem; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+    .fit-list b { color: var(--accent-text); font-family: var(--font-display); font-size: 1.35rem; font-style: italic; font-weight: 400; }
+    .fit-list span { color: var(--text-secondary); }
+    .fit-list strong { color: var(--text); }
+
+    .callout { margin: 0 auto clamp(4rem, 8vw, 7rem); }
+    .callout-inner { position: relative; overflow: hidden; padding: clamp(2rem, 5vw, 4.2rem); color: var(--accent-on-solid); background: var(--accent-solid); border-radius: 1.5rem; }
+    .callout-inner::after { position: absolute; right: -5rem; bottom: -11rem; width: 26rem; height: 26rem; border: 1px solid rgba(21, 10, 7, .28); border-radius: 50%; box-shadow: 0 0 0 2.3rem rgba(21, 10, 7, .1); content: ""; }
+    .callout .eyebrow { color: rgba(21, 10, 7, .7); }
+    .callout h2 { position: relative; z-index: 1; max-width: 12ch; margin: .65rem 0 1.4rem; font-family: var(--font-display); font-size: clamp(2.8rem, 6.2vw, 5.4rem); font-weight: 400; line-height: .91; }
+    .callout p { position: relative; z-index: 1; max-width: 35rem; margin: 0 0 1.6rem; color: rgba(21, 10, 7, .78); }
+    .callout .button { position: relative; z-index: 1; color: var(--text); background: var(--background); }
+    .callout .button:hover { background: var(--surface-hover); }
+
+    footer { padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--border-subtle); }
+    .footer-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
+    footer p { max-width: 28rem; margin: .65rem 0 0; color: var(--text-secondary); font-size: .78rem; }
+    footer a { color: var(--accent-text); font-size: .8rem; font-weight: 750; }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 2rem, 76rem); }
+      .topbar { min-height: 3.3rem; }
+      .nav-label { display: none; }
+      .hero { padding-top: 3.3rem; }
+      .hero-grid, .truth-inner, .section-head, .bridge-grid, .fit-grid { grid-template-columns: 1fr; gap: 1.45rem; }
+      .calendar-card { max-width: 25rem; }
+      .phase { grid-template-columns: 3.6rem 1fr; gap: .8rem 1.15rem; }
+      .phase ul { grid-column: 2; }
+      .phase-number { font-size: 2.4rem; }
+      .connections { grid-template-columns: 1fr 1fr; }
+      .connection { min-height: 10rem; }
+      .connection-number { margin-bottom: 1.4rem; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 460px) {
+      nav { align-items: flex-start; }
+      .nav-links { gap: .6rem 1rem; }
+      .nav-links a { font-size: .73rem; }
+      h1 { font-size: clamp(3.15rem, 17vw, 4.75rem); }
+      .hero-ctas { align-items: stretch; flex-direction: column; }
+      .hero-ctas .button { width: 100%; }
+      .connections { grid-template-columns: 1fr; }
+      .phase { grid-template-columns: 1fr; gap: .7rem; }
+      .phase ul { grid-column: auto; margin-top: .3rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="shell">
+      <div class="topbar">
+        <a class="brand" href="#top" aria-label="fullstacktics home"><span class="brand-mark" aria-hidden="true">f</span>fullstacktics</a>
+        <div class="top-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Theme: system. Activate to switch to light theme." title="Theme: system">
+            <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.35a.8.8 0 0 1 .8.8v1.36a.8.8 0 0 1-1.6 0V4.15a.8.8 0 0 1 .8-.8Zm0 15.14a.8.8 0 0 1 .8.8v1.36a.8.8 0 0 1-1.6 0v-1.36a.8.8 0 0 1 .8-.8ZM5.51 12a.8.8 0 0 1-.8.8H3.35a.8.8 0 1 1 0-1.6h1.36a.8.8 0 0 1 .8.8Zm15.14 0a.8.8 0 0 1-.8.8h-1.36a.8.8 0 1 1 0-1.6h1.36a.8.8 0 0 1 .8.8ZM7.41 7.41a.8.8 0 0 1 0 1.13L6.45 9.5a.8.8 0 0 1-1.13-1.13l.96-.96a.8.8 0 0 1 1.13 0Zm11.27 11.27a.8.8 0 0 1 0 1.13l-.96.96a.8.8 0 1 1-1.13-1.13l.96-.96a.8.8 0 0 1 1.13 0Zm0-11.27a.8.8 0 0 1-1.13 0l-.96-.96a.8.8 0 1 1 1.13-1.13l.96.96a.8.8 0 0 1 0 1.13ZM7.41 18.68a.8.8 0 0 1-1.13 0l-.96-.96a.8.8 0 0 1 1.13-1.13l.96.96a.8.8 0 0 1 0 1.13ZM12 7.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 1.6a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z"/></svg>
+          </button>
+          <a class="button button-primary" href="#strategy-call">Book a call <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#path">The path</a></li>
+          <li><a href="#connection">How it connects</a></li>
+          <li><a href="#fit">Is this for you?</a></li>
+        </ul>
+        <span class="nav-label">PPC · WooCommerce · SEO · Digital Design</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div>
+          <h1 id="hero-title">Launch it.<br><em>Sell</em> it.<br>Scale it.</h1>
+          <p class="hero-context">A practical route to online sales.</p>
+          <p class="hero-copy">For businesses building a new online channel—or getting a stalled one moving again. One focused partner for the store, the visibility, and the demand.</p>
+          <div class="hero-ctas">
+            <a class="button button-primary" href="#strategy-call">Book a strategy call <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button-quiet" href="#path">See the 3-phase path</a>
+          </div>
+        </div>
+        <aside class="calendar-card" aria-label="A simple launch sequence">
+          <header><h2>A steadier way forward</h2><span>01—03</span></header>
+          <div class="calendar" aria-hidden="true"><span class="active">1</span><span class="active">2</span><span class="active">3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+          <p class="calendar-note"><i aria-hidden="true"></i><span><strong>Start where it matters.</strong><br>Foundation, visibility, then demand.</span></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="truth" aria-label="The core principle">
+      <div class="shell truth-inner">
+        <strong>Growth is a sequence, not a switch.</strong>
+        <p>Ads cannot rescue a confusing store. A great store needs to be found. Search visibility needs a destination worth choosing. We work through the order that lets each layer do its job.</p>
+      </div>
+    </section>
+
+    <section class="stages shell" id="path" aria-labelledby="path-title">
+      <div class="section-head">
+        <div><p class="eyebrow">The path</p><h2 id="path-title">Build a sales channel in the right order.</h2></div>
+        <p>There is no fixed package. The phases are a way to find the work that deserves attention first—whether you are starting fresh or rebuilding what is already there.</p>
+      </div>
+      <ol class="phase-list">
+        <li class="phase">
+          <div class="phase-number" aria-hidden="true">01</div>
+          <div><h3>Make the foundation feel ready.</h3><p>Set up or improve the WooCommerce store, then give every key surface the clarity and consistency it needs to earn confidence.</p></div>
+          <ul><li>WooCommerce setup or rebuild</li><li>Digital design that supports the sale</li><li>Clear product and conversion paths</li></ul>
+        </li>
+        <li class="phase">
+          <div class="phase-number" aria-hidden="true">02</div>
+          <div><h3>Make it easier to find.</h3><p>Build useful search foundations into the shop and website so the people already looking for what you offer have a better route in.</p></div>
+          <ul><li>SEO direction and on-site improvements</li><li>Search-led page structure</li><li>Content that answers real intent</li></ul>
+        </li>
+        <li class="phase">
+          <div class="phase-number" aria-hidden="true">03</div>
+          <div><h3>Turn up the demand.</h3><p>Run PPC campaigns through the channels that fit the audience and buying journey, connecting each click to a page prepared to do its part.</p></div>
+          <ul><li>Meta Ads and Google Ads</li><li>Campaign-to-page alignment</li><li>Practical testing and iteration</li></ul>
+        </li>
+      </ol>
+    </section>
+
+    <section class="bridge" id="connection" aria-labelledby="connection-title">
+      <div class="shell bridge-grid">
+        <div><p class="section-context">One connected system</p><h2 id="connection-title">The pieces should reinforce one another.</h2></div>
+        <p>Most online growth work gets fragmented: one person drives traffic, another builds the store, and the customer gets a stitched-together experience. Here, the work starts with the connection between them.</p>
+        <div class="connections">
+          <article class="connection"><span class="connection-number">01 / STORE</span><h3>WooCommerce</h3><p>Your sales destination: structured, usable, and ready for the questions a buyer brings.</p></article>
+          <article class="connection"><span class="connection-number">02 / VISIBILITY</span><h3>SEO</h3><p>Pages and structure shaped around the ways people look for products and answers.</p></article>
+          <article class="connection"><span class="connection-number">03 / DEMAND</span><h3>PPC</h3><p>Meta Ads and Google Ads used to create relevant, intentional routes to the offer.</p></article>
+          <article class="connection"><span class="connection-number">04 / CLARITY</span><h3>Digital Design</h3><p>The through-line that helps every campaign, page, and touchpoint make sense together.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fit shell" id="fit" aria-labelledby="fit-title">
+      <div class="fit-grid">
+        <div><p class="section-context">A good fit</p><h2 id="fit-title">For businesses ready to treat online sales as a real channel.</h2><p class="fit-intro">You do not need to start at phase one. You do need a willingness to improve the whole path, not only the most visible part of it.</p></div>
+        <ul class="fit-list">
+          <li><b>01</b><span><strong>You are launching online.</strong><br>You need a sales-ready foundation rather than a temporary storefront.</span></li>
+          <li><b>02</b><span><strong>You have an existing shop that is not pulling its weight.</strong><br>The store, search visibility, design, or campaign path needs a clearer plan.</span></li>
+          <li><b>03</b><span><strong>You want a partner who can see across the work.</strong><br>Not a collection of disconnected tactics, but a joined-up way to move forward.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="callout shell" id="strategy-call" aria-labelledby="call-title">
+      <div class="callout-inner">
+        <p class="eyebrow">Start with the next useful move</p>
+        <h2 id="call-title">Let’s map your route to a stronger online sales channel.</h2>
+        <p>A strategy call is a focused conversation about where you are, what is getting in the way, and which phase deserves your attention now.</p>
+        <a class="button" href="mailto:hello@fullstacktics.com?subject=Strategy%20call%20request">Book a strategy call <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">f</span>fullstacktics</a><p>PPC · WooCommerce · SEO · Digital Design<br>For businesses ready to sell online with more purpose.</p></div>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const storageKey = 'fullstacktics-theme';
+      const modes = ['system', 'light', 'dark'];
+      const systemQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function getMode() {
+        try { return modes.includes(localStorage.getItem(storageKey)) ? localStorage.getItem(storageKey) : 'system'; }
+        catch { return 'system'; }
+      }
+
+      function applyTheme(mode) {
+        if (mode === 'system') root.removeAttribute('data-theme');
+        else root.setAttribute('data-theme', mode);
+        const next = modes[(modes.indexOf(mode) + 1) % modes.length];
+        toggle.setAttribute('aria-label', `Theme: ${mode}. Activate to switch to ${next} theme.`);
+        toggle.setAttribute('title', `Theme: ${mode}`);
+      }
+
+      applyTheme(getMode());
+      toggle.addEventListener('click', () => {
+        const current = getMode();
+        const next = modes[(modes.indexOf(current) + 1) % modes.length];
+        try { localStorage.setItem(storageKey, next); } catch {}
+        applyTheme(next);
+      });
+      systemQuery.addEventListener?.('change', () => { if (getMode() === 'system') applyTheme('system'); });
+    })();
+  </script>
+</body>
+</html>

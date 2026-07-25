@@ -183,6 +183,7 @@ h1 {
   padding: 0.78rem;
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+  min-height: 0;
 }
 
 .viewer-header {
@@ -232,16 +233,12 @@ h1 {
 
 .language-strip {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.45rem;
   padding: 0;
   margin: 0;
   list-style: none;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.language-strip::-webkit-scrollbar {
-  display: none;
+  overflow: visible;
 }
 
 .language-button {
@@ -279,6 +276,7 @@ h1 {
 
 .code-shell {
   height: var(--code-shell-height);
+  min-height: 0;
   border-radius: 0.9rem;
   border: 1px solid var(--border);
   background: rgba(29, 32, 33, 0.18);
@@ -294,6 +292,7 @@ h1 {
   margin: 0;
   padding: 0.85rem;
   height: 100%;
+  min-height: 0;
   overflow: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
@@ -378,11 +377,17 @@ h1 {
   }
 
   .shell {
+    height: 100vh;
     padding: 0.55rem;
+    place-content: stretch;
+    grid-template-rows: auto minmax(0, 1fr);
     gap: 0.72rem;
+    overflow: hidden;
   }
 
   .viewer {
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
     padding: 0.68rem;
     border-radius: 0.92rem;
   }
@@ -396,12 +401,20 @@ h1 {
     white-space: normal;
   }
 
+  .code-shell {
+    height: auto;
+  }
+
   .code-block {
     padding: 0.72rem;
   }
 }
 
 @supports (height: 1dvh) {
+  .shell {
+    min-height: 100dvh;
+  }
+
   :root {
     --code-shell-height: min(34rem, 56dvh);
   }
@@ -409,6 +422,10 @@ h1 {
   @media (max-width: 640px) {
     :root {
       --code-shell-height: 48dvh;
+    }
+
+    .shell {
+      height: 100dvh;
     }
   }
 }

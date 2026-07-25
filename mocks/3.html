@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-theme-preference="system">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A conversion-focused landing page concept for fullstacktics.">
+    <title>Make every click count — fullstacktics</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --neutral-1: #fdfcfc;
+        --neutral-2: #faf8f8;
+        --neutral-3: #f3efef;
+        --neutral-4: #ece6e5;
+        --neutral-5: #e3dcdb;
+        --neutral-6: #d9d0ce;
+        --neutral-7: #cbc1be;
+        --neutral-8: #b4a8a5;
+        --neutral-11: #69615f;
+        --neutral-12: #312d2c;
+        --accent-3: #ffece7;
+        --accent-9: #e05c45;
+        --accent-10: #c84c37;
+        --accent-11: #944b3d;
+        --accent-on-solid: #150a08;
+        --teal-3: #e0f6f2;
+        --teal-11: #327066;
+        --blue-3: #e4f3ff;
+        --blue-11: #3d6888;
+        --background: var(--neutral-1);
+        --surface: var(--neutral-2);
+        --surface-hover: var(--neutral-3);
+        --border-subtle: var(--neutral-6);
+        --border: var(--neutral-7);
+        --border-strong: var(--neutral-8);
+        --text-secondary: var(--neutral-11);
+        --text: var(--neutral-12);
+        --accent-bg-subtle: var(--accent-3);
+        --accent-solid: var(--accent-9);
+        --accent-solid-hover: var(--accent-10);
+        --accent-text: var(--accent-11);
+        --paper-shadow: 0 1rem 3rem rgb(49 45 44 / 8%);
+        --display: Georgia, "Times New Roman", serif;
+        --body: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --neutral-1: #131212;
+        --neutral-2: #1a1919;
+        --neutral-3: #242121;
+        --neutral-4: #2d2928;
+        --neutral-5: #363130;
+        --neutral-6: #413a38;
+        --neutral-7: #4f4745;
+        --neutral-8: #695e5b;
+        --neutral-11: #beb5b3;
+        --neutral-12: #ece6e5;
+        --accent-3: #321b17;
+        --accent-9: #e05c45;
+        --accent-10: #f2735b;
+        --accent-11: #f19f8e;
+        --accent-on-solid: #150a08;
+        --teal-3: #152623;
+        --teal-11: #88c6ba;
+        --blue-3: #17242d;
+        --blue-11: #90bee1;
+        --background: var(--neutral-1);
+        --surface: var(--neutral-2);
+        --surface-hover: var(--neutral-3);
+        --border-subtle: var(--neutral-6);
+        --border: var(--neutral-7);
+        --border-strong: var(--neutral-8);
+        --text-secondary: var(--neutral-11);
+        --text: var(--neutral-12);
+        --accent-bg-subtle: var(--accent-3);
+        --accent-solid: var(--accent-9);
+        --accent-solid-hover: var(--accent-10);
+        --accent-text: var(--accent-11);
+        --paper-shadow: 0 1rem 3rem rgb(0 0 0 / 25%);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        min-width: 20rem;
+        margin: 0;
+        background: var(--background);
+        color: var(--text);
+        font-family: var(--body);
+        line-height: 1.5;
+        transition: background-color 180ms ease, color 180ms ease;
+      }
+      body::before {
+        position: fixed;
+        z-index: -1;
+        inset: 0;
+        background-image: radial-gradient(var(--border-subtle) .75px, transparent .75px);
+        background-size: 1.125rem 1.125rem;
+        content: "";
+        mask-image: linear-gradient(to bottom, black, transparent 72%);
+        opacity: .55;
+        pointer-events: none;
+      }
+      a { color: inherit; }
+      button, input { font: inherit; }
+      button { color: inherit; }
+      :focus-visible { outline: 3px solid var(--accent-solid); outline-offset: 4px; }
+      .skip-link {
+        position: fixed;
+        z-index: 10;
+        top: .75rem;
+        left: .75rem;
+        padding: .75rem 1rem;
+        background: var(--text);
+        color: var(--background);
+        transform: translateY(-200%);
+      }
+      .skip-link:focus { transform: translateY(0); }
+      .page-width { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+      .eyebrow, .section-number, .micro-label {
+        margin: 0;
+        color: var(--accent-text);
+        font-family: var(--mono);
+        font-size: .73rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+      .hero-meta {
+        display: block;
+        margin-bottom: .9rem;
+        color: var(--accent-text);
+        font-family: var(--mono);
+        font-size: .73rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+      .site-header::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: var(--border); content: ""; }
+      .site-header__inner {
+        min-height: 5.25rem;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 1rem;
+      }
+      .brand {
+        color: var(--text);
+        font-family: var(--mono);
+        font-size: .94rem;
+        font-weight: 800;
+        letter-spacing: -.06em;
+        text-decoration: none;
+      }
+      .brand__mark { color: var(--accent-solid); }
+      .site-nav { display: flex; gap: 1.4rem; align-items: center; }
+      .site-nav a {
+        color: var(--text-secondary);
+        font-size: .84rem;
+        font-weight: 650;
+        text-decoration: none;
+      }
+      .site-nav a:hover { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent-solid); text-underline-offset: .35rem; }
+      .theme-toggle {
+        width: 2.875rem;
+        height: 2.875rem;
+        justify-self: end;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        background: var(--surface);
+        cursor: pointer;
+        transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+      }
+      .theme-toggle:hover { border-color: var(--accent-solid); background: var(--accent-bg-subtle); transform: rotate(9deg); }
+      .theme-toggle svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+      .theme-icon { display: none; }
+      [data-theme-preference="system"] .theme-icon--system,
+      [data-theme-preference="light"] .theme-icon--light,
+      [data-theme-preference="dark"] .theme-icon--dark { display: block; }
+      .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+      .hero { padding: clamp(4.5rem, 9vw, 8.25rem) 0 4rem; }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(20rem, .92fr); gap: clamp(2.25rem, 6vw, 6rem); align-items: end; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 {
+        max-width: 11ch;
+        margin-bottom: 1.75rem;
+        font-family: var(--display);
+        font-size: clamp(3.8rem, 8.1vw, 7.6rem);
+        font-weight: 500;
+        letter-spacing: -.075em;
+        line-height: .86;
+      }
+      h1 em { color: var(--accent-solid); font-weight: 400; }
+      .hero-copy { max-width: 36rem; color: var(--text-secondary); font-size: clamp(1.07rem, 1.65vw, 1.27rem); }
+      .button-row { display: flex; flex-wrap: wrap; gap: .85rem; align-items: center; margin-top: 2rem; }
+      .button {
+        min-height: 3rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: .65rem;
+        padding: .7rem 1rem;
+        border: 1px solid var(--text);
+        background: var(--text);
+        color: var(--background);
+        font-size: .9rem;
+        font-weight: 750;
+        text-decoration: none;
+        transition: transform 150ms ease, background-color 150ms ease, color 150ms ease;
+      }
+      .button:hover { background: var(--accent-solid); border-color: var(--accent-solid); color: var(--accent-on-solid); transform: translate(-2px, -2px); }
+      .arrow { font-family: var(--mono); font-size: 1.1em; }
+      .text-link { color: var(--text); font-size: .9rem; font-weight: 700; text-underline-offset: .3rem; }
+      .text-link:hover { color: var(--accent-text); }
+      .hero-note { margin: 1.2rem 0 0; color: var(--text-secondary); font-size: .79rem; }
+
+      .route-panel { position: relative; overflow: hidden; border: 1px solid var(--border-strong); background: var(--surface); box-shadow: .5rem .5rem 0 var(--accent-solid); }
+      .route-panel__top { display: flex; justify-content: space-between; align-items: center; padding: .9rem 1rem; border-bottom: 1px solid var(--border); }
+      .route-panel__title { margin: 0; font-family: var(--mono); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .route-panel__id { color: var(--text-secondary); font-family: var(--mono); font-size: .68rem; }
+      .route-map { position: relative; min-height: 25rem; padding: 2.3rem 1.25rem 1.25rem; }
+      .route-map svg { position: absolute; inset: 2.5rem 0 0; width: 100%; height: calc(100% - 2.5rem); overflow: visible; }
+      .route-path { fill: none; stroke: var(--accent-solid); stroke-width: 2; stroke-dasharray: 5 7; }
+      .route-node { fill: var(--surface); stroke: var(--text); stroke-width: 2; }
+      .route-node--goal { fill: var(--accent-solid); stroke: var(--accent-solid); }
+      .route-step { position: relative; z-index: 1; width: min(13.5rem, 66%); padding: .15rem 0 .15rem .8rem; border-left: 2px solid var(--text); }
+      .route-step--one { margin-left: 3%; }
+      .route-step--two { margin: 3rem 0 0 auto; }
+      .route-step--three { margin: 3rem 0 0 13%; }
+      .route-step strong { display: block; font-family: var(--display); font-size: 1.35rem; font-weight: 600; letter-spacing: -.04em; }
+      .route-step span { color: var(--text-secondary); font-size: .77rem; }
+      .route-stamp {
+        position: absolute;
+        right: 1rem;
+        bottom: 1.15rem;
+        max-width: 12rem;
+        padding: .4rem .55rem;
+        border: 2px solid var(--accent-solid);
+        color: var(--accent-text);
+        font-family: var(--mono);
+        font-size: .65rem;
+        font-weight: 900;
+        letter-spacing: .09em;
+        line-height: 1.25;
+        text-transform: uppercase;
+        transform: rotate(-6deg);
+      }
+
+      .thesis { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .thesis__inner { display: grid; grid-template-columns: 12rem 1fr; gap: 2rem; padding: 1.25rem 0; align-items: start; }
+      .thesis__inner p:last-child { max-width: 56rem; margin: 0; font-family: var(--display); font-size: clamp(1.55rem, 3.2vw, 2.8rem); letter-spacing: -.045em; line-height: 1.03; }
+      .accent-underline { text-decoration: underline; text-decoration-color: var(--accent-solid); text-decoration-thickness: .1em; text-underline-offset: .1em; }
+
+      section { scroll-margin-top: 6.5rem; }
+      .services { padding: clamp(4.8rem, 10vw, 8.5rem) 0; }
+      .section-heading { display: grid; grid-template-columns: 12rem 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+      .section-heading h2 { max-width: 12ch; margin: -.2rem 0 0; font-family: var(--display); font-size: clamp(2.55rem, 5vw, 4.45rem); font-weight: 500; letter-spacing: -.065em; line-height: .94; }
+      .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
+      .service { min-height: 16rem; padding: 1.25rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .service:nth-child(1) { background: var(--accent-bg-subtle); }
+      .service:nth-child(2) { background: var(--teal-3); }
+      .service:nth-child(3) { background: var(--blue-3); }
+      .service:nth-child(4) { background: var(--surface); }
+      .service-index { margin: 0 0 2.75rem; color: var(--text-secondary); font-family: var(--mono); font-size: .7rem; }
+      .service h3 { margin-bottom: .7rem; font-family: var(--display); font-size: 1.8rem; font-weight: 600; letter-spacing: -.05em; line-height: 1; }
+      .service p { margin: 0; color: var(--text-secondary); font-size: .9rem; }
+
+      .diagnostic { padding: clamp(4.8rem, 10vw, 8rem) 0; border-top: 1px solid var(--border); }
+      .diagnostic-grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(20rem, 1.08fr); gap: clamp(2rem, 7vw, 7rem); align-items: start; }
+      .diagnostic-copy h2 { margin: .6rem 0 1.35rem; font-family: var(--display); font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 500; letter-spacing: -.065em; line-height: .93; }
+      .diagnostic-copy > p:not(.eyebrow) { max-width: 32rem; color: var(--text-secondary); font-size: 1.06rem; }
+      .diagnostic-list { margin: 2rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+      .diagnostic-list li { padding: .9rem 0; border-bottom: 1px solid var(--border); font-size: .93rem; }
+      .diagnostic-list li::before { color: var(--accent-solid); content: "↳ "; font-family: var(--mono); font-weight: 800; }
+      .scorecard { border: 1px solid var(--text); background: var(--text); color: var(--background); padding: 1.25rem; box-shadow: .55rem .55rem 0 var(--accent-solid); }
+      .scorecard__kicker { margin: 0 0 1.5rem; color: color-mix(in srgb, var(--background) 70%, transparent); font-family: var(--mono); font-size: .67rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+      .scorecard h3 { max-width: 14ch; margin-bottom: 1.8rem; font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; letter-spacing: -.055em; line-height: .95; }
+      .scorecard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: color-mix(in srgb, var(--background) 30%, transparent); }
+      .scorecard-grid div { min-height: 7.5rem; padding: 1rem; background: var(--text); }
+      .scorecard-grid b { display: block; margin-bottom: .4rem; color: var(--accent-solid); font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+      .scorecard-grid span { color: color-mix(in srgb, var(--background) 80%, transparent); font-size: .84rem; }
+
+      .method { padding: clamp(4.8rem, 9vw, 7.5rem) 0; }
+      .method-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border-strong); }
+      .method-list li { display: grid; grid-template-columns: 5rem minmax(9rem, .7fr) minmax(0, 1.25fr); gap: 1rem; align-items: baseline; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+      .method-list span { color: var(--accent-text); font-family: var(--mono); font-size: .78rem; font-weight: 800; }
+      .method-list h3 { margin: 0; font-family: var(--display); font-size: 1.65rem; font-weight: 600; letter-spacing: -.045em; }
+      .method-list p { margin: 0; color: var(--text-secondary); font-size: .93rem; }
+
+      .closing { padding: clamp(5rem, 11vw, 9rem) 0; border-top: 1px solid var(--border); }
+      .closing-block { position: relative; overflow: hidden; padding: clamp(2rem, 6vw, 5rem); background: var(--accent-solid); color: var(--accent-on-solid); }
+      .closing-block::after { position: absolute; right: -5vw; bottom: -8vw; width: min(50vw, 37rem); aspect-ratio: 1; border: 1px solid var(--accent-on-solid); border-radius: 50%; content: ""; opacity: .4; }
+      .closing-block > * { position: relative; z-index: 1; }
+      .closing-block .eyebrow { color: inherit; opacity: .74; }
+      .closing-block h2 { max-width: 11ch; margin: .8rem 0 1.4rem; font-family: var(--display); font-size: clamp(3rem, 6.7vw, 6.25rem); font-weight: 500; letter-spacing: -.075em; line-height: .87; }
+      .closing-block p:not(.eyebrow) { max-width: 35rem; font-size: 1.08rem; }
+      .closing-block .button { border-color: var(--accent-on-solid); background: var(--accent-on-solid); color: var(--accent-solid); }
+      .closing-block .button:hover { background: var(--background); color: var(--text); }
+      .site-footer { padding: 1.3rem 0 2.25rem; border-top: 1px solid var(--border); }
+      .site-footer__inner { display: flex; justify-content: space-between; gap: 1rem; color: var(--text-secondary); font-family: var(--mono); font-size: .72rem; }
+
+      @media (max-width: 50rem) {
+        .site-header__inner { grid-template-columns: 1fr auto; }
+        .site-nav { display: none; }
+        .hero-grid, .diagnostic-grid { grid-template-columns: 1fr; }
+        .route-panel { max-width: 38rem; }
+        .thesis__inner, .section-heading { grid-template-columns: 1fr; gap: .75rem; }
+        .services-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 34rem) {
+        .page-width { width: min(100% - 1.5rem, 76rem); }
+        .hero { padding-top: 3.5rem; }
+        .services-grid { grid-template-columns: 1fr; }
+        .method-list li { grid-template-columns: 3.25rem 1fr; gap: .35rem .75rem; }
+        .method-list p { grid-column: 2; }
+        .site-footer__inner { flex-direction: column; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner page-width">
+        <a class="brand" href="#top" aria-label="fullstacktics home">fullstack<span class="brand__mark">/</span>tics</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#services">Capabilities</a>
+          <a href="#method">Method</a>
+          <a href="#strategy-call">Strategy call</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Theme: system. Switch to light theme" title="Theme: system">
+          <svg class="theme-icon theme-icon--system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><path d="M12 5v14M5 12h14"></path></svg>
+          <svg class="theme-icon theme-icon--light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
+          <svg class="theme-icon theme-icon--dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 15.2A8.6 8.6 0 0 1 8.8 3.4 8.6 8.6 0 1 0 20.6 15.2Z"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero page-width" id="top" aria-labelledby="page-title">
+        <div class="hero-grid">
+          <div>
+            <div><span class="hero-meta">PPC · WooCommerce · SEO · Digital Design</span></div>
+            <h1 id="page-title">Make every <em>click</em> count.</h1>
+            <p class="hero-copy">Fullstacktics connects the work that brings people in with the work that gives them a reason to buy. No traffic strategy is complete until the destination can carry the decision.</p>
+            <div class="button-row">
+              <a class="button" href="#strategy-call">Book a strategy call <span class="arrow" aria-hidden="true">↗</span></a>
+              <a class="text-link" href="#services">See the full route</a>
+            </div>
+            <p class="hero-note">For businesses building or improving how they sell online.</p>
+          </div>
+
+          <aside class="route-panel" aria-label="The route from qualified traffic to a sale">
+            <div class="route-panel__top">
+              <p class="route-panel__title">Conversion route</p>
+              <span class="route-panel__id">No. 01</span>
+            </div>
+            <div class="route-map">
+              <svg viewBox="0 0 420 385" preserveAspectRatio="none" aria-hidden="true">
+                <path class="route-path" d="M86 57 C105 100 345 95 318 170 S86 208 140 300"></path>
+                <circle class="route-node" cx="86" cy="57" r="7"></circle>
+                <circle class="route-node" cx="318" cy="170" r="7"></circle>
+                <circle class="route-node route-node--goal" cx="140" cy="300" r="8"></circle>
+              </svg>
+              <div class="route-step route-step--one"><strong>Qualified traffic</strong><span>PPC + SEO put the right intent in motion.</span></div>
+              <div class="route-step route-step--two"><strong>Clear destination</strong><span>WooCommerce + Digital Design make the next step obvious.</span></div>
+              <div class="route-step route-step--three"><strong>Purchase-ready path</strong><span>Less friction between interest and action.</span></div>
+              <span class="route-stamp">Don't send clicks to dead ends</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="thesis" aria-label="Core proposition">
+        <div class="thesis__inner page-width">
+          <p class="micro-label">The premise</p>
+          <p>Attention is only the beginning. We make the whole route—from the first search or ad to the checkout—feel <span class="accent-underline">worth continuing</span>.</p>
+        </div>
+      </section>
+
+      <section class="services page-width" id="services" aria-labelledby="services-title">
+        <div class="section-heading">
+          <p class="section-number">01 / Capabilities</p>
+          <h2 id="services-title">One route. Four connected disciplines.</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service">
+            <p class="service-index">01 / PPC</p>
+            <h3>Bring in the right intent.</h3>
+            <p>Meta Ads and Google Ads planned around the people, offers, and moments most likely to move your business forward.</p>
+          </article>
+          <article class="service">
+            <p class="service-index">02 / WooCommerce</p>
+            <h3>Give demand somewhere to land.</h3>
+            <p>Stores and buying journeys shaped around product clarity, useful detail, and a checkout path that stays focused.</p>
+          </article>
+          <article class="service">
+            <p class="service-index">03 / SEO</p>
+            <h3>Earn the searches that matter.</h3>
+            <p>Search foundations and content direction that help the right pages answer the right questions over time.</p>
+          </article>
+          <article class="service">
+            <p class="service-index">04 / Digital Design</p>
+            <h3>Make the choice easier to see.</h3>
+            <p>Digital design that gives your store, campaigns, and brand touchpoints one clear, recognisable point of view.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="diagnostic" aria-labelledby="diagnostic-title">
+        <div class="diagnostic-grid page-width">
+          <div class="diagnostic-copy">
+            <p class="eyebrow">The useful question</p>
+            <h2 id="diagnostic-title">Where does the sale lose its way?</h2>
+            <p>More traffic is not always the answer. Sometimes the strongest move is a sharper offer, a more useful product page, a better handoff from ad to landing page, or an SEO foundation that keeps working after the campaign ends.</p>
+            <ul class="diagnostic-list">
+              <li>Your ads, store, and search presence feel disconnected.</li>
+              <li>People arrive but do not understand the next step.</li>
+              <li>Your store no longer reflects the quality of the business behind it.</li>
+            </ul>
+          </div>
+          <aside class="scorecard" aria-label="Strategy call focus areas">
+            <p class="scorecard__kicker">A strategy call starts here</p>
+            <h3>We find the most useful next move before adding more activity.</h3>
+            <div class="scorecard-grid">
+              <div><b>Traffic</b><span>Who should arrive, and why?</span></div>
+              <div><b>Message</b><span>What needs to be understood first?</span></div>
+              <div><b>Store</b><span>Where does the path lose clarity?</span></div>
+              <div><b>Search</b><span>What can compound over time?</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="method page-width" id="method" aria-labelledby="method-title">
+        <div class="section-heading">
+          <p class="section-number">02 / Method</p>
+          <h2 id="method-title">Make the next decision the right one.</h2>
+        </div>
+        <ol class="method-list">
+          <li><span>01</span><h3>Trace the journey</h3><p>Look at how people currently find you, what they encounter, and the point at which the path becomes uncertain.</p></li>
+          <li><span>02</span><h3>Choose the leverage</h3><p>Prioritise the opportunity that will make the rest of the route easier to improve—not simply the loudest task.</p></li>
+          <li><span>03</span><h3>Build the connection</h3><p>Align campaign, search, store, and design work around the same customer decision.</p></li>
+          <li><span>04</span><h3>Keep learning</h3><p>Use what the work reveals to refine the route, with clarity rather than busywork as the measure.</p></li>
+        </ol>
+      </section>
+
+      <section class="closing page-width" id="strategy-call" aria-labelledby="call-title">
+        <div class="closing-block">
+          <p class="eyebrow">Start with a useful conversation</p>
+          <h2 id="call-title">Your next click should be a good one.</h2>
+          <p>Bring the question that is holding your online sales back. We will map the route, identify the priority, and see whether fullstacktics is the right partner for the work.</p>
+          <div class="button-row"><a class="button" href="mailto:hello@fullstacktics.com?subject=Strategy%20call">Book a strategy call <span class="arrow" aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner page-width"><span>fullstacktics / online sales, thoughtfully connected</span><span>© 2026</span></div>
+    </footer>
+    <p class="visually-hidden" id="theme-status" aria-live="polite"></p>
+    <script>
+      (() => {
+        const key = "fullstacktics-theme-preference";
+        const modes = ["system", "light", "dark"];
+        const root = document.documentElement;
+        const toggle = document.getElementById("theme-toggle");
+        const status = document.getElementById("theme-status");
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+        let preference = "system";
+
+        const systemTheme = () => media.matches ? "dark" : "light";
+        const nextMode = mode => modes[(modes.indexOf(mode) + 1) % modes.length];
+        const apply = (announce = false) => {
+          const activeTheme = preference === "system" ? systemTheme() : preference;
+          const next = nextMode(preference);
+          root.dataset.theme = activeTheme;
+          root.dataset.themePreference = preference;
+          toggle.setAttribute("aria-label", `Theme: ${preference}. Switch to ${next} theme`);
+          toggle.title = `Theme: ${preference}. Switch to ${next} theme`;
+          if (announce) status.textContent = `Theme set to ${preference}.`;
+        };
+
+        try {
+          const stored = localStorage.getItem(key);
+          if (modes.includes(stored)) preference = stored;
+        } catch (error) { /* Storage may be unavailable in local previews. */ }
+        apply();
+        toggle.addEventListener("click", () => {
+          preference = nextMode(preference);
+          try { localStorage.setItem(key, preference); } catch (error) { /* Continue without persistence. */ }
+          apply(true);
+        });
+        const syncSystemTheme = () => { if (preference === "system") apply(); };
+        if (media.addEventListener) media.addEventListener("change", syncSystemTheme);
+        else media.addListener(syncSystemTheme);
+      })();
+    </script>
+  </body>
+</html>
