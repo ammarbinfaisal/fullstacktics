@@ -1,6 +1,6 @@
 # fullstacktics
 
-Static Prism.js microsite for Vercel.
+Static marketing site for Vercel.
 
 ## Local preview
 
