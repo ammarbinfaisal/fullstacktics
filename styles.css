@@ -160,8 +160,6 @@ p {
   z-index: 1;
   width: min(calc(100% - 2rem), 1120px);
   margin-inline: auto;
-  margin-left: 2px;
-  margin-right: 2px;
 }
 
 .site-header {
