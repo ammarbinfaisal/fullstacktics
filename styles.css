@@ -16,6 +16,11 @@
   --grid-line: rgba(107, 98, 87, 0.11);
   --accent: #b85f2a;
   --accent-strong: #86431c;
+  /* Solid-fill pair: the accent that carries text, and the text on it.
+     Split from --accent because the light and dark ramps need opposite
+     foregrounds to clear WCAG AA. No new colors -- aliases only. */
+  --accent-solid: var(--accent-strong);
+  --on-accent: var(--surface);
   --support: #536b45;
   --support-soft: #dbe5ce;
   --shadow: 0 30px 80px rgba(93, 65, 37, 0.16);
@@ -48,6 +53,8 @@
     --grid-line: rgba(184, 173, 157, 0.08);
     --accent: #d88a4a;
     --accent-strong: #f1b171;
+    --accent-solid: var(--accent);
+    --on-accent: var(--bg);
     --support: #91ad78;
     --support-soft: #263320;
     --shadow: 0 34px 90px rgba(7, 15, 8, 0.48);
@@ -278,15 +285,16 @@ p {
 }
 
 .button-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fffaf1;
+  background: var(--accent-solid);
+  border-color: var(--accent-solid);
+  color: var(--on-accent);
   font-weight: 700;
 }
 
 .button-primary:hover {
-  color: #fffaf1;
-  background: var(--accent-strong);
+  color: var(--on-accent);
+  background: var(--accent-solid);
+  box-shadow: var(--shadow);
 }
 
 .button-secondary {
@@ -375,7 +383,7 @@ p {
 }
 
 .diagram-flow span:not(:last-child)::after,
-.diagram-flow strong::after {
+.diagram-flow strong:not(:last-child)::after {
   content: "";
   position: absolute;
   left: 1.4rem;
@@ -537,6 +545,25 @@ p {
 
 .contact-section h2 {
   max-width: 12ch;
+}
+
+.contact-hint {
+  margin-block-start: var(--space-md);
+  font-size: var(--step--1);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-block-start: var(--space-lg);
+}
+
+/* The contact panel is --surface, so a --surface-filled secondary button is
+   distinguished by its border alone. --line composites to 1.39:1 against that
+   fill, below the 3:1 non-text minimum; --soft clears it in both ramps. */
+.contact-actions .button-secondary {
+  border-color: var(--soft);
 }
 
 .contact-card {
