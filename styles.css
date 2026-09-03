@@ -1,64 +1,100 @@
+/* ==========================================================================
+   fullstacktics.com — editorial technical
+   --------------------------------------------------------------------------
+   Aesthetic direction: refined restraint (generous vertical rhythm, wide type
+   scale, near-monochrome) crossed with industrial utility (mono for data and
+   labels, never for decoration).
+
+   Hierarchy ladder, in order of preference (Kadavy ch. 7):
+     white space  >  size  >  weight  >  color
+   Color is deliberately the weakest rung here: the palette is monochrome and
+   the only chromatic value on the page is the focus ring.
+
+   Load-bearing details that are easy to lose in a rewrite — see each in place:
+     1. .diagram-flow  :not(:last-child)  connector guard  (highlighted final
+        node must not dangle a connector into empty space)
+     2. .button-secondary borders use --soft, never --line: --line composites
+        below the 3:1 non-text minimum in both ramps
+     3. --soft is a BORDER token. It clears 3:1 but not 4.5:1, so it must never
+        carry body text. All text uses --text or --muted.
+     4. .capability-strip is 6 items — an EVEN count, so the 2-column
+        breakpoint needs no last-child orphan rule
+   ========================================================================== */
+
 @font-face {
   font-family: "Intel One Mono";
   src: url("assets/fonts/IntelOneMono-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
+/* --------------------------------------------------------------------------
+   Tokens — light
+   Off-white ground rather than pure white: warmer, and the correct substrate
+   for a content page (ch. 9 — off-white reads as intimacy, white as generic).
+   Neither end of the ramp is neutral; text is warm, shadows would be cool.
+   -------------------------------------------------------------------------- */
 :root {
   color-scheme: light;
-  --bg: #f7f1e7;
-  --surface: #fffaf1;
-  --surface-strong: #f0e4d2;
-  --text: #171915;
-  --muted: #6b6257;
-  --soft: #877968;
-  --line: rgba(107, 98, 87, 0.24);
-  --grid-line: rgba(107, 98, 87, 0.11);
-  --accent: #b85f2a;
-  --accent-strong: #86431c;
-  /* Solid-fill pair: the accent that carries text, and the text on it.
-     Split from --accent because the light and dark ramps need opposite
-     foregrounds to clear WCAG AA. No new colors -- aliases only. */
-  --accent-solid: var(--accent-strong);
-  --on-accent: var(--surface);
-  --support: #536b45;
-  --support-soft: #dbe5ce;
-  --shadow: 0 30px 80px rgba(93, 65, 37, 0.16);
-  --focus: 0 0 0 3px rgba(184, 95, 42, 0.28);
+
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --surface-strong: #edebe6;
+
+  --text: #0b0b0a;   /* near-black, never #000 */
+  --muted: #54534e;  /* body copy — 7.07:1 on --bg */
+  --soft: #77756e;   /* BORDERS ONLY — 4.23:1, below the body-text threshold */
+
+  --line: rgba(11, 11, 10, 0.14);        /* decorative hairline */
+  --line-strong: rgba(11, 11, 10, 0.3);  /* structural rule */
+
+  --accent-solid: #111110;  /* the accent is the ink itself */
+  --on-accent: #fafaf8;
+  --focus-ring: #2c4bff;    /* the one chromatic value on the page */
+
+  /* Type — perfect fourth, 1.333 */
+  --step--2: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+  --step--1: clamp(0.84rem, 0.81rem + 0.15vw, 0.92rem);
+  --step-0: clamp(1rem, 0.97rem + 0.16vw, 1.08rem);
+  --step-1: clamp(1.33rem, 1.24rem + 0.46vw, 1.6rem);
+  --step-2: clamp(1.78rem, 1.52rem + 1.28vw, 2.55rem);
+  --step-3: clamp(2.37rem, 1.75rem + 3.05vw, 4.05rem);
+  --step-4: clamp(3.16rem, 1.98rem + 5.85vw, 6.4rem);
+
+  /* Space — 1.5 ratio, same 1rem anchor as the type scale */
+  --space-2xs: clamp(0.375rem, 0.36rem + 0.08vw, 0.44rem);
+  --space-xs: clamp(0.5rem, 0.47rem + 0.15vw, 0.625rem);
+  --space-sm: clamp(0.75rem, 0.7rem + 0.25vw, 0.94rem);
+  --space-md: clamp(1.125rem, 1.03rem + 0.47vw, 1.41rem);
+  --space-lg: clamp(1.69rem, 1.47rem + 1.1vw, 2.34rem);
+  --space-xl: clamp(2.53rem, 1.95rem + 2.9vw, 4.22rem);
+  --space-2xl: clamp(3.8rem, 2.42rem + 6.9vw, 7.03rem);
+  --space-3xl: clamp(5.7rem, 2.9rem + 14vw, 11rem);  /* section rhythm */
+
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "Intel One Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --step--1: clamp(0.86rem, 0.82rem + 0.18vw, 0.95rem);
-  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
-  --step-1: clamp(1.31rem, 1.2rem + 0.58vw, 1.62rem);
-  --step-2: clamp(1.75rem, 1.48rem + 1.34vw, 2.5rem);
-  --step-3: clamp(2.33rem, 1.74rem + 2.93vw, 4rem);
-  --space-xs: clamp(0.5rem, 0.44rem + 0.29vw, 0.66rem);
-  --space-sm: clamp(0.75rem, 0.66rem + 0.44vw, 1rem);
-  --space-md: clamp(1rem, 0.82rem + 0.88vw, 1.5rem);
-  --space-lg: clamp(1.5rem, 1.15rem + 1.76vw, 2.5rem);
-  --space-xl: clamp(2.25rem, 1.55rem + 3.52vw, 4.25rem);
-  --space-2xl: clamp(3.38rem, 2.25rem + 5.64vw, 6.75rem);
 }
 
+/* --------------------------------------------------------------------------
+   Tokens — dark. The accent inverts: bone fill, ink text.
+   -------------------------------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #10130f;
-    --surface: #171c16;
-    --surface-strong: #20271e;
-    --text: #efe7d8;
-    --muted: #b8ad9d;
-    --soft: #948979;
-    --line: rgba(184, 173, 157, 0.22);
-    --grid-line: rgba(184, 173, 157, 0.08);
-    --accent: #d88a4a;
-    --accent-strong: #f1b171;
-    --accent-solid: var(--accent);
-    --on-accent: var(--bg);
-    --support: #91ad78;
-    --support-soft: #263320;
-    --shadow: 0 34px 90px rgba(7, 15, 8, 0.48);
-    --focus: 0 0 0 3px rgba(216, 138, 74, 0.34);
+
+    --bg: #0b0b0a;
+    --surface: #141413;
+    --surface-strong: #1e1e1c;
+
+    --text: #f2f1ed;
+    --muted: #a8a69f;
+    --soft: #87857e;
+
+    --line: rgba(242, 241, 237, 0.14);
+    --line-strong: rgba(242, 241, 237, 0.28);
+
+    --accent-solid: #f2f1ed;
+    --on-accent: #0b0b0a;
+    --focus-ring: #8ab4f8;
   }
 }
 
@@ -67,488 +103,512 @@
 }
 
 html {
-  min-height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100%;
   margin: 0;
-  background:
-    radial-gradient(circle at 16% 8%, rgba(184, 95, 42, 0.16), transparent 26rem),
-    radial-gradient(circle at 86% 18%, rgba(83, 107, 69, 0.16), transparent 24rem),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    var(--bg);
-  background-size: auto, auto, 44px 44px, 44px 44px, auto;
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
   font-size: var(--step-0);
-  line-height: 1.62;
-  text-rendering: optimizeLegibility;
+  line-height: 1.65;
+  /* cv05: single-storey l with a tail. ss03: open terminals. Together they
+     move Inter off its default neutrality without adding a font file. */
+  font-feature-settings: "cv05" 1, "ss03" 1;
+  -webkit-font-smoothing: antialiased;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, var(--bg) 86%);
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 500;  /* two weights only across the whole page: 400 and 500 */
+  text-wrap: balance;
+}
+
+/* Large display type needs TIGHTER tracking than body — applied per level
+   rather than as one blanket value, which would harm the small sizes. */
+h1 {
+  font-size: var(--step-4);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  max-width: 14ch;
+}
+
+h2 {
+  font-size: var(--step-2);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: var(--step-1);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
 }
 
 a {
   color: inherit;
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-thickness 150ms ease-out, color 150ms ease-out;
 }
 
 a:hover {
-  color: var(--accent-strong);
+  /* hover shifts weight of the rule, not hue — color is not a hierarchy tool here */
+  text-decoration-thickness: 2px;
 }
 
-a:focus-visible {
-  border-radius: 0.45rem;
-  outline: none;
-  box-shadow: var(--focus);
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin-block-start: 0;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1.04;
-  letter-spacing: -0.04em;
-}
-
-h1 {
-  max-width: 11ch;
-  margin-block-end: var(--space-md);
-  font-size: var(--step-3);
-}
-
-h2 {
-  margin-block-end: var(--space-md);
-  font-size: var(--step-2);
-}
-
-h3 {
-  margin-block-end: var(--space-xs);
-  font-size: var(--step-1);
-}
-
-p {
-  color: var(--muted);
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .skip-link {
   position: absolute;
-  left: 1rem;
-  top: 1rem;
+  inset-inline-start: -9999px;
+  top: 0;
   z-index: 10;
-  transform: translateY(-160%);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-  padding: 0.7rem 1rem;
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
 }
 
 .skip-link:focus {
-  transform: translateY(0);
+  inset-inline-start: 0;
 }
 
+/* --------------------------------------------------------------------------
+   Shell + 12-column editorial grid
+   No background gradients, no grid overlay, no global shadow: a flat ground is
+   the correct substrate, and the layout does the work the decoration was doing.
+   -------------------------------------------------------------------------- */
 .site-shell {
-  position: relative;
-  z-index: 1;
-  width: min(calc(100% - 2rem), 1120px);
+  width: min(calc(100% - 3rem), 1240px);
   margin-inline: auto;
 }
 
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-block-end: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
 .site-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  padding-block: var(--space-md);
-}
-
-.brand,
-.site-nav,
-.header-cta,
-.eyebrow,
-.capability-strip,
-.diagram-title,
-.diagram-flow,
-.diagram-notes span,
-.service-item > span,
-.process-list > li > span,
-.contact-card p,
-.site-footer {
-  font-family: var(--font-mono);
+  gap: var(--space-lg);
+  padding-block: var(--space-lg);
+  border-block-end: 1px solid var(--line);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  font-size: 0.92rem;
+  gap: var(--space-sm);
   text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.02em;
 }
 
 .brand-mark {
-  display: inline-grid;
-  width: 2.5rem;
-  height: 2.5rem;
+  display: grid;
   place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--accent-strong);
-  box-shadow: var(--shadow);
+  width: 2rem;
+  height: 2rem;
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  font-size: var(--step--2);
 }
 
 .site-nav {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  color: var(--muted);
-  font-size: 0.82rem;
+  gap: var(--space-lg);
+  margin-inline-start: auto;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
 }
 
 .site-nav a,
 .header-cta {
   text-decoration: none;
+  color: var(--muted);
+}
+
+.site-nav a:hover,
+.header-cta:hover {
+  color: var(--text);
 }
 
 .header-cta {
-  min-height: 2.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding-inline: 1rem;
-  background: var(--surface);
-  color: var(--accent-strong);
-  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  border: 1px solid var(--soft);
+  padding: var(--space-xs) var(--space-md);
+  white-space: nowrap;
 }
 
+/* --------------------------------------------------------------------------
+   Hero — asymmetric 7/5 split. One dominant element: the h1.
+   The diagram panel is deliberately demoted so nothing competes with it.
+   -------------------------------------------------------------------------- */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.82fr);
-  gap: var(--space-xl);
-  align-items: center;
-  min-height: min(760px, calc(100vh - 5rem));
-  padding-block: var(--space-xl) var(--space-2xl);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-md);
+  align-items: start;
+  padding-block: var(--space-3xl) var(--space-2xl);
 }
 
-.eyebrow {
-  margin-block-end: var(--space-sm);
-  color: var(--support);
-  font-size: 0.76rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.hero-copy {
+  grid-column: 1 / 8;
+}
+
+.hero-visual {
+  grid-column: 9 / 13;
 }
 
 .hero-lede {
-  max-width: 40rem;
-  margin-block-end: var(--space-lg);
-  font-size: clamp(1.08rem, 1rem + 0.4vw, 1.31rem);
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 46ch;
+  margin-block-start: var(--space-lg);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  margin-block-end: var(--space-lg);
-}
-
-.button {
-  min-height: 3rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding-inline: 1.2rem;
-  text-decoration: none;
-  transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button-primary {
-  background: var(--accent-solid);
-  border-color: var(--accent-solid);
-  color: var(--on-accent);
-  font-weight: 700;
-}
-
-.button-primary:hover {
-  color: var(--on-accent);
-  background: var(--accent-solid);
-  box-shadow: var(--shadow);
-}
-
-.button-secondary {
-  background: var(--surface);
-  color: var(--text);
+  margin-block-start: var(--space-xl);
 }
 
 .proof-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.proof-list li {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
+  gap: var(--space-lg);
+  margin-block-start: var(--space-xl);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--muted);
-  padding: 0.42rem 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — square, mono, no shadow. Sharp corners are the editorial register;
+   fully-rounded pills were the strongest "SaaS template" tell on the old page.
+   -------------------------------------------------------------------------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0 var(--space-lg);
+  font-family: var(--font-mono);
   font-size: var(--step--1);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out;
 }
 
-.hero-visual {
-  position: relative;
+.button-primary {
+  background: var(--accent-solid);
+  color: var(--on-accent);
+  border: 1px solid var(--accent-solid);
 }
 
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  inset: 12% -4% auto auto;
-  width: 34%;
-  aspect-ratio: 1;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--support-soft);
+.button-primary:hover {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--soft);
 }
 
+/* --soft, not --line: --line composites to ~1.4:1, below the 3:1 minimum a
+   control boundary must clear. Applied globally, not scoped to one panel. */
+.button-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--soft);
+}
+
+.button-secondary:hover {
+  background: var(--surface-strong);
+}
+
+/* --------------------------------------------------------------------------
+   Hero diagram — outlined and quiet. No gradient stripe, no rotated square,
+   no decorative circle. Rows separated by hairlines rather than individually
+   bordered boxes.
+   -------------------------------------------------------------------------- */
+/* Elevation without shadow: the panel is paper on paper, a single value step
+   above the ground. This is the only lift on the page. */
 .diagram-panel {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 2rem;
-  background:
-    linear-gradient(135deg, transparent 0 42%, var(--surface-strong) 42% 43%, transparent 43%),
-    var(--surface);
-  box-shadow: var(--shadow);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
   padding: var(--space-lg);
 }
 
-.diagram-panel::after {
-  content: "";
-  position: absolute;
-  inset: auto -18% -24% auto;
-  width: 52%;
-  aspect-ratio: 1;
-  border: 1px solid var(--line);
-  transform: rotate(18deg);
-}
-
 .diagram-title {
-  margin-block-end: var(--space-md);
-  color: var(--accent-strong);
-  font-size: 0.86rem;
-  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-block-end: var(--space-lg);
 }
 
 .diagram-flow {
   display: grid;
-  gap: 0.7rem;
 }
 
 .diagram-flow span,
 .diagram-flow strong {
   position: relative;
-  display: block;
-  border: 1px solid var(--line);
-  border-radius: 1rem;
-  background: var(--bg);
-  padding: 0.9rem 1rem;
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
   font-weight: 400;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--line);
+}
+
+/* The emphasized node is expressed as INVERTED FILL rather than a tinted
+   panel — a stronger focal signal than any hue, and it costs no palette.
+   It sits on the payoff (Evals), not on any single pillar. */
+.diagram-flow strong {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+/* LOAD-BEARING: the :not(:last-child) guard. The final node is the
+   highlighted <strong>; without this guard it dangles a connector line into
+   empty space below the panel. Both selectors need it. */
+.diagram-flow span:not(:last-child),
+.diagram-flow strong:not(:last-child) {
+  margin-block-end: calc(var(--space-md) + 1px);
 }
 
 .diagram-flow span:not(:last-child)::after,
 .diagram-flow strong:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: 1.4rem;
-  bottom: -0.72rem;
+  inset-block-start: 100%;
+  inset-inline-start: 50%;
   width: 1px;
-  height: 0.72rem;
-  background: var(--line);
-}
-
-.diagram-flow strong {
-  border-color: rgba(184, 95, 42, 0.56);
-  background: var(--support-soft);
-  color: var(--text);
+  height: var(--space-md);
+  background: var(--line-strong);
 }
 
 .diagram-notes {
   display: grid;
-  gap: 0.55rem;
+  gap: var(--space-sm);
   margin-block-start: var(--space-lg);
-}
-
-.diagram-notes p {
-  display: grid;
-  grid-template-columns: 2.25rem 1fr;
-  gap: 0.7rem;
-  margin: 0;
+  padding-block-start: var(--space-lg);
+  border-block-start: 1px solid var(--line);
   font-size: var(--step--1);
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .diagram-notes span {
-  color: var(--accent-strong);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text);
+  margin-inline-end: var(--space-xs);
 }
 
+/* --------------------------------------------------------------------------
+   Capability strip — 6 cells. Kept from the old design: it is the one existing
+   pattern that already read as editorial.
+   -------------------------------------------------------------------------- */
 .capability-strip {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   border-block: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  color: var(--muted);
 }
 
 .capability-strip span {
-  min-height: 4.25rem;
+  min-height: 4.5rem;
   display: grid;
   place-items: center;
-  border-inline-end: 1px solid var(--line);
   text-align: center;
   padding: var(--space-sm);
+  border-inline-end: 1px solid var(--line);
 }
 
 .capability-strip span:last-child {
   border-inline-end: 0;
 }
 
+/* --------------------------------------------------------------------------
+   Sections — the vertical rhythm is the primary hierarchy signal.
+   -------------------------------------------------------------------------- */
 .section {
-  padding-block: var(--space-2xl);
-}
-
-.problem-section {
-  display: grid;
-  grid-template-columns: 0.72fr 1fr;
-  gap: var(--space-xl);
-}
-
-.problem-grid {
-  display: grid;
-  gap: var(--space-md);
-}
-
-.problem-grid article {
-  border-block-start: 1px solid var(--line);
-  padding-block-start: var(--space-md);
-}
-
-.problem-grid p,
-.service-item p,
-.process-list p,
-.contact-section p {
-  margin-block-end: 0;
+  padding-block: var(--space-3xl);
 }
 
 .section-heading {
-  max-width: 44rem;
-  margin-block-end: var(--space-xl);
+  max-width: 60ch;
+  margin-block-end: var(--space-2xl);
 }
 
 .section-heading p:not(.eyebrow) {
-  font-size: clamp(1rem, 0.92rem + 0.4vw, 1.22rem);
+  margin-block-start: var(--space-lg);
+  color: var(--muted);
+  max-width: 62ch;
 }
 
-.compact {
-  max-width: 54rem;
+.section-heading.compact {
+  margin-block-end: var(--space-xl);
 }
 
-.service-list {
+/* Problem — asymmetric: heading in the left columns, articles in the right.
+   The empty gutter under the heading is deliberate. */
+.problem-section {
   display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-md);
+}
+
+.problem-section > div:first-child {
+  grid-column: 1 / 5;
+}
+
+.problem-grid {
+  grid-column: 6 / 13;
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.problem-grid p {
+  margin-block-start: var(--space-sm);
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* Services — a list, not a card grid. Per-item rules, no containers. */
+.service-list {
   border-block-start: 1px solid var(--line);
 }
 
 .service-item {
   display: grid;
-  grid-template-columns: 5rem 1fr;
-  gap: var(--space-md);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-md);
+  padding-block: var(--space-xl);
   border-block-end: 1px solid var(--line);
-  padding-block: var(--space-lg);
 }
 
 .service-item > span {
-  color: var(--accent-strong);
-  font-size: 0.86rem;
+  grid-column: 1 / 2;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
 }
 
-.service-item div {
-  max-width: 48rem;
+.service-item > div {
+  grid-column: 3 / 11;
 }
 
+.service-item p {
+  margin-block-start: var(--space-md);
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+/* Approach — 1px gaps expose the ground as a rule between cells (Tufte: the
+   alignment does the work, so no borders are needed on the cells themselves). */
 .process-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  padding: 1px;
-  margin: 0;
   background: var(--line);
-  list-style: none;
+  border: 1px solid var(--line);
 }
 
 .process-list li {
-  min-height: 21rem;
   display: flex;
   flex-direction: column;
-  background: var(--surface);
+  min-height: 19rem;
   padding: var(--space-lg);
+  background: var(--bg);
 }
 
-.process-list li > span {
-  width: fit-content;
+.process-list span {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
   margin-block-end: auto;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--accent-strong);
-  padding: 0.28rem 0.58rem;
-  font-size: 0.75rem;
 }
 
+.process-list h3 {
+  margin-block-start: var(--space-xl);
+}
+
+.process-list p {
+  margin-block-start: var(--space-md);
+  font-size: var(--step--1);
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   Contact
+   -------------------------------------------------------------------------- */
 .contact-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.58fr);
-  gap: var(--space-xl);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-md);
   align-items: end;
-  margin-block: var(--space-xl);
-  border: 1px solid var(--line);
-  border-radius: 2rem;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  padding: var(--space-xl);
+  padding-block: var(--space-3xl);
+  border-block-start: 1px solid var(--line);
+}
+
+.contact-section > div:first-child {
+  grid-column: 1 / 8;
 }
 
 .contact-section h2 {
-  max-width: 12ch;
+  max-width: 14ch;
+}
+
+.contact-section > div:first-child > p:not(.eyebrow) {
+  margin-block-start: var(--space-lg);
+  color: var(--muted);
+  max-width: 58ch;
 }
 
 .contact-hint {
-  margin-block-start: var(--space-md);
   font-size: var(--step--1);
 }
 
@@ -556,80 +616,103 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  margin-block-start: var(--space-lg);
-}
-
-/* The contact panel is --surface, so a --surface-filled secondary button is
-   distinguished by its border alone. --line composites to 1.39:1 against that
-   fill, below the 3:1 non-text minimum; --soft clears it in both ramps. */
-.contact-actions .button-secondary {
-  border-color: var(--soft);
+  margin-block-start: var(--space-xl);
 }
 
 .contact-card {
+  grid-column: 9 / 13;
   border-inline-start: 1px solid var(--line);
   padding-inline-start: var(--space-lg);
 }
 
 .contact-card p {
-  color: var(--support);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-block-end: var(--space-sm);
 }
 
+/* The address is the largest non-heading text on the page — it does not need
+   color to be found. */
 .contact-card a {
-  color: var(--accent-strong);
-  font-size: clamp(1.1rem, 0.92rem + 0.9vw, 1.62rem);
-  font-weight: 700;
-  overflow-wrap: anywhere;
+  font-size: var(--step-1);
+  color: var(--text);
 }
 
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
 .site-footer {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-md);
+  justify-content: space-between;
+  align-items: baseline;
+  padding-block: var(--space-xl);
   border-block-start: 1px solid var(--line);
-  padding-block: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
   color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.site-footer p {
-  margin: 0;
 }
 
 .site-footer a {
-  color: var(--accent-strong);
+  color: var(--text);
 }
 
+/* --------------------------------------------------------------------------
+   860px — the grid collapses. Note the capability strip is SIX items, an even
+   count, so a 2-column layout leaves no orphan and needs no last-child rule.
+   -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
   .site-header {
     align-items: flex-start;
     flex-wrap: wrap;
+    gap: var(--space-md);
   }
 
   .site-nav {
     order: 3;
     width: 100%;
+    margin-inline-start: 0;
     justify-content: space-between;
     border-block-start: 1px solid var(--line);
     padding-block-start: var(--space-sm);
   }
 
+  .header-cta {
+    margin-inline-start: auto;
+  }
+
   .hero,
   .problem-section,
-  .contact-section {
+  .contact-section,
+  .service-item {
     grid-template-columns: 1fr;
+    row-gap: var(--space-xl);
+  }
+
+  .hero-copy,
+  .hero-visual,
+  .problem-section > div:first-child,
+  .problem-grid,
+  .contact-section > div:first-child,
+  .contact-card,
+  .service-item > span,
+  .service-item > div {
+    grid-column: 1 / -1;
   }
 
   .hero {
-    min-height: auto;
-    padding-block-start: var(--space-lg);
+    padding-block-start: var(--space-xl);
   }
 
-  .capability-strip,
-  .process-list {
+  .service-item {
+    row-gap: var(--space-sm);
+  }
+
+  .capability-strip {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -637,13 +720,16 @@ p {
     border-inline-end: 0;
   }
 
-  .capability-strip span:last-child {
-    grid-column: 1 / -1;
+  .capability-strip span:nth-child(n + 3) {
     border-block-start: 1px solid var(--line);
   }
 
+  .process-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .process-list li {
-    min-height: 17rem;
+    min-height: 16rem;
   }
 
   .contact-card {
@@ -656,15 +742,11 @@ p {
 
 @media (max-width: 560px) {
   .site-shell {
-    width: min(100% - 1rem, 1120px);
+    width: min(calc(100% - 1.5rem), 1240px);
   }
 
   .brand span:last-child {
     display: none;
-  }
-
-  .header-cta {
-    flex: 1;
   }
 
   .site-nav {
@@ -672,28 +754,28 @@ p {
   }
 
   .hero-actions,
+  .contact-actions,
   .button {
     width: 100%;
+  }
+
+  .proof-list {
+    gap: var(--space-sm);
   }
 
   .proof-list li {
     flex: 1 1 100%;
   }
 
-  .diagram-panel,
-  .contact-section {
-    border-radius: 1.35rem;
-  }
-
   .capability-strip,
-  .process-list,
-  .service-item {
+  .process-list {
     grid-template-columns: 1fr;
   }
 
   .capability-strip span,
   .capability-strip span:nth-child(2n) {
     border-inline-end: 0;
+    border-block-start: 0;
     border-block-end: 1px solid var(--line);
   }
 
@@ -701,12 +783,12 @@ p {
     border-block-end: 0;
   }
 
-  .service-item {
-    gap: var(--space-sm);
+  .process-list li {
+    min-height: auto;
   }
 
-  .process-list li {
-    min-height: 15rem;
+  .process-list h3 {
+    margin-block-start: var(--space-lg);
   }
 }
 

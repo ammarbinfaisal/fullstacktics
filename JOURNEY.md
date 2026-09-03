@@ -1,7 +1,11 @@
 # JOURNEY.md — fullstacktics.com
 
-Companion to the implemented visual DNA in `styles.css` (token block, lines 7–56).
-Plan: `.design-foundations/plans/2026-08-13-four-pillar-repositioning.md`
+Companion to the implemented visual DNA in `styles.css` (token block, lines 33–100).
+Plan: `.design-foundations/plans/2026-09-03-three-pillar-ai-retheme.md`
+
+Supersedes the four-pillar positioning (Ecommerce · AI Agentic SaaS · ETL · Odoo ERP) recorded in
+`.design-foundations/plans/2026-08-13-four-pillar-repositioning.md`. That document is retained as a
+dated record of a past decision, not as live spec.
 
 ---
 
@@ -9,69 +13,72 @@ Plan: `.design-foundations/plans/2026-08-13-four-pillar-repositioning.md`
 
 **JTBD school: Moesta / Switch interview.** One school only — no mixed vocabulary.
 
-**Job story:** When a system we depend on starts costing us more than it returns — the storefront
-can't do what we need, the data never lands, the ERP is stuck on an old version, the AI prototype
-isn't reliable — I want one engineering team that can take the whole thing rather than the piece
-that fits their specialty, so I can stop being the integrator between vendors who don't talk to
-each other.
+**Job story:** When an AI feature works in the demo and then fails in front of real users — wrong
+context retrieved, a tool called with the wrong argument, a prompt change nobody can prove helped —
+I want a team that builds the layer underneath the model rather than another prototype, so I can
+ship the thing instead of continuing to evaluate it by feel.
 
 **Four forces:**
 
 | Force | What it is here |
 |---|---|
-| **Push** | Vendor sprawl. Four systems, four suppliers, and the seams between them are the customer's own problem. Data disagrees across systems; nobody owns the gap. |
-| **Pull** | One team that owns the storefront, the agents, the pipelines, and the ERP — so the integration is somebody's job by default. |
-| **Anxiety** | "Generalist means mediocre at all four." "A small shop will disappear after handover." "They'll rebuild what we already have." |
-| **Habit** | The incumbent agency, the freelancer who set up the ERP years ago, the internal person who maintains the export script. Switching means admitting those arrangements failed. |
+| **Push** | The demo worked and production did not. Failures are confident and plausible rather than loud, so they surface as customer complaints instead of alerts. |
+| **Pull** | One team that owns retrieval, agent behavior, and the harness around them — so the seam between "the model" and "the system" is somebody's job by default. |
+| **Anxiety** | "Everyone claims AI expertise now." "They'll wrap an API and call it an agent." "We'll be locked into a harness only they understand." |
+| **Habit** | The in-house prototype somebody already built, the vendor demo that impressed a stakeholder, the belief that one more prompt revision will fix it. |
 
-**Anxiety is the binding constraint** (Fogg: this is a motivation-adequate, anxiety-blocked
-decision — the visitor already wants the outcome). The page's job is therefore to *reduce anxiety*,
-not to raise desire. Every section is graded against that: specificity beats enthusiasm.
+**Anxiety remains the binding constraint** (Fogg: motivation-adequate, anxiety-blocked — the
+visitor already wants working AI; the market has supplied enthusiasm and withheld evidence). The
+page's job is therefore to *reduce anxiety*, not to raise desire. Every section is graded against
+that: specificity beats enthusiasm, and falsifiable claims beat both.
 
 Julian Shapiro's conversion equation, `Purchase = Desire − (Labor + Confusion)`: desire is already
-present, so the whole page works the subtrahend. Named platforms (Odoo, headless/Next.js), concrete
-verbs, and a single low-labor CTA (one email address, four placements) are the levers.
+present, so the whole page works the subtrahend. Named mechanisms (traces, eval sets, reranking,
+typed tools), concrete verbs, and a single low-labor CTA (one email address, four placements) are
+the levers.
+
+**Why "measure first" is the credibility carrier.** With no social proof on the page, method
+specificity does the work. "We build the eval set before we touch the system" is the most
+falsifiable sentence an AI shop can write — it is checkable on the first engagement, which is
+exactly what a claim needs to be in an anxiety-blocked decision.
 
 ---
 
 ## IA
 
-**Organization scheme:** ambiguous / **topic** (Rosenfeld & Morville). Four service topics, peer
+**Organization scheme:** ambiguous / **topic** (Rosenfeld & Morville). Three service topics, peer
 level, no hierarchy between them.
 
 **Structure:** single-page **sequential** — one scroll path, no branching. Global nav is anchor-only
 and unchanged (Services · Approach · Contact), which stays inside Hick's law comfort: three visible
 options plus a persistent CTA.
 
-**Labeling:** platform-specific where the user confirmed a platform, category-neutral where they did
-not.
-
 | Pillar | Label used | Why |
 |---|---|---|
-| Ecommerce | "Ecommerce Development" / "headless" | Platform named at body level, not label level |
-| AI agentic SaaS | "AI Agentic SaaS" | Confirmed positioning term |
-| Data mining + ETL | "Data Mining and ETL Pipelines" | Vendor-neutral — no stack was specified |
-| ERP | "ERP Hosting and Setup" / "Odoo" | Odoo confirmed; named in body copy |
+| Agentic systems | "Agentic AI" | The confirmed positioning term |
+| Retrieval | "RAG and Retrieval" | RAG is the searched term; "and Retrieval" keeps it legible to buyers who do not use the acronym |
+| Harness | "AI Harness Development" | Harness = the AI **+ tooling layer**: tools, orchestration, traces, evals, guardrails, fallbacks. Not evaluation alone. |
 
-**Equal-weight rule (DW-1.3):** all four pillars occupy the same block type (`.service-item`), carry
-the same numbering treatment, and get comparable body length. No pillar appears in the `h1`. The
-capability strip lists all four before any is elaborated.
+**Equal-weight rule:** all three pillars occupy the same block type (`.service-item`), carry the
+same numbering treatment, and get comparable body length. No pillar appears in the `h1`. The
+capability strip lists the three plus their three most concrete sub-capabilities before any is
+elaborated.
 
 ---
 
 ## Section order
 
-Traced to the canonical marketing persuasion spine (journey §G). Awareness stage: **problem-aware**
-(Schwartz) — the visitor knows their systems hurt, so the page opens on value, not on education.
+Traced to the canonical marketing persuasion spine. Awareness stage: **problem-aware** (Schwartz) —
+the visitor knows their AI work is not landing, so the page opens on value, not on education.
 StoryBrand SB7: the visitor is the hero, Fullstacktics is the guide with a plan.
 
 | # | Section | Spine slot | Job |
 |---|---|---|---|
-| 1 | Hero | Hero — value prop + primary CTA | Broad promise holding all four; primary CTA |
-| 2 | Capability strip | (scan layer) | Name all four pillars before any elaboration |
-| 3 | Problem | Problem / pain | Name the vendor-sprawl pain the visitor already has |
-| 4 | Services | Solution — features as benefits | Four peer pillars, equal depth |
-| 5 | Approach | How it works | Answer the "generalist = mediocre" anxiety with method |
+| 1 | Hero | Hero — value prop + primary CTA | Broad promise holding all three; primary CTA |
+| 2 | Capability strip | (scan layer) | Name the pillars and their parts before elaboration |
+| 3 | Problem | Problem / pain | Name the production-failure pain the visitor already has |
+| 4 | Services | Solution — features as benefits | Three peer pillars, equal depth |
+| 5 | Approach | How it works | Answer "everyone claims this" with a falsifiable method |
 | 6 | Contact | Final CTA | One low-labor next step |
 
 **Omitted canonical sections, and why:**
@@ -83,7 +90,7 @@ StoryBrand SB7: the visitor is the hero, Fullstacktics is the guide with a plan.
 - **Pricing, FAQ, stakes, success vision** — out of scope for a one-page site with a conversation
   CTA. Adding them would raise Labor without raising Desire.
 - **Objection handling** — not a standalone section; folded into Approach, which is where the
-  "small shop disappears after handover" anxiety is answered directly.
+  "locked into a harness we don't understand" anxiety is answered directly (step 4).
 
 ---
 
@@ -111,84 +118,138 @@ immediately above the buttons — a bare "15 min / 30 min" pair makes the visito
 them, which is Confusion in the conversion equation.
 
 **Ethics check (deceptive-patterns):** neither booking option is pre-selected, obscured, or made
-harder to reach than the other; the lower-commitment option is not hidden or confirmshamed
-("no thanks, I don't want to grow"). Email remains a fully equal third path, not a downgraded one.
+harder to reach than the other; the lower-commitment option is not hidden or confirmshamed. Email
+remains a fully equal third path, not a downgraded one.
 
 ### 1. Hero
-- **Purpose:** state a promise broad enough to hold four pillars without naming any in the headline.
-- **Blocks:** eyebrow · `h1` (≤ ~55 chars — capped at `11ch`) · lede naming all four · primary +
-  secondary CTA · three capability pills · diagram panel.
-- **CTA:** primary → mailto. Secondary → `#services`, because with four peer pillars the next thing
+- **Purpose:** state a promise broad enough to hold three pillars without naming any in the headline.
+- **h1:** "AI that survives contact with production." Names the anxiety directly rather than the
+  capability — 43 chars, capped at `14ch` so it breaks to three lines at `--step-4`.
+- **CTA:** primary → mailto. Secondary → `#services`, because with three peer pillars the next thing
   a visitor wants is *what are they*, not *how do you work*.
 
 ### 2. Capability strip
-- **Purpose:** all four pillars readable in one horizontal scan, before any prose.
-- **Count:** stays at **5 items** — CSS is hard-coded `repeat(5, 1fr)` with `:nth-child(2n)` and
-  `:last-child` rules tuned for five at the 860px breakpoint. Four pillars + "Hosting & ops" as the
-  honest fifth (it is real work they do, and it is the connective term). **Resolution: keep count,
-  no CSS change.**
+- **Count: 6 items**, hard-coded `repeat(6, 1fr)`.
+- **Why 6 and not 3:** three cells across the 1240px shell yields ~400px cells holding one short
+  word each — the strip stops reading as a scan band and starts reading as three empty boxes. Six
+  items (three pillars + Evals · Guardrails · Deployment and ops) keeps the density the pattern
+  needs, and the three additions make the harness pillar concrete rather than abstract.
+- **6 is even**, which matters: the previous 5-item version needed a
+  `span:last-child { grid-column: 1 / -1 }` rule at the 860px breakpoint purely to rescue an orphan.
+  **That rule is deleted.** Leaving it in would make item 6 span both columns for no reason — a
+  "looks fine but slightly off" bug rather than an obvious one.
 
 ### 3. Problem
-- **Purpose:** name the pain that makes four-pillar breadth a feature rather than a lack of focus.
-- **Count:** stays at **3 articles** (`.problem-grid`). **Resolution: keep count.**
-- **Blocks:** eyebrow · `h2` · three articles: the record disagrees / data arrives too late / AI
-  bolted on last. The third deliberately subordinates AI to data quality — this is what demotes AI
-  from headline to peer.
+- **Count:** 3 articles (`.problem-grid`).
+- Demos don't survive production / Retrieval returns the wrong context / No evals, so nobody knows.
+- The third deliberately sets up the harness pillar, and the first two are ordered so that the
+  reader meets the *symptom* before the *cause*.
 
 ### 4. Services
-- **Purpose:** the four pillars at equal depth.
-- **Count:** **5 → 4** `.service-item` rows. `.service-list` is `display: grid` with no fixed column
-  count and per-item borders. **Resolution: no CSS change required.**
-- **Order:** Ecommerce · AI Agentic SaaS · Data Mining and ETL · ERP Hosting and Setup — matching
-  the confirmed four-equal-pillars layout.
+- **Count: 3** `.service-item` rows. `.service-list` is a grid with no fixed column count and
+  per-item borders, so the count change required **no CSS change** — same as the 5→4 change before it.
+- **Order:** Agentic AI · RAG and Retrieval · AI Harness Development.
 
 ### 5. Approach
-- **Purpose:** answer the anxiety. Method specificity is the substitute for absent social proof.
-- **Count:** stays at **4 steps** (`.process-list` is `repeat(4, 1fr)`). **Resolution: keep count.**
-- Steps generalize from agent-specific to system-general: Map · Design · Build · Run. The fourth
-  step explicitly answers "will you disappear after handover".
+- **Count: 4 steps**, `.process-list` is `repeat(4, 1fr)`. **Kept at 4** — three steps would leave a
+  2+1 orphan at the 860px two-column breakpoint, and the fourth step is load-bearing (see below).
+- Scope · Baseline · Build · Run.
+- **Step 1 (Scope)** answers "they'll wrap an API and call it an agent": the work starts by making
+  the task gradeable, which is the opposite of a demo.
+- **Step 4 (Run it, then hand it over)** is retained near-verbatim from the previous positioning.
+  It answers the "we'll be locked in / they'll disappear after handover" anxiety, which survived the
+  repositioning unchanged.
 
 ### 6. Contact
-- **Purpose:** one next step, phrased so the visitor knows what to bring.
-- **Blocks:** eyebrow · `h2` (capped `12ch`) · body naming a concrete symptom per pillar · duration
+- **Blocks:** eyebrow · `h2` (capped `14ch`) · body naming a concrete symptom per pillar · duration
   hint · two booking buttons · contact card with the address.
-- **Booking buttons live in the left column, not the card.** The card is `minmax(18rem, 0.58fr)`;
-  button labels would wrap badly at that width. The left column is `minmax(0, 1fr)`, and
-  `align-items: end` bottom-aligns the card against the button row.
-- **CSS collision:** `.contact-section` is filled with `--surface`, and `.button-secondary` is also
-  `--surface` — so inside this panel the secondary button is distinguished by its border alone, and
-  `--line` composites to 1.39:1 against that fill (below the 3:1 non-text minimum).
-  **Resolution: adjust CSS** — `.contact-actions .button-secondary` borders with `--soft`
-  (4.07:1 light / 5.04:1 dark). Scoped to this panel; the hero's secondary button, which sits on
-  `--bg`, is untouched.
+- **Booking buttons live in the left column, not the card.** The card is columns 9–13; button labels
+  would wrap badly at that width. `align-items: end` bottom-aligns the card against the button row.
 
 ---
 
-## Hero diagram — replacement concept
+## Hero diagram
 
-The existing panel reads `User intent → Context layer → Reasoning core → Tool harness → SaaS
-outcome`, which is one pillar's internal architecture. Under four-equal-pillars it over-weights AI
-in the most visually prominent element on the page.
+The previous panel was a four-layer *system stack* converging on `One system of record`. Two of its
+four layers (ETL, Odoo) no longer exist, so it was rebuilt around the thing now being sold.
 
-**Replacement:** a system stack where each of the four pillars is one layer, converging on a shared
-payoff.
+**Current: the agent run.** Five nodes, last one highlighted:
 
 ```
-Storefront            ← ecommerce
-Agent workflows       ← AI agentic SaaS
-ETL pipelines         ← data mining / ETL
-Odoo ERP              ← ERP
-One system of record  ← the shared payoff  (highlighted)
+Context   ← retrieval: rank and cite what the model sees
+Tools     ← harness: narrow, typed, permissioned
+Loop      ← agentic: plan, act, observe, repeat
+Traces    ← harness: every step recorded
+Evals     ← the payoff  (highlighted)
 ```
 
-**Why the highlight moves to the payoff:** `.diagram-flow strong` is the emphasized element. Placing
-it on any pillar contradicts equal weight; placing it on the outcome states the actual thesis — the
-four are worth buying together because they converge.
+**Why the highlight lands on Evals:** `.diagram-flow strong` is the dominant element in the most
+prominent panel on the page. Placing it on any single pillar contradicts equal weight; placing it on
+`Evals` states the actual thesis — the run produces the evidence that governs the next change. The
+loop closes.
 
-**CSS collision:** `.diagram-flow strong::after` renders a trailing connector line unconditionally,
-so a highlighted *last* item dangles a line into empty space. **Resolution: adjust CSS** to
-`.diagram-flow strong:not(:last-child)::after`, matching the guard the sibling `span` selector
-already has. This is the only structural CSS delta in the revision.
+**Emphasis is inverted fill, not hue.** `background: var(--text); color: var(--bg)` — 18.06:1 light,
+17.42:1 dark. A stronger focal signal than the tinted panel it replaces, and it costs no palette in
+a monochrome design.
+
+> **Load-bearing CSS.** `.diagram-flow strong::after` draws a downward connector. `Evals` is the last
+> child, so without a `:not(:last-child)` guard it dangles a line into empty space below the panel.
+> The guard is present on **both** the `span` and `strong` selectors and must survive any future
+> rewrite of this file.
+
+---
+
+## Visual DNA
+
+**Aesthetic direction: editorial technical.** Refined restraint (generous vertical rhythm, wide type
+scale, near-monochrome) crossed with industrial utility (mono for data and labels, never for
+decoration). Not "clean and modern" — that is the absence of a direction.
+
+**Hierarchy ladder, in strict order (Kadavy ch. 7):** white space → size → weight → color. The
+previous design built hierarchy with a warm orange accent on eyebrows, numbers, links, and titles;
+that is the weakest rung, which is why it read as brand template rather than editorial. Color is now
+demoted to a *state* tool.
+
+- **White space.** `--space-3xl` (up to 11rem) sets section rhythm. This single change does more for
+  the premium read than any color decision.
+- **Size.** Perfect fourth (1.333). `--step-4` exists solely for the `h1`, which now sits a full tier
+  above any `h2` — previously they shared a tier, which is why the old hero had two focal points.
+- **Weight.** Two weights only: 400 body, 500 headings.
+- **Color.** Near-monochrome. Off-white ground (`#f6f5f2`), warm near-black ink (`#0b0b0a`) — never
+  pure `#000`/`#fff`, which read flat (ch. 9: pure black "nearly does not exist in nature").
+
+**The single chromatic value is `--focus-ring`.** Keyboard focus must be unmistakable and must not be
+confusable with hover, so it gets the only hue on the page — blue, the conventional focus color.
+Hover shifts underline thickness instead of hue.
+
+**Contrast contract (verified):**
+
+| Pair | Light | Dark | Min |
+|---|---|---|---|
+| `--text` on `--bg` | 18.06:1 | 17.42:1 | 4.5 |
+| `--muted` on `--bg` | 7.07:1 | 8.08:1 | 4.5 |
+| `--on-accent` on `--accent-solid` | 18.08:1 | 17.42:1 | 4.5 |
+| `--soft` as a border | 4.23:1 | 5.33:1 | 3.0 |
+
+> **`--soft` is a border token.** It clears the 3:1 non-text minimum but **not** the 4.5:1 body-text
+> minimum. It must never carry text. All text uses `--text` or `--muted`. This is the easiest rule in
+> the file to break by accident, because `--soft` looks like a text color.
+
+> **`.button-secondary` borders use `--soft`, never `--line`.** `--line` composites to ~1.4:1, well
+> below the 3:1 a control boundary must clear. The previous revision fixed this scoped to the contact
+> panel only; it is now global.
+
+**Layout:** 12-column grid on the shell. Hero is an asymmetric 7/5 (copy `1 / 8`, panel `9 / 13`);
+section headings occupy the left columns with a deliberately empty right gutter. The previous
+near-symmetric layout read as a template. Square corners throughout — fully-rounded pills were the
+strongest SaaS-template tell on the old page. No background gradients, no grid overlay, no global
+shadow: elevation comes from surface value and hairlines.
+
+**Fonts:** Inter + Intel One Mono retained, roles changed. Inter is a display face here at
+`--step-4`/weight 500/`-0.035em`; `cv05` and `ss03` are enabled to move it off its default
+neutrality. Tracking is set per level rather than as one blanket value — the old `-0.04em` applied to
+small sizes was actively harmful. Mono carries all eyebrows, numbers, labels, strip, and button text:
+it is *honest* here, since this is a company that reads traces.
 
 ---
 
@@ -201,13 +262,14 @@ static marketing page). Four attributes, each with its out-of-range expression
 | Attribute | In range | Out of range |
 |---|---|---|
 | **Direct** | "We deploy it, watch it, and fix what breaks." | "We'd love to explore how we might help." |
-| **Specific** | "Odoo on your own infrastructure." | "Enterprise-grade digital transformation." |
-| **Unhyped** | "Built to integrate with the systems that hold your stock." | "World-class, cutting-edge, 10x." |
-| **Operational** | "Hosted and maintained, not handed over as a zip file." | "Delivered on time and on budget." |
+| **Specific** | "Hybrid search with reranking, and citations back to source." | "Enterprise-grade AI transformation." |
+| **Unhyped** | "Agents that do bounded work." | "Autonomous, cutting-edge, 10x." |
+| **Falsifiable** | "We build the eval set before we touch the system." | "We follow best practices." |
 
 **Scannability (Redish):** every `h3` is a noun phrase that survives being read alone; every body
 paragraph front-loads its subject in the first four words; no paragraph exceeds two sentences.
 
 **Ban-list applied (deceptive-patterns):** no fabricated social proof, no manufactured scarcity
 ("limited slots"), no manufactured urgency (countdowns, "book before"), no confirmshaming on the
-CTA, no metric the team cannot produce on request.
+CTA, no metric the team cannot produce on request, and no claim about model capability that the
+harness cannot demonstrate in a trace.

@@ -1,6 +1,6 @@
 # fullstacktics
 
-Static one-page site for Fullstacktics, a tech services agency working across four pillars: headless ecommerce development, AI agentic SaaS products, large-scale data mining with ETL pipelines, and Odoo ERP hosting and setup.
+Static one-page site for Fullstacktics, an engineering studio working across three layers of production AI: agentic systems, RAG and retrieval, and AI harness development — the tooling layer of tools, traces, evals, guardrails, and fallbacks that sits around the model.
 
 Content spec lives in [JOURNEY.md](JOURNEY.md); the visual tokens are the `:root` block in `styles.css`.
 

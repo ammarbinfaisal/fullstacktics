@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fullstacktics | Ecommerce, AI Agents, Data Pipelines, ERP</title>
+    <title>Fullstacktics | Agentic AI, RAG, and AI Harness Engineering</title>
     <meta
       name="description"
-      content="Fullstacktics builds headless ecommerce storefronts, AI agentic SaaS products, large-scale data mining and ETL pipelines, and hosted Odoo ERP setups."
+      content="Fullstacktics builds production AI systems: agentic workflows, retrieval that returns the right context, and the tooling harness around the model — tools, traces, evals, guardrails, and fallbacks."
     >
     <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#f7f1e7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#10130f" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0b0a" media="(prefers-color-scheme: dark)">
     <link rel="preload" href="assets/fonts/IntelOneMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -36,12 +36,13 @@
       <main id="content">
         <section class="hero" id="top" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">Fullstack engineering for the systems a business runs on</p>
-            <h1 id="hero-title">The systems your business runs on. Built by one team.</h1>
+            <p class="eyebrow">Agentic AI · RAG · AI harness engineering</p>
+            <h1 id="hero-title">AI that survives contact with production.</h1>
             <p class="hero-lede">
-              Storefronts that sell, agents that do real work, pipelines that move data at scale,
-              and the ERP that keeps the record straight. We design, build, and run them as one
-              system instead of four disconnected projects.
+              Most AI projects fail after the demo, not before it. We build the parts that decide
+              whether it holds: retrieval that returns the right context, agents that stop when they
+              should, and the tooling layer around the model — tools, traces, evals, and fallbacks —
+              so you can change something and know whether it helped.
             </p>
 
             <div class="hero-actions" aria-label="Primary actions">
@@ -52,57 +53,58 @@
             </div>
 
             <ul class="proof-list" aria-label="How we work">
-              <li>Design, deploy, operate</li>
-              <li>One team, whole stack</li>
+              <li>Evals before opinions</li>
+              <li>Traces on every run</li>
               <li>Direct with the engineers</li>
             </ul>
           </div>
 
-          <div class="hero-visual" aria-label="System stack architecture">
+          <div class="hero-visual" aria-label="Agent run architecture">
             <div class="diagram-panel">
-              <p class="diagram-title">System stack</p>
+              <p class="diagram-title">Agent run</p>
               <div class="diagram-flow">
-                <span>Storefront</span>
-                <span>Agent workflows</span>
-                <span>ETL pipelines</span>
-                <span>Odoo ERP</span>
-                <strong>One system of record</strong>
+                <span>Context</span>
+                <span>Tools</span>
+                <span>Loop</span>
+                <span>Traces</span>
+                <strong>Evals</strong>
               </div>
               <div class="diagram-notes" aria-label="How the layers connect">
-                <p><span>01</span> the storefront and the ERP share one catalog</p>
-                <p><span>02</span> pipelines land data before anyone reports on it</p>
-                <p><span>03</span> agents act only on records that are already correct</p>
+                <p><span>01</span> retrieval is ranked and cited, not stuffed into a prompt</p>
+                <p><span>02</span> every tool call is typed, scoped, and reversible</p>
+                <p><span>03</span> traces feed the evals that decide the next change</p>
               </div>
             </div>
           </div>
         </section>
 
         <section class="capability-strip" aria-label="What Fullstacktics builds">
-          <span>Ecommerce</span>
-          <span>AI agent SaaS</span>
-          <span>ETL pipelines</span>
-          <span>Odoo ERP</span>
-          <span>Hosting and ops</span>
+          <span>Agentic AI</span>
+          <span>RAG</span>
+          <span>AI harness</span>
+          <span>Evals</span>
+          <span>Guardrails</span>
+          <span>Deployment and ops</span>
         </section>
 
         <section class="section problem-section" aria-labelledby="problem-title">
           <div>
             <p class="eyebrow">The pattern</p>
-            <h2 id="problem-title">Four systems. Four vendors. No shared truth.</h2>
+            <h2 id="problem-title">The demo worked. Production is a different system.</h2>
           </div>
 
           <div class="problem-grid">
             <article>
-              <h3>The record disagrees</h3>
-              <p>Stock in the storefront, stock in the ERP, stock in a spreadsheet. Three numbers, and no one owns which is right.</p>
+              <h3>Demos don't survive production</h3>
+              <p>A prompt that works on ten hand-picked inputs meets ten thousand real ones. The failures aren't crashes — they're confident, plausible, wrong answers that nobody catches until a customer does.</p>
             </article>
             <article>
-              <h3>Data arrives too late</h3>
-              <p>Reports get built on exports that were already stale by the time someone downloaded them.</p>
+              <h3>Retrieval returns the wrong context</h3>
+              <p>The model answers from whatever the retriever handed it. When that's semantically close but factually stale, the output reads perfectly and is still false. Most stacks have no way to tell the difference.</p>
             </article>
             <article>
-              <h3>AI gets bolted on last</h3>
-              <p>An agent is only as good as the data and the tools underneath it. Most prototypes are handed neither.</p>
+              <h3>No evals, so nobody knows</h3>
+              <p>Somebody changes a prompt and everybody argues about whether it got better. Without a scored test set and traces to read, every change is a guess and every rollback is a hunch.</p>
             </article>
           </div>
         </section>
@@ -110,10 +112,11 @@
         <section class="section services-section" id="services" aria-labelledby="services-title">
           <div class="section-heading">
             <p class="eyebrow">Services</p>
-            <h2 id="services-title">One team across all four.</h2>
+            <h2 id="services-title">Three layers. One team.</h2>
             <p>
-              We take the storefront, the agents, the pipelines, and the ERP as one system, so the
-              integration between them is somebody's job by default.
+              Retrieval, agent behavior, and the tooling around the model are one system — a good
+              agent on bad context still fails, and neither is fixable without traces. We build all
+              three so no seam is nobody's job.
             </p>
           </div>
 
@@ -121,29 +124,22 @@
             <article class="service-item">
               <span>01</span>
               <div>
-                <h3>Ecommerce Development</h3>
-                <p>Headless storefronts on Next.js with a commerce backend behind them: custom catalog, checkout, and payment logic instead of theme workarounds. Built to talk to the inventory and ERP systems that actually hold your stock.</p>
+                <h3>Agentic AI</h3>
+                <p>Agents that do bounded work: planning loops with explicit stopping conditions, narrow and typed tool access, human review at the steps that warrant it, and deterministic fallbacks for when the model is wrong. Built to be interrupted, resumed, and audited rather than trusted blindly.</p>
               </div>
             </article>
             <article class="service-item">
               <span>02</span>
               <div>
-                <h3>AI Agentic SaaS</h3>
-                <p>SaaS products where agentic workflows do real work: context pipelines, scoped tool access, reasoning loops, and evaluation. We build the harness around the model — narrow tools, traces, review points, and fallbacks — so behavior stays predictable in production.</p>
+                <h3>RAG and Retrieval</h3>
+                <p>Retrieval that earns the context window: chunking tuned to your documents, hybrid search with reranking, freshness and permission filters that hold, and citations back to source. We evaluate retrieval on its own — before the generation step — because a good answer over the wrong passage is still wrong.</p>
               </div>
             </article>
             <article class="service-item">
               <span>03</span>
               <div>
-                <h3>Data Mining and ETL Pipelines</h3>
-                <p>Extraction, cleaning, and loading at scale: pipelines that run on a schedule, recover from failure, and return the same result twice. We handle the collection layer, the transformations, and the warehouse your reporting is built on.</p>
-              </div>
-            </article>
-            <article class="service-item">
-              <span>04</span>
-              <div>
-                <h3>ERP Hosting and Setup</h3>
-                <p>Odoo on your own infrastructure: installation, module configuration, custom modules, backups, upgrades, and the integrations that connect it to the storefront and the pipelines. Hosted and maintained, not handed over as a zip file.</p>
+                <h3>AI Harness Development</h3>
+                <p>The tooling layer around the model: tool definitions and schemas, orchestration, structured traces for every run, eval suites with scored regression sets, guardrails on input and output, and fallback paths when a provider degrades. This is the part that decides whether you can change the system without breaking it.</p>
               </div>
             </article>
           </div>
@@ -152,29 +148,29 @@
         <section class="section approach-section" id="approach" aria-labelledby="approach-title">
           <div class="section-heading compact">
             <p class="eyebrow">Approach</p>
-            <h2 id="approach-title">The integration is the product.</h2>
+            <h2 id="approach-title">Measure first, then change things.</h2>
           </div>
 
           <ol class="process-list">
             <li>
-              <span>Map</span>
-              <h3>Map the system</h3>
-              <p>We chart what exists: the data, the integrations, the manual steps, and the places where the record is already wrong.</p>
+              <span>Scope</span>
+              <h3>Scope it to something gradeable</h3>
+              <p>We define the task narrowly enough to be scored. Most failing agents were asked to do something nobody had written down.</p>
             </li>
             <li>
-              <span>Design</span>
-              <h3>Design the seams</h3>
-              <p>We decide what each system owns, what it must never own, and how data crosses between them.</p>
+              <span>Baseline</span>
+              <h3>Baseline what it does now</h3>
+              <p>We build the eval set before touching the system: real inputs, scored outputs, traces on current behavior. Until that exists, every improvement is an opinion.</p>
             </li>
             <li>
               <span>Build</span>
-              <h3>Build in increments</h3>
-              <p>We ship pieces you can use as they land, with the code, the infrastructure, and the decisions visible to your team.</p>
+              <h3>Build against the score</h3>
+              <p>We change retrieval, tools, and the loop in increments, and each change is kept or reverted on the numbers. You see the code, the traces, and the reasoning as it lands.</p>
             </li>
             <li>
               <span>Run</span>
               <h3>Run it, then hand it over</h3>
-              <p>We deploy it, watch it, and fix what breaks — then document it so your team can run it without us.</p>
+              <p>We deploy it, watch it, and fix what breaks — then document the harness so your team can run and extend it without us.</p>
             </li>
           </ol>
         </section>
@@ -184,9 +180,9 @@
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Start with a short technical conversation.</h2>
             <p>
-              Bring the storefront that will not scale, the pipeline that keeps breaking, the Odoo
-              instance nobody has upgraded in years, or the agent prototype that is not reliable
-              yet. We will tell you what it needs.
+              Bring the agent that works in the demo and not in the app, the retrieval stack that
+              answers confidently from the wrong document, or the prompt change nobody can prove
+              helped. We will tell you what it needs.
             </p>
 
             <p class="contact-hint">
@@ -218,7 +214,7 @@
       </main>
 
       <footer class="site-footer">
-        <p>Fullstacktics builds and operates ecommerce, AI, data, and ERP systems.</p>
+        <p>Fullstacktics builds agentic AI, retrieval, and the tooling layer that keeps them working.</p>
         <a href="mailto:ammar@fullstacktics.com">ammar@fullstacktics.com</a>
       </footer>
     </div>
