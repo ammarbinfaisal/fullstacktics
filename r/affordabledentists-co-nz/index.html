@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Affordable Dentists | Concept redesign by Fullstacktics</title>
+<meta name="description" content="A concept redesign of the Affordable Dentists homepage, prepared by Fullstacktics. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/exam.webp" fetchpriority="high">
+<style>
+/* === DESIGN TOKENS (DESIGN.md, palette.mjs seed #E3262E + documented deviations) === */
+:root {
+  --neutral-1:#fdfcfc; --neutral-2:#faf8f8; --neutral-3:#f3efef; --neutral-4:#ece6e6; --neutral-5:#e3dcdb;
+  --neutral-6:#d9d0cf; --neutral-7:#cbc1bf; --neutral-8:#b4a7a6; --neutral-11:#696160; --neutral-12:#312d2c;
+  --accent-2:#fff7f6; --accent-3:#ffebe9; --accent-6:#ffc0ba; --accent-11:#974842;
+  --cyan-3:#e0f5f8; --cyan-11:#346d74; --success-3:#e0f8e0; --success-11:#337437;
+  --cta:#d1352f; --cta-hover:#a8332f; --ink:#1f2a37; --ink-2:#2a3746;
+
+  --background:var(--neutral-1); --surface:var(--neutral-2); --surface-hover:var(--neutral-3);
+  --border-subtle:var(--neutral-6); --border:var(--neutral-7);
+  --text:var(--neutral-12); --text-secondary:var(--neutral-11);
+
+  --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.5625rem;
+  --text-3xl:clamp(1.75rem, 1.3rem + 2vw, 2.4rem); --text-4xl:clamp(2.2rem, 1.4rem + 3.6vw, 3.6rem);
+  --radius:14px; --radius-lg:22px; --gutter:clamp(1rem, .5rem + 2.5vw, 2rem);
+  --shadow:0 1px 2px rgb(49 45 44 / .06), 0 8px 24px -8px rgb(49 45 44 / .14);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Figtree",system-ui,sans-serif;background:var(--background);color:var(--text);line-height:1.6;font-size:var(--text-base);padding-bottom:76px}
+@media (min-width:860px){body{padding-bottom:0}}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cyan-11);outline-offset:3px;border-radius:6px}
+h1,h2,h3{line-height:1.1;letter-spacing:-.02em;font-weight:780}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-size:var(--text-sm);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-11)}
+.lede{font-size:var(--text-lg);color:var(--text-secondary);max-width:38rem}
+section{padding:clamp(3.5rem,2rem + 6vw,6.5rem) 0}
+.section-head{display:grid;gap:.75rem;margin-bottom:2.25rem;max-width:44rem}
+.section-head h2{font-size:var(--text-3xl)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* --- concept banner --- */
+.concept{background:var(--ink);color:#fff;font-size:.8125rem;text-align:center;padding:.55rem var(--gutter)}
+.concept a{color:var(--accent-6);font-weight:600}
+
+/* --- buttons --- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:.75rem 1.35rem;border-radius:999px;font-weight:700;font-size:var(--text-base);text-decoration:none;transition:background-color .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn-primary{background:var(--cta);color:#fff}
+.btn-primary:hover{background:var(--cta-hover)}
+.btn-ghost{border:2px solid var(--border);color:var(--text);background:var(--background)}
+.btn-ghost:hover{border-color:var(--text)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* --- header --- */
+.site-header{position:sticky;top:0;z-index:20;background:rgb(253 252 252 / .92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border-subtle)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+.logo{display:inline-flex;text-decoration:none;font-weight:800;font-size:1.05rem;letter-spacing:.01em;border-radius:6px;overflow:hidden;line-height:1}
+.logo span{padding:.5rem .65rem}
+.logo .l1{background:var(--cta);color:#fff}
+.logo .l2{background:var(--ink);color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem}
+.nav{display:none;gap:1.75rem;list-style:none}
+.nav a{text-decoration:none;font-weight:600;color:var(--text-secondary);padding:.5rem 0}
+.nav a:hover{color:var(--text)}
+.header-actions{display:none;gap:.6rem}
+.header-call{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--surface-hover);color:var(--ink)}
+.header-call svg{width:20px;height:20px}
+@media (min-width:860px){.nav,.header-actions{display:flex}.header-call{display:none}}
+
+/* --- hero --- */
+.hero{padding:clamp(2rem,1rem + 4vw,4.5rem) 0 clamp(3rem,2rem + 4vw,5rem)}
+.hero .wrap{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:860px){.hero .wrap{grid-template-columns:1.1fr .9fr;gap:4rem}}
+.hero h1{font-size:var(--text-4xl);font-weight:800;letter-spacing:-.03em;margin:.9rem 0 1.1rem}
+.hero h1 em{font-style:normal;color:var(--cta)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.75rem 0 1.5rem}
+.proof{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-size:var(--text-sm);color:var(--text-secondary);font-weight:600}
+.proof li{display:flex;align-items:center;gap:.4rem;list-style:none}
+.stars{color:#e8a325;letter-spacing:1px}
+.hero-media{position:relative}
+.hero-media img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:30% 30%;border-radius:var(--radius-lg)}
+.price-chip{position:absolute;left:-.5rem;bottom:1.25rem;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:.9rem 1.1rem;display:grid;gap:.15rem;max-width:15.5rem}
+@media (min-width:860px){.price-chip{left:-2rem}}
+.price-chip small{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-secondary)}
+.price-chip .row{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.price-chip strong{font-size:var(--text-lg)}
+.price-chip b{font-size:var(--text-2xl);font-weight:800;letter-spacing:-.02em}
+.price-chip span{font-size:var(--text-sm);color:var(--text-secondary)}
+
+/* --- funding strip --- */
+.funding{border-block:1px solid var(--border-subtle);background:var(--surface);padding:1.1rem 0}
+.funding ul{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.75rem;list-style:none;font-weight:650;font-size:var(--text-sm);color:var(--text-secondary)}
+.funding li::before{content:"✓";color:var(--success-11);margin-right:.4rem;font-weight:800}
+
+/* --- intent cards --- */
+.intents{display:grid;gap:1rem}
+@media (min-width:640px){.intents{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.intents{grid-template-columns:repeat(4,1fr)}}
+.intent{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.intent:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--border)}
+.intent img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.intent .body{padding:1.25rem 1.25rem 1.4rem;display:grid;gap:.5rem;flex:1;align-content:start}
+.intent h3{font-size:var(--text-xl)}
+.intent p{color:var(--text-secondary);font-size:.95rem}
+.intent .from{margin-top:auto;padding-top:.5rem;font-weight:700;font-size:var(--text-sm);color:var(--accent-11)}
+.intent.urgent{background:var(--accent-2);border-color:var(--accent-6)}
+.intent .icon-tile{aspect-ratio:16/10;display:grid;place-items:center;background:var(--accent-3);color:var(--cta)}
+.intent .icon-tile svg{width:64px;height:64px}
+
+/* --- prices --- */
+.prices{background:var(--surface)}
+.price-grid{display:grid;gap:1rem}
+@media (min-width:700px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.price-grid{grid-template-columns:repeat(4,1fr)}}
+.plan{background:#fff;border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;display:grid;gap:.85rem;align-content:start;position:relative}
+.plan.rec{border:2px solid var(--ink);box-shadow:var(--shadow)}
+.plan .tag{position:absolute;top:-.8rem;left:1.25rem;background:var(--ink);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px}
+.plan h3{font-size:var(--text-lg)}
+.plan .amt{font-size:2.1rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.plan .amt small{font-size:var(--text-sm);font-weight:600;color:var(--text-secondary);letter-spacing:0;margin-left:.3rem}
+.plan ul{list-style:none;display:grid;gap:.45rem;font-size:.95rem;color:var(--text-secondary)}
+.plan li{padding-left:1.4rem;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:.55em;width:.55rem;height:.55rem;border-radius:50%;background:var(--neutral-7)}
+.plan.rec li::before{background:var(--cta)}
+.plan .note{font-size:var(--text-sm);color:var(--text-secondary);border-top:1px dashed var(--border);padding-top:.75rem}
+.extras{margin-top:1.5rem;display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.extra{display:flex;justify-content:space-between;gap:1rem;background:#fff;border:1px solid var(--border-subtle);border-radius:var(--radius);padding:.9rem 1.1rem;font-size:.95rem}
+.extra b{white-space:nowrap}
+.fine{margin-top:1rem;font-size:var(--text-sm);color:var(--text-secondary)}
+.fine a{color:var(--accent-11);font-weight:600}
+
+/* --- clinics --- */
+.clinic-grid{display:grid;gap:1.25rem}
+@media (min-width:700px){.clinic-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.clinic-grid{grid-template-columns:repeat(3,1fr)}}
+.clinic{border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;background:#fff}
+.clinic img{aspect-ratio:3/2;object-fit:cover;width:100%}
+.clinic .body{padding:1.25rem;display:grid;gap:.85rem;flex:1;align-content:start}
+.clinic .area{font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent-11)}
+.clinic h3{font-size:var(--text-xl);margin-top:-.4rem}
+.clinic address{font-style:normal;color:var(--text-secondary);font-size:.95rem}
+.hours{list-style:none;font-size:var(--text-sm);display:grid;gap:.15rem;color:var(--text-secondary)}
+.hours li{display:flex;justify-content:space-between;gap:1rem;padding:.2rem .5rem;border-radius:6px}
+.hours li.today{background:var(--accent-3);color:var(--text);font-weight:700}
+.badge{justify-self:start;font-size:.8rem;font-weight:700;background:var(--cyan-3);color:var(--cyan-11);padding:.3rem .65rem;border-radius:999px}
+.clinic .actions{display:flex;gap:.6rem;margin-top:auto;padding:0 1.25rem 1.25rem}
+.clinic .actions .btn{flex:1;padding-inline:.9rem;font-size:.95rem}
+
+.clinic.help{background:var(--ink);color:#fff;border-color:var(--ink);justify-content:center}
+.clinic.help .body{align-content:center;gap:1rem;padding:2rem 1.5rem}
+.clinic.help h3{margin:0;font-size:var(--text-2xl)}
+.clinic.help p{color:var(--neutral-7)}
+.clinic.help .btn-ghost{background:transparent;color:#fff;border-color:var(--neutral-8)}
+@media (max-width:1079px){.clinic.help{display:none}}
+
+/* --- intents compact on phones --- */
+@media (max-width:639px){
+  .intent{flex-direction:row;align-items:stretch}
+  .intent img,.intent .icon-tile{width:108px;flex:none;aspect-ratio:auto;height:auto;object-fit:cover}
+  .intent .icon-tile svg{width:40px;height:40px}
+  .intent .body{padding:1rem 1rem 1.1rem;gap:.3rem}
+  .intent h3{font-size:var(--text-lg)}
+  .intent p{font-size:.9rem;line-height:1.45}
+}
+
+/* --- reviews --- */
+.reviews{background:var(--ink);color:#fff}
+.reviews .eyebrow{color:var(--accent-6)}
+.reviews .lede{color:var(--neutral-7)}
+.review-grid{display:grid;gap:1rem}
+@media (min-width:760px){.review-grid{grid-template-columns:repeat(3,1fr)}}
+.review{background:var(--ink-2);border-radius:var(--radius-lg);padding:1.5rem;display:grid;gap:1rem;align-content:space-between}
+.review blockquote{font-size:var(--text-lg);line-height:1.5}
+.review figcaption{font-size:var(--text-sm);color:var(--neutral-7);font-weight:600}
+.score{display:flex;align-items:baseline;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap}
+.score strong{font-size:var(--text-4xl);font-weight:800;letter-spacing:-.03em}
+.score span{color:var(--neutral-7)}
+
+/* --- about --- */
+.about .wrap{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:860px){.about .wrap{grid-template-columns:1fr 1fr;gap:4rem}}
+.about img{border-radius:var(--radius-lg);width:100%;aspect-ratio:477/291;object-fit:cover}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;border-top:1px solid var(--border-subtle);padding-top:1.5rem}
+.stats strong{display:block;font-size:var(--text-2xl);font-weight:800;letter-spacing:-.02em}
+.stats span{font-size:var(--text-sm);color:var(--text-secondary)}
+
+/* --- final cta --- */
+.final{padding:0 0 clamp(3.5rem,2rem + 6vw,6rem)}
+.final .box{background:var(--accent-3);border-radius:var(--radius-lg);padding:clamp(2rem,1rem + 4vw,3.5rem);display:grid;gap:1.25rem;justify-items:start}
+@media (min-width:860px){.final .box{grid-template-columns:1fr auto;align-items:center}}
+.final h2{font-size:var(--text-3xl)}
+.final .ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+
+/* --- footer --- */
+.site-footer{background:var(--ink);color:var(--neutral-7);padding:3rem 0 2rem;font-size:var(--text-sm)}
+.site-footer .cols{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr))}
+.site-footer h4{color:#fff;font-size:var(--text-base);margin-bottom:.75rem}
+.site-footer ul{list-style:none;display:grid;gap:.4rem}
+.site-footer a{text-decoration:none}
+.site-footer a:hover{color:#fff;text-decoration:underline}
+.site-footer .legal{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--ink-2);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between}
+
+/* --- mobile action bar --- */
+.action-bar{position:fixed;inset:auto 0 0 0;z-index:30;display:grid;grid-template-columns:1fr 1.4fr;gap:.6rem;padding:.7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom));background:rgb(253 252 252 / .96);backdrop-filter:blur(10px);border-top:1px solid var(--border-subtle)}
+.action-bar .btn{width:100%}
+@media (min-width:860px){.action-bar{display:none}}
+</style>
+</head>
+<body>
+
+<div class="concept" role="note">
+  Concept redesign prepared by Fullstacktics. Not the official Affordable Dentists website.
+  <a href="https://affordabledentists.co.nz/" rel="nofollow">Visit the real site</a>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Affordable Dentists, home"><span class="l1">Affordable</span><span class="l2">Dentists</span></a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="#treatments">Treatments</a></li>
+        <li><a href="#prices">Prices</a></li>
+        <li><a href="#clinics">Clinics</a></li>
+        <li><a href="https://affordabledentists.co.nz/emergency/">Emergency</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="tel:0800160161">0800 160 161</a>
+      <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Book online</a>
+    </div>
+    <a class="header-call" href="tel:0800160161" aria-label="Call 0800 160 161">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">5 clinics across Auckland</p>
+        <h1 id="hero-title">Same-day dental care, with the <em>price upfront.</em></h1>
+        <p class="lede">A routine check-up is $130 with two x-rays included. Book online in under 30 seconds. Same-day appointments are available if you need one.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Check availability</a>
+          <a class="btn btn-ghost" href="#prices">See all prices</a>
+        </div>
+        <ul class="proof">
+          <li><span class="stars" aria-hidden="true">★★★★★</span> 848 Google reviews</li>
+          <li>25,000+ happy smiles</li>
+          <li>Serving Auckland for 2 decades</li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <img src="img/exam.webp" width="719" height="1042" alt="A dentist talking a patient through her treatment plan" fetchpriority="high">
+        <div class="price-chip">
+          <small>Our recommended first visit</small>
+          <div class="row"><strong>Comprehensive exam</strong><b>$175</b></div>
+          <span>45 min, 2 bitewing x-rays + OPG, full photos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="funding" aria-label="Payment and funding options">
+    <div class="wrap">
+      <ul>
+        <li>WINZ quotes</li>
+        <li>ACC provider</li>
+        <li>Southern Cross</li>
+        <li>NIB</li>
+        <li>Afterpay &amp; Q Card</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="treatments" aria-labelledby="t-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What brings you in?</p>
+        <h2 id="t-title">Start with what you need, not a list of procedures.</h2>
+      </div>
+      <div class="intents">
+        <a class="intent urgent" href="https://affordabledentists.co.nz/emergency/">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="body">
+            <h3>I'm in pain</h3>
+            <p>Same-day emergency appointments to find the cause and stop the pain.</p>
+            <span class="from">Problem-focused visit from $75</span>
+          </div>
+        </a>
+        <a class="intent" href="https://affordabledentists.co.nz/consultations-examinations/">
+          <img src="img/general.webp" width="477" height="291" alt="A treatment room with a view over Auckland" loading="lazy">
+          <div class="body">
+            <h3>Check-up &amp; clean</h3>
+            <p>Exams, hygienist cleans, fillings and everyday care for the whole family.</p>
+            <span class="from">Routine exam $130</span>
+          </div>
+        </a>
+        <a class="intent" href="https://affordabledentists.co.nz/dental-implants/">
+          <img src="img/implants.webp" width="477" height="291" alt="Illustration of a dental implant" loading="lazy">
+          <div class="body">
+            <h3>Missing teeth</h3>
+            <p>Implants, All-on-6, bridges and dentures, planned with our oral surgeon.</p>
+            <span class="from">Specialist consult $150</span>
+          </div>
+        </a>
+        <a class="intent" href="https://affordabledentists.co.nz/orthodontics/">
+          <img src="img/ortho.webp" width="477" height="291" alt="Close-up of a smile with braces" loading="lazy">
+          <div class="body">
+            <h3>Straighter teeth</h3>
+            <p>Braces for kids and adults, clear aligners and Invisalign.</p>
+            <span class="from">Advanced exam with digital scan $195</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prices" id="prices" aria-labelledby="p-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Prices</p>
+        <h2 id="p-title">You'll know the cost before you sit in the chair.</h2>
+        <p class="lede">Every first visit starts with one of these. Pick the one that fits, or call and we'll help you choose.</p>
+      </div>
+      <div class="price-grid">
+        <article class="plan">
+          <h3>Problem-focused</h3>
+          <p class="amt">$75–$90<small>up to 20 min</small></p>
+          <ul>
+            <li>One tooth or area that's bothering you</li>
+            <li>One x-ray included</li>
+          </ul>
+          <p class="note">Same-day treatment such as pain relief adds 50% ($40–$60).</p>
+        </article>
+        <article class="plan">
+          <h3>Routine exam</h3>
+          <p class="amt">$130<small>up to 30 min</small></p>
+          <ul>
+            <li>General oral health check</li>
+            <li>2 bitewing x-rays</li>
+            <li>Intraoral photos</li>
+          </ul>
+          <p class="note">Discounts may apply for Gold Card holders.</p>
+        </article>
+        <article class="plan rec">
+          <span class="tag">Recommended</span>
+          <h3>Comprehensive exam</h3>
+          <p class="amt">$175<small>up to 45 min</small></p>
+          <ul>
+            <li>Detailed history and examination</li>
+            <li>2 bitewing x-rays + OPG</li>
+            <li>Full mouth intraoral + extraoral photos</li>
+          </ul>
+          <p class="note">Ideal for a thorough baseline.</p>
+        </article>
+        <article class="plan">
+          <h3>Advanced comprehensive</h3>
+          <p class="amt">$195<small>up to 60 min</small></p>
+          <ul>
+            <li>Full treatment planning</li>
+            <li>Comprehensive imaging</li>
+            <li>Digital scan included</li>
+          </ul>
+          <p class="note">Best for aligners, implants and complex plans.</p>
+        </article>
+      </div>
+      <div class="extras">
+        <div class="extra"><span>Specialist consult (endodontist or oral surgeon)</span><b>$150</b></div>
+        <div class="extra"><span>Intraoral x-ray, each</span><b>$30</b></div>
+        <div class="extra"><span>OPG x-ray</span><b>$110</b></div>
+        <div class="extra"><span>CT scan</span><b>$220</b></div>
+      </div>
+      <p class="fine">Treatment fees are quoted after your exam. <a href="https://affordabledentists.co.nz/pricing/">Full price list</a></p>
+    </div>
+  </section>
+
+  <section id="clinics" aria-labelledby="c-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Our clinics</p>
+        <h2 id="c-title">Five clinics. Pick the one closest to you.</h2>
+        <p class="lede">Hours as listed by each clinic. Today's day is highlighted where the clinic lists it.</p>
+      </div>
+      <div class="clinic-grid">
+
+        <article class="clinic">
+          <img src="img/ellerslie.webp" width="477" height="318" alt="Affordable Dentists Ellerslie on Robert Street" loading="lazy">
+          <div class="body">
+            <p class="area">Ellerslie</p>
+            <h3>Affordable Dentists Ellerslie</h3>
+            <address>2/2 Robert Street, Ellerslie 1051</address>
+            <span class="badge">Same-day crowns · on-site dentures</span>
+            <ul class="hours" data-hours>
+              <li data-day="2"><span>Tue</span><span>8:30am – 7pm</span></li>
+              <li data-day="3"><span>Wed</span><span>8am – 5pm</span></li>
+              <li data-day="5"><span>Fri</span><span>8am – 4pm</span></li>
+              <li data-day="6"><span>Sat</span><span>9am – 4pm (alternate)</span></li>
+            </ul>
+          </div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="tel:095255913">Call</a>
+            <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Book</a>
+          </div>
+        </article>
+
+        <article class="clinic">
+          <img src="img/birkenhead.webp" width="477" height="318" alt="Hinemoa Street Dental entrance in Birkenhead" loading="lazy">
+          <div class="body">
+            <p class="area">Birkenhead</p>
+            <h3>Hinemoa Street Dental</h3>
+            <address>80D Hinemoa Street, Birkenhead 0626</address>
+            <span class="badge">Open Saturdays · late Thursday</span>
+            <ul class="hours" data-hours>
+              <li data-day="1"><span>Mon</span><span>8am – 6pm</span></li>
+              <li data-day="2"><span>Tue</span><span>8am – 6pm</span></li>
+              <li data-day="3"><span>Wed</span><span>8am – 6pm</span></li>
+              <li data-day="4"><span>Thu</span><span>8am – 7pm</span></li>
+              <li data-day="5"><span>Fri</span><span>8am – 4pm</span></li>
+              <li data-day="6"><span>Sat</span><span>9am – 4pm</span></li>
+            </ul>
+          </div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="tel:094801748">Call</a>
+            <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Book</a>
+          </div>
+        </article>
+
+        <article class="clinic">
+          <img src="img/northcross.webp" width="477" height="318" alt="Coast Dental on Carlisle Road, Northcross" loading="lazy">
+          <div class="body">
+            <p class="area">Northcross</p>
+            <h3>Coast Dental</h3>
+            <address>160 Carlisle Road, Northcross 0632</address>
+            <span class="badge">Open Saturdays · late Wednesday</span>
+            <ul class="hours" data-hours>
+              <li data-day="1"><span>Mon</span><span>8am – 5pm</span></li>
+              <li data-day="3"><span>Wed</span><span>8am – 7pm</span></li>
+              <li data-day="4"><span>Thu</span><span>8am – 6pm</span></li>
+              <li data-day="5"><span>Fri</span><span>8am – 5pm</span></li>
+              <li data-day="6"><span>Sat</span><span>9am – 5pm</span></li>
+            </ul>
+          </div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="tel:094793160">Call</a>
+            <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Book</a>
+          </div>
+        </article>
+
+        <article class="clinic">
+          <img src="img/northcote.webp" width="477" height="318" alt="Te Puna Hauora Dental building on Akoranga Drive" loading="lazy">
+          <div class="body">
+            <p class="area">Northcote</p>
+            <h3>Te Puna Hauora Dental</h3>
+            <address>58A Akoranga Drive, Northcote 0627</address>
+            <span class="badge">15% off for community cardholders</span>
+            <ul class="hours" data-hours>
+              <li data-day="1"><span>Mon</span><span>8:30am – 5pm</span></li>
+              <li data-day="2"><span>Tue</span><span>8:30am – 5pm</span></li>
+              <li data-day="3"><span>Wed</span><span>Closed</span></li>
+              <li data-day="4"><span>Thu</span><span>Closed</span></li>
+              <li data-day="5"><span>Fri</span><span>8:30am – 5pm</span></li>
+              <li data-day="6"><span>Sat</span><span>Closed</span></li>
+            </ul>
+          </div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="tel:094181073">Call</a>
+            <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Book</a>
+          </div>
+        </article>
+
+        <article class="clinic">
+          <img src="img/teatatu.webp" width="477" height="318" alt="Affordable Dentists West on Te Atatu Road" loading="lazy">
+          <div class="body">
+            <p class="area">Te Atatu South</p>
+            <h3>Affordable Dentists West</h3>
+            <address>269 Te Atatu Road, Te Atatu South 0610</address>
+            <span class="badge">Open Monday to Friday</span>
+            <ul class="hours" data-hours>
+              <li data-day="1"><span>Mon</span><span>9am – 6pm</span></li>
+              <li data-day="2"><span>Tue</span><span>9am – 5pm</span></li>
+              <li data-day="3"><span>Wed</span><span>9am – 5pm</span></li>
+              <li data-day="4"><span>Thu</span><span>9am – 6pm</span></li>
+              <li data-day="5"><span>Fri</span><span>9am – 5pm</span></li>
+            </ul>
+          </div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="tel:098349094">Call</a>
+            <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Book</a>
+          </div>
+        </article>
+
+        <article class="clinic help">
+          <div class="body">
+            <h3>Not sure which clinic suits you?</h3>
+            <p>Call us and we'll find the nearest clinic with a time that works, including same-day appointments if you need one.</p>
+            <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+              <a class="btn btn-primary" href="tel:0800160161">Call 0800 160 161</a>
+              <a class="btn btn-ghost" href="https://affordabledentists.co.nz/book-an-appointment/">Book online</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" aria-labelledby="r-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Patient reviews</p>
+        <h2 id="r-title">What patients say after the chair.</h2>
+      </div>
+      <div class="score"><strong>848</strong><span>Google reviews across our clinics, rated Excellent</span></div>
+      <div class="review-grid">
+        <figure class="review">
+          <blockquote>"Jae Choi is such a kind, empathetic, and most importantly, efficient dentist! My wisdom tooth has been causing me misery for months and it was out within 5 minutes."</blockquote>
+          <figcaption>Priyanka Swami · Google review</figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>"I got my wisdom teeth removed by Jenny and coming in I was super scared but she kept me calm and took great care of me."</blockquote>
+          <figcaption>Shaney Whakatau · Google review</figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>"Raven did a wonderful job with my hygiene clean, and gave me great thorough advice on how I can improve my tooth hygiene day to day!"</blockquote>
+          <figcaption>Sophia Tasker · Google review</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="a-title">
+    <div class="wrap">
+      <img src="img/team.webp" width="719" height="634" alt="The waiting room at Coast Dental" loading="lazy">
+      <div>
+        <p class="eyebrow">About us</p>
+        <h2 id="a-title" style="font-size:var(--text-3xl);margin:.75rem 0 1rem">Local dentists who explain things plainly.</h2>
+        <p class="lede">From check-ups to implants and orthodontics, our team gives clear advice, upfront prices and treatment that's accessible to everyone. We're also proud to back the Kaipātiki Rugby Project.</p>
+        <div class="stats">
+          <div><strong>150+</strong><span>years combined experience</span></div>
+          <div><strong>20</strong><span>years serving Auckland</span></div>
+          <div><strong>25k+</strong><span>happy smiles</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="f-title">
+    <div class="wrap">
+      <div class="box">
+        <div>
+          <h2 id="f-title">Book in under 30 seconds.</h2>
+          <p class="lede" style="margin-top:.5rem">Same-day appointments available if you need one.</p>
+        </div>
+        <div class="ctas">
+          <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Check availability</a>
+          <a class="btn btn-ghost" href="tel:0800160161">Call 0800 160 161</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="https://affordabledentists.co.nz/general-dentistry/">General dentistry</a></li>
+          <li><a href="https://affordabledentists.co.nz/dental-implants/">Dental implants</a></li>
+          <li><a href="https://affordabledentists.co.nz/orthodontics/">Orthodontics</a></li>
+          <li><a href="https://affordabledentists.co.nz/wisdom-teeth-removal/">Wisdom teeth</a></li>
+          <li><a href="https://affordabledentists.co.nz/emergency/">Emergency pain relief</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clinics</h4>
+        <ul>
+          <li><a href="https://affordabledentists.co.nz/ellerslie-dentist/">Ellerslie</a></li>
+          <li><a href="https://affordabledentists.co.nz/birkenhead-dentist/">Birkenhead</a></li>
+          <li><a href="https://affordabledentists.co.nz/northcross-dentist/">Northcross</a></li>
+          <li><a href="https://affordabledentists.co.nz/northcote-dentist/">Northcote</a></li>
+          <li><a href="https://affordabledentists.co.nz/te-atatu-dental-clinic/">Te Atatu</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Paying</h4>
+        <ul>
+          <li>Visa, Mastercard, Q Card, Gem Visa, Afterpay</li>
+          <li>WINZ quotes</li>
+          <li>NIB, Southern Cross and ACC provider</li>
+          <li><a href="https://affordabledentists.co.nz/pricing/">Full price list</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0800160161">0800 160 161</a></li>
+          <li><a href="https://affordabledentists.co.nz/contact/">Contact form</a></li>
+          <li><a href="https://www.facebook.com/affordabledentists.co.nz">Facebook</a></li>
+          <li><a href="https://www.instagram.com/affordabledentists/">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>Concept redesign by Fullstacktics, built from content on affordabledentists.co.nz. Not affiliated with or endorsed by Affordable Dentists.</span>
+      <span>Content and photos © Affordable Dentists.</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a class="btn btn-ghost" href="tel:0800160161">Call</a>
+  <a class="btn btn-primary" href="https://affordabledentists.co.nz/book-an-appointment/">Book online</a>
+</nav>
+
+<script>
+  // Highlight today's opening hours (visitor's local day; the clinics are all in Auckland).
+  (function () {
+    var d = new Date().getDay();
+    document.querySelectorAll('[data-hours] li').forEach(function (li) {
+      if (Number(li.getAttribute('data-day')) === d) li.classList.add('today');
+    });
+  })();
+</script>
+</body>
+</html>
