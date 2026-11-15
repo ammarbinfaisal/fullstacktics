@@ -544,6 +544,106 @@ ol {
   max-width: 62ch;
 }
 
+/* Growth / Build tag above each service title. Mono label, muted, no hue. */
+.service-item p.service-tag {
+  margin: 0 0 var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.service-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-block-start: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+
+/* --soft border: a tag boundary, so it follows the 3:1 non-text rule */
+.service-points li {
+  border: 1px solid var(--soft);
+  padding: var(--space-2xs) var(--space-sm);
+}
+
+/* Work — proof directly after the hero. Shot left (7 cols), meta right. */
+.work-list {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.work-item {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-md);
+  align-items: start;
+}
+
+.work-shot {
+  grid-column: 1 / 8;
+  display: block;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.work-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 400ms ease-out;
+}
+
+.work-shot:hover img {
+  transform: scale(1.015);
+}
+
+.work-meta {
+  grid-column: 9 / 13;
+}
+
+.work-kind {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-block-end: var(--space-sm);
+}
+
+.work-meta > p:not(.work-kind) {
+  margin-block-start: var(--space-md);
+  color: var(--muted);
+}
+
+.work-link {
+  display: inline-block;
+  margin-block-start: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}
+
+.work-quote {
+  margin: var(--space-lg) 0 0;
+  padding-inline-start: var(--space-md);
+  border-inline-start: 1px solid var(--text);
+}
+
+.work-quote p {
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+
+.work-quote footer {
+  margin-block-start: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+
 /* Approach — 1px gaps expose the ground as a rule between cells (Tufte: the
    alignment does the work, so no borders are needed on the cells themselves). */
 .process-list {
@@ -688,7 +788,8 @@ ol {
   .hero,
   .problem-section,
   .contact-section,
-  .service-item {
+  .service-item,
+  .work-item {
     grid-template-columns: 1fr;
     row-gap: var(--space-xl);
   }
@@ -700,8 +801,14 @@ ol {
   .contact-section > div:first-child,
   .contact-card,
   .service-item > span,
-  .service-item > div {
+  .service-item > div,
+  .work-shot,
+  .work-meta {
     grid-column: 1 / -1;
+  }
+
+  .work-item {
+    row-gap: var(--space-md);
   }
 
   .hero {

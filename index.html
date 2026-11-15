@@ -3,16 +3,60 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fullstacktics | Agentic AI, RAG, and AI Harness Engineering</title>
+    <title>Fullstacktics | SEO, PPC, Web Development and Design Agency</title>
     <meta
       name="description"
-      content="Fullstacktics builds production AI systems: agentic workflows, retrieval that returns the right context, and the tooling harness around the model — tools, traces, evals, guardrails, and fallbacks."
+      content="Fullstacktics is an SEO, PPC, web development and design agency. We design and build fast websites, then fill them with search and paid traffic you can trace to revenue."
     >
+    <link rel="canonical" href="https://fullstacktics.com/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fullstacktics">
+    <meta property="og:url" content="https://fullstacktics.com/">
+    <meta property="og:title" content="Fullstacktics | SEO, PPC, Web Development and Design">
+    <meta
+      property="og:description"
+      content="One team for the site and the traffic: design, development, SEO and paid search, measured to the lead."
+    >
+    <meta name="twitter:card" content="summary">
+
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0b0b0a" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/IntelOneMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="styles.css">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Fullstacktics",
+        "url": "https://fullstacktics.com/",
+        "email": "ammar@fullstacktics.com",
+        "description": "SEO, PPC, web development and design agency.",
+        "knowsAbout": [
+          "Search engine optimization",
+          "Technical SEO",
+          "Pay-per-click advertising",
+          "Google Ads",
+          "Web development",
+          "Web design",
+          "Conversion tracking"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PPC management" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web and UI design" } }
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -25,6 +69,7 @@
         </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#work">Work</a>
           <a href="#services">Services</a>
           <a href="#approach">Approach</a>
           <a href="#contact">Contact</a>
@@ -36,75 +81,149 @@
       <main id="content">
         <section class="hero" id="top" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">Agentic AI · RAG · AI harness engineering</p>
-            <h1 id="hero-title">AI that survives contact with production.</h1>
+            <p class="eyebrow">SEO · PPC · Web development · Design</p>
+            <h1 id="hero-title">Websites that get found, then get chosen.</h1>
             <p class="hero-lede">
-              Most AI projects fail after the demo, not before it. We build the parts that decide
-              whether it holds: retrieval that returns the right context, agents that stop when they
-              should, and the tooling layer around the model — tools, traces, evals, and fallbacks —
-              so you can change something and know whether it helped.
+              Traffic and the site it lands on are one problem, usually split across two agencies
+              who blame each other. We design and build the site, then bring the search and paid
+              traffic to it, and track every visit through to the lead.
             </p>
 
             <div class="hero-actions" aria-label="Primary actions">
               <a class="button button-primary" href="mailto:ammar@fullstacktics.com">
-                Start a technical conversation
+                Tell us about your site
               </a>
-              <a class="button button-secondary" href="#services">See what we build</a>
+              <a class="button button-secondary" href="#work">See our work</a>
             </div>
 
             <ul class="proof-list" aria-label="How we work">
-              <li>Evals before opinions</li>
-              <li>Traces on every run</li>
-              <li>Direct with the engineers</li>
+              <li>Tracking before spend</li>
+              <li>Speed is a design brief</li>
+              <li>Direct with the people doing the work</li>
             </ul>
           </div>
 
-          <div class="hero-visual" aria-label="Agent run architecture">
+          <div class="hero-visual" aria-label="The path from search to lead">
             <div class="diagram-panel">
-              <p class="diagram-title">Agent run</p>
+              <p class="diagram-title">Visitor path</p>
               <div class="diagram-flow">
-                <span>Context</span>
-                <span>Tools</span>
-                <span>Loop</span>
-                <span>Traces</span>
-                <strong>Evals</strong>
+                <span>Query</span>
+                <span>Click</span>
+                <span>Page</span>
+                <span>Action</span>
+                <strong>Tracked lead</strong>
               </div>
-              <div class="diagram-notes" aria-label="How the layers connect">
-                <p><span>01</span> retrieval is ranked and cited, not stuffed into a prompt</p>
-                <p><span>02</span> every tool call is typed, scoped, and reversible</p>
-                <p><span>03</span> traces feed the evals that decide the next change</p>
+              <div class="diagram-notes" aria-label="Who owns each step">
+                <p><span>01</span> SEO and PPC decide which queries reach you, and at what cost</p>
+                <p><span>02</span> design and development decide whether the page earns the action</p>
+                <p><span>03</span> tracking ties the lead back to the query that paid for it</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="capability-strip" aria-label="What Fullstacktics builds">
-          <span>Agentic AI</span>
-          <span>RAG</span>
-          <span>AI harness</span>
-          <span>Evals</span>
-          <span>Guardrails</span>
-          <span>Deployment and ops</span>
+        <section class="capability-strip" aria-label="What Fullstacktics does">
+          <span>SEO</span>
+          <span>PPC</span>
+          <span>Web development</span>
+          <span>Design</span>
+          <span>Landing pages</span>
+          <span>Conversion tracking</span>
+        </section>
+
+        <section class="section work-section" id="work" aria-labelledby="work-title">
+          <div class="section-heading">
+            <p class="eyebrow">Selected work</p>
+            <h2 id="work-title">Live sites. Open them and look.</h2>
+            <p>
+              Both of these are live right now. Check how fast they load, how they read on your
+              phone, and whether the next step is clear.
+            </p>
+          </div>
+
+          <div class="work-list">
+            <article class="work-item">
+              <a
+                class="work-shot"
+                href="https://thepureshilajit.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open thepureshilajit.com"
+              >
+                <img
+                  src="assets/work/pureshilajit.jpg"
+                  alt="The Pure Shilajit homepage: dark hero with gold serif wordmark and Shop Now button"
+                  width="1200"
+                  height="750"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </a>
+              <div class="work-meta">
+                <p class="work-kind">Ecommerce · Design + development</p>
+                <h3>The Pure Shilajit</h3>
+                <p>A premium storefront for Himalayan shilajit resin. The page brings the purity evidence (sourcing, lab testing, certificates) up front, because in supplements that's what decides the sale. There are also separate paths for retail and wholesale buyers.</p>
+                <a class="work-link" href="https://thepureshilajit.com" target="_blank" rel="noopener noreferrer">thepureshilajit.com ↗</a>
+                <!-- TESTIMONIAL: add only after the client approves the exact wording.
+                <blockquote class="work-quote">
+                  <p>“…”</p>
+                  <footer>Name, Role, The Pure Shilajit</footer>
+                </blockquote>
+                -->
+              </div>
+            </article>
+
+            <article class="work-item">
+              <a
+                class="work-shot"
+                href="https://abdulsamadwani.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open abdulsamadwani.com"
+              >
+                <img
+                  src="assets/work/abdulsamadwani.jpg"
+                  alt="Abdul Samad Wani homepage: dark technical layout with large headline and a campaign efficiency chart panel"
+                  width="1200"
+                  height="750"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </a>
+              <div class="work-meta">
+                <p class="work-kind">Personal brand · Design + development</p>
+                <h3>Abdul Samad Wani</h3>
+                <p>A site for an independent Google Ads specialist, built to win consulting work. A clear free-consultation offer, a services breakdown, and a results section that keeps illustrative charts clearly apart from confirmed outcomes.</p>
+                <a class="work-link" href="https://abdulsamadwani.com" target="_blank" rel="noopener noreferrer">abdulsamadwani.com ↗</a>
+                <!-- TESTIMONIAL: add only after the client approves the exact wording.
+                <blockquote class="work-quote">
+                  <p>“…”</p>
+                  <footer>Abdul Samad Wani, Google Ads Specialist</footer>
+                </blockquote>
+                -->
+              </div>
+            </article>
+          </div>
         </section>
 
         <section class="section problem-section" aria-labelledby="problem-title">
           <div>
             <p class="eyebrow">The pattern</p>
-            <h2 id="problem-title">The demo worked. Production is a different system.</h2>
+            <h2 id="problem-title">Good traffic, wrong page. Good page, no traffic.</h2>
           </div>
 
           <div class="problem-grid">
             <article>
-              <h3>Demos don't survive production</h3>
-              <p>A prompt that works on ten hand-picked inputs meets ten thousand real ones. The failures aren't crashes — they're confident, plausible, wrong answers that nobody catches until a customer does.</p>
+              <h3>Ad spend lands on the homepage</h3>
+              <p>Every campaign points at one generic page that answers none of the searches. You pay full price for the click and lose the visitor in the first three seconds.</p>
             </article>
             <article>
-              <h3>Retrieval returns the wrong context</h3>
-              <p>The model answers from whatever the retriever handed it. When that's semantically close but factually stale, the output reads perfectly and is still false. Most stacks have no way to tell the difference.</p>
+              <h3>A redesign that wiped out rankings</h3>
+              <p>The new site looks better and ranks worse. URLs changed without redirects, content was cut, and the pages Google trusted are now gone.</p>
             </article>
             <article>
-              <h3>No evals, so nobody knows</h3>
-              <p>Somebody changes a prompt and everybody argues about whether it got better. Without a scored test set and traces to read, every change is a guess and every rollback is a hunch.</p>
+              <h3>Nobody can say which channel works</h3>
+              <p>Ads, search, and the site report numbers that don't agree. Without conversion tracking you can't tell what to cut, so budget goes where the loudest report says.</p>
             </article>
           </div>
         </section>
@@ -112,11 +231,11 @@
         <section class="section services-section" id="services" aria-labelledby="services-title">
           <div class="section-heading">
             <p class="eyebrow">Services</p>
-            <h2 id="services-title">Three layers. One team.</h2>
+            <h2 id="services-title">The site and the traffic. One team.</h2>
             <p>
-              Retrieval, agent behavior, and the tooling around the model are one system — a good
-              agent on bad context still fails, and neither is fixable without traces. We build all
-              three so no seam is nobody's job.
+              Search, paid ads, design, and code each change the result of the others. A fast,
+              clear page lowers what you pay per click, and a well-structured site ranks more pages.
+              We do all four, so nothing falls between agencies.
             </p>
           </div>
 
@@ -124,22 +243,57 @@
             <article class="service-item">
               <span>01</span>
               <div>
-                <h3>Agentic AI</h3>
-                <p>Agents that do bounded work: planning loops with explicit stopping conditions, narrow and typed tool access, human review at the steps that warrant it, and deterministic fallbacks for when the model is wrong. Built to be interrupted, resumed, and audited rather than trusted blindly.</p>
+                <p class="service-tag">Growth</p>
+                <h3>SEO</h3>
+                <p>Technical fixes first: crawlability, indexing, site speed, structured data, and redirects. Then keyword research mapped to pages, content briefs for each one, and internal linking. We report on rankings, organic traffic, and the leads it brings in.</p>
+                <ul class="service-points" aria-label="SEO deliverables">
+                  <li>Technical audit</li>
+                  <li>Keyword map</li>
+                  <li>Content briefs</li>
+                  <li>Local SEO</li>
+                </ul>
               </div>
             </article>
             <article class="service-item">
               <span>02</span>
               <div>
-                <h3>RAG and Retrieval</h3>
-                <p>Retrieval that earns the context window: chunking tuned to your documents, hybrid search with reranking, freshness and permission filters that hold, and citations back to source. We evaluate retrieval on its own — before the generation step — because a good answer over the wrong passage is still wrong.</p>
+                <p class="service-tag">Growth</p>
+                <h3>PPC</h3>
+                <p>Google Ads and Microsoft Ads campaigns built around intent: tight ad groups, negative keyword lists, and a landing page for each group of searches. We bid against tracked conversions, not clicks, and review search terms every week.</p>
+                <ul class="service-points" aria-label="PPC deliverables">
+                  <li>Search</li>
+                  <li>Performance Max</li>
+                  <li>Retargeting</li>
+                  <li>Account audits</li>
+                </ul>
               </div>
             </article>
             <article class="service-item">
               <span>03</span>
               <div>
-                <h3>AI Harness Development</h3>
-                <p>The tooling layer around the model: tool definitions and schemas, orchestration, structured traces for every run, eval suites with scored regression sets, guardrails on input and output, and fallback paths when a provider degrades. This is the part that decides whether you can change the system without breaking it.</p>
+                <p class="service-tag">Build</p>
+                <h3>Web development</h3>
+                <p>Fast, accessible sites on a stack that fits the job: hand-built, headless CMS, WordPress, or Shopify. Clean markup and real Core Web Vitals scores, with analytics and conversion events wired in before launch.</p>
+                <ul class="service-points" aria-label="Development deliverables">
+                  <li>Marketing sites</li>
+                  <li>Ecommerce</li>
+                  <li>CMS builds</li>
+                  <li>Migrations</li>
+                </ul>
+              </div>
+            </article>
+            <article class="service-item">
+              <span>04</span>
+              <div>
+                <p class="service-tag">Build</p>
+                <h3>Design</h3>
+                <p>Websites, landing pages, and brand systems designed around one action per page. We start from what your visitors searched for and what they need to see before they act. Then we design that, and test it.</p>
+                <ul class="service-points" aria-label="Design deliverables">
+                  <li>Web design</li>
+                  <li>Landing pages</li>
+                  <li>UI/UX</li>
+                  <li>Brand identity</li>
+                </ul>
               </div>
             </article>
           </div>
@@ -148,29 +302,29 @@
         <section class="section approach-section" id="approach" aria-labelledby="approach-title">
           <div class="section-heading compact">
             <p class="eyebrow">Approach</p>
-            <h2 id="approach-title">Measure first, then change things.</h2>
+            <h2 id="approach-title">Measure first, then spend.</h2>
           </div>
 
           <ol class="process-list">
             <li>
-              <span>Scope</span>
-              <h3>Scope it to something gradeable</h3>
-              <p>We define the task narrowly enough to be scored. Most failing agents were asked to do something nobody had written down.</p>
+              <span>Audit</span>
+              <h3>Audit what you have</h3>
+              <p>We go through the site, the ad accounts, and the analytics, and you get a written list of what is broken, what is wasting money, and what to do first.</p>
             </li>
             <li>
-              <span>Baseline</span>
-              <h3>Baseline what it does now</h3>
-              <p>We build the eval set before touching the system: real inputs, scored outputs, traces on current behavior. Until that exists, every improvement is an opinion.</p>
+              <span>Track</span>
+              <h3>Fix the tracking</h3>
+              <p>Conversions are set up and checked before a single budget changes. Until we can see which clicks become leads, every decision is a guess.</p>
             </li>
             <li>
               <span>Build</span>
-              <h3>Build against the score</h3>
-              <p>We change retrieval, tools, and the loop in increments, and each change is kept or reverted on the numbers. You see the code, the traces, and the reasoning as it lands.</p>
+              <h3>Build and launch</h3>
+              <p>We ship the pages, campaigns, and technical fixes in that order of payoff. Redirects and rankings are protected through every launch.</p>
             </li>
             <li>
-              <span>Run</span>
-              <h3>Run it, then hand it over</h3>
-              <p>We deploy it, watch it, and fix what breaks — then document the harness so your team can run and extend it without us.</p>
+              <span>Grow</span>
+              <h3>Report, then hand over</h3>
+              <p>Monthly reports in plain numbers: traffic, cost, leads. The accounts, code, and analytics stay in your name from day one, so you can leave whenever you like.</p>
             </li>
           </ol>
         </section>
@@ -178,16 +332,21 @@
         <section class="contact-section" id="contact" aria-labelledby="contact-title">
           <div>
             <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">Start with a short technical conversation.</h2>
+            <h2 id="contact-title">Start with a short call about your site.</h2>
             <p>
-              Bring the agent that works in the demo and not in the app, the retrieval stack that
-              answers confidently from the wrong document, or the prompt change nobody can prove
-              helped. We will tell you what it needs.
+              Bring the campaign that spends and doesn't convert, the redesign that lost its
+              rankings, or the site you need built properly the first time. We'll tell you what
+              we'd fix first.
             </p>
 
             <p class="contact-hint">
-              Thirty minutes if you want to walk through the system in depth. Fifteen if you just
-              want to work out whether we are a fit.
+              Got one of our audits by email? Reply to it, or book a slot and we'll go through the
+              findings with you, one by one.
+            </p>
+
+            <p class="contact-hint">
+              Thirty minutes if you want us to look through your site and accounts with you.
+              Fifteen if you just want to work out whether we're a fit.
             </p>
 
             <div class="contact-actions">
@@ -214,7 +373,7 @@
       </main>
 
       <footer class="site-footer">
-        <p>Fullstacktics builds agentic AI, retrieval, and the tooling layer that keeps them working.</p>
+        <p>Fullstacktics: SEO, PPC, web development and design.</p>
         <a href="mailto:ammar@fullstacktics.com">ammar@fullstacktics.com</a>
       </footer>
     </div>
